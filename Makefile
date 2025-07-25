@@ -1,4 +1,4 @@
-DRAFT:=in-memorium
+DRAFT:=composite-attesters
 VERSION:=$(shell ./getver ${DRAFT}.mkd )
 EXAMPLES=
 XML2RFC=/corp/ietf/venv/bin/xml2rfc
