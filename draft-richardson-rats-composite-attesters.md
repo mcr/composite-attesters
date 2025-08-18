@@ -23,6 +23,10 @@ author:
   name: Michael Richardson
   org: Sandelman Software Works
   email: mcr+ietf@sandelman.ca
+- ins: H. Birkholz
+  name: Henk Birkholz
+  org: Fraunhofer SIT
+  email: henk.birkholz@ietf.contact
 
 normative:
   BCP14: RFC8174
