@@ -1,5 +1,5 @@
-DRAFT:=composite-attesters
-VERSION:=$(shell ./getver ${DRAFT}.mkd )
+DRAFT:=draft-richardson-rats-composite-attesters
+VERSION:=$(shell ./getver ${DRAFT}.md )
 EXAMPLES=
 XML2RFC=/corp/ietf/venv/bin/xml2rfc
 
@@ -7,8 +7,8 @@ ${DRAFT}-${VERSION}.txt: ${DRAFT}.txt
 	cp ${DRAFT}.txt ${DRAFT}-${VERSION}.txt
 	: git add ${DRAFT}-${VERSION}.txt ${DRAFT}.txt
 
-%.xml: %.mkd
-	kramdown-rfc2629 -3 ${DRAFT}.mkd >${DRAFT}.xml
+%.xml: %.md
+	kramdown-rfc2629 -3 ${DRAFT}.md >${DRAFT}.xml
 	${XML2RFC} --v2v3 ${DRAFT}.xml
 	mv ${DRAFT}.v2v3.xml ${DRAFT}.xml
 
