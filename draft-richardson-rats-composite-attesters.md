@@ -27,6 +27,10 @@ author:
   name: Henk Birkholz
   org: Fraunhofer SIT
   email: henk.birkholz@ietf.contact
+- ins: Y. Deshpande
+  name: Yogesh Deshpande
+  org: Arm
+  email: yogesh.deshpande@arm.com
 
 normative:
   BCP14: RFC8174
@@ -74,10 +78,10 @@ Lead Attester:
 : This term is from RFC9334, and includes the (Lead) Attesting Environment, and the (Lead) Target Environment.
 
 Target Environment:
-: This term is from RFC9334, this refers to the environment for which evidence is gathered.
+: This term is from RFC9334, this refers to the environment for which Evidence is gathered.
 
 Attesting Environment:
-: This term is from RFC9334, this refers to the thing which gathers the evidence.
+: This term is from RFC9334, this refers to the thing which gathers the Evidence.
 
 Component:
 : This is the pieces which are attached to the Lead Attester.  There are one to many of these, typically each with their own application specific processor.
@@ -86,24 +90,24 @@ Component Attesting Environment:
 : This term is new, and refers to an Attesting Environment residing inside a component of the whole.
 
 Component Target Environment:
-: This term is new, and refers to an environment for which evidence is collected.
+: This term is new, and refers to an environment for which Evidence is collected.
 
 ## Level 0 Composite Attester
 
-In this first, somewhat degernerate scenario, the Lead Attester has access to the entire memory/environment of all of the components.
+In this first, somewhat degenerate scenario, the Lead Attester has access to the entire memory/environment of all of the components.
 Examples of situations like this include classic PCI-buses, ISA-buses, VME, S100/IEEE 696-1983.
 In these situations, secondary components might not boot on their own.
 (It might even be that the lead environment (the chassis) will place code into RAM for these systems, with no ROM at all)
-In this case, it is possible for the Lead Attesting Environment to collect Evidence  about each of the components without the components having to have their own Attesting Environment.
+In this case, it is possible for the Lead Attesting Environment to collect Evidence about each of the components without the components having to have their own Attesting Environment.
 
-At some level, all of these components can be considered part of the same system.
+At this level, all of these components can be considered part of the same system.
 In the classic PCI or ISA environment, the components are hard drive interfaces,
 video interfaces, and network interfaces.
 For many such systems considering the system to be a composite is unncessary additional complexity.
 
 The benefit of applying the composite mechanism in this case is that it is no longer necessary to consider the exhaustive combinatorics of all possible components being attached to the lead attester: it is already the case the reference values for a target environment may change depending upon how much memory is installed.
 
-In this Level 0 Composite Attester, the evidence gathered about the components would be included in the Lead Attester's signed Evidence (such as an EAT), as sub-components
+In this Level 0 Composite Attester, the Evidence gathered about the components would be included in the Lead Attester's signed Evidence (such as an EAT), as sub-components
 in UCCS form {{?RFC9781}}.
 The signature from the Lead Attester applies to all the Evidence, but the Verifier can evaluate each component separately.
 
@@ -113,6 +117,8 @@ They require non-trivial deserialization at eacn end, requiring configuration vi
 A system with such an interface would be a level 1.
 
 ## Level 1 Composite Attester
+
+In this level, each component or slot has its own Attesting Environment and hence produces its own signed Evidence.
 
 RFC 9334 gives the following example:
 
@@ -125,7 +131,6 @@ RFC 9334 gives the following example:
    generates Evidence from the Claims.
 ```
 
-As described in this case, each component or slot produces it's own signed Evidence.
 The Lead Attester simply relays the Evidence along with its own:
 
 ```
@@ -139,7 +144,7 @@ The Lead Attester simply relays the Evidence along with its own:
    Attester.
 ```
 
-Note that the Lead Attester does *not* evaluate the evidence, and does not run its own
+Note that the Lead Attester does *not* evaluate the Evidence, and does not run its own
 Verifier.
 
 ## Level 2 Composite/Hybrid Attester
