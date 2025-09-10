@@ -1,7 +1,7 @@
 ---
 title: Taxonomy of Composite Attesters
 abbrev: composites
-docname: draft-richardson-rats-composite-attesters-00
+docname: draft-richardson-rats-composite-attesters-latest
 
 # stand_alone: true
 
