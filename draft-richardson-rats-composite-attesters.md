@@ -185,6 +185,21 @@ For instance, when accessing a vehicle such as a car, where each tire is it's ow
 
 A more typical digital use case would involve a main CPU with a number of attached specialized intelligent components that contain their own firmware, such as Graphical Processors (GPU), Network Processors (NPU).
 
+
+## Level 4 Composite Attester
+
+In certain systems, it is possible to have two independent Attesting Environments in an Attester to collect claims about a single Target Environment. In such cases, one of the Attesting Environment (AE), acts as a Primary, while the other acts as a Secondary Attesting Environment.
+
+The two AEs will have a fixed and collaborative structure where each can be responsible for a subset of Evidence. Because of the collaborative structure it may be arranged that either of the AE can present Evidence collected by the other (but this is deployment specific).
+
+Example of one such system is a CPU system of a desktop from a Vendor X, which has its built in Attesting Environment, integrated into a product Y which requires a mandatory TPM support. 
+In such situations one can anchor the Roots of Trust of Vendor X's CPU Attestation using a secondary 
+Attesting Environment with the TPM Attestation. 
+Alternatively, generate a TPM Quote and anchor it to Roots of Trust  CPU Attestation based of Vendor X's Attesting Environment
+
+A Verifier/RP may decide to direct the Attestation Request to an AE of choice to reflect the relevant subset of Evidence required for trust asssessment.
+
+
 # Attestation Results as Evidence
 
 In cases 2, 3B and 3P Attestation Results are included as Evidence.
