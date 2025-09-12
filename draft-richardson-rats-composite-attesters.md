@@ -222,7 +222,7 @@ ZZZ
 
 # Acknowledgements
 
-Hello.
+Jun Zhang contributed the terms "Le Petit" and "La Grand" to qualify Verifier.
 
 # Changelog
 
