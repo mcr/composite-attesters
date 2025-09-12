@@ -186,7 +186,7 @@ For instance, when accessing a vehicle such as a car, where each tire is it's ow
 A more typical digital use case would involve a main CPU with a number of attached specialized intelligent components that contain their own firmware, such as Graphical Processors (GPU), Network Processors (NPU).
 
 
-## Level 4 Composite Attester
+## Class 4 Composite Attester
 
 In certain systems, it is possible to have two independent Attesting Environments in an Attester to collect claims about a single Target Environment. In such cases, one of the Attesting Environment, acts as a Primary, while the other acts as a Secondary Attesting Environment.
 
