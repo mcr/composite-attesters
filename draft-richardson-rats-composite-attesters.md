@@ -86,11 +86,20 @@ Attesting Environment:
 Component:
 : This is the pieces which are attached to the Lead Attester.  There are one to many of these, typically each with their own application specific processor.
 
+Component Evidence:
+: This is the Evidence that is collected by the Component Attesting Environment about the Component Target Environment.
+
 Component Attesting Environment:
 : This term is new, and refers to an Attesting Environment residing inside a component of the whole.
 
 Component Target Environment:
 : This term is new, and refers to an environment for which Evidence is collected.
+
+Verifier le petit:
+: (Or, `Le Petit Verificateur`).  This is the Verifier that examines the Component Evidence.  This may treat the Lead Attester as a component.
+
+Verifier la grand:
+: (Or, `La Grande Verificateur`). This is the Verifier that examines the arrangement and relationships between Components.
 
 ## Class 0 Composite Attester
 
