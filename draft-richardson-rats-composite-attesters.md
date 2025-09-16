@@ -114,7 +114,7 @@ The signature from the Lead Attester applies to all the Evidence, but the Verifi
 ~~~~ aasvg
 {::include diagrams/class0.txt}
 ~~~~
-{: #dataflow artwork-align="center" title="Class 0 Composite Attester"}
+{: #class0diagram artwork-align="center" title="Class 0 Composite Attester"}
 
 
 More modern buses like PCIe, InfiniBand, Thunderbolt, DisplayPort, USB, Firewire and others do not provided direct electrical access to target component system memory.
@@ -152,6 +152,15 @@ The Lead Attester simply relays the Evidence along with its own:
 
 Note that the Lead Attester does *not* evaluate the Evidence, and does not run its own
 Verifier.
+
+~~~~ aasvg
+{::include diagrams/class1.txt}
+~~~~
+{: #class1diagram artwork-align="center" title="Class 1 Composite Attester"}
+
+This diagram is intended to be identical to Figure 4 of {{RFC9334}}, but has been stretched out to allow the relationship to other classes to be clearer.
+
+
 
 ## Class 2 Composite/Hybrid Attester
 
