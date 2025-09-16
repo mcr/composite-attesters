@@ -111,6 +111,12 @@ In this Class 0 Composite Attester, the Evidence gathered about the components w
 in UCCS form {{?RFC9781}}.
 The signature from the Lead Attester applies to all the Evidence, but the Verifier can evaluate each component separately.
 
+~~~~ aasvg
+{::include diagrams/class0.txt}
+~~~~
+{: #dataflow artwork-align="center" title="Class 0 Composite Attester"}
+
+
 More modern buses like PCIe, InfiniBand, Thunderbolt, DisplayPort, USB, Firewire and others do not provided direct electrical access to target component system memory.
 They are serialized versions of the old I/O buses, using a protocol akin to a network.
 They require non-trivial deserialization at eacn end, requiring configuration via firmware that itself might not be trustworthy.
