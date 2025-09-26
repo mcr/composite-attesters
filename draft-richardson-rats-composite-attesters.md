@@ -107,7 +107,9 @@ In this first, somewhat degenerate scenario, the Lead Attester has access to the
 Examples of situations like this include classic PCI-buses, ISA-buses, VME, S100/IEEE 696-1983.
 In these situations, secondary components might not boot on their own.
 (It might even be that the lead environment (the chassis) will place code into RAM for these systems, with no ROM at all)
-In this case, it is possible for the Lead Attesting Environment to collect Evidence about each of the components without the components having to have their own Attesting Environment.
+
+In this case, it is possible for the Lead Attesting Environment to collect Claims about each of the components without the components having to have their own Attesting Environment.
+There is no Verifier le petit, since there are no components that can create Evidence other than the Lead Attester.
 
 At this Class, all of these components can be considered part of the same system.
 In the classic PCI or ISA environment, the components are hard drive interfaces,
