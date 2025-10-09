@@ -206,6 +206,12 @@ It retrieves an Attestation Result from the Verifier, which it then includes wit
 The Lead Attester's Verifier considers the Components during it's assessment.
 It needs to consider if the component has been assessed by a Verifier it trusts, if the component is appropriately connected to the Lead Attester, and if there are an appropriate number of such components.
 
+~~~~ aasvg
+{::include diagrams/class3P.txt}
+~~~~
+{: #class3Pdiagram artwork-align="center" title="Class 3P Composite Password Attester"}
+
+
 For instance, when accessing a vehicle such as a car, where each tire is it's own component, then a car with three wheels is not trusthworthy.  Most cars should have four wheels.  A car with five wheels might be acceptable, if at least one wheel is installed into the "spare" holder. (And, it may be of concern if the spare is flat, but the car can still be operated)
 
 A more typical digital use case would involve a main CPU with a number of attached specialized intelligent components that contain their own firmware, such as Graphical Processors (GPU), Network Processors (NPU).
