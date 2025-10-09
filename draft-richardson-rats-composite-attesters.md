@@ -51,11 +51,11 @@ This document further refines different kinds of RFC 9334 Composite Attesters.
 
 # Introduction
 
-This document clarifies and extends the meaning of Composite Attester from {{!RFC9334, Section 3.3}}.
+This document clarifies and extends the meaning of Composite Attester from {{RFC9334, Section 3.3}}.
 
 ## Caveats of Current Definition
 
-{{!RFC9334, Section 3.3}} says:
+{{RFC9334, Section 3.3}} says:
 
 ```
    A composite device is an entity composed of multiple sub-entities
@@ -187,7 +187,12 @@ Instead, the Lead Attester, conveys the Evidence to the Lead Verifier along with
 The Component Evidence is not placed within the Lead Attester's Evidence (DEBATE).
 The Lead Attester needs to communicate how each component is attached, and that would be within its Evidence.
 
-The Lead Verifier, acting a Relying Party, connects to Verifiers capable of evaluating the Component Evidence, retrieving Attestation Results from those Verifiers as part of evaluating the Lead Attester.
+~~~~ aasvg
+{::include diagrams/class3B.txt}
+~~~~
+{: #class3Bdiagram artwork-align="center" title="Class 3B Composite Background-check Attester"}
+
+The Lead Verifier, acting a Relying Party, connects to Component Verifiers capable of evaluating the Component Evidence, retrieving Attestation Results from those Verifiers as part of evaluating the Lead Attester.
 
 This case is similar to Class 1, however the integration of the component attestation results in Class 1 is not included in the Evidence, while in this case, it is.
 
@@ -198,7 +203,7 @@ The Lead Attester does *not* operates a Verifier itself.
 Instead, the Lead Attester, acting as a Presenter (term To-Be-Defined), connects to an appropriate Verifier, in passport mode.
 It retrieves an Attestation Result from the Verifier, which it then includes within the  Evidence that the Lead Attester produces.
 
-The Lead Attester's Verifier considers that the Component during it's assessment.
+The Lead Attester's Verifier considers the Components during it's assessment.
 It needs to consider if the component has been assessed by a Verifier it trusts, if the component is appropriately connected to the Lead Attester, and if there are an appropriate number of such components.
 
 For instance, when accessing a vehicle such as a car, where each tire is it's own component, then a car with three wheels is not trusthworthy.  Most cars should have four wheels.  A car with five wheels might be acceptable, if at least one wheel is installed into the "spare" holder. (And, it may be of concern if the spare is flat, but the car can still be operated)
