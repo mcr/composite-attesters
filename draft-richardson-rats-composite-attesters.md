@@ -170,6 +170,11 @@ It evaluates the Components' Evidence against Reference Values, Endorsements, et
 These Attestation Results (or their selectively disclosed version: SD-CWT/SD-JWT)
 are then included as part of the Lead Attester's Evidence to it's Verifier.
 
+~~~~ aasvg
+{::include diagrams/class2.txt}
+~~~~
+{: #class2diagram artwork-align="center" title="Class 2 Composite Attester"}
+
 The Verifier's signing credentials may be part of the same Attesting Environment as the Evidence signing credential used by the Lead Attesting environment.
 Or they could be in a different environment, such as in a different TEE.
 

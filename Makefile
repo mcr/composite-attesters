@@ -1,6 +1,7 @@
 DIAGRAMS=
 DIAGRAMS+=diagrams/class0.txt
 DIAGRAMS+=diagrams/class1.txt
+DIAGRAMS+=diagrams/class2.txt
 LIBDIR := lib
 include $(LIBDIR)/main.mk
 
