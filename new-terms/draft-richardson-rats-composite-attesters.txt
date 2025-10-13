@@ -253,19 +253,19 @@ Table of Contents
       ╭────────────────────────────|─────────────────────────────────────────╮
       │  .-------------------------|--------.                                │
       │  | .----------.            | Evidence-Collection CMW                 │
-      │  | | Target A |            | 1: CMW(Evidence(Target A)               │
-      │  | | Environ  |            | 2:     Evidence(Target B)               │
-      │  | '----------'            | 3:     Evidence(Target C))              │
+      │  | | Target A |            | 1: CMW(Evidence(Attester A)             │
+      │  | | Environ  |            | 2:     Evidence(Attester B)             │
+      │  | '----------'            | 3:     Evidence(Attester C))            │
       │  |       |                 |        |                                │
-      │  |       |Collect          |        | Evidence B  .--------------.   │
-      │  |       |Claims           |        |  .----------| Attester B   |   │
-      │  |       |                 |        |  |          |              |   │
-      │  |       |          .-------------. |<-'          '--------------'   │
+      │  |       |Collect          |        |             .--------------.   │
+      │  |       |Claims           |        |  Evidence B | Attester B   |   │
+      │  |       |                 |        |<------------|              |   │
+      │  |       |          .-------------. |             '--------------'   │
       │  |       |          | Attesting   | |                                │
-      │  |       '--------->| Environment | |^   .--------------.            │
-      │  |                  '-------------' |'---| Attester C   |            │
-      │  |        Attester A                |    |              |            │
-      │  '----------------------------------'    '--------------'            │
+      │  |       '--------->| Environment | |             .--------------.   │
+      │  |                  '-------------' |<------------| Attester C   |   │
+      │  |        Attester A                |  Evidence C |              |   │
+      │  '----------------------------------'             '--------------'   │
       │                                                                      │
       ╰───────────────────────────────Lead Attester──────────────────────────╯
 
@@ -337,38 +337,33 @@ Table of Contents
    needs to communicate how each component is attached, and that would
    be within its Evidence.
 
-                                                       .-------------.
-                                 .----------.          | Component   |
-                                 | Verifier |<---------| Verifier    |
-                                 '----------'          '-------------'
-                                       ^
-                                       |
-             .-------------------------|----------.
-             | .----------.            | Evidence-Collection CMW
-             | | Target A |            | 1: CMW(EAT(Target A)
-             | | Environ  |            | 2: CWM(EAT(Target B)
-             | '----------'            | 3: CWM(EAT(Target C)
-             |       |                 |          |
-             |       |Collect          |          |
-             |       |Claims           |          |
-             |       |                 |          |
-             |       |          .-------------.   |
-             |       |          | Attesting   |   |      .------------.
-             |       '--------->| Environment |<---------| Attester B |
-             |                  '-------------'   |      '------------'
-             |                         ^          |
-             |                         |          |      .------------.
-             |                         '-----------------| Attester C |
-             |                                    |      '------------'
-             |                                    |
-             |                                    |
-             |                                    |
-             |                                    |
-             |                                    |
-             |                                    |
-             '------------------------------------'
+                             .----------.          .-------------.
+                             | Lead     |          | Component   |
+                             | Verifier |<---------| Verifier    |
+                             '----------'          '-------------'
+                                   |
+      ╭────────────────────────────|──────────────────────────────────────────╮
+      │  .-------------------------|----------.                               │
+      │  |                         |          |                               │
+      │  | .----------.            | Evidence-Collection CMW                  │
+      │  | | Target A |            | 1: CMW(Evidence(Attester A),             │
+      │  | | Environ  |            | 2.     Evidence(Attester B),             │
+      │  | '----------'            | 3:     Evidence(Attester C))             │
+      │  |       |                 |          |                               │
+      │  |       |Collect          |          |                               │
+      │  |       |Claims           |          |                               │
+      │  |       |                 |          |                               │
+      │  |       |          .-------------.   |                               │
+      │  |       |          | Attesting   |   |   Evidence B  .------------.  │
+      │  |       '--------->| Environment |   |<--------------| Attester B |  │
+      │  |                  '-------------'   |               '------------'  │
+      │  |                                    |                               │
+      │  |            Attester A              |   Evidence C  .------------.  │
+      │  |                                    |<--------------| Attester C |  │
+      │  '------------------------------------'               '------------'  │
+      ╰─────────────────────────────Chassis A─────────────────────────────────╯
 
-           Figure 4: Class 3B Composite Background-check Attester
+        Figure 4: Class 3B Composite Background-check Attester
 
    The Lead Verifier, acting a Relying Party, connects to Component
    Verifiers capable of evaluating the Component Evidence, retrieving
@@ -394,45 +389,41 @@ Table of Contents
    to the Lead Attester, and if there are an appropriate number of such
    components.
 
-                                   .----------.
-                                   | Verifier |
-                                   '----------'
-                                         ^
-               .-------------------------|----------.
-               |                         |          |
-               | .----------.            | Evidence-Collection CMW
-               | | Target A |            | 1: CMW(EAT(Target A)
-               | | Environ  |            | 2: CWM(AR(Target B)
-               | '----------'            | 3: CWM(AR(Target C)
-               |       |                 |          |
-               |       |Collect          |          |
-               |       |Claims           |          |
-               |       |                 |          |
-               |       |          .-------------.   |
-               |       |          | Attesting   |   |
-               |       '-----.--->| Environment |   |
-               |             |    '-------------'   |
-               |             |           ^          |  .------------.
-               |             |           '-------------| Attester B |
-               |             |           |          |  '------------'
-               |             |           |          |
-               |             |           |          |  .------------.
-               |             |           '-------------| Attester C |
-               |             |                      |  '------------'
-               |             |                      |
-               |             |                      |
-               '-------------|----------------------'
-                             |
-                   Evidence->|
-                   <- Results|
-                             |
-                             |
-                      .-------------.
-                      | Component   |
-                      | Verifier(s) |
-                      '-------------'
+                             .----------.
+                             | Lead     |
+                             | Verifier |
+                             '----------'
+       ╭───────────────────────────|──────────────────────────────────────────╮
+       │ .-------------------------|----------.                               │
+       │ |                         |  Evidence-Collection CMW                 │
+       │ | .----------.            |  1: CMW(Evidence(Attester A),            │
+       │ | | Target A |            |  2:     AR(Attester B),                  │
+       │ | | Environ  |            |  3:     AR(Attester C))                  │
+       │ | '----------'            |          |                               │
+       │ |       |                 |          |                               │
+       │ |       |Collect          |          |                               │
+       │ |       |Claims           |          |   Evidence B   .------------. │
+       │ |       |                 |          |<---------------| Attester B | │
+       │ |       |          .-------------.   |                '------------' │
+       │ |       |          | Attesting   |   |                               │
+       │ |       '--------->| Environment |   |   Evidence C   .------------. │
+       │ |                  '-------------'   |<---------------| Attester C | │
+       │ |                                    |                '------------' │
+       │ |            Attester A              |                               │
+       │ '------------------------------------'                               │
+       ╰───────────────────────────────Chassis A──────────────────────────────╯
+                                    ^
+                                    |
+                                    |
+                                    |
+                                    | Evidence->
+                                    | <- Results
+                            .---------------.
+                            | Component B,C |
+                            | Verifier(s)   |
+                            '---------------'
 
-               Figure 5: Class 3P Composite Password Attester
+            Figure 5: Class 3P Composite Password Attester
 
    For instance, when accessing a vehicle such as a car, where each tire
    is it's own component, then a car with three wheels is not
