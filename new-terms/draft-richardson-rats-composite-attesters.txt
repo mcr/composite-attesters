@@ -190,7 +190,7 @@ Table of Contents
                 | | Target              |   |                     |
                 | | Environ             |   |                     |
                 | |                     |   |                     |
-                | | .------. .------.   |   |Evidence             |
+                | | .------. .------.   |   |Evidence includes:   |
                 | | | VGA  | | SCSI |   |   | - SHA256(VGArom)    |
                 | | | rom  | | rom  |   |   | - SHA256(SCSIrom)   |
                 | | |      | |      |   |   | - SHA256(boot rom)  |
@@ -207,7 +207,7 @@ Table of Contents
                 |             '----->| Environment |              |
                 |                    '-------------'              |
                 |                                                 |
-                '-------------------------------------------------'
+                '----------------------Chassis--------------------'
 
                     Figure 1: Class 0 Composite Attester
 
