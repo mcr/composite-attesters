@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html lang="en" class="Internet-Draft">
+<head>
+<meta charset="utf-8">
+<meta content="Common,Latin" name="scripts">
+<meta content="initial-scale=1.0" name="viewport">
+<title>Taxonomy of Composite Attesters</title>
+<meta content="Michael Richardson" name="author">
+<meta content="Henk Birkholz" name="author">
+<meta content="Yogesh Deshpande" name="author">
+<meta content="
+       This document further refines different kinds of RFC 9334 Composite Attesters. 
+    " name="description">
+<meta content="xml2rfc 3.30.2" name="generator">
+<meta content="Internet-Draft" name="keyword">
+<meta content="draft-richardson-rats-composite-attesters-latest" name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.30.2
+    Python 3.12.11
+    ConfigArgParse 1.7
+    google-i18n-address 3.1.1
+    intervaltree 3.1.0
+    Jinja2 3.1.6
+    lxml 5.3.1
+    platformdirs 4.4.0
+    pycountry 24.6.1
+    PyYAML 6.0.2
+    requests 2.32.5
+    setuptools 80.9.0
+    wcwidth 0.2.14
+-->
+<link href="draft-richardson-rats-composite-attesters.xml" rel="alternate" type="application/rfc+xml">
+<link href="#copyright" rel="license">
+<style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Lora SemiBold'), local('Lora-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light dark;
+  --background-color: #fff;
+  --text-color: #222;
+  --title-color: #191919;
+  --link-color: #2a6496;
+  --highlight-color: #f9f9f9;
+  --line-color: #eee;
+  --pilcrow-weak: #ddd;
+  --pilcrow-strong: #bbb;
+  --small-font-size: 14.5px;
+  --font-mono: 'Oxygen Mono', monospace;
+  --font-title: "Sofia Sans Semi Condensed", sans-serif;
+  scrollbar-color: #bbb #eee;
+}
+body {
+  max-width: 600px;
+  margin: 75px auto;
+  padding: 0 5px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font: 16px/22px "Lora", serif;
+  scroll-behavior: smooth;
+}
+
+.ears {
+  display: none;
+}
+
+/* headings */
+section {
+  clear: both;
+}
+.section-number {
+  padding-right: 0.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: 680;
+  margin: 0.8em 0 0.3em;
+  font-size-adjust: 0.5;
+  color: var(--title-color);
+}
+h1#title {
+  font-size: 32px;
+  line-height: 40px;
+  clear: both;
+}
+h1#title, h1#rfcnum {
+  margin: 1.5em 0 0.2em;
+}
+h1#rfcnum + h1#title {
+  margin: 0.2em 0;
+}
+
+h1, h2, h3 {
+  font-size: 22px;
+  line-height: 27px;
+}
+h4, h5, h6 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* general structure */
+.author {
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+#abstract+p {
+  font-size: 18px;
+  line-height: 24px;
+}
+#abstract+p code, #abstract+p samp, #abstract+p tt {
+  font-size: 16px;
+  line-height: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0.5em 0;
+  text-align: left;
+}
+div {
+  margin: 0;
+}
+.alignRight.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignRight.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignRight {
+  margin: 1em 0;
+}
+.alignRight > *:first-child {
+  border: none;
+  margin: 0;
+  float: right;
+  clear: both;
+}
+.alignRight > *:nth-child(2) {
+  clear: both;
+  display: block;
+  border: none;
+}
+svg {
+  display: block;
+}
+/* font-family isn't space-separated, but =~ will have to do */
+svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
+  font-family: var(--font-mono);
+}
+.alignCenter.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignCenter.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignCenter {
+  margin: 1em 0;
+}
+.alignCenter > *:first-child {
+  border: none;
+  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+     support flexbox yet.
+  */
+  display: table;
+  margin: 0 auto;
+}
+
+/* lists */
+ol, ul {
+  padding: 0;
+  margin: 0 0 0.5em 2em;
+  & :is(ol, ul) {
+    margin-left: 1em;
+  }
+}
+li {
+  margin: 0 0 0.25em 0;
+}
+ul.empty, .ulEmpty {
+  list-style-type: none;
+  & li {
+    margin-top: 0.5em;
+  }
+}
+:is(ul, ol).compact, .ulCompact, .olCompact {
+  margin: 0 0 0 2em;
+  & li {
+    margin: 0;
+    & :first-child { margin-top: 0; }
+    & :last-child { margin-bottom: 0; }
+  }
+}
+
+/* definition lists */
+dl {
+  clear: left;
+  --indent: 3ch;
+  /* --indent: attr(indent ch); not supported in any browser, but we can dream */
+  &.olPercent {
+    --indent: 5ch;
+    & > dt {
+      min-width: calc(var(--indent) - 2ch);
+    }
+  }
+  &.olPercent > dt {
+    float: none;
+  }
+
+  dl > dd > & {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+}
+dl:not(.dlNewline) > dt {
+  float: left;
+  margin-right: 2ch;
+  min-width: 8ch;
+}
+dl > dd {
+  margin-bottom: .8em;
+  margin-left: var(--indent) !important; /* stupid element overrides */
+  min-height: 2ex;
+}
+:is(dl.compact, .dlCompact) > dd {
+  margin-bottom: 0;
+  & > :is(:first-child, .break:first-child + *) {
+    margin-top: 0;
+  }
+  & > :is(:last-child) {
+    margin-bottom: 0;
+  }
+}
+:is(dd, span).break {
+  display: none;
+}
+
+/* links */
+a, a[href].selfRef:hover {
+  text-decoration: none;
+}
+a[href] {
+  color: var(--link-color);
+}
+a[href].selfRef, .iref + a[href].internal {
+  color: var(--text-color);
+}
+a[href]:hover {
+  text-decoration: underline;
+}
+a[href].selfRef:hover {
+  background-color: var(--highlight-color);
+}
+a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
+  white-space: nowrap;
+}
+
+/* Figures */
+tt, code, pre {
+  background-color: var(--highlight-color);
+  font: 14px/22px var(--font-mono);
+}
+tt, code {
+  /* changing the font for inline elements leads to different ascender
+     and descender heights; as we want to retain baseline alignment,
+     remove leading to avoid altering the final height of lines
+     note: this fails if these blocks take an entire line,
+     a different solution would be great */
+  line-height: 0;
+}
+:is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
+  font-size: 84%;
+}
+pre {
+  border: 1px solid var(--line-color);
+  font-size: 13.5px;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  margin: 5px;
+  padding: 5px;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 0.5em 0;
+  padding: 0;
+}
+figure blockquote {
+  margin: 0.8em 0.4em 0.4em;
+}
+figcaption, caption {
+  font-style: italic;
+  margin: 0.5em 1.5em;
+  text-align: left;
+  caption-side: bottom;
+}
+@media screen {
+  /* Auto-collapse boilerplate. */
+  :is(#status-of-memo, #copyright) p {
+    margin: -2px 0;
+    max-height: 0;
+    transition: max-height 2s ease, margin 0.5s ease 0.5s;
+    overflow: hidden;
+  }
+  :is(#status-of-memo, #copyright):hover p,
+  :is(#status-of-memo, #copyright) h2:target ~ p {
+    margin: 0.5em 0;
+    max-height: 500px;
+    overflow: auto;
+  }
+  pre, svg {
+    display: inline-block;
+    /* In the horizontal direction, sometimes people make over-sized figures.
+       Scrollbars for those is therefore necessary: auto adds them as necessary..
+       In the vertical direction, the line-height can combine with the font
+       asender/descender height to produce scrollbars: hidden avoids that. */
+    overflow: auto hidden;
+  }
+  pre {
+    max-width: 100%;
+    width: calc(100% - 22px - 1em);
+  }
+  svg {
+    max-width: calc(100% - 22px - 1em);
+  }
+  figure pre {
+    display: block;
+    width: calc(100% - 25px);
+  }
+  :is(pre, svg) + .pilcrow {
+    display: inline-block;
+    vertical-align: text-bottom;
+    padding-bottom: 8px;
+  }
+}
+
+/* aside, blockquote */
+aside, blockquote {
+  margin-left: 0;
+  padding: 0 2em;
+  font-style: italic;
+}
+blockquote {
+  margin: 1em 0;
+}
+cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+}
+
+/* tables */
+table {
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 1em;
+  border-collapse: collapse;
+}
+table.right {
+  margin-left: auto;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+table.left {
+  margin-right: auto;
+}
+table .text-left {
+  text-align: left;
+}
+table .text-center {
+  text-align: center;
+}
+table .text-right {
+  text-align: right;
+}
+
+thead, tbody {
+  border: 1px solid var(--line-color);
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 5px 10px;
+}
+th {
+  background-color: var(--line-color);
+}
+:is(tr:nth-child(2n), thead+tbody > tr:nth-child(2n+1)) > td {
+  background-color: var(--background-color);
+}
+:is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
+  background-color: var(--highlight-color);
+}
+table caption {
+  margin: 0;
+  padding: 3px 0 3px 1em;
+}
+table p {
+  margin: 0;
+}
+
+/* pilcrow */
+a.pilcrow {
+  margin-left: 3px;
+  opacity: 0.2;
+  user-select: none;
+  &[href] {
+    color: var(--pilcrow-weak);
+    &:hover { text-decoration: none; }
+  }
+}
+@media not print {
+  :hover > a.pilcrow {
+    opacity: 1;
+  }
+  a.pilcrow[href]:hover {
+    color: var(--pilcrow-strong);
+    background-color: transparent;
+  }
+}
+@media print {
+  a.pilcrow {
+    display: none;
+  }
+}
+
+/* misc */
+hr {
+  border: 0;
+  border-top: 1px solid var(--line-color);
+}
+.bcp14 {
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: var(--small-font-size);
+}
+.role {
+  font-variant: all-small-caps;
+}
+sub, sup {
+  line-height: 1;
+  font-size: 80%;
+}
+
+/* info block */
+#identifiers {
+  margin: 0;
+  font-size: var(--small-font-size);
+  line-height: 18px;
+  --identifier-width: 15ch;
+  & dt {
+    width: var(--identifier-width);
+    min-width: var(--identifier-width);
+    clear: left;
+    float: left;
+    text-align: right;
+    margin-right: 1ch;
+  }
+  & dd {
+    margin: 0;
+    margin-left: calc(1em + var(--identifier-width)) !important;
+    min-width: 5em;
+  }
+  & .authors {
+    & .author {
+      display: inline-block;
+      margin-right: 1.5em;
+    }
+    & .org {
+      font-style: italic;
+    }
+  }
+}
+
+/* The prepared/rendered info at the very bottom of the page */
+.docInfo {
+  color: #999;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 2em;
+}
+.docInfo .prepared {
+  float: right;
+}
+
+/* table of contents */
+#toc {
+  padding: 0.75em 0 2em 0;
+  margin-bottom: 1em;
+
+  & nav {
+    & ul {
+      margin: 0 0.5em 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    & li {
+      line-height: 1.3em;
+      margin: 2px 0;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+  }
+  & a.xref {
+    white-space: normal;
+  }
+}
+
+.references {
+  & > dt {
+    text-align: right;
+    font-weight: bold;
+    min-width: 10ch;
+    margin-right: 1.5ch;
+    &:target::before {
+      content: "⇒";
+      margin: 0 10px 0 -25px;
+    }
+  }
+  & > dd {
+    margin-left: 12ch !important;
+    overflow: visible;
+    & .refInstance {
+      margin-bottom: 0.8em;
+    }
+    & .ascii {
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
+#rfc\.index\.index + ul {
+  margin-left: 0;
+}
+
+/* authors */
+address.vcard {
+  font-style: normal;
+  max-width: 20em;
+  margin: 1em auto 1em 0;
+
+  & .nameRole {
+    font-weight: 700;
+    margin-left: 0;
+  }
+  & .label {
+    margin: 0.5em 0;
+  }
+  & .type {
+    display: none;
+  }
+  & .alternative-contact {
+    margin: 0.5em 0 0.25em 0;
+  }
+  & .non-ascii {
+    margin: 0 0 0 2em;
+  }
+  & div.left {
+    text-align: left;
+  }
+  & div.right {
+    text-align: right;
+  }
+}
+
+hr.addr {
+  border-top: 1px dashed;
+  margin: 0;
+  color: #ddd;
+  max-width: calc(100% - 16px);
+}
+@media (min-width: 500px) {
+  #authors-addresses > section {
+    column-count: 2;
+    column-gap: 20px;
+  }
+  #authors-addresses > section > h2 {
+    column-span: all;
+  }
+  /* hack for break-inside: avoid-column */
+  #authors-addresses address {
+    display: inline-block;
+    break-inside: avoid-column;
+  }
+}
+
+/* Comments */
+.rfcEditorRemove p:first-of-type {
+  font-style: italic;
+}
+.cref {
+  background-color: rgba(249, 232, 105, 0.3);
+  padding: 2px 4px;
+}
+.crefSource {
+  font-style: italic;
+}
+
+@media screen {
+  #toc nav {
+    font-family: var(--font-title);
+    font-weight: 360;
+    & > ul { margin-bottom: 2em; }
+    & ul {
+      margin: 0 0 0 4px;
+      & :is(p, li) {
+        margin: 2px 0;
+      }
+    }
+  }
+  #toc a.toplink {
+    float: right;
+  }
+}
+@media not screen {
+  #toc a.toplink {
+    display: none;
+  }
+}
+
+
+/* TOC layout for smaller screens */
+@media screen and (max-width: 929px) {
+  #toc {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    padding: 1px 0 0 0;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    opacity: 0.6;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 2px 0 2px 6px;
+    padding-right: 1em;
+    font-size: 18px;
+    line-height: 24px;
+    min-width: 190px;
+    text-align: right;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+    &::before { /* css hamburger */
+      float: right;
+      position: relative;
+      width: 1em;
+      height: 1px;
+      left: -164px;
+      margin: 8px 0 0 0;
+      background: white none repeat scroll 0 0;
+      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+      content: "";
+    }
+  }
+  #toc nav {
+    display: none;
+    background-color: var(--background-color);
+    padding: 0.5em 1em 1em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    height: calc(100vh - 48px);
+    border-left: 1px solid #ddd;
+  }
+  #toc.active {
+    opacity: 1;
+    & nav { display: block; }
+  }
+  /* Make the collapsed ToC header render white on gray also when it's a link */
+  #toc h2 a,
+  #toc h2 a:is(:link, :focus, :hover),
+  #toc a.toplink,
+  #toc a.toplink:hover {
+    color: white;
+    background-color: #444;
+    text-decoration: none;
+  }
+  #toc a.toplink {
+    margin: 2px 0.5em 0;
+  }
+}
+
+/* TOC layout for wide screens */
+@media screen and (min-width: 930px) {
+  body {
+    padding-right: 360px;
+    padding-right: calc(min(180px + 20%, 500px));
+  }
+  #toc {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    right: calc(50vw - 480px);
+    width: 312px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 0.25em 1em 1em 0;
+  }
+  #toc nav {
+    display: block;
+    height: calc(90vh - 84px);
+    bottom: 0;
+    padding: 0.5em 0 2em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+  img { /* future proofing */
+    max-width: 100%;
+    height: auto;
+  }
+  #toc a.toplink {
+    margin: 8px 0.5em 0;
+  }
+}
+
+/* pagination */
+@media print {
+  body {
+    width: 100%;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  #n-copyright-notice {
+    border-bottom: none;
+  }
+  #toc, #n-introduction {
+    page-break-before: always;
+  }
+  #toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  figure, pre, .vcard {
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  :is(h2, h3, h4, h5, h6)+*, dd {
+    page-break-before: avoid;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 10pt;
+  }
+  table {
+    border: 1px solid #ddd;
+  }
+  td {
+    border-top: 1px solid #ddd;
+  }
+}
+
+@page :first {
+  padding-top: 0;
+  @top-left {
+    content: normal;
+    border: none;
+  }
+  @top-center {
+    content: normal;
+    border: none;
+  }
+  @top-right {
+    content: normal;
+    border: none;
+  }
+}
+
+@page {
+  size: A4;
+  margin-bottom: 45mm;
+  padding-top: 20px;
+}
+
+/* Dark mode. */
+@media (prefers-color-scheme: dark) {
+:root {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --title-color: #fff;
+  --link-color: #4da4f0;
+  --highlight-color: #282828;
+  --line-color: #444;
+  --pilcrow-weak: #444;
+  --pilcrow-strong: #666;
+  scrollbar-color: #777 #333;
+}
+}
+
+/* SVG Trick: a prefix match works because only black and white are allowed */
+svg :is([stroke="black"], [stroke^="#000"]) {
+  stroke: var(--text-color);
+}
+svg :is([stroke="white"], [stroke^="#fff"]) {
+  stroke: var(--background-color);
+}
+svg :is([fill="black"], [fill^="#000"], :not([fill])) {
+  fill: var(--text-color);
+}
+svg :is([fill="white"], [fill^="#fff"]) {
+  fill: var(--background-color);
+}
+</style>
+
+</head>
+<body class="xml2rfc">
+<table class="ears">
+<thead><tr>
+<td class="left">Internet-Draft</td>
+<td class="center">composites</td>
+<td class="right">October 2025</td>
+</tr></thead>
+<tfoot><tr>
+<td class="left">Richardson, et al.</td>
+<td class="center">Expires 16 April 2026</td>
+<td class="right">[Page]</td>
+</tr></tfoot>
+</table>
+<div id="external-metadata" class="document-information"></div>
+<div id="internal-metadata" class="document-information">
+<dl id="identifiers">
+<dt class="label-workgroup">Workgroup:</dt>
+<dd class="workgroup">anima Working Group</dd>
+<dt class="label-internet-draft">Internet-Draft:</dt>
+<dd class="internet-draft">draft-richardson-rats-composite-attesters-latest</dd>
+<dt class="label-published">Published:</dt>
+<dd class="published">
+<time datetime="2025-10-13" class="published">13 October 2025</time>
+    </dd>
+<dt class="label-intended-status">Intended Status:</dt>
+<dd class="intended-status">Standards Track</dd>
+<dt class="label-expires">Expires:</dt>
+<dd class="expires"><time datetime="2026-04-16">16 April 2026</time></dd>
+<dt class="label-authors">Authors:</dt>
+<dd class="authors">
+<div class="author">
+      <div class="author-name">M. Richardson</div>
+<div class="org">Sandelman Software Works</div>
+</div>
+<div class="author">
+      <div class="author-name">H. Birkholz</div>
+<div class="org">Fraunhofer SIT</div>
+</div>
+<div class="author">
+      <div class="author-name">Y. Deshpande</div>
+<div class="org">Arm</div>
+</div>
+</dd>
+</dl>
+</div>
+<h1 id="title">Taxonomy of Composite Attesters</h1>
+<section id="section-abstract">
+      <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
+<p id="section-abstract-1">This document further refines different kinds of RFC 9334 Composite Attesters.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+</section>
+<section class="note rfcEditorRemove" id="section-note.1">
+      <h2 id="name-about-this-document">
+<a href="#name-about-this-document" class="section-name selfRef">About This Document</a>
+      </h2>
+<p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-richardson-rats-composite-attesters/">https://datatracker.ietf.org/doc/draft-richardson-rats-composite-attesters/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">
+        Discussion of this document takes place on the
+        rats Working Group mailing list (<span><a href="mailto:rats@ietf.org">mailto:rats@ietf.org</a></span>),
+        which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/rats/">https://mailarchive.ietf.org/arch/browse/rats/</a></span>.
+        Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/rats/">https://www.ietf.org/mailman/listinfo/rats/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+<p id="section-note.1-4">Source for this draft and an issue tracker can be found at
+        <span><a href="https://github.com/richardson/rats-composite-attesters">https://github.com/richardson/rats-composite-attesters</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
+</section>
+<div id="status-of-memo">
+<section id="section-boilerplate.1">
+        <h2 id="name-status-of-this-memo">
+<a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
+        </h2>
+<p id="section-boilerplate.1-1">
+        This Internet-Draft is submitted in full conformance with the
+        provisions of BCP 78 and BCP 79.<a href="#section-boilerplate.1-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-2">
+        Internet-Drafts are working documents of the Internet Engineering Task
+        Force (IETF). Note that other groups may also distribute working
+        documents as Internet-Drafts. The list of current Internet-Drafts is
+        at <span><a href="https://datatracker.ietf.org/drafts/current/">https://datatracker.ietf.org/drafts/current/</a></span>.<a href="#section-boilerplate.1-2" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-3">
+        Internet-Drafts are draft documents valid for a maximum of six months
+        and may be updated, replaced, or obsoleted by other documents at any
+        time. It is inappropriate to use Internet-Drafts as reference
+        material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-4">
+        This Internet-Draft will expire on 16 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="copyright">
+<section id="section-boilerplate.2">
+        <h2 id="name-copyright-notice">
+<a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
+        </h2>
+<p id="section-boilerplate.2-1">
+            Copyright (c) 2025 IETF Trust and the persons identified as the
+            document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.2-2">
+            This document is subject to BCP 78 and the IETF Trust's Legal
+            Provisions Relating to IETF Documents
+            (<span><a href="https://trustee.ietf.org/license-info">https://trustee.ietf.org/license-info</a></span>) in effect on the date of
+            publication of this document. Please review these documents
+            carefully, as they describe your rights and restrictions with
+            respect to this document. Code Components extracted from this
+            document must include Revised BSD License text as described in
+            Section 4.e of the Trust Legal Provisions and are provided without
+            warranty as described in the Revised BSD License.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="toc">
+<section id="section-toc.1">
+        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
+<a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
+        </h2>
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-caveats-of-current-definiti" class="internal xref">Caveats of Current Definition</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
+                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-terminology" class="internal xref">Terminology</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.3">
+                <p id="section-toc.1-1.1.2.3.1" class="keepWithNext"><a href="#section-1.3" class="auto internal xref">1.3</a>.  <a href="#name-class-0-composite-attester" class="internal xref">Class 0 Composite Attester</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.4">
+                <p id="section-toc.1-1.1.2.4.1"><a href="#section-1.4" class="auto internal xref">1.4</a>.  <a href="#name-class-1-composite-attester" class="internal xref">Class 1 Composite Attester</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.5">
+                <p id="section-toc.1-1.1.2.5.1"><a href="#section-1.5" class="auto internal xref">1.5</a>.  <a href="#name-class-2-composite-hybrid-at" class="internal xref">Class 2 Composite/Hybrid Attester</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.6">
+                <p id="section-toc.1-1.1.2.6.1"><a href="#section-1.6" class="auto internal xref">1.6</a>.  <a href="#name-class-3b-composite-backgrou" class="internal xref">Class 3B Composite Background-Check Attester</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.7">
+                <p id="section-toc.1-1.1.2.7.1"><a href="#section-1.7" class="auto internal xref">1.7</a>.  <a href="#name-class-3p-composite-passport" class="internal xref">Class 3P Composite Passport-Model Attester</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.8">
+                <p id="section-toc.1-1.1.2.8.1"><a href="#section-1.8" class="auto internal xref">1.8</a>.  <a href="#name-class-4-composite-attester" class="internal xref">Class 4 Composite Attester</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-attestation-results-as-evid" class="internal xref">Attestation Results as Evidence</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-privacy-considerations" class="internal xref">Privacy Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-changelog" class="internal xref">Changelog</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+</li>
+        </ul>
+</nav>
+</section>
+</div>
+<div id="introduction">
+<section id="section-1">
+      <h2 id="name-introduction">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      </h2>
+<p id="section-1-1">This document clarifies and extends the meaning of Composite Attester from <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>], <a href="https://rfc-editor.org/rfc/rfc9334#section-3.3" class="relref">Section 3.3</a></span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<div id="caveats-of-current-definition">
+<section id="section-1.1">
+        <h3 id="name-caveats-of-current-definiti">
+<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-caveats-of-current-definiti" class="section-name selfRef">Caveats of Current Definition</a>
+        </h3>
+<p id="section-1.1-1"><span>[<a href="#RFC9334" class="cite xref">RFC9334</a>], <a href="https://rfc-editor.org/rfc/rfc9334#section-3.3" class="relref">Section 3.3</a></span> says:<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-2">```
+   A composite device is an entity composed of multiple sub-entities
+   such that its trustworthiness has to be determined by the appraisal
+   of all these sub-entities.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+<p id="section-1.1-3">Each sub-entity has at least one Attesting Environment collecting the
+   Claims from at least one Target Environment.  Then, this sub-entity
+   generates Evidence about its trustworthiness; therefore, each sub-
+   entity can be called an "Attester".  Among all the Attesters, there
+   may be only some that have the ability to communicate with the
+   Verifier while others do not.
+```<a href="#section-1.1-3" class="pilcrow">¶</a></p>
+<p id="section-1.1-4">In this description, it was left vague as to whether or not each Attesting Environment signs the Evidence that it generates, and whether or not the Evidence is evaluated by a Verifier operated by the Lead Attester, or if it's passed by the Lead Attester along with the Evidence from the Lead Target Environment.<a href="#section-1.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="terminology">
+<section id="section-1.2">
+        <h3 id="name-terminology">
+<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
+        </h3>
+<span class="break"></span><dl class="dlParallel" id="section-1.2-1">
+          <dt id="section-1.2-1.1">Lead Attester:</dt>
+          <dd style="margin-left: 1.5em" id="section-1.2-1.2">
+            <p id="section-1.2-1.2.1">This term is from RFC9334, and includes the (Lead) Attesting Environment, and the (Lead) Target Environment.<a href="#section-1.2-1.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-1.2-1.3">Target Environment:</dt>
+          <dd style="margin-left: 1.5em" id="section-1.2-1.4">
+            <p id="section-1.2-1.4.1">This term is from RFC9334, this refers to the environment for which Evidence is gathered.<a href="#section-1.2-1.4.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-1.2-1.5">Attesting Environment:</dt>
+          <dd style="margin-left: 1.5em" id="section-1.2-1.6">
+            <p id="section-1.2-1.6.1">This term is from RFC9334, this refers to the thing which gathers the Evidence.<a href="#section-1.2-1.6.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-1.2-1.7">Component:</dt>
+          <dd style="margin-left: 1.5em" id="section-1.2-1.8">
+            <p id="section-1.2-1.8.1">This is the pieces which are attached to the Lead Attester.  There are one to many of these, typically each with their own application specific processor.<a href="#section-1.2-1.8.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-1.2-1.9">Component Evidence:</dt>
+          <dd style="margin-left: 1.5em" id="section-1.2-1.10">
+            <p id="section-1.2-1.10.1">This is the Evidence that is collected by the Component Attesting Environment about the Component Target Environment.<a href="#section-1.2-1.10.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-1.2-1.11">Component Attesting Environment:</dt>
+          <dd style="margin-left: 1.5em" id="section-1.2-1.12">
+            <p id="section-1.2-1.12.1">This term is new, and refers to an Attesting Environment residing inside a component of the whole.<a href="#section-1.2-1.12.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-1.2-1.13">Component Target Environment:</dt>
+          <dd style="margin-left: 1.5em" id="section-1.2-1.14">
+            <p id="section-1.2-1.14.1">This term is new, and refers to an environment for which Evidence is collected.<a href="#section-1.2-1.14.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-1.2-1.15">Verifier le petit:</dt>
+          <dd style="margin-left: 1.5em" id="section-1.2-1.16">
+            <p id="section-1.2-1.16.1">(Or, <code>Le Petit Verificateur</code>).  This is the Verifier that examines the Component Evidence.  This may treat the Lead Attester as a component.<a href="#section-1.2-1.16.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-1.2-1.17">Verifier la grand:</dt>
+          <dd style="margin-left: 1.5em" id="section-1.2-1.18">
+            <p id="section-1.2-1.18.1">(Or, <code>La Grande Verificateur</code>). This is the Verifier that examines the arrangement and relationships between Components.<a href="#section-1.2-1.18.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="class-0-composite-attester">
+<section id="section-1.3">
+        <h3 id="name-class-0-composite-attester">
+<a href="#section-1.3" class="section-number selfRef">1.3. </a><a href="#name-class-0-composite-attester" class="section-name selfRef">Class 0 Composite Attester</a>
+        </h3>
+<p id="section-1.3-1">In this first, somewhat degenerate scenario, the Lead Attester has access to the entire memory/environment of all of the components.
+Examples of situations like this include classic PCI-buses, ISA-buses, VME, S100/IEEE 696-1983.
+In these situations, secondary components might not boot on their own.
+(It might even be that the lead environment (the chassis) will place code into RAM for these systems, with no ROM at all)<a href="#section-1.3-1" class="pilcrow">¶</a></p>
+<p id="section-1.3-2">In this case, it is possible for the Lead Attesting Environment to collect Claims about each of the components without the components having to have their own Attesting Environment.
+There is no Verifier le petit, since there are no components that can create Evidence other than the Lead Attester.<a href="#section-1.3-2" class="pilcrow">¶</a></p>
+<p id="section-1.3-3">At this Class, all of these components can be considered part of the same system.
+In the classic PCI or ISA environment, the components are hard drive interfaces,
+video interfaces, and network interfaces.
+For many such systems considering the system to be a composite is unncessary additional complexity.<a href="#section-1.3-3" class="pilcrow">¶</a></p>
+<p id="section-1.3-4">The benefit of applying the composite mechanism in this case is that it is no longer necessary to consider the exhaustive combinatorics of all possible components being attached to the lead attester: it is already the case the reference values for a target environment may change depending upon how much memory is installed.<a href="#section-1.3-4" class="pilcrow">¶</a></p>
+<p id="section-1.3-5">In this Class 0 Composite Attester, the Evidence gathered about the components would be included in the Lead Attester's signed Evidence (such as an EAT), as sub-components
+in UCCS form <span>[<a href="#RFC9781" class="cite xref">RFC9781</a>]</span>.
+The signature from the Lead Attester applies to all the Evidence, but the Verifier can evaluate each component separately.<a href="#section-1.3-5" class="pilcrow">¶</a></p>
+<span id="name-class-0-composite-attester-2"></span><div id="class0diagram">
+<figure id="figure-1">
+          <div id="section-1.3-6.1">
+            <div class="alignCenter art-svg artwork" id="section-1.3-6.1.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="480" width="416" viewBox="0 0 416 480" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,96 L 8,448" fill="none" stroke="black"></path>
+                <path d="M 24,112 L 24,288" fill="none" stroke="black"></path>
+                <path d="M 40,176 L 40,240" fill="none" stroke="black"></path>
+                <path d="M 96,176 L 96,240" fill="none" stroke="black"></path>
+                <path d="M 112,176 L 112,240" fill="none" stroke="black"></path>
+                <path d="M 120,296 L 120,400" fill="none" stroke="black"></path>
+                <path d="M 168,176 L 168,240" fill="none" stroke="black"></path>
+                <path d="M 176,368 L 176,416" fill="none" stroke="black"></path>
+                <path d="M 184,32 L 184,64" fill="none" stroke="black"></path>
+                <path d="M 200,112 L 200,288" fill="none" stroke="black"></path>
+                <path d="M 232,72 L 232,360" fill="none" stroke="black"></path>
+                <path d="M 272,32 L 272,64" fill="none" stroke="black"></path>
+                <path d="M 288,368 L 288,416" fill="none" stroke="black"></path>
+                <path d="M 408,96 L 408,448" fill="none" stroke="black"></path>
+                <path d="M 184,32 L 272,32" fill="none" stroke="black"></path>
+                <path d="M 184,64 L 272,64" fill="none" stroke="black"></path>
+                <path d="M 8,96 L 224,96" fill="none" stroke="black"></path>
+                <path d="M 240,96 L 408,96" fill="none" stroke="black"></path>
+                <path d="M 24,112 L 200,112" fill="none" stroke="black"></path>
+                <path d="M 40,176 L 96,176" fill="none" stroke="black"></path>
+                <path d="M 112,176 L 168,176" fill="none" stroke="black"></path>
+                <path d="M 40,240 L 96,240" fill="none" stroke="black"></path>
+                <path d="M 112,240 L 168,240" fill="none" stroke="black"></path>
+                <path d="M 24,288 L 200,288" fill="none" stroke="black"></path>
+                <path d="M 176,368 L 288,368" fill="none" stroke="black"></path>
+                <path d="M 120,400 L 168,400" fill="none" stroke="black"></path>
+                <path d="M 176,416 L 288,416" fill="none" stroke="black"></path>
+                <path d="M 8,448 L 408,448" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="240,72 228,66.4 228,77.6" fill="black" transform="rotate(270,232,72)"></polygon>
+                <polygon class="arrowhead" points="176,400 164,394.4 164,405.6" fill="black" transform="rotate(0,168,400)"></polygon>
+                <g class="text">
+                  <text x="228" y="52">Verifier</text>
+                  <text x="60" y="132">Target</text>
+                  <text x="64" y="148">Environ</text>
+                  <text x="268" y="180">Evidence</text>
+                  <text x="64" y="196">VGA</text>
+                  <text x="140" y="196">SCSI</text>
+                  <text x="248" y="196">-</text>
+                  <text x="316" y="196">SHA256(VGArom)</text>
+                  <text x="64" y="212">rom</text>
+                  <text x="136" y="212">rom</text>
+                  <text x="248" y="212">-</text>
+                  <text x="320" y="212">SHA256(SCSIrom)</text>
+                  <text x="248" y="228">-</text>
+                  <text x="304" y="228">SHA256(boot</text>
+                  <text x="372" y="228">rom)</text>
+                  <text x="108" y="260">Claims</text>
+                  <text x="160" y="324">Collect</text>
+                  <text x="156" y="340">Claims</text>
+                  <text x="224" y="388">Attesting</text>
+                  <text x="232" y="404">Environment</text>
+                </g>
+              </svg><a href="#section-1.3-6.1.1" class="pilcrow">¶</a>
+</div>
+</div>
+<figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
+<a href="#name-class-0-composite-attester-2" class="selfRef">Class 0 Composite Attester</a>
+          </figcaption></figure>
+</div>
+<p id="section-1.3-7">More modern buses like PCIe, InfiniBand, Thunderbolt, DisplayPort, USB, Firewire and others do not provided direct electrical access to target component system memory.
+They are serialized versions of the old I/O buses, using a protocol akin to a network.
+They require non-trivial deserialization at eacn end, requiring configuration via firmware that itself might not be trustworthy.
+A system with such an interface would be a Class 1.<a href="#section-1.3-7" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="class-1-composite-attester">
+<section id="section-1.4">
+        <h3 id="name-class-1-composite-attester">
+<a href="#section-1.4" class="section-number selfRef">1.4. </a><a href="#name-class-1-composite-attester" class="section-name selfRef">Class 1 Composite Attester</a>
+        </h3>
+<p id="section-1.4-1">In this Class, each component or slot has its own Attesting Environment and hence produces its own signed Evidence.<a href="#section-1.4-1" class="pilcrow">¶</a></p>
+<p id="section-1.4-2">RFC 9334 gives the following example:<a href="#section-1.4-2" class="pilcrow">¶</a></p>
+<p id="section-1.4-3"><code>
+   For example, a carrier-grade router consists of a chassis and
+   multiple slots.  The trustworthiness of the router depends on all its
+   slots' trustworthiness.  Each slot has an Attesting Environment, such
+   as a TEE, collecting the Claims of its boot process, after which it
+   generates Evidence from the Claims.
+</code><a href="#section-1.4-3" class="pilcrow">¶</a></p>
+<p id="section-1.4-4">The Lead Attester simply relays the Evidence along with its own:<a href="#section-1.4-4" class="pilcrow">¶</a></p>
+<p id="section-1.4-5"><code>
+   Among these slots, only a "main" slot can communicate with the
+   Verifier while other slots cannot.  However, other slots can
+   communicate with the main slot by the links between them inside the
+   router.  The main slot collects the Evidence of other slots, produces
+   the final Evidence of the whole router, and conveys the final
+   Evidence to the Verifier.  Therefore, the router is a composite
+   device, each slot is an Attester, and the main slot is the lead
+   Attester.
+</code><a href="#section-1.4-5" class="pilcrow">¶</a></p>
+<p id="section-1.4-6">Note that the Lead Attester does <em>not</em> evaluate the Evidence, and does not run its own
+Verifier.<a href="#section-1.4-6" class="pilcrow">¶</a></p>
+<span id="name-class-1-composite-attester-2"></span><div id="class1diagram">
+<figure id="figure-2">
+          <div id="section-1.4-7.1">
+            <div class="alignCenter art-svg artwork" id="section-1.4-7.1.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="400" width="584" viewBox="0 0 584 400" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 32,112 L 32,336" fill="none" stroke="black"></path>
+                <path d="M 48,128 L 48,176" fill="none" stroke="black"></path>
+                <path d="M 96,184 L 96,288" fill="none" stroke="black"></path>
+                <path d="M 136,128 L 136,176" fill="none" stroke="black"></path>
+                <path d="M 184,256 L 184,304" fill="none" stroke="black"></path>
+                <path d="M 192,32 L 192,64" fill="none" stroke="black"></path>
+                <path d="M 240,72 L 240,248" fill="none" stroke="black"></path>
+                <path d="M 280,32 L 280,64" fill="none" stroke="black"></path>
+                <path d="M 296,256 L 296,304" fill="none" stroke="black"></path>
+                <path d="M 312,192 L 312,336" fill="none" stroke="black"></path>
+                <path d="M 336,224 L 336,256" fill="none" stroke="black"></path>
+                <path d="M 352,288 L 352,336" fill="none" stroke="black"></path>
+                <path d="M 424,208 L 424,256" fill="none" stroke="black"></path>
+                <path d="M 472,288 L 472,336" fill="none" stroke="black"></path>
+                <path d="M 544,208 L 544,256" fill="none" stroke="black"></path>
+                <path d="M 192,32 L 280,32" fill="none" stroke="black"></path>
+                <path d="M 192,64 L 280,64" fill="none" stroke="black"></path>
+                <path d="M 32,112 L 232,112" fill="none" stroke="black"></path>
+                <path d="M 248,112 L 312,112" fill="none" stroke="black"></path>
+                <path d="M 48,128 L 136,128" fill="none" stroke="black"></path>
+                <path d="M 48,176 L 136,176" fill="none" stroke="black"></path>
+                <path d="M 424,208 L 544,208" fill="none" stroke="black"></path>
+                <path d="M 336,224 L 416,224" fill="none" stroke="black"></path>
+                <path d="M 184,256 L 296,256" fill="none" stroke="black"></path>
+                <path d="M 424,256 L 544,256" fill="none" stroke="black"></path>
+                <path d="M 96,288 L 176,288" fill="none" stroke="black"></path>
+                <path d="M 352,288 L 472,288" fill="none" stroke="black"></path>
+                <path d="M 184,304 L 296,304" fill="none" stroke="black"></path>
+                <path d="M 328,304 L 344,304" fill="none" stroke="black"></path>
+                <path d="M 32,336 L 312,336" fill="none" stroke="black"></path>
+                <path d="M 352,336 L 472,336" fill="none" stroke="black"></path>
+                <path d="M 328,304 C 319.16936,304 312,296.83064 312,288" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="248,72 236,66.4 236,77.6" fill="black" transform="rotate(270,240,72)"></polygon>
+                <polygon class="arrowhead" points="184,288 172,282.4 172,293.6" fill="black" transform="rotate(0,176,288)"></polygon>
+                <g class="text">
+                  <text x="236" y="52">Verifier</text>
+                  <text x="120" y="100">╭────────────────────────────</text>
+                  <text x="412" y="100">─────────────────────────────────────────╮</text>
+                  <text x="8" y="116">│</text>
+                  <text x="576" y="116">│</text>
+                  <text x="8" y="132">│</text>
+                  <text x="328" y="132">Evidence-Collection</text>
+                  <text x="424" y="132">CMW</text>
+                  <text x="576" y="132">│</text>
+                  <text x="8" y="148">│</text>
+                  <text x="84" y="148">Target</text>
+                  <text x="120" y="148">A</text>
+                  <text x="260" y="148">1:</text>
+                  <text x="352" y="148">CMW(Evidence(Target</text>
+                  <text x="444" y="148">A)</text>
+                  <text x="576" y="148">│</text>
+                  <text x="8" y="164">│</text>
+                  <text x="88" y="164">Environ</text>
+                  <text x="260" y="164">2:</text>
+                  <text x="368" y="164">Evidence(Target</text>
+                  <text x="444" y="164">B)</text>
+                  <text x="576" y="164">│</text>
+                  <text x="8" y="180">│</text>
+                  <text x="260" y="180">3:</text>
+                  <text x="368" y="180">Evidence(Target</text>
+                  <text x="448" y="180">C))</text>
+                  <text x="576" y="180">│</text>
+                  <text x="8" y="196">│</text>
+                  <text x="576" y="196">│</text>
+                  <text x="8" y="212">│</text>
+                  <text x="128" y="212">Collect</text>
+                  <text x="356" y="212">Evidence</text>
+                  <text x="400" y="212">B</text>
+                  <text x="576" y="212">│</text>
+                  <text x="8" y="228">│</text>
+                  <text x="124" y="228">Claims</text>
+                  <text x="468" y="228">Attester</text>
+                  <text x="512" y="228">B</text>
+                  <text x="576" y="228">│</text>
+                  <text x="8" y="244">│</text>
+                  <text x="576" y="244">│</text>
+                  <text x="8" y="260">│</text>
+                  <text x="324" y="260">&lt;-</text>
+                  <text x="576" y="260">│</text>
+                  <text x="8" y="276">│</text>
+                  <text x="232" y="276">Attesting</text>
+                  <text x="576" y="276">│</text>
+                  <text x="8" y="292">│</text>
+                  <text x="240" y="292">Environment</text>
+                  <text x="320" y="292">^</text>
+                  <text x="576" y="292">│</text>
+                  <text x="8" y="308">│</text>
+                  <text x="396" y="308">Attester</text>
+                  <text x="440" y="308">C</text>
+                  <text x="576" y="308">│</text>
+                  <text x="8" y="324">│</text>
+                  <text x="132" y="324">Attester</text>
+                  <text x="176" y="324">A</text>
+                  <text x="576" y="324">│</text>
+                  <text x="8" y="340">│</text>
+                  <text x="576" y="340">│</text>
+                  <text x="8" y="356">│</text>
+                  <text x="576" y="356">│</text>
+                  <text x="148" y="372">╰───────────────────────────────Lead</text>
+                  <text x="440" y="372">Attester──────────────────────────╯</text>
+                </g>
+              </svg><a href="#section-1.4-7.1.1" class="pilcrow">¶</a>
+</div>
+</div>
+<figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
+<a href="#name-class-1-composite-attester-2" class="selfRef">Class 1 Composite Attester</a>
+          </figcaption></figure>
+</div>
+<p id="section-1.4-8">This diagram is intended to be identical to Figure 4 of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>, but has been stretched out to allow the relationship to other classes to be clearer.<a href="#section-1.4-8" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="class-2-compositehybrid-attester">
+<section id="section-1.5">
+        <h3 id="name-class-2-composite-hybrid-at">
+<a href="#section-1.5" class="section-number selfRef">1.5. </a><a href="#name-class-2-composite-hybrid-at" class="section-name selfRef">Class 2 Composite/Hybrid Attester</a>
+        </h3>
+<p id="section-1.5-1">In this scenario, the Components relay their Evidence to the Lead Attester.
+The Lead Attester operates a Verifier itself.
+It evaluates the Components' Evidence against Reference Values, Endorsements, etc. producing <em>Attestation Results</em>
+These Attestation Results (or their selectively disclosed version: SD-CWT/SD-JWT)
+are then included as part of the Lead Attester's Evidence to it's Verifier.<a href="#section-1.5-1" class="pilcrow">¶</a></p>
+<span id="name-class-2-composite-attester"></span><div id="class2diagram">
+<figure id="figure-3">
+          <div id="section-1.5-2.1">
+            <div class="alignCenter art-svg artwork" id="section-1.5-2.1.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="576" width="592" viewBox="0 0 592 576" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 32,144 L 32,528" fill="none" stroke="black"></path>
+                <path d="M 48,160 L 48,208" fill="none" stroke="black"></path>
+                <path d="M 96,216 L 96,320" fill="none" stroke="black"></path>
+                <path d="M 136,160 L 136,208" fill="none" stroke="black"></path>
+                <path d="M 184,288 L 184,352" fill="none" stroke="black"></path>
+                <path d="M 184,448 L 184,512" fill="none" stroke="black"></path>
+                <path d="M 192,32 L 192,80" fill="none" stroke="black"></path>
+                <path d="M 240,88 L 240,280" fill="none" stroke="black"></path>
+                <path d="M 240,360 L 240,440" fill="none" stroke="black"></path>
+                <path d="M 280,32 L 280,80" fill="none" stroke="black"></path>
+                <path d="M 296,288 L 296,352" fill="none" stroke="black"></path>
+                <path d="M 296,448 L 296,512" fill="none" stroke="black"></path>
+                <path d="M 320,224 L 320,472" fill="none" stroke="black"></path>
+                <path d="M 320,488 L 320,528" fill="none" stroke="black"></path>
+                <path d="M 344,368 L 344,480" fill="none" stroke="black"></path>
+                <path d="M 384,432 L 384,464" fill="none" stroke="black"></path>
+                <path d="M 424,192 L 424,200" fill="none" stroke="black"></path>
+                <path d="M 448,352 L 448,384" fill="none" stroke="black"></path>
+                <path d="M 448,448 L 448,480" fill="none" stroke="black"></path>
+                <path d="M 552,352 L 552,384" fill="none" stroke="black"></path>
+                <path d="M 552,448 L 552,480" fill="none" stroke="black"></path>
+                <path d="M 192,32 L 280,32" fill="none" stroke="black"></path>
+                <path d="M 192,80 L 280,80" fill="none" stroke="black"></path>
+                <path d="M 32,144 L 232,144" fill="none" stroke="black"></path>
+                <path d="M 248,144 L 320,144" fill="none" stroke="black"></path>
+                <path d="M 48,160 L 136,160" fill="none" stroke="black"></path>
+                <path d="M 48,208 L 136,208" fill="none" stroke="black"></path>
+                <path d="M 184,288 L 296,288" fill="none" stroke="black"></path>
+                <path d="M 96,320 L 176,320" fill="none" stroke="black"></path>
+                <path d="M 184,352 L 296,352" fill="none" stroke="black"></path>
+                <path d="M 448,352 L 552,352" fill="none" stroke="black"></path>
+                <path d="M 344,368 L 440,368" fill="none" stroke="black"></path>
+                <path d="M 448,384 L 552,384" fill="none" stroke="black"></path>
+                <path d="M 352,432 L 384,432" fill="none" stroke="black"></path>
+                <path d="M 184,448 L 296,448" fill="none" stroke="black"></path>
+                <path d="M 448,448 L 552,448" fill="none" stroke="black"></path>
+                <path d="M 384,464 L 440,464" fill="none" stroke="black"></path>
+                <path d="M 304,480 L 344,480" fill="none" stroke="black"></path>
+                <path d="M 448,480 L 552,480" fill="none" stroke="black"></path>
+                <path d="M 184,512 L 296,512" fill="none" stroke="black"></path>
+                <path d="M 32,528 L 320,528" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="360,432 348,426.4 348,437.6" fill="black" transform="rotate(180,352,432)"></polygon>
+                <polygon class="arrowhead" points="312,480 300,474.4 300,485.6" fill="black" transform="rotate(180,304,480)"></polygon>
+                <polygon class="arrowhead" points="248,360 236,354.4 236,365.6" fill="black" transform="rotate(270,240,360)"></polygon>
+                <polygon class="arrowhead" points="184,320 172,314.4 172,325.6" fill="black" transform="rotate(0,176,320)"></polygon>
+                <g class="text">
+                  <text x="220" y="52">Lead</text>
+                  <text x="236" y="68">Verifier</text>
+                  <text x="120" y="132">╭────────────────────────────</text>
+                  <text x="416" y="132">──────────────────────────────────────────╮</text>
+                  <text x="8" y="148">│</text>
+                  <text x="584" y="148">│</text>
+                  <text x="8" y="164">│</text>
+                  <text x="328" y="164">Evidence-Collection</text>
+                  <text x="424" y="164">CMW</text>
+                  <text x="584" y="164">│</text>
+                  <text x="8" y="180">│</text>
+                  <text x="84" y="180">Target</text>
+                  <text x="120" y="180">A</text>
+                  <text x="260" y="180">1:</text>
+                  <text x="352" y="180">CMW(Evidence(Target</text>
+                  <text x="448" y="180">A),</text>
+                  <text x="584" y="180">│</text>
+                  <text x="8" y="196">│</text>
+                  <text x="88" y="196">Environ</text>
+                  <text x="260" y="196">2:</text>
+                  <text x="352" y="196">AR(Attester</text>
+                  <text x="412" y="196">B)</text>
+                  <text x="584" y="196">│</text>
+                  <text x="8" y="212">│</text>
+                  <text x="260" y="212">3:</text>
+                  <text x="352" y="212">AR(Attester</text>
+                  <text x="416" y="212">C))</text>
+                  <text x="584" y="212">│</text>
+                  <text x="8" y="228">│</text>
+                  <text x="584" y="228">│</text>
+                  <text x="8" y="244">│</text>
+                  <text x="128" y="244">Collect</text>
+                  <text x="584" y="244">│</text>
+                  <text x="8" y="260">│</text>
+                  <text x="124" y="260">Claims</text>
+                  <text x="584" y="260">│</text>
+                  <text x="8" y="276">│</text>
+                  <text x="584" y="276">│</text>
+                  <text x="8" y="292">│</text>
+                  <text x="584" y="292">│</text>
+                  <text x="8" y="308">│</text>
+                  <text x="232" y="308">Attesting</text>
+                  <text x="584" y="308">│</text>
+                  <text x="8" y="324">│</text>
+                  <text x="240" y="324">Environment</text>
+                  <text x="584" y="324">│</text>
+                  <text x="8" y="340">│</text>
+                  <text x="208" y="340">+</text>
+                  <text x="228" y="340">RP</text>
+                  <text x="584" y="340">│</text>
+                  <text x="8" y="356">│</text>
+                  <text x="84" y="356">Attester</text>
+                  <text x="128" y="356">A</text>
+                  <text x="380" y="356">Evidence</text>
+                  <text x="424" y="356">B</text>
+                  <text x="584" y="356">│</text>
+                  <text x="8" y="372">│</text>
+                  <text x="492" y="372">Attester</text>
+                  <text x="536" y="372">B</text>
+                  <text x="584" y="372">│</text>
+                  <text x="8" y="388">│</text>
+                  <text x="584" y="388">│</text>
+                  <text x="8" y="404">│</text>
+                  <text x="584" y="404">│</text>
+                  <text x="8" y="420">│</text>
+                  <text x="168" y="420">AR(Attester</text>
+                  <text x="228" y="420">B)</text>
+                  <text x="584" y="420">│</text>
+                  <text x="8" y="436">│</text>
+                  <text x="168" y="436">AR(Attester</text>
+                  <text x="228" y="436">C)</text>
+                  <text x="584" y="436">│</text>
+                  <text x="8" y="452">│</text>
+                  <text x="584" y="452">│</text>
+                  <text x="8" y="468">│</text>
+                  <text x="224" y="468">Chassis</text>
+                  <text x="492" y="468">Attester</text>
+                  <text x="536" y="468">C</text>
+                  <text x="584" y="468">│</text>
+                  <text x="8" y="484">│</text>
+                  <text x="232" y="484">Component</text>
+                  <text x="380" y="484">Evidence</text>
+                  <text x="424" y="484">C</text>
+                  <text x="584" y="484">│</text>
+                  <text x="8" y="500">│</text>
+                  <text x="228" y="500">Verifier</text>
+                  <text x="584" y="500">│</text>
+                  <text x="8" y="516">│</text>
+                  <text x="584" y="516">│</text>
+                  <text x="8" y="532">│</text>
+                  <text x="584" y="532">│</text>
+                  <text x="152" y="548">╰─────────────────────────────Chassis</text>
+                  <text x="448" y="548">A─────────────────────────────────╯</text>
+                </g>
+              </svg><a href="#section-1.5-2.1.1" class="pilcrow">¶</a>
+</div>
+</div>
+<figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
+<a href="#name-class-2-composite-attester" class="selfRef">Class 2 Composite Attester</a>
+          </figcaption></figure>
+</div>
+<p id="section-1.5-3">The Verifier's signing credentials may be part of the same Attesting Environment as the Evidence signing credential used by the Lead Attesting environment.
+Or they could be in a different environment, such as in a different TEE.<a href="#section-1.5-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="class-3b-composite-background-check-attester">
+<section id="section-1.6">
+        <h3 id="name-class-3b-composite-backgrou">
+<a href="#section-1.6" class="section-number selfRef">1.6. </a><a href="#name-class-3b-composite-backgrou" class="section-name selfRef">Class 3B Composite Background-Check Attester</a>
+        </h3>
+<p id="section-1.6-1">In this scenario, the Components relay their Evidence to the Lead Attester.
+The Lead Attester does <em>not</em> operates a Verifier itself.<a href="#section-1.6-1" class="pilcrow">¶</a></p>
+<p id="section-1.6-2">Instead, the Lead Attester, conveys the Evidence to the Lead Verifier along with it's own Evidence.
+The Component Evidence is not placed within the Lead Attester's Evidence (DEBATE).
+The Lead Attester needs to communicate how each component is attached, and that would be within its Evidence.<a href="#section-1.6-2" class="pilcrow">¶</a></p>
+<span id="name-class-3b-composite-backgroun"></span><div id="class3Bdiagram">
+<figure id="figure-4">
+          <div id="section-1.6-3.1">
+            <div class="alignCenter art-svg artwork" id="section-1.6-3.1.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="528" width="472" viewBox="0 0 472 528" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,128 L 8,496" fill="none" stroke="black"></path>
+                <path d="M 24,144 L 24,192" fill="none" stroke="black"></path>
+                <path d="M 72,200 L 72,304" fill="none" stroke="black"></path>
+                <path d="M 112,144 L 112,192" fill="none" stroke="black"></path>
+                <path d="M 160,272 L 160,320" fill="none" stroke="black"></path>
+                <path d="M 168,48 L 168,80" fill="none" stroke="black"></path>
+                <path d="M 216,88 L 216,264" fill="none" stroke="black"></path>
+                <path d="M 216,328 L 216,368" fill="none" stroke="black"></path>
+                <path d="M 256,48 L 256,80" fill="none" stroke="black"></path>
+                <path d="M 272,272 L 272,320" fill="none" stroke="black"></path>
+                <path d="M 304,208 L 304,296" fill="none" stroke="black"></path>
+                <path d="M 304,312 L 304,360" fill="none" stroke="black"></path>
+                <path d="M 304,376 L 304,496" fill="none" stroke="black"></path>
+                <path d="M 344,32 L 344,80" fill="none" stroke="black"></path>
+                <path d="M 360,288 L 360,320" fill="none" stroke="black"></path>
+                <path d="M 360,352 L 360,384" fill="none" stroke="black"></path>
+                <path d="M 456,32 L 456,80" fill="none" stroke="black"></path>
+                <path d="M 464,288 L 464,320" fill="none" stroke="black"></path>
+                <path d="M 464,352 L 464,384" fill="none" stroke="black"></path>
+                <path d="M 344,32 L 456,32" fill="none" stroke="black"></path>
+                <path d="M 168,48 L 256,48" fill="none" stroke="black"></path>
+                <path d="M 264,64 L 336,64" fill="none" stroke="black"></path>
+                <path d="M 168,80 L 256,80" fill="none" stroke="black"></path>
+                <path d="M 344,80 L 456,80" fill="none" stroke="black"></path>
+                <path d="M 8,128 L 208,128" fill="none" stroke="black"></path>
+                <path d="M 224,128 L 304,128" fill="none" stroke="black"></path>
+                <path d="M 24,144 L 112,144" fill="none" stroke="black"></path>
+                <path d="M 24,192 L 112,192" fill="none" stroke="black"></path>
+                <path d="M 160,272 L 272,272" fill="none" stroke="black"></path>
+                <path d="M 360,288 L 464,288" fill="none" stroke="black"></path>
+                <path d="M 72,304 L 152,304" fill="none" stroke="black"></path>
+                <path d="M 280,304 L 352,304" fill="none" stroke="black"></path>
+                <path d="M 160,320 L 272,320" fill="none" stroke="black"></path>
+                <path d="M 360,320 L 464,320" fill="none" stroke="black"></path>
+                <path d="M 360,352 L 464,352" fill="none" stroke="black"></path>
+                <path d="M 216,368 L 352,368" fill="none" stroke="black"></path>
+                <path d="M 360,384 L 464,384" fill="none" stroke="black"></path>
+                <path d="M 8,496 L 304,496" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="288,304 276,298.4 276,309.6" fill="black" transform="rotate(180,280,304)"></polygon>
+                <polygon class="arrowhead" points="272,64 260,58.4 260,69.6" fill="black" transform="rotate(180,264,64)"></polygon>
+                <polygon class="arrowhead" points="224,328 212,322.4 212,333.6" fill="black" transform="rotate(270,216,328)"></polygon>
+                <polygon class="arrowhead" points="224,88 212,82.4 212,93.6" fill="black" transform="rotate(270,216,88)"></polygon>
+                <polygon class="arrowhead" points="160,304 148,298.4 148,309.6" fill="black" transform="rotate(0,152,304)"></polygon>
+                <g class="text">
+                  <text x="392" y="52">Component</text>
+                  <text x="212" y="68">Verifier</text>
+                  <text x="388" y="68">Verifier</text>
+                  <text x="304" y="148">Evidence-Collection</text>
+                  <text x="400" y="148">CMW</text>
+                  <text x="60" y="164">Target</text>
+                  <text x="96" y="164">A</text>
+                  <text x="236" y="164">1:</text>
+                  <text x="308" y="164">CMW(EAT(Target</text>
+                  <text x="380" y="164">A)</text>
+                  <text x="64" y="180">Environ</text>
+                  <text x="236" y="180">2:</text>
+                  <text x="308" y="180">CWM(EAT(Target</text>
+                  <text x="380" y="180">B)</text>
+                  <text x="236" y="196">3:</text>
+                  <text x="308" y="196">CWM(EAT(Target</text>
+                  <text x="380" y="196">C)</text>
+                  <text x="104" y="228">Collect</text>
+                  <text x="100" y="244">Claims</text>
+                  <text x="208" y="292">Attesting</text>
+                  <text x="216" y="308">Environment</text>
+                  <text x="404" y="308">Attester</text>
+                  <text x="448" y="308">B</text>
+                  <text x="404" y="372">Attester</text>
+                  <text x="448" y="372">C</text>
+                </g>
+              </svg><a href="#section-1.6-3.1.1" class="pilcrow">¶</a>
+</div>
+</div>
+<figcaption><a href="#figure-4" class="selfRef">Figure 4</a>:
+<a href="#name-class-3b-composite-backgroun" class="selfRef">Class 3B Composite Background-check Attester</a>
+          </figcaption></figure>
+</div>
+<p id="section-1.6-4">The Lead Verifier, acting a Relying Party, connects to Component Verifiers capable of evaluating the Component Evidence, retrieving Attestation Results from those Verifiers as part of evaluating the Lead Attester.<a href="#section-1.6-4" class="pilcrow">¶</a></p>
+<p id="section-1.6-5">This case is similar to Class 1, however the integration of the component attestation results in Class 1 is not included in the Evidence, while in this case, it is.<a href="#section-1.6-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="class-3p-composite-passport-model-attester">
+<section id="section-1.7">
+        <h3 id="name-class-3p-composite-passport">
+<a href="#section-1.7" class="section-number selfRef">1.7. </a><a href="#name-class-3p-composite-passport" class="section-name selfRef">Class 3P Composite Passport-Model Attester</a>
+        </h3>
+<p id="section-1.7-1">In this scenario, the Components relay their Evidence to the Lead Attester.
+The Lead Attester does <em>not</em> operates a Verifier itself.
+Instead, the Lead Attester, acting as a Presenter (term To-Be-Defined), connects to an appropriate Verifier, in passport mode.
+It retrieves an Attestation Result from the Verifier, which it then includes within the  Evidence that the Lead Attester produces.<a href="#section-1.7-1" class="pilcrow">¶</a></p>
+<p id="section-1.7-2">The Lead Attester's Verifier considers the Components during it's assessment.
+It needs to consider if the component has been assessed by a Verifier it trusts, if the component is appropriately connected to the Lead Attester, and if there are an appropriate number of such components.<a href="#section-1.7-2" class="pilcrow">¶</a></p>
+<span id="name-class-3p-composite-password"></span><div id="class3Pdiagram">
+<figure id="figure-5">
+          <div id="section-1.7-3.1">
+            <div class="alignCenter art-svg artwork" id="section-1.7-3.1.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="640" width="440" viewBox="0 0 440 640" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,96 L 8,464" fill="none" stroke="black"></path>
+                <path d="M 24,128 L 24,176" fill="none" stroke="black"></path>
+                <path d="M 64,560 L 64,608" fill="none" stroke="black"></path>
+                <path d="M 72,184 L 72,288" fill="none" stroke="black"></path>
+                <path d="M 112,128 L 112,176" fill="none" stroke="black"></path>
+                <path d="M 120,288 L 120,552" fill="none" stroke="black"></path>
+                <path d="M 160,256 L 160,304" fill="none" stroke="black"></path>
+                <path d="M 168,32 L 168,64" fill="none" stroke="black"></path>
+                <path d="M 176,560 L 176,608" fill="none" stroke="black"></path>
+                <path d="M 216,72 L 216,248" fill="none" stroke="black"></path>
+                <path d="M 216,344 L 216,400" fill="none" stroke="black"></path>
+                <path d="M 256,32 L 256,64" fill="none" stroke="black"></path>
+                <path d="M 272,256 L 272,304" fill="none" stroke="black"></path>
+                <path d="M 304,96 L 304,112" fill="none" stroke="black"></path>
+                <path d="M 304,184 L 304,328" fill="none" stroke="black"></path>
+                <path d="M 304,344 L 304,392" fill="none" stroke="black"></path>
+                <path d="M 304,408 L 304,464" fill="none" stroke="black"></path>
+                <path d="M 328,320 L 328,352" fill="none" stroke="black"></path>
+                <path d="M 328,384 L 328,416" fill="none" stroke="black"></path>
+                <path d="M 432,320 L 432,352" fill="none" stroke="black"></path>
+                <path d="M 432,384 L 432,416" fill="none" stroke="black"></path>
+                <path d="M 168,32 L 256,32" fill="none" stroke="black"></path>
+                <path d="M 168,64 L 256,64" fill="none" stroke="black"></path>
+                <path d="M 8,96 L 208,96" fill="none" stroke="black"></path>
+                <path d="M 224,96 L 304,96" fill="none" stroke="black"></path>
+                <path d="M 24,128 L 112,128" fill="none" stroke="black"></path>
+                <path d="M 24,176 L 112,176" fill="none" stroke="black"></path>
+                <path d="M 160,256 L 272,256" fill="none" stroke="black"></path>
+                <path d="M 72,288 L 152,288" fill="none" stroke="black"></path>
+                <path d="M 160,304 L 272,304" fill="none" stroke="black"></path>
+                <path d="M 328,320 L 432,320" fill="none" stroke="black"></path>
+                <path d="M 216,336 L 320,336" fill="none" stroke="black"></path>
+                <path d="M 328,352 L 432,352" fill="none" stroke="black"></path>
+                <path d="M 328,384 L 432,384" fill="none" stroke="black"></path>
+                <path d="M 216,400 L 320,400" fill="none" stroke="black"></path>
+                <path d="M 328,416 L 432,416" fill="none" stroke="black"></path>
+                <path d="M 8,464 L 112,464" fill="none" stroke="black"></path>
+                <path d="M 128,464 L 304,464" fill="none" stroke="black"></path>
+                <path d="M 64,560 L 176,560" fill="none" stroke="black"></path>
+                <path d="M 64,608 L 176,608" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="224,72 212,66.4 212,77.6" fill="black" transform="rotate(270,216,72)"></polygon>
+                <polygon class="arrowhead" points="160,288 148,282.4 148,293.6" fill="black" transform="rotate(0,152,288)"></polygon>
+                <g class="text">
+                  <text x="212" y="52">Verifier</text>
+                  <text x="304" y="132">Evidence-Collection</text>
+                  <text x="400" y="132">CMW</text>
+                  <text x="60" y="148">Target</text>
+                  <text x="96" y="148">A</text>
+                  <text x="236" y="148">1:</text>
+                  <text x="308" y="148">CMW(EAT(Target</text>
+                  <text x="380" y="148">A)</text>
+                  <text x="64" y="164">Environ</text>
+                  <text x="236" y="164">2:</text>
+                  <text x="304" y="164">CWM(AR(Target</text>
+                  <text x="372" y="164">B)</text>
+                  <text x="236" y="180">3:</text>
+                  <text x="304" y="180">CWM(AR(Target</text>
+                  <text x="372" y="180">C)</text>
+                  <text x="104" y="212">Collect</text>
+                  <text x="100" y="228">Claims</text>
+                  <text x="208" y="276">Attesting</text>
+                  <text x="216" y="292">Environment</text>
+                  <text x="216" y="324">^</text>
+                  <text x="372" y="340">Attester</text>
+                  <text x="416" y="340">B</text>
+                  <text x="372" y="404">Attester</text>
+                  <text x="416" y="404">C</text>
+                  <text x="76" y="500">Evidence-&gt;</text>
+                  <text x="44" y="516">&lt;-</text>
+                  <text x="88" y="516">Results</text>
+                  <text x="112" y="580">Component</text>
+                  <text x="120" y="596">Verifier(s)</text>
+                </g>
+              </svg><a href="#section-1.7-3.1.1" class="pilcrow">¶</a>
+</div>
+</div>
+<figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
+<a href="#name-class-3p-composite-password" class="selfRef">Class 3P Composite Password Attester</a>
+          </figcaption></figure>
+</div>
+<p id="section-1.7-4">For instance, when accessing a vehicle such as a car, where each tire is it's own component, then a car with three wheels is not trusthworthy.  Most cars should have four wheels.  A car with five wheels might be acceptable, if at least one wheel is installed into the "spare" holder. (And, it may be of concern if the spare is flat, but the car can still be operated)<a href="#section-1.7-4" class="pilcrow">¶</a></p>
+<p id="section-1.7-5">A more typical digital use case would involve a main CPU with a number of attached specialized intelligent components that contain their own firmware, such as Graphical Processors (GPU), Network Processors (NPU).<a href="#section-1.7-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="class-4-composite-attester">
+<section id="section-1.8">
+        <h3 id="name-class-4-composite-attester">
+<a href="#section-1.8" class="section-number selfRef">1.8. </a><a href="#name-class-4-composite-attester" class="section-name selfRef">Class 4 Composite Attester</a>
+        </h3>
+<p id="section-1.8-1">In certain systems, it is possible to have two independent Attesting Environments in an Attester to collect claims about a single Target Environment. In such cases, one of the Attesting Environment, acts as a Primary, while the other acts as a Secondary Attesting Environment.<a href="#section-1.8-1" class="pilcrow">¶</a></p>
+<p id="section-1.8-2">The two Attesting Environments will have a fixed and collaborative structure where each can be responsible for a subset of Evidence. Because of the collaborative structure it may be arranged that either of the Attesting Environment can present Evidence collected by the other (but this is deployment specific).<a href="#section-1.8-2" class="pilcrow">¶</a></p>
+<span id="name-class-4-composite-dual-atte"></span><div id="class4diagram">
+<figure id="figure-6">
+          <div id="section-1.8-3.1">
+            <div class="alignCenter art-svg artwork" id="section-1.8-3.1.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="512" width="464" viewBox="0 0 464 512" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,144 L 8,480" fill="none" stroke="black"></path>
+                <path d="M 16,176 L 16,224" fill="none" stroke="black"></path>
+                <path d="M 64,232 L 64,400" fill="none" stroke="black"></path>
+                <path d="M 104,176 L 104,224" fill="none" stroke="black"></path>
+                <path d="M 120,32 L 120,64" fill="none" stroke="black"></path>
+                <path d="M 152,304 L 152,352" fill="none" stroke="black"></path>
+                <path d="M 168,72 L 168,120" fill="none" stroke="black"></path>
+                <path d="M 208,32 L 208,64" fill="none" stroke="black"></path>
+                <path d="M 208,128 L 208,296" fill="none" stroke="black"></path>
+                <path d="M 264,304 L 264,352" fill="none" stroke="black"></path>
+                <path d="M 272,32 L 272,64" fill="none" stroke="black"></path>
+                <path d="M 304,288 L 304,336" fill="none" stroke="black"></path>
+                <path d="M 320,72 L 320,104" fill="none" stroke="black"></path>
+                <path d="M 360,32 L 360,64" fill="none" stroke="black"></path>
+                <path d="M 360,112 L 360,280" fill="none" stroke="black"></path>
+                <path d="M 360,344 L 360,400" fill="none" stroke="black"></path>
+                <path d="M 416,288 L 416,336" fill="none" stroke="black"></path>
+                <path d="M 456,144 L 456,480" fill="none" stroke="black"></path>
+                <path d="M 120,32 L 208,32" fill="none" stroke="black"></path>
+                <path d="M 272,32 L 360,32" fill="none" stroke="black"></path>
+                <path d="M 120,64 L 208,64" fill="none" stroke="black"></path>
+                <path d="M 272,64 L 360,64" fill="none" stroke="black"></path>
+                <path d="M 320,112 L 360,112" fill="none" stroke="black"></path>
+                <path d="M 168,128 L 208,128" fill="none" stroke="black"></path>
+                <path d="M 8,144 L 200,144" fill="none" stroke="black"></path>
+                <path d="M 216,144 L 352,144" fill="none" stroke="black"></path>
+                <path d="M 368,144 L 456,144" fill="none" stroke="black"></path>
+                <path d="M 24,176 L 104,176" fill="none" stroke="black"></path>
+                <path d="M 24,224 L 104,224" fill="none" stroke="black"></path>
+                <path d="M 304,288 L 416,288" fill="none" stroke="black"></path>
+                <path d="M 152,304 L 264,304" fill="none" stroke="black"></path>
+                <path d="M 72,336 L 144,336" fill="none" stroke="black"></path>
+                <path d="M 304,336 L 416,336" fill="none" stroke="black"></path>
+                <path d="M 152,352 L 264,352" fill="none" stroke="black"></path>
+                <path d="M 64,400 L 360,400" fill="none" stroke="black"></path>
+                <path d="M 8,480 L 456,480" fill="none" stroke="black"></path>
+                <path d="M 24,176 C 15.16936,176 8,183.16936 8,192" fill="none" stroke="black"></path>
+                <path d="M 24,224 C 15.16936,224 8,216.83064 8,208" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="368,344 356,338.4 356,349.6" fill="black" transform="rotate(270,360,344)"></polygon>
+                <polygon class="arrowhead" points="328,72 316,66.4 316,77.6" fill="black" transform="rotate(270,320,72)"></polygon>
+                <polygon class="arrowhead" points="176,72 164,66.4 164,77.6" fill="black" transform="rotate(270,168,72)"></polygon>
+                <polygon class="arrowhead" points="152,336 140,330.4 140,341.6" fill="black" transform="rotate(0,144,336)"></polygon>
+                <g class="text">
+                  <text x="164" y="52">Verifier</text>
+                  <text x="316" y="52">Verifier</text>
+                  <text x="288" y="180">Evidence-Collecti</text>
+                  <text x="368" y="180">n</text>
+                  <text x="392" y="180">CMW</text>
+                  <text x="52" y="196">Target</text>
+                  <text x="88" y="196">A</text>
+                  <text x="228" y="196">1:</text>
+                  <text x="300" y="196">CMW(EAT(Target</text>
+                  <text x="372" y="196">A)</text>
+                  <text x="56" y="212">Environ</text>
+                  <text x="96" y="260">Collect</text>
+                  <text x="92" y="276">Claims</text>
+                  <text x="352" y="308">Attesting</text>
+                  <text x="400" y="308">2</text>
+                  <text x="200" y="324">Attesting</text>
+                  <text x="248" y="324">1</text>
+                  <text x="360" y="324">Environment</text>
+                  <text x="208" y="340">Environment</text>
+                </g>
+              </svg><a href="#section-1.8-3.1.1" class="pilcrow">¶</a>
+</div>
+</div>
+<figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
+<a href="#name-class-4-composite-dual-atte" class="selfRef">Class 4 Composite (Dual) Attester</a>
+          </figcaption></figure>
+</div>
+<p id="section-1.8-4">Example of one such system is a CPU system of a desktop from a Vendor X, which has its built in Attesting Environment, integrated into a product Y which requires a mandatory TPM support.
+In such situations one can anchor the Roots of Trust of Vendor X's CPU Attestation using a secondary Attesting Environment with the TPM Attestation.
+Alternatively, generate a TPM Quote and anchor it to Root of Trust of CPU Attestation based of Vendor X's Attesting Environment.<a href="#section-1.8-4" class="pilcrow">¶</a></p>
+<p id="section-1.8-5">A Verifier/RP may decide to direct the Attestation Request to an AE of choice to reflect the relevant subset of Evidence required for trust asssessment.<a href="#section-1.8-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="attestation-results-as-evidence">
+<section id="section-2">
+      <h2 id="name-attestation-results-as-evid">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-attestation-results-as-evid" class="section-name selfRef">Attestation Results as Evidence</a>
+      </h2>
+<p id="section-2-1">In cases 2, 3B and 3P Attestation Results are included as Evidence.
+This results in a Verifier that must evaluate these results.
+It must be able to validate the signatures on the Evidence.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2">This creates <em>stacked</em> Remote Attestation.
+This is very much different and <em>distinct</em> from <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>], <a href="https://rfc-editor.org/rfc/rfc9334#section-3.2" class="relref">Section 3.2</a></span> Layered Attestation.<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-3">Layered Attestion produces a <em>single</em> set of Evidence, with claims about different layers.<a href="#section-2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="privacy-considerations">
+<section id="section-3">
+      <h2 id="name-privacy-considerations">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-privacy-considerations" class="section-name selfRef">Privacy Considerations</a>
+      </h2>
+<p id="section-3-1">YYY<a href="#section-3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="security-considerations">
+<section id="section-4">
+      <h2 id="name-security-considerations">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<p id="section-4-1">ZZZ<a href="#section-4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="iana-considerations">
+<section id="section-5">
+      <h2 id="name-iana-considerations">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+    </h2>
+</section>
+</div>
+<div id="acknowledgements">
+<section id="section-6">
+      <h2 id="name-acknowledgements">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
+      </h2>
+<p id="section-6-1">Hello.<a href="#section-6-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="changelog">
+<section id="section-7">
+      <h2 id="name-changelog">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-changelog" class="section-name selfRef">Changelog</a>
+    </h2>
+</section>
+</div>
+<div id="sec-combined-references">
+<section id="section-8">
+      <h2 id="name-references">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-references" class="section-name selfRef">References</a>
+      </h2>
+<div id="sec-normative-references">
+<section id="section-8.1">
+        <h3 id="name-normative-references">
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+        </h3>
+<dl class="references">
+<dt id="RFC8174">[RFC8174]</dt>
+        <dd>
+<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8174">https://www.rfc-editor.org/info/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9334">[RFC9334]</dt>
+      <dd>
+<span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Thaler, D.</span>, <span class="refAuthor">Richardson, M.</span>, <span class="refAuthor">Smith, N.</span>, and <span class="refAuthor">W. Pan</span>, <span class="refTitle">"Remote ATtestation procedureS (RATS) Architecture"</span>, <span class="seriesInfo">RFC 9334</span>, <span class="seriesInfo">DOI 10.17487/RFC9334</span>, <time datetime="2023-01" class="refDate">January 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9334">https://www.rfc-editor.org/info/rfc9334</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-8.2">
+        <h3 id="name-informative-references">
+<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        </h3>
+<dl class="references">
+<dt id="RFC9781">[RFC9781]</dt>
+      <dd>
+<span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">O'Donoghue, J.</span>, <span class="refAuthor">Cam-Winget, N.</span>, and <span class="refAuthor">C. Bormann</span>, <span class="refTitle">"A Concise Binary Object Representation (CBOR) Tag for Unprotected CBOR Web Token Claims Sets (UCCS)"</span>, <span class="seriesInfo">RFC 9781</span>, <span class="seriesInfo">DOI 10.17487/RFC9781</span>, <time datetime="2025-05" class="refDate">May 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9781">https://www.rfc-editor.org/info/rfc9781</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="appendix-A">
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Michael Richardson</span></div>
+<div dir="auto" class="left"><span class="org">Sandelman Software Works</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:mcr+ietf@sandelman.ca" class="email">mcr+ietf@sandelman.ca</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Henk Birkholz</span></div>
+<div dir="auto" class="left"><span class="org">Fraunhofer SIT</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:henk.birkholz@ietf.contact" class="email">henk.birkholz@ietf.contact</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Yogesh Deshpande</span></div>
+<div dir="auto" class="left"><span class="org">Arm</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:yogesh.deshpande@arm.com" class="email">yogesh.deshpande@arm.com</a>
+</div>
+</address>
+</section>
+</div>
+<script>const toc = document.getElementById("toc");
+toc.querySelector("h2").addEventListener("click", e => {
+  toc.classList.toggle("active");
+});
+toc.querySelector("nav").addEventListener("click", e => {
+  toc.classList.remove("active");
+});
+</script>
+</body>
+</html>
