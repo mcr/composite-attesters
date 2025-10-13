@@ -1,3 +1,10 @@
+DIAGRAMS=
+DIAGRAMS+=diagrams/class0.txt
+DIAGRAMS+=diagrams/class1.txt
+DIAGRAMS+=diagrams/class2.txt
+DIAGRAMS+=diagrams/class3B.txt
+DIAGRAMS+=diagrams/class3P.txt
+DIAGRAMS+=diagrams/class4.txt
 LIBDIR := lib
 include $(LIBDIR)/main.mk
 
@@ -13,3 +20,10 @@ else
 	    https://github.com/martinthomson/i-d-template $(LIBDIR)
 endif
 endif
+
+draft-richardson-rats-composite-attesters.md: ${DIAGRAMS}
+
+%.txt: %.asciio
+	asciio_to_text $*.asciio >$@
+
+
