@@ -1,0 +1,502 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2025-10-14T00:30:02.385618+00:00",
+  "repo": "mcr/composite-attesters",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 9,
+      "id": "I_kwDOPSxWv87OHarg",
+      "title": "Is presenter a class 2 lead attester?",
+      "url": "https://github.com/mcr/composite-attesters/issues/9",
+      "state": "OPEN",
+      "author": "junzhanghw",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The presenter is proposed in the draft https://datatracker.ietf.org/doc/draft-ietf-rats-pkix-key-attestation/\n\n\nCan we consider presenter as a class 2 lead attester, while the HSM is its connected component? As the selectively disclosed version: SD-CWT/SD-JWT of the Evidence of the HSM is then included as part of the Lead Attester's Evidence to it's Verifier. \n\n",
+      "createdAt": "2025-09-26T15:13:18Z",
+      "updatedAt": "2025-09-26T15:13:18Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 11,
+      "id": "I_kwDOPSxWv87RTVXJ",
+      "title": "Clarity in taxonomy/figures",
+      "url": "https://github.com/mcr/composite-attesters/issues/11",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Thanks for adding figures. It was an interesting discussion in the design meeting today. Some issues that we could not address/discuss: \n\n- Figure should somehow clearly distinguish `role` from `entity` taking on that role. Mixing the two is confusing. One way to do it is [here](https://ieeexplore.ieee.org/document/10373038), i.e. dotted lines for `role` and solid lines for `entity`. Feel free to do it the way you like, or whatever is easy in the tool you use. My point is to distinguish the two.\n- I believe the prefixes `local` and `remote` for verifier (e.g., for class 2) would be very helpful. \n- I would like to see precisely in which class the following real-world use cases lie: \n  - Arm CCA\n  - Intel TDX + Nvidia GPU\nIf the taxonomy cannot represent the real-world use cases, then what's the point?",
+      "createdAt": "2025-10-13T21:15:36Z",
+      "updatedAt": "2025-10-13T21:15:36Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOPSxWv86nbZTD",
+      "title": "Few minor edits to the document",
+      "url": "https://github.com/mcr/composite-attesters/pull/1",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-09-08T17:21:36Z",
+      "updatedAt": "2025-09-08T19:20:15Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "ebfbc32bc98b53ec4818ad50b67cfc2b79eeae97",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "new-class",
+      "headRefOid": "a98c31395b5a7b025a7da85b8953b1483e71c86b",
+      "closedAt": "2025-09-08T19:20:15Z",
+      "mergedAt": "2025-09-08T19:20:15Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "3901ebfdc1def1bc5e85088ad498863324ed062c"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOPSxWv86nyCdC",
+      "title": "Add Class 4 Attesters",
+      "url": "https://github.com/mcr/composite-attesters/pull/2",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-09-10T09:57:39Z",
+      "updatedAt": "2025-09-11T19:04:31Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "7d80b9e6833efdb2b86e6b759161b560d0333e7c",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "add-class",
+      "headRefOid": "d44c928de44bff53f901ae0142722351d4f2b54c",
+      "closedAt": "2025-09-11T19:04:31Z",
+      "mergedAt": "2025-09-11T19:04:31Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "a49a8002e3e261412de195a3676de87c8d52d04a"
+      },
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@mcr I have addressed your comments and taken your suggestions.\r\n1. Introduced Product Y \r\n2. Removed AE and renamed it back to Attesting Environment\r\n\r\nThis PR builds to completion. Please note that the Publish is failing on the main line and this branch as well (needs a separate fixing of this ). ",
+          "createdAt": "2025-09-11T09:53:19Z",
+          "updatedAt": "2025-09-11T09:53:19Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOPSxWv86_OTXn",
+          "commit": {
+            "abbreviatedOid": "4757bb5"
+          },
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "state": "CHANGES_REQUESTED",
+          "body": "I rewrote one paragraph based upon my understanding.\r\nSince you called one X, the other has to be Y?\r\nLet's avoid AE a new term for now?",
+          "createdAt": "2025-09-10T23:47:00Z",
+          "updatedAt": "2025-09-10T23:47:50Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "```suggestion\r\nExample of one such system is a CPU system of a desktop from a Vendor X, which has its built in Attesting Environment, integrated into a product Y which requires a mandatory TPM support. \r\nIn such situations one can anchor the Roots of Trust of Vendor X's CPU Attestation using a secondary \r\nAttesting Environment with the TPM Attestation. \r\nAlternatively, generate a TPM Quote and anchor it to Roots of Trust  CPU Attestation based of Vendor X's Attesting Environment\r\n```",
+              "createdAt": "2025-09-10T23:47:00Z",
+              "updatedAt": "2025-09-10T23:47:50Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOPSxWv86n_pLe",
+      "title": "Rename Level to Class",
+      "url": "https://github.com/mcr/composite-attesters/pull/3",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-09-11T09:56:40Z",
+      "updatedAt": "2025-09-11T19:07:40Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "7d80b9e6833efdb2b86e6b759161b560d0333e7c",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "rename-level",
+      "headRefOid": "7ef3c9cad58df3117a19f6f16036613dec1a3a7a",
+      "closedAt": "2025-09-11T19:07:40Z",
+      "mergedAt": "2025-09-11T19:07:40Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "67c0ae73c3591a48507db2f6a9c412e60d0cbbf6"
+      },
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@mcr Inline with the dictionary meaning of word class as below:\r\n`a set or category of things having some property or attribute in common and differentiated from others by kind, type, or quality.`\r\n\r\nI propose we rename Level to Class, as Level has an implied high or low, which is not really we want to convey.",
+          "createdAt": "2025-09-11T09:58:41Z",
+          "updatedAt": "2025-09-11T09:59:37Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOPSxWv86oNP2-",
+      "title": "Correct Level to Class",
+      "url": "https://github.com/mcr/composite-attesters/pull/4",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-09-12T09:46:21Z",
+      "updatedAt": "2025-09-12T09:47:07Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "67c0ae73c3591a48507db2f6a9c412e60d0cbbf6",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "fix-level",
+      "headRefOid": "3d709a14ae506b6534760943fb3d6cb3afabeac4",
+      "closedAt": "2025-09-12T09:47:07Z",
+      "mergedAt": "2025-09-12T09:47:07Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "a1ded1000ada4d670d97759bf851e107eb21df73"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOPSxWv86oVHH8",
+      "title": "added new verifier and evidence terms",
+      "url": "https://github.com/mcr/composite-attesters/pull/5",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Thanks to   Jun Zhang @ Huawei.",
+      "createdAt": "2025-09-12T21:49:56Z",
+      "updatedAt": "2025-10-13T16:40:16Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "a1ded1000ada4d670d97759bf851e107eb21df73",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "new-terms",
+      "headRefOid": "d684d2d218251dfcf68b86aed29d64ba443c09b9",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOPSxWv86oVNeR",
+      "title": "rework wording for class 0 to use Claim more",
+      "url": "https://github.com/mcr/composite-attesters/pull/6",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-09-12T22:09:27Z",
+      "updatedAt": "2025-10-13T17:08:19Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "a1ded1000ada4d670d97759bf851e107eb21df73",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "reword-class-0",
+      "headRefOid": "1ed369dbd0345c09b085d9b332ef069e69cb260e",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOPSxWv86oVNhT",
+      "title": "added class 5 - mixed attester",
+      "url": "https://github.com/mcr/composite-attesters/pull/7",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-09-12T22:09:37Z",
+      "updatedAt": "2025-09-12T22:09:37Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "a1ded1000ada4d670d97759bf851e107eb21df73",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "mixed-composite",
+      "headRefOid": "b86a64a0f5fdabbb76e0802051f36ca3bb723eba",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOPSxWv86oVNlb",
+      "title": "update contributors",
+      "url": "https://github.com/mcr/composite-attesters/pull/8",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "keep this PR open as we collect acknowledgements",
+      "createdAt": "2025-09-12T22:09:52Z",
+      "updatedAt": "2025-10-13T17:06:33Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "a1ded1000ada4d670d97759bf851e107eb21df73",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "acknowledgements",
+      "headRefOid": "6b0467246eeb26b3e323e8fb5e034c748e9ee016",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOPSxWv87C8lhe",
+          "commit": {
+            "abbreviatedOid": "6b04672"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "I suggest to use \"Le Grand\" as verifier is masculine.",
+          "createdAt": "2025-09-26T07:51:34Z",
+          "updatedAt": "2025-09-26T07:51:34Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDOPSxWv86s-Dg_",
+      "title": "Diagrams for Attester compositions",
+      "url": "https://github.com/mcr/composite-attesters/pull/10",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-09T20:32:01Z",
+      "updatedAt": "2025-10-13T15:52:01Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "a1ded1000ada4d670d97759bf851e107eb21df73",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "diagrams",
+      "headRefOid": "dceb3c6199da657ce83b8f0c8e0d0e58b1ea52ce",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOPSxWv87GmO_4",
+          "commit": {
+            "abbreviatedOid": "dceb3c6"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-13T14:40:57Z",
+          "updatedAt": "2025-10-13T14:40:57Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\r\n         | | Environment             |   |                     |\r\n```",
+              "createdAt": "2025-10-13T14:40:57Z",
+              "updatedAt": "2025-10-13T14:40:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPSxWv87GmnLA",
+          "commit": {
+            "abbreviatedOid": "dceb3c6"
+          },
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-13T15:09:19Z",
+          "updatedAt": "2025-10-13T15:09:19Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "Add outer box so that B/C are inside of box.",
+              "createdAt": "2025-10-13T15:09:19Z",
+              "updatedAt": "2025-10-13T15:10:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPSxWv87Gm_eh",
+          "commit": {
+            "abbreviatedOid": "dceb3c6"
+          },
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-13T15:35:41Z",
+          "updatedAt": "2025-10-13T15:35:41Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "If B is absent, and A expects it, does A report B's absence?\r\n",
+              "createdAt": "2025-10-13T15:35:41Z",
+              "updatedAt": "2025-10-13T15:35:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPSxWv87GnLn8",
+          "commit": {
+            "abbreviatedOid": "dceb3c6"
+          },
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-13T15:50:37Z",
+          "updatedAt": "2025-10-13T15:50:37Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "Where does the nonce for Evidence B/C come from?  Does it come from \"Verifier\", or does it come from Lead Verifier?\r\n",
+              "createdAt": "2025-10-13T15:50:37Z",
+              "updatedAt": "2025-10-13T15:50:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPSxWv87GnMJf",
+          "commit": {
+            "abbreviatedOid": "dceb3c6"
+          },
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-13T15:51:25Z",
+          "updatedAt": "2025-10-13T15:51:25Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "How does Lead Attester arrange for Evidence from B to be fresh?\r\n",
+              "createdAt": "2025-10-13T15:51:25Z",
+              "updatedAt": "2025-10-13T15:51:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPSxWv87GnMkO",
+          "commit": {
+            "abbreviatedOid": "dceb3c6"
+          },
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-13T15:52:01Z",
+          "updatedAt": "2025-10-13T15:52:01Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "Need to add an entire new section on \"Nonce Architecture\"",
+              "createdAt": "2025-10-13T15:52:01Z",
+              "updatedAt": "2025-10-13T15:52:01Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
