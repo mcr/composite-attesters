@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-14T00:30:02.385618+00:00",
+  "timestamp": "2025-10-16T00:31:22.672782+00:00",
   "repo": "mcr/composite-attesters",
   "labels": [
     {
@@ -78,9 +78,62 @@
       "labels": [],
       "body": "Thanks for adding figures. It was an interesting discussion in the design meeting today. Some issues that we could not address/discuss: \n\n- Figure should somehow clearly distinguish `role` from `entity` taking on that role. Mixing the two is confusing. One way to do it is [here](https://ieeexplore.ieee.org/document/10373038), i.e. dotted lines for `role` and solid lines for `entity`. Feel free to do it the way you like, or whatever is easy in the tool you use. My point is to distinguish the two.\n- I believe the prefixes `local` and `remote` for verifier (e.g., for class 2) would be very helpful. \n- I would like to see precisely in which class the following real-world use cases lie: \n  - Arm CCA\n  - Intel TDX + Nvidia GPU\nIf the taxonomy cannot represent the real-world use cases, then what's the point?",
       "createdAt": "2025-10-13T21:15:36Z",
-      "updatedAt": "2025-10-13T21:15:36Z",
+      "updatedAt": "2025-10-14T08:33:14Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "NONE",
+          "body": "@muhammad-usama-sardar \uff0c that's a great question that gets to the heart of standards design: balancing current practice with future needs. I agree that known examples should be included without question. Where I see value is in also including categories that are logically necessary, even if not yet implemented. To keep things practical, we can label these as 'Reserved' to indicate their status. This way, we make the standard future-proof without compromising clarity. How does that sound to you?",
+          "createdAt": "2025-10-14T07:22:41Z",
+          "updatedAt": "2025-10-14T07:22:41Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "body": "> Where I see value is in also including categories that are logically necessary, even if not yet implemented. \n\nI feel that the \"logically necessary\" part needs a clear and strong justification. The technologies that actually exist (e.g., Arm CCA, Intel TDX + Nvidia GPU) should be given priority. ",
+          "createdAt": "2025-10-14T08:11:59Z",
+          "updatedAt": "2025-10-14T08:11:59Z"
+        },
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "NONE",
+          "body": "One example is the A.2 in rfc9334, https://www.ietf.org/rfc/rfc9334.html#name-example-2-nonce-based-passp, I do not see too much real world implementation for this part, while logically it provides one method to prevent replay attack. I think this part is also related to the nonce discussion in this draft.",
+          "createdAt": "2025-10-14T08:33:14Z",
+          "updatedAt": "2025-10-14T08:33:14Z"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "id": "I_kwDOPSxWv87Rf7de",
+      "title": "add section about freshness, and nonce communication",
+      "url": "https://github.com/mcr/composite-attesters/issues/13",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The flow of nonces from verifier(s) to attesting environments, for inclusion in evidence is inverse from the flow of evidence, but must preceed it.\nA new set of diagrams may be necessary to explain what options there are for creation and verification of nonces.\n",
+      "createdAt": "2025-10-14T17:10:05Z",
+      "updatedAt": "2025-10-14T17:11:07Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "body": "I think that it depends on the strategy of the Verifier. \n\nIf Verifier sends a nonce to the Attesting Environment, and an expiration period is delivered inside the nonce, or is well-known, then the Attesting Environment needs to send the Evidence before the deadline, even B is absent. As there is a chance that the Verifier does not care about the status of the Attester B at all. \n\nIf the attesting environment knows that the Verifier will reject the Evidence immediately if it is not complete, it needs to wait until B is available. As it cannot help to generate the Evidence from Attester B.\n\n_Originally posted by @junzhanghw in https://github.com/mcr/composite-attesters/pull/10#discussion_r2428122732_\n            ",
+          "createdAt": "2025-10-14T17:10:34Z",
+          "updatedAt": "2025-10-14T17:10:34Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "body": "For the nonce for Evidence B/C, there are two options\n\noption 1: the Attesting Environment, or another entity inside the Attester will forward the nonce from the Verifier. \n\noption 2: the Attesting Environment generates the nonce_e for B and C, when it gets the Evidence from them, it includes them in the data structure (claim, Evidence_B(nonce_e), Evidence_C(nonce_e), nonce, meta_data(nonce_e,...),signature). Then the Verifier needs to trust the attesting environment in a certain way.\n\n_Originally posted by @junzhanghw in https://github.com/mcr/composite-attesters/pull/10#discussion_r2428134672_\n            ",
+          "createdAt": "2025-10-14T17:11:07Z",
+          "updatedAt": "2025-10-14T17:11:07Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -363,7 +416,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-10-09T20:32:01Z",
-      "updatedAt": "2025-10-13T15:52:01Z",
+      "updatedAt": "2025-10-14T07:11:17Z",
       "baseRepository": "mcr/composite-attesters",
       "baseRefName": "main",
       "baseRefOid": "a1ded1000ada4d670d97759bf851e107eb21df73",
@@ -495,8 +548,74 @@
               "updatedAt": "2025-10-13T15:52:01Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOPSxWv87Gu4n-",
+          "commit": {
+            "abbreviatedOid": "dceb3c6"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T07:05:51Z",
+          "updatedAt": "2025-10-14T07:05:51Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "I think that it depends on the strategy of the Verifier. \r\n\r\nIf Verifier sends a nonce to the Attesting Environment, and an expiration period is delivered inside the nonce, or is well-known, then the Attesting Environment needs to send the Evidence before the deadline, even B is absent. As there is a chance that the Verifier does not care about the status of the Attester B at all. \r\n\r\nIf the attesting environment knows that the Verifier will reject the Evidence immediately if it is not complete, it needs to wait until B is available. As it cannot help to generate the Evidence from Attester B.",
+              "createdAt": "2025-10-14T07:05:51Z",
+              "updatedAt": "2025-10-14T07:05:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPSxWv87Gu8c4",
+          "commit": {
+            "abbreviatedOid": "dceb3c6"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T07:11:17Z",
+          "updatedAt": "2025-10-14T07:11:17Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "For the nonce for Evidence B/C, there are two options\r\n\r\noption 1: the Attesting Environment, or another entity inside the Attester will forward the nonce from the Verifier. \r\n\r\noption 2: the Attesting Environment generates the nonce_e for B and C, when it gets the Evidence from them, it includes them in the data structure (claim, Evidence_B(nonce_e), Evidence_C(nonce_e), nonce, meta_data(nonce_e,...),signature). Then the Verifier needs to trust the attesting environment in a certain way.",
+              "createdAt": "2025-10-14T07:11:17Z",
+              "updatedAt": "2025-10-14T07:11:17Z"
+            }
+          ]
         }
       ]
+    },
+    {
+      "number": 12,
+      "id": "PR_kwDOPSxWv86toOFG",
+      "title": "add nonce architecture",
+      "url": "https://github.com/mcr/composite-attesters/pull/12",
+      "state": "OPEN",
+      "author": "junzhanghw",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "add two patterns for handling nonces from different Verifiers.",
+      "createdAt": "2025-10-14T09:50:57Z",
+      "updatedAt": "2025-10-14T09:50:57Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "a1ded1000ada4d670d97759bf851e107eb21df73",
+      "headRepository": "junzhanghw/composite-attesters",
+      "headRefName": "main",
+      "headRefOid": "52abbaedab3956ab8bdc9cf50923a4bd5cdb4cb2",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
