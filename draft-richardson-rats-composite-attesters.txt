@@ -536,7 +536,8 @@ Table of Contents
 
 6.  Acknowledgements
 
-   Hello.
+   Jun Zhang contributed the terms "Le Petit" and "La Grand" to qualify
+   Verifier.
 
 7.  Changelog
 
