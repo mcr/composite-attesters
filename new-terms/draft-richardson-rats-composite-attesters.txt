@@ -5,10 +5,10 @@
 anima Working Group                                        M. Richardson
 Internet-Draft                                  Sandelman Software Works
 Intended status: Standards Track                             H. Birkholz
-Expires: 16 April 2026                                    Fraunhofer SIT
+Expires: 19 April 2026                                    Fraunhofer SIT
                                                             Y. Deshpande
                                                                      Arm
-                                                         13 October 2025
+                                                         16 October 2025
 
 
                     Taxonomy of Composite Attesters
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 April 2026.
+   This Internet-Draft will expire on 19 April 2026.
 
 Copyright Notice
 
@@ -250,24 +250,24 @@ Table of Contents
                              | Verifier |
                              '----------'
                                    ^
-      ╭────────────────────────────|─────────────────────────────────────────╮
-      │  .-------------------------|--------.                                │
-      │  | .----------.            | Evidence-Collection CMW                 │
-      │  | | Target A |            | 1: CMW(Evidence(Attester A)             │
-      │  | | Environ  |            | 2:     Evidence(Attester B)             │
-      │  | '----------'            | 3:     Evidence(Attester C))            │
-      │  |       |                 |        |                                │
-      │  |       |Collect          |        |             .--------------.   │
-      │  |       |Claims           |        |  Evidence B | Attester B   |   │
-      │  |       |                 |        |<------------|              |   │
-      │  |       |          .-------------. |             '--------------'   │
-      │  |       |          | Attesting   | |                                │
-      │  |       '--------->| Environment | |             .--------------.   │
-      │  |                  '-------------' |<------------| Attester C   |   │
-      │  |        Attester A                |  Evidence C |              |   │
-      │  '----------------------------------'             '--------------'   │
-      │                                                                      │
-      ╰───────────────────────────────Lead Attester──────────────────────────╯
+      .----------------------------|-----------------------------------------.
+      |  .-------------------------|--------.                                |
+      |  | .----------.            | Evidence-Collection CMW                 |
+      |  | | Target A |            | 1: CMW(Evidence(Attester A)             |
+      |  | | Environ  |            | 2:     Evidence(Attester B)             |
+      |  | '----------'            | 3:     Evidence(Attester C))            |
+      |  |       |                 |        |                                |
+      |  |       |Collect          |        |             .--------------.   |
+      |  |       |Claims           |        |  Evidence B | Attester B   |   |
+      |  |       |                 |        |<------------|              |   |
+      |  |       |          .-------------. |             '--------------'   |
+      |  |       |          | Attesting   | |                                |
+      |  |       '--------->| Environment | |             .--------------.   |
+      |  |                  '-------------' |<------------| Attester C   |   |
+      |  |        Attester A                |  Evidence C |              |   |
+      |  '----------------------------------'             '--------------'   |
+      |                                                                      |
+      .-------------------------------Lead Attester--------------------------.
 
                  Figure 2: Class 1 Composite Attester
 
@@ -291,33 +291,33 @@ Table of Contents
                              '----------'
                                    |
                                    |
-      ╭────────────────────────────|──────────────────────────────────────────╮
-      │  .-------------------------|---------.                                │
-      │  | .----------.            | Evidence-Collection CMW                  │
-      │  | | Target A |            | 1: CMW(Evidence(Target A),               │
-      │  | | Environ  |            | 2:     AR(Attester B),                   │
-      │  | '----------'            | 3:     AR(Attester C))                   │
-      │  |       |                 |         |                                │
-      │  |       |Collect          |         |                                │
-      │  |       |Claims           |         |                                │
-      │  |       |                 |         |                                │
-      │  |       |          .-------------.  |                                │
-      │  |       |          | Attesting   |  |                                │
-      │  |       '--------->| Environment |  |                                │
-      │  |                  |  + RP       |  |                                │
-      │  |  Attester A      '-------------'  |   Evidence B  .------------.   │
-      │  |                         ^         |  .------------| Attester B |   │
-      │  |                         |         |  |            '------------'   │
-      │  |                         |         |  |                             │
-      │  |           AR(Attester B)|         |  |                             │
-      │  |           AR(Attester C)|         |  |<---.                        │
-      │  |                  .-------------.  |  |    |       .------------.   │
-      │  |                  | Chassis     |  |  |    '-------| Attester C |   │
-      │  |                  | Component   |<----'Evidence C  '------------'   │
-      │  |                  | Verifier    |  |                                │
-      │  |                  '-------------'  |                                │
-      │  '-----------------------------------'                                │
-      ╰─────────────────────────────Chassis A─────────────────────────────────╯
+      .----------------------------|------------------------------------------.
+      |  .-------------------------|---------.                                |
+      |  | .----------.            | Evidence-Collection CMW                  |
+      |  | | Target A |            | 1: CMW(Evidence(Target A),               |
+      |  | | Environ  |            | 2:     AR(Attester B),                   |
+      |  | '----------'            | 3:     AR(Attester C))                   |
+      |  |       |                 |         |                                |
+      |  |       |Collect          |         |                                |
+      |  |       |Claims           |         |                                |
+      |  |       |                 |         |                                |
+      |  |       |          .-------------.  |                                |
+      |  |       |          | Attesting   |  |                                |
+      |  |       '--------->| Environment |  |                                |
+      |  |                  |  + RP       |  |                                |
+      |  |  Attester A      '-------------'  |   Evidence B  .------------.   |
+      |  |                         ^         |  .------------| Attester B |   |
+      |  |                         |         |  |            '------------'   |
+      |  |                         |         |  |                             |
+      |  |           AR(Attester B)|         |  |                             |
+      |  |           AR(Attester C)|         |  |<---.                        |
+      |  |                  .-------------.  |  |    |       .------------.   |
+      |  |                  | Chassis     |  |  |    '-------| Attester C |   |
+      |  |                  | Component   |<----'Evidence C  '------------'   |
+      |  |                  | Verifier    |  |                                |
+      |  |                  '-------------'  |                                |
+      |  '-----------------------------------'                                |
+      '-----------------------------Chassis A---------------------------------'
 
                  Figure 3: Class 2 Composite Attester
 
@@ -342,26 +342,26 @@ Table of Contents
                              | Verifier |<---------| Verifier    |
                              '----------'          '-------------'
                                    |
-      ╭────────────────────────────|──────────────────────────────────────────╮
-      │  .-------------------------|----------.                               │
-      │  |                         |          |                               │
-      │  | .----------.            | Evidence-Collection CMW                  │
-      │  | | Target A |            | 1: CMW(Evidence(Attester A),             │
-      │  | | Environ  |            | 2.     Evidence(Attester B),             │
-      │  | '----------'            | 3:     Evidence(Attester C))             │
-      │  |       |                 |          |                               │
-      │  |       |Collect          |          |                               │
-      │  |       |Claims           |          |                               │
-      │  |       |                 |          |                               │
-      │  |       |          .-------------.   |                               │
-      │  |       |          | Attesting   |   |   Evidence B  .------------.  │
-      │  |       '--------->| Environment |   |<--------------| Attester B |  │
-      │  |                  '-------------'   |               '------------'  │
-      │  |                                    |                               │
-      │  |            Attester A              |   Evidence C  .------------.  │
-      │  |                                    |<--------------| Attester C |  │
-      │  '------------------------------------'               '------------'  │
-      ╰─────────────────────────────Chassis A─────────────────────────────────╯
+      .----------------------------|------------------------------------------.
+      |  .-------------------------|----------.                               |
+      |  |                         |          |                               |
+      |  | .----------.            | Evidence-Collection CMW                  |
+      |  | | Target A |            | 1: CMW(Evidence(Attester A),             |
+      |  | | Environ  |            | 2.     Evidence(Attester B),             |
+      |  | '----------'            | 3:     Evidence(Attester C))             |
+      |  |       |                 |          |                               |
+      |  |       |Collect          |          |                               |
+      |  |       |Claims           |          |                               |
+      |  |       |                 |          |                               |
+      |  |       |          .-------------.   |                               |
+      |  |       |          | Attesting   |   |   Evidence B  .------------.  |
+      |  |       '--------->| Environment |   |<--------------| Attester B |  |
+      |  |                  '-------------'   |               '------------'  |
+      |  |                                    |                               |
+      |  |            Attester A              |   Evidence C  .------------.  |
+      |  |                                    |<--------------| Attester C |  |
+      |  '------------------------------------'               '------------'  |
+      '-----------------------------Chassis A---------------------------------'
 
         Figure 4: Class 3B Composite Background-check Attester
 
@@ -393,25 +393,25 @@ Table of Contents
                              | Lead     |
                              | Verifier |
                              '----------'
-       ╭───────────────────────────|──────────────────────────────────────────╮
-       │ .-------------------------|----------.                               │
-       │ |                         |  Evidence-Collection CMW                 │
-       │ | .----------.            |  1: CMW(Evidence(Attester A),            │
-       │ | | Target A |            |  2:     AR(Attester B),                  │
-       │ | | Environ  |            |  3:     AR(Attester C))                  │
-       │ | '----------'            |          |                               │
-       │ |       |                 |          |                               │
-       │ |       |Collect          |          |                               │
-       │ |       |Claims           |          |   Evidence B   .------------. │
-       │ |       |                 |          |<---------------| Attester B | │
-       │ |       |          .-------------.   |                '------------' │
-       │ |       |          | Attesting   |   |                               │
-       │ |       '--------->| Environment |   |   Evidence C   .------------. │
-       │ |                  '-------------'   |<---------------| Attester C | │
-       │ |                                    |                '------------' │
-       │ |            Attester A              |                               │
-       │ '------------------------------------'                               │
-       ╰───────────────────────────────Chassis A──────────────────────────────╯
+       .---------------------------|------------------------------------------.
+       | .-------------------------|----------.                               |
+       | |                         |  Evidence-Collection CMW                 |
+       | | .----------.            |  1: CMW(Evidence(Attester A),            |
+       | | | Target A |            |  2:     AR(Attester B),                  |
+       | | | Environ  |            |  3:     AR(Attester C))                  |
+       | | '----------'            |          |                               |
+       | |       |                 |          |                               |
+       | |       |Collect          |          |                               |
+       | |       |Claims           |          |   Evidence B   .------------. |
+       | |       |                 |          |<---------------| Attester B | |
+       | |       |          .-------------.   |                '------------' |
+       | |       |          | Attesting   |   |                               |
+       | |       '--------->| Environment |   |   Evidence C   .------------. |
+       | |                  '-------------'   |<---------------| Attester C | |
+       | |                                    |                '------------' |
+       | |            Attester A              |                               |
+       | '------------------------------------'                               |
+       '-------------------------------Chassis A------------------------------'
                                     ^
                                     |
                                     |
@@ -458,28 +458,28 @@ Table of Contents
                                   |                  |
                                   |                  -----.
                                   -----.                  |
-              .------------------------|------------------|-----------.
-              |                        |                  |           |
-              |.----------.            | Evidence-Collecti|n CMW      |
-              || Target A |            | 1: CMW(EAT(Target|A)         |
-              || Environ  |            |                  |           |
-              |'----------'            |                  |           |
-              |      |                 |                  |           |
-              |      |Collect          |                  |           |
-              |      |Claims           |                  |           |
-              |      |                 |           .-------------.    |
-              |      |          .-------------.    | Attesting 2 |    |
-              |      |          | Attesting 1 |    | Environment |    |
-              |      |--------->| Environment |    '-------------'    |
-              |      |          '-------------'           ^           |
-              |      |                                    |           |
-              |      |                                    |           |
-              |      '------------------------------------'           |
-              |                                                       |
-              |                                                       |
-              |                                                       |
-              |                                                       |
-              '-------------------------------------------------------'
+             .-------------------------|------------------|----------.
+             |                         |                  |          |
+             | .----------.            | Evidence-Collecti|n CMW     |
+             | | Target A |            | 1: CMW(EAT(Target|A)        |
+             | | Environ  |            |                  |          |
+             | '----------'            |                  |          |
+             |       |                 |                  |          |
+             |       |Collect          |                  |          |
+             |       |Claims           |                  |          |
+             |       |                 |           .-------------.   |
+             |       |          .-------------.    | Attesting 2 |   |
+             |       |          | Attesting 1 |    | Environment |   |
+             |       |--------->| Environment |    '-------------'   |
+             |       |          '-------------'           ^          |
+             |       |                                    |          |
+             |       |                                    |          |
+             |       '------------------------------------'          |
+             |                                                       |
+             |                                                       |
+             |                                                       |
+             |                                                       |
+             '-------------------------------------------------------'
 
                 Figure 6: Class 4 Composite (Dual) Attester
 
