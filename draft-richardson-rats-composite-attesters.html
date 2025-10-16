@@ -1181,6 +1181,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.8">
                 <p id="section-toc.1-1.1.2.8.1"><a href="#section-1.8" class="auto internal xref">1.8</a>.  <a href="#name-class-4-composite-attester" class="internal xref">Class 4 Composite Attester</a></p>
 </li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.9">
+                <p id="section-toc.1-1.1.2.9.1"><a href="#section-1.9" class="auto internal xref">1.9</a>.  <a href="#name-class-5-mixed-composite-att" class="internal xref">Class 5 Mixed Composite Attester</a></p>
+</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
@@ -1932,6 +1935,17 @@ It needs to consider if the component has been assessed by a Verifier it trusts,
 In such situations one can anchor the Roots of Trust of Vendor X's CPU Attestation using a secondary Attesting Environment with the TPM Attestation.
 Alternatively, generate a TPM Quote and anchor it to Root of Trust of CPU Attestation based of Vendor X's Attesting Environment.<a href="#section-1.8-4" class="pilcrow">¶</a></p>
 <p id="section-1.8-5">A Verifier/RP may decide to direct the Attestation Request to an AE of choice to reflect the relevant subset of Evidence required for trust asssessment.<a href="#section-1.8-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="class-5-mixed-composite-attester">
+<section id="section-1.9">
+        <h3 id="name-class-5-mixed-composite-att">
+<a href="#section-1.9" class="section-number selfRef">1.9. </a><a href="#name-class-5-mixed-composite-att" class="section-name selfRef">Class 5 Mixed Composite Attester</a>
+        </h3>
+<p id="section-1.9-1">As soon as there is more than one Component, it is reasonable that the different Components interact with the Lead Attester in different ways.
+A Mixed Composite Attester would have a components that come from different classes.
+This is not a class itself, but a class of classes.<a href="#section-1.9-1" class="pilcrow">¶</a></p>
+<p id="section-1.9-2">Degenerately, all previous classes can be considered mixes of one, but such a trivial category does not help discussionn.  Except that adding/moving/replacing Components in the field can change things, so some system architectures will need to always consider themselves to be Mixed Composite Attesters, even if when shipped, they might be degenerate instances.<a href="#section-1.9-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
