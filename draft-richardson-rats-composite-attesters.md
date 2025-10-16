@@ -245,6 +245,14 @@ Alternatively, generate a TPM Quote and anchor it to Root of Trust of CPU Attest
 
 A Verifier/RP may decide to direct the Attestation Request to an AE of choice to reflect the relevant subset of Evidence required for trust asssessment.
 
+## Class 5 Mixed Composite Attester
+
+As soon as there is more than one Component, it is reasonable that the different Components interact with the Lead Attester in different ways.
+A Mixed Composite Attester would have a components that come from different classes.
+This is not a class itself, but a class of classes.
+
+Degenerately, all previous classes can be considered mixes of one, but such a trivial category does not help discussionn.  Except that adding/moving/replacing Components in the field can change things, so some system architectures will need to always consider themselves to be Mixed Composite Attesters, even if when shipped, they might be degenerate instances.
+
 
 # Attestation Results as Evidence
 
