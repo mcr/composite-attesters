@@ -135,16 +135,16 @@ Table of Contents
       Component Attesting Environment about the Component Target
       Environment.
 
-   Local Verifier:  When an Attesting Environment _appraises_ Evidence
-      from another Attesting Environment, then it operates as a Local
-      Verifier.  Mere examination of the signature on the Evidence
-      (perhaps using a local credential) is not appaisal.
-
    Component Attesting Environment:  This term is new, and refers to an
       Attesting Environment residing inside a component of the whole.
 
    Component Target Environment:  This term is new, and refers to an
       environment for which Evidence is collected.
+
+   Local Verifier:  When an Attesting Environment _appraises_ Evidence
+      from another Attesting Environment, then it operates as a Local
+      Verifier.  Mere examination of the signature on the Evidence
+      (perhaps using a local credential) is not appaisal.
 
    Verifier le petit:  (Or, Le Petit Verificateur).  This is the
       Verifier that examines the Component Evidence.  This may treat the
