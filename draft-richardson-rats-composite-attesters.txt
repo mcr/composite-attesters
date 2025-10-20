@@ -76,7 +76,7 @@ Table of Contents
      1.5.  Class 2 Composite/Hybrid Attester
      1.6.  Class 3B Composite Background-Check Attester
      1.7.  Class 3P Composite Passport-Model Attester
-     1.8.  Class 4 Composite Attester
+     1.8.  Class 4 Dual Composite Attester
      1.9.  Class 5 Mixed Composite Attester
    2.  Attestation Results as Evidence
    3.  Privacy Considerations
@@ -274,9 +274,9 @@ Table of Contents
       |  |       '--------->| Environment | |             .--------------.   |
       |  |                  '-------------' |<------------| Attester C   |   |
       |  |        Attester A                |  Evidence C |              |   |
-      |  '----------------------------------'             '--------------'   |
+      |  '-----------Lead Attester----------'             '--------------'   |
       |                                                                      |
-      .-------------------------------Lead Attester--------------------------.
+      .---------------------------Composite Device---------------------------.
 
                  Figure 2: Class 1 Composite Attester
 
@@ -446,7 +446,7 @@ Table of Contents
    their own firmware, such as Graphical Processors (GPU), Network
    Processors (NPU).
 
-1.8.  Class 4 Composite Attester
+1.8.  Class 4 Dual Composite Attester
 
    In certain systems, it is possible to have two independent Attesting
    Environments in an Attester to collect claims about a single Target
@@ -460,31 +460,31 @@ Table of Contents
    of the Attesting Environment can present Evidence collected by the
    other (but this is deployment specific).
 
-                            .----------.       .----------.
-                            | Verifier |       | Verifier |
-                            '----------'       '----------'
-                                  ^                  ^
-                                  |                  |
-                                  |                  -----.
-                                  -----.                  |
-             .-------------------------|------------------|----------.
-             |                         |                  |          |
-             | .----------.            | Evidence-Collecti|n CMW     |
-             | | Target A |            | 1: CMW(EAT(Target|A)        |
-             | | Environ  |            |                  |          |
-             | '----------'            |                  |          |
-             |       |                 |                  |          |
-             |       |Collect          |                  |          |
-             |       |Claims           |                  |          |
-             |       |                 |           .-------------.   |
+                                               .----------.
+                                               | Verifier |
+                                               '----------'
+                                                     ^
+                                                     |
+                                                     -----.
+                                                          |
+             .--------------------------------------------|----------.
+             |                                            |          |
+             | .----------.        Evidence-Collection CMW|          |
+             | | Target A |        1: CMW(EAT(Target A))  |          |
+             | | Environ  |                               |          |
+             | '----------'                               |          |
+             |       |                                    |          |
+             |       |Collect                             |          |
+             |       |Claims                              |          |
+             |       |                             .-------------.   |
              |       |          .-------------.    | Attesting 2 |   |
              |       |          | Attesting 1 |    | Environment |   |
-             |       |--------->| Environment |    '-------------'   |
-             |       |          '-------------'           ^          |
-             |       |                                    |          |
-             |       |                                    |          |
-             |       '------------------------------------'          |
-             |                                                       |
+             |       '--------->| Environment |    '-------------'   |
+             |                  '-------------'           ^          |
+             |                         |                  |          |
+             |                         |                  |          |
+             |                         '-----Partial -----'          |
+             |                               Evidence                |
              |                                                       |
              |                                                       |
              |                                                       |
@@ -494,11 +494,19 @@ Table of Contents
 
    Example of one such system is a CPU system of a desktop from a Vendor
    X, which has its built in Attesting Environment, integrated into a
-   product Y which requires a mandatory TPM support.  In such situations
-   one can anchor the Roots of Trust of Vendor X's CPU Attestation using
-   a secondary Attesting Environment with the TPM Attestation.
-   Alternatively, generate a TPM Quote and anchor it to Root of Trust of
-   CPU Attestation based of Vendor X's Attesting Environment.
+   product Y which requires a mandatory TPM support.  (EDIT: This
+   example to be clarified)
+
+   There is an assumption that the Attesting Environment 1 (AE1)
+   "trusts" Attesting Environment 2 (AE2), which means that AE2 has to
+   verify the signature from AE1, otherwise AE2 can become a "signing
+   fool".  This verification can be based upon a local credential.
+
+   In such situations one can anchor the Roots of Trust of Vendor X's
+   CPU Attestation using a secondary Attesting Environment with the TPM
+   Attestation.  Alternatively, generate a TPM Quote and anchor it to
+   Root of Trust of CPU Attestation based of Vendor X's Attesting
+   Environment.
 
    A Verifier/RP may decide to direct the Attestation Request to an AE
    of choice to reflect the relevant subset of Evidence required for
