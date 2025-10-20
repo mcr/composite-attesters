@@ -287,7 +287,7 @@ In all clsses other than the class 0 and class 1, there are cases that multiple 
 
 # Acknowledgements
 
-Jun Zhang contributed the terms "Le Petit" and "La Grand" to qualify Verifier.
+Jun Zhang contributed the terms "Le Petit" and "La Grand" to qualify Verifier, the original thought for Class 5 Composite Atteser and the description of the Nonce architecture.
 
 # Changelog
 
