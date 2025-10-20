@@ -5,10 +5,10 @@
 anima Working Group                                        M. Richardson
 Internet-Draft                                  Sandelman Software Works
 Intended status: Standards Track                             H. Birkholz
-Expires: 19 April 2026                                    Fraunhofer SIT
+Expires: 23 April 2026                                    Fraunhofer SIT
                                                             Y. Deshpande
                                                                      Arm
-                                                         16 October 2025
+                                                         20 October 2025
 
 
                     Taxonomy of Composite Attesters
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 April 2026.
+   This Internet-Draft will expire on 23 April 2026.
 
 Copyright Notice
 
@@ -145,7 +145,7 @@ Table of Contents
       Verifier that examines the Component Evidence.  This may treat the
       Lead Attester as a component.
 
-   Verifier la grand:  (Or, La Grande Verificateur).  This is the
+   Verifier le grand:  (Or, Le Grande Verificateur).  This is the
       Verifier that examines the arrangement and relationships between
       Components.
 
