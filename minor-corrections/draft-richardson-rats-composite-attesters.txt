@@ -5,10 +5,10 @@
 anima Working Group                                        M. Richardson
 Internet-Draft                                  Sandelman Software Works
 Intended status: Standards Track                             H. Birkholz
-Expires: 20 April 2026                                    Fraunhofer SIT
+Expires: 23 April 2026                                    Fraunhofer SIT
                                                             Y. Deshpande
                                                                      Arm
-                                                         17 October 2025
+                                                         20 October 2025
 
 
                     Taxonomy of Composite Attesters
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 April 2026.
+   This Internet-Draft will expire on 23 April 2026.
 
 Copyright Notice
 
@@ -274,9 +274,9 @@ Table of Contents
       |  |       '--------->| Environment | |             .--------------.   |
       |  |                  '-------------' |<------------| Attester C   |   |
       |  |        Attester A                |  Evidence C |              |   |
-      |  '-----Lead Attester----------------'             '--------------'   |
+      |  '-----------Lead Attester----------'             '--------------'   |
       |                                                                      |
-      .--------------------Composite Device----------------------------------.
+      .---------------------------Composite Device---------------------------.
 
                  Figure 2: Class 1 Composite Attester
 
@@ -463,28 +463,28 @@ Table of Contents
                                                .----------.
                                                | Verifier |
                                                '----------'
-                                                    ^
-                                                    |
-                                                    -----.
+                                                     ^
+                                                     |
+                                                     -----.
                                                           |
              .--------------------------------------------|----------.
-             |                                           |          |
-             | .----------.             Evidence-Collecti|n CMW     |
-             | | Target A |             1: CMW(EAT(Target|A)        |
-             | | Environ  |                              |          |
-             | '----------'                              |          |
-             |       |                                   |          |
-             |       |Collect                            |          |
-             |       |Claims                             |          |
-             |       |                            .-------------.   |
+             |                                            |          |
+             | .----------.        Evidence-Collection CMW|          |
+             | | Target A |        1: CMW(EAT(Target A))  |          |
+             | | Environ  |                               |          |
+             | '----------'                               |          |
+             |       |                                    |          |
+             |       |Collect                             |          |
+             |       |Claims                              |          |
+             |       |                             .-------------.   |
              |       |          .-------------.    | Attesting 2 |   |
              |       |          | Attesting 1 |    | Environment |   |
-             |       |--------->| Environment |    '-------------'   |
-             |                 '------+------'            ^          |
-             |                        |                   |          |
-             |                        |                   |          |
-             |                        '-------------------'          |
-             |                           Partial Evidence            |
+             |       '--------->| Environment |    '-------------'   |
+             |                  '-------------'           ^          |
+             |                         |                  |          |
+             |                         |                  |          |
+             |                         '-----Partial -----'          |
+             |                               Evidence                |
              |                                                       |
              |                                                       |
              |                                                       |
