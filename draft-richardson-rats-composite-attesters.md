@@ -241,7 +241,8 @@ The two Attesting Environments will have a fixed and collaborative structure whe
 ~~~~
 {: #class4diagram artwork-align="center" title="Class 4 Composite (Dual) Attester"}
 
-Example of one such system is a CPU system of a desktop from a Vendor X, which has its built in Attesting Environment, integrated into a product Y which requires a mandatory TPM support.
+Example of one such system is a CPU system of a desktop from a Vendor X, which has its built in Attesting Environment, integrated into a product Y which requires a mandatory TPM support. (EDIT: This example to be clarified)
+
 
 There is an assumption that the Attesting Environment 1 (AE1) "trusts" Attesting Environment 2 (AE2), which means that AE2 has to verify the signature from AE1, otherwise AE2 can become a "signing fool".
 This verification can be based upon a local credential.
