@@ -25,5 +25,3 @@ draft-richardson-rats-composite-attesters.md: ${DIAGRAMS}
 
 %.txt: %.asciio
 	asciio_to_text $*.asciio >$@
-
-
