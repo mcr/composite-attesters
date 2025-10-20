@@ -98,8 +98,8 @@ Component Target Environment:
 Verifier le petit:
 : (Or, `Le Petit Verificateur`).  This is the Verifier that examines the Component Evidence.  This may treat the Lead Attester as a component.
 
-Verifier la grand:
-: (Or, `La Grande Verificateur`). This is the Verifier that examines the arrangement and relationships between Components.
+Verifier le grand:
+: (Or, `Le Grande Verificateur`). This is the Verifier that examines the arrangement and relationships between Components.
 
 ## Class 0 Composite Attester
 
