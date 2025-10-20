@@ -494,7 +494,8 @@ Table of Contents
 
    Example of one such system is a CPU system of a desktop from a Vendor
    X, which has its built in Attesting Environment, integrated into a
-   product Y which requires a mandatory TPM support.
+   product Y which requires a mandatory TPM support.  (EDIT: This
+   example to be clarified)
 
    There is an assumption that the Attesting Environment 1 (AE1)
    "trusts" Attesting Environment 2 (AE2), which means that AE2 has to
