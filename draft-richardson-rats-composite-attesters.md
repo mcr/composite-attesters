@@ -230,7 +230,7 @@ For instance, when accessing a vehicle such as a car, where each tire is it's ow
 A more typical digital use case would involve a main CPU with a number of attached specialized intelligent components that contain their own firmware, such as Graphical Processors (GPU), Network Processors (NPU).
 
 
-## Class 4 Composite Attester
+## Class 4 Dual Composite Attester
 
 In certain systems, it is possible to have two independent Attesting Environments in an Attester to collect claims about a single Target Environment. In such cases, one of the Attesting Environment, acts as a Primary, while the other acts as a Secondary Attesting Environment.
 
@@ -242,6 +242,9 @@ The two Attesting Environments will have a fixed and collaborative structure whe
 {: #class4diagram artwork-align="center" title="Class 4 Composite (Dual) Attester"}
 
 Example of one such system is a CPU system of a desktop from a Vendor X, which has its built in Attesting Environment, integrated into a product Y which requires a mandatory TPM support.
+
+There is an assumption that the AE1 "trusts" AE2, which means that AE1 has to verify the signature from AE1, otherwise AE2 can become a "signing fool"
+
 In such situations one can anchor the Roots of Trust of Vendor X's CPU Attestation using a secondary Attesting Environment with the TPM Attestation.
 Alternatively, generate a TPM Quote and anchor it to Root of Trust of CPU Attestation based of Vendor X's Attesting Environment.
 
