@@ -95,6 +95,9 @@ Component Attesting Environment:
 Component Target Environment:
 : This term is new, and refers to an environment for which Evidence is collected.
 
+Local Verifier:
+: When an Attesting Environment *appraises* Evidence from another Attesting Environment, then it operates as a Local Verifier.  Mere examination of the signature on the Evidence (perhaps using a local credential) is not appaisal.
+
 Verifier le petit:
 : (Or, `Le Petit Verificateur`).  This is the Verifier that examines the Component Evidence.  This may treat the Lead Attester as a component.
 
