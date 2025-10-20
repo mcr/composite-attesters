@@ -564,7 +564,8 @@ Table of Contents
 7.  Acknowledgements
 
    Jun Zhang contributed the terms "Le Petit" and "La Grand" to qualify
-   Verifier.
+   Verifier, the original thought for Class 5 Composite Atteser and the
+   description of the Nonce architecture.
 
 8.  Changelog
 
