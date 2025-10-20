@@ -1178,7 +1178,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.1.2.7.1"><a href="#section-1.7" class="auto internal xref">1.7</a>.  <a href="#name-class-3p-composite-passport" class="internal xref">Class 3P Composite Passport-Model Attester</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.8">
-                <p id="section-toc.1-1.1.2.8.1"><a href="#section-1.8" class="auto internal xref">1.8</a>.  <a href="#name-class-4-composite-attester" class="internal xref">Class 4 Composite Attester</a></p>
+                <p id="section-toc.1-1.1.2.8.1"><a href="#section-1.8" class="auto internal xref">1.8</a>.  <a href="#name-class-4-dual-composite-atte" class="internal xref">Class 4 Dual Composite Attester</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.9">
                 <p id="section-toc.1-1.1.2.9.1"><a href="#section-1.9" class="auto internal xref">1.9</a>.  <a href="#name-class-5-mixed-composite-att" class="internal xref">Class 5 Mixed Composite Attester</a></p>
@@ -1858,10 +1858,10 @@ It needs to consider if the component has been assessed by a Verifier it trusts,
 <p id="section-1.7-5">A more typical digital use case would involve a main CPU with a number of attached specialized intelligent components that contain their own firmware, such as Graphical Processors (GPU), Network Processors (NPU).<a href="#section-1.7-5" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="class-4-composite-attester">
+<div id="class-4-dual-composite-attester">
 <section id="section-1.8">
-        <h3 id="name-class-4-composite-attester">
-<a href="#section-1.8" class="section-number selfRef">1.8. </a><a href="#name-class-4-composite-attester" class="section-name selfRef">Class 4 Composite Attester</a>
+        <h3 id="name-class-4-dual-composite-atte">
+<a href="#section-1.8" class="section-number selfRef">1.8. </a><a href="#name-class-4-dual-composite-atte" class="section-name selfRef">Class 4 Dual Composite Attester</a>
         </h3>
 <p id="section-1.8-1">In certain systems, it is possible to have two independent Attesting Environments in an Attester to collect claims about a single Target Environment. In such cases, one of the Attesting Environment, acts as a Primary, while the other acts as a Secondary Attesting Environment.<a href="#section-1.8-1" class="pilcrow">¶</a></p>
 <p id="section-1.8-2">The two Attesting Environments will have a fixed and collaborative structure where each can be responsible for a subset of Evidence. Because of the collaborative structure it may be arranged that either of the Attesting Environment can present Evidence collected by the other (but this is deployment specific).<a href="#section-1.8-2" class="pilcrow">¶</a></p>
@@ -1931,10 +1931,11 @@ It needs to consider if the component has been assessed by a Verifier it trusts,
 <a href="#name-class-4-composite-dual-atte" class="selfRef">Class 4 Composite (Dual) Attester</a>
           </figcaption></figure>
 </div>
-<p id="section-1.8-4">Example of one such system is a CPU system of a desktop from a Vendor X, which has its built in Attesting Environment, integrated into a product Y which requires a mandatory TPM support.
-In such situations one can anchor the Roots of Trust of Vendor X's CPU Attestation using a secondary Attesting Environment with the TPM Attestation.
-Alternatively, generate a TPM Quote and anchor it to Root of Trust of CPU Attestation based of Vendor X's Attesting Environment.<a href="#section-1.8-4" class="pilcrow">¶</a></p>
-<p id="section-1.8-5">A Verifier/RP may decide to direct the Attestation Request to an AE of choice to reflect the relevant subset of Evidence required for trust asssessment.<a href="#section-1.8-5" class="pilcrow">¶</a></p>
+<p id="section-1.8-4">Example of one such system is a CPU system of a desktop from a Vendor X, which has its built in Attesting Environment, integrated into a product Y which requires a mandatory TPM support.<a href="#section-1.8-4" class="pilcrow">¶</a></p>
+<p id="section-1.8-5">There is an assumption that the AE1 "trusts" AE2, which means that AE1 has to verify the signature from AE1, otherwise AE2 can become a "signing fool"<a href="#section-1.8-5" class="pilcrow">¶</a></p>
+<p id="section-1.8-6">In such situations one can anchor the Roots of Trust of Vendor X's CPU Attestation using a secondary Attesting Environment with the TPM Attestation.
+Alternatively, generate a TPM Quote and anchor it to Root of Trust of CPU Attestation based of Vendor X's Attesting Environment.<a href="#section-1.8-6" class="pilcrow">¶</a></p>
+<p id="section-1.8-7">A Verifier/RP may decide to direct the Attestation Request to an AE of choice to reflect the relevant subset of Evidence required for trust asssessment.<a href="#section-1.8-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="class-5-mixed-composite-attester">
