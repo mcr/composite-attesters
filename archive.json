@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-19T00:35:03.622651+00:00",
+  "timestamp": "2025-10-21T00:31:45.802975+00:00",
   "repo": "mcr/composite-attesters",
   "labels": [
     {
@@ -634,26 +634,189 @@
       "id": "PR_kwDOPSxWv86uSxIR",
       "title": "Fix Class 1 and Class 4",
       "url": "https://github.com/mcr/composite-attesters/pull/14",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-10-17T11:49:30Z",
-      "updatedAt": "2025-10-17T11:49:30Z",
+      "updatedAt": "2025-10-20T15:36:37Z",
       "baseRepository": "mcr/composite-attesters",
       "baseRefName": "main",
       "baseRefOid": "41e210b29b0c8d8b089aadb945af1d785d6fdb4e",
       "headRepository": "mcr/composite-attesters",
       "headRefName": "minor-corrections",
-      "headRefOid": "dbec7b6de7f5ed43200ebda4ed1bc1a38c72aa1c",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "705aad9accc0fefa74eaaa56031de35d108b43a3",
+      "closedAt": "2025-10-20T15:36:35Z",
+      "mergedAt": "2025-10-20T15:36:35Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "622c27cfa3b5abf790f70e800a7c4b9cf42ab720"
+      },
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@mcr we can merge this now!",
+          "createdAt": "2025-10-20T15:00:54Z",
+          "updatedAt": "2025-10-20T15:00:54Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I cannot approve, as I am the original author...",
+          "createdAt": "2025-10-20T15:01:08Z",
+          "updatedAt": "2025-10-20T15:01:08Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "body": "Arm CCA is NOT an example:\r\n1. Platform Attester\r\n2. Realm Attester\r\n\r\nPlatform + workload?\r\nbecause in this case this is about two entities.\r\n\r\n",
+          "createdAt": "2025-10-20T15:21:39Z",
+          "updatedAt": "2025-10-20T15:21:39Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "body": "Looking for better examples from real world use case.\r\nJun: A TPM-based combined remote attestation method for confidential computing | CNCF  \r\nhttps://www.cncf.io/blog/2025/10/08/a-tpm-based-combined-remote-attestation-method-for-confidential-computing/\r\n\r\nYogesh: the secondary hands over its Evidence to the primary, which signs it again.\r\n",
+          "createdAt": "2025-10-20T15:23:25Z",
+          "updatedAt": "2025-10-20T15:23:25Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "body": "Here, attesting environment 2 has to verify and/or trust attesting environment 1's signature.\r\nIt does not verify the evidence, it verifies the origin.\r\n(This is a chain of custody problem)",
+          "createdAt": "2025-10-20T15:27:51Z",
+          "updatedAt": "2025-10-20T15:27:51Z"
+        },
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> Here, attesting environment 2 has to verify and/or trust attesting environment 1's signature. It does not verify the evidence, it verifies the origin. (This is a chain of custody problem)\r\n\r\nI think in such a case, it is very similar to the class 1. The only difference is that, the attestation enviornment 2 does not include the local claim.",
+          "createdAt": "2025-10-20T15:34:41Z",
+          "updatedAt": "2025-10-20T15:34:41Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOPSxWv87IFu0q",
+          "commit": {
+            "abbreviatedOid": "f31c452"
+          },
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-20T15:34:10Z",
+          "updatedAt": "2025-10-20T15:34:10Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\r\nThere is an assumption that the Attesting Environment 1 (AE1) \"trusts\" Attesting Environment 2 (AE2), which means that AE2 has to verify the signature from AE1, otherwise AE2 can become a \"signing fool\".\r\nThis verification can be based upon a local credential.\r\n```",
+              "createdAt": "2025-10-20T15:34:10Z",
+              "updatedAt": "2025-10-20T15:34:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPSxWv87IFwMx",
+          "commit": {
+            "abbreviatedOid": "eb60a8d"
+          },
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-20T15:35:57Z",
+          "updatedAt": "2025-10-20T15:35:57Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "```suggestion\r\nExample of one such system is a CPU system of a desktop from a Vendor X, which has its built in Attesting Environment, integrated into a product Y which requires a mandatory TPM support. (EDIT: This example to be clarified)\r\n\r\n```",
+              "createdAt": "2025-10-20T15:35:57Z",
+              "updatedAt": "2025-10-20T15:35:57Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDOPSxWv86upgJO",
+      "title": "Update acknowledgments for Jun Zhang's contributions",
+      "url": "https://github.com/mcr/composite-attesters/pull/15",
+      "state": "MERGED",
+      "author": "junzhanghw",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Expanded acknowledgment of Jun Zhang's contributions.",
+      "createdAt": "2025-10-20T14:50:37Z",
+      "updatedAt": "2025-10-20T15:00:21Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "e42a9ab8de1b7acfa1196d524b1806bbbcff0fec",
+      "headRepository": "junzhanghw/composite-attesters",
+      "headRefName": "update-acknowledgement",
+      "headRefOid": "400eea732e2d565895479317f03e8c8ff45457c0",
+      "closedAt": "2025-10-20T15:00:20Z",
+      "mergedAt": "2025-10-20T15:00:20Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "6f6c90fdc45d0dfbbab2f3c23fed7ec8b8dcae3a"
+      },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 16,
+      "id": "PR_kwDOPSxWv86uqLUJ",
+      "title": "added local verifier term",
+      "url": "https://github.com/mcr/composite-attesters/pull/16",
+      "state": "MERGED",
+      "author": "mcr",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-20T15:45:02Z",
+      "updatedAt": "2025-10-20T16:00:17Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "622c27cfa3b5abf790f70e800a7c4b9cf42ab720",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "local-verifier",
+      "headRefOid": "a1b88c77c11501a0776a2156c18780773ac6954c",
+      "closedAt": "2025-10-20T16:00:16Z",
+      "mergedAt": "2025-10-20T16:00:16Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "7ed33e7b1bbf970b4fa49589ef0c442544998afc"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOPSxWv87IGGt1",
+          "commit": {
+            "abbreviatedOid": "67f23d8"
+          },
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-20T15:58:48Z",
+          "updatedAt": "2025-10-20T15:58:49Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\nLocal Verifier:\r\n: When an Attesting Environment *appraises* Evidence from another Attesting Environment, then it operates as a Local Verifier.  Mere examination of the signature on the Evidence (perhaps using a local credential) is not appraisal.\r\n\r\nLocal Validation:\r\n: in some classes, Evidence is passed around, and must remain integral.\u00a0 Local Validation involves checking the authenticity of the end-point.   This could involve a signature, or require physical security of that end-point.\r\n```",
+              "createdAt": "2025-10-20T15:58:48Z",
+              "updatedAt": "2025-10-20T15:58:49Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
