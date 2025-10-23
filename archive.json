@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-21T00:31:45.802975+00:00",
+  "timestamp": "2025-10-23T00:31:21.131763+00:00",
   "repo": "mcr/composite-attesters",
   "labels": [
     {
@@ -817,6 +817,32 @@
           ]
         }
       ]
+    },
+    {
+      "number": 17,
+      "id": "PR_kwDOPSxWv86uyEwf",
+      "title": "add one line before the definition of verifier le petit",
+      "url": "https://github.com/mcr/composite-attesters/pull/17",
+      "state": "OPEN",
+      "author": "junzhanghw",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "and also fix the typo of la grand to le grand in the acknowledgement part",
+      "createdAt": "2025-10-21T07:49:41Z",
+      "updatedAt": "2025-10-21T07:49:41Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "7ed33e7b1bbf970b4fa49589ef0c442544998afc",
+      "headRepository": "junzhanghw/composite-attesters",
+      "headRefName": "adding-line-before-verifier-le-petit",
+      "headRefOid": "85f6c9c706bdbf059734d7c33a55d574c71beea8",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
