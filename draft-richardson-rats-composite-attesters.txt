@@ -2,13 +2,13 @@
 
 
 
-anima Working Group                                        M. Richardson
+RATS Working Group                                         M. Richardson
 Internet-Draft                                  Sandelman Software Works
-Intended status: Standards Track                             H. Birkholz
-Expires: 23 April 2026                                    Fraunhofer SIT
+Intended status: Informational                               H. Birkholz
+Expires: 30 April 2026                                    Fraunhofer SIT
                                                             Y. Deshpande
                                                                      Arm
-                                                         20 October 2025
+                                                         27 October 2025
 
 
                     Taxonomy of Composite Attesters
@@ -33,7 +33,7 @@ About This Document
    https://www.ietf.org/mailman/listinfo/rats/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/richardson/rats-composite-attesters.
+   https://github.com/mcr/composite-attesters.
 
 Status of This Memo
 
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 April 2026.
+   This Internet-Draft will expire on 30 April 2026.
 
 Copyright Notice
 
@@ -495,7 +495,7 @@ Table of Contents
              |                         |                  |          |
              |                         '-----Partial -----'          |
              |                               Evidence                |
-             |                                                       |
+             |                               (signed)                |
              |                                                       |
              |                                                       |
              '-------------------------------------------------------'
