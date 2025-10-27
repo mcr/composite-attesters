@@ -7,9 +7,9 @@ docname: draft-richardson-rats-composite-attesters-latest
 
 ipr: trust200902
 area: Internet
-wg: anima Working Group
+wg: RATS Working Group
 kw: Internet-Draft
-cat: std
+cat: info
 
 coding: utf-8
 pi:    # can use array (if all yes) or hash here
@@ -41,7 +41,7 @@ informative:
 venue:
   group: rats
   mail: rats@ietf.org
-  github: richardson/rats-composite-attesters
+  github: mcr/composite-attesters
 
 --- abstract
 
