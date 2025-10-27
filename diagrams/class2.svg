@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="560" width="592" viewBox="0 0 592 560" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px">
+<path d="M 8,112 L 8,528" fill="none" stroke="black"/>
+<path d="M 32,128 L 32,512" fill="none" stroke="black"/>
+<path d="M 48,144 L 48,192" fill="none" stroke="black"/>
+<path d="M 96,200 L 96,304" fill="none" stroke="black"/>
+<path d="M 136,144 L 136,192" fill="none" stroke="black"/>
+<path d="M 184,272 L 184,336" fill="none" stroke="black"/>
+<path d="M 184,432 L 184,496" fill="none" stroke="black"/>
+<path d="M 192,16 L 192,64" fill="none" stroke="black"/>
+<path d="M 240,72 L 240,264" fill="none" stroke="black"/>
+<path d="M 240,344 L 240,424" fill="none" stroke="black"/>
+<path d="M 280,16 L 280,64" fill="none" stroke="black"/>
+<path d="M 296,272 L 296,336" fill="none" stroke="black"/>
+<path d="M 296,432 L 296,496" fill="none" stroke="black"/>
+<path d="M 320,208 L 320,456" fill="none" stroke="black"/>
+<path d="M 320,472 L 320,512" fill="none" stroke="black"/>
+<path d="M 344,352 L 344,464" fill="none" stroke="black"/>
+<path d="M 384,416 L 384,448" fill="none" stroke="black"/>
+<path d="M 424,176 L 424,184" fill="none" stroke="black"/>
+<path d="M 448,336 L 448,368" fill="none" stroke="black"/>
+<path d="M 448,432 L 448,464" fill="none" stroke="black"/>
+<path d="M 552,336 L 552,368" fill="none" stroke="black"/>
+<path d="M 552,432 L 552,464" fill="none" stroke="black"/>
+<path d="M 584,112 L 584,528" fill="none" stroke="black"/>
+<path d="M 192,16 L 280,16" fill="none" stroke="black"/>
+<path d="M 192,64 L 280,64" fill="none" stroke="black"/>
+<path d="M 8,112 L 232,112" fill="none" stroke="black"/>
+<path d="M 248,112 L 584,112" fill="none" stroke="black"/>
+<path d="M 32,128 L 232,128" fill="none" stroke="black"/>
+<path d="M 248,128 L 320,128" fill="none" stroke="black"/>
+<path d="M 48,144 L 136,144" fill="none" stroke="black"/>
+<path d="M 48,192 L 136,192" fill="none" stroke="black"/>
+<path d="M 184,272 L 296,272" fill="none" stroke="black"/>
+<path d="M 96,304 L 176,304" fill="none" stroke="black"/>
+<path d="M 184,336 L 296,336" fill="none" stroke="black"/>
+<path d="M 448,336 L 552,336" fill="none" stroke="black"/>
+<path d="M 344,352 L 440,352" fill="none" stroke="black"/>
+<path d="M 448,368 L 552,368" fill="none" stroke="black"/>
+<path d="M 352,416 L 384,416" fill="none" stroke="black"/>
+<path d="M 184,432 L 296,432" fill="none" stroke="black"/>
+<path d="M 448,432 L 552,432" fill="none" stroke="black"/>
+<path d="M 384,448 L 440,448" fill="none" stroke="black"/>
+<path d="M 304,464 L 344,464" fill="none" stroke="black"/>
+<path d="M 448,464 L 552,464" fill="none" stroke="black"/>
+<path d="M 184,496 L 296,496" fill="none" stroke="black"/>
+<path d="M 32,512 L 320,512" fill="none" stroke="black"/>
+<path d="M 8,528 L 240,528" fill="none" stroke="black"/>
+<path d="M 320,528 L 584,528" fill="none" stroke="black"/>
+<polygon class="arrowhead" points="360,416 348,410.4 348,421.6 " fill="black" transform="rotate(180,352,416)"/>
+<polygon class="arrowhead" points="312,464 300,458.4 300,469.6 " fill="black" transform="rotate(180,304,464)"/>
+<polygon class="arrowhead" points="248,344 236,338.4 236,349.6 " fill="black" transform="rotate(270,240,344)"/>
+<polygon class="arrowhead" points="184,304 172,298.4 172,309.6 " fill="black" transform="rotate(0,176,304)"/>
+<g class="text">
+<text x="220" y="36">Lead</text>
+<text x="236" y="52">Verifier</text>
+<text x="344" y="148">Evidence-Collection CMW</text>
+<text x="92" y="164">Target A</text>
+<text x="356" y="164">1: CMW(Evidence(Target A),</text>
+<text x="88" y="180">Environ</text>
+<text x="260" y="180">2:</text>
+<text x="364" y="180">AR(Attester B)</text>
+<text x="260" y="196">3:</text>
+<text x="368" y="196">AR(Attester C))</text>
+<text x="128" y="228">Collect</text>
+<text x="124" y="244">Claims</text>
+<text x="232" y="292">Attesting</text>
+<text x="240" y="308">Environment</text>
+<text x="220" y="324">+ RP</text>
+<text x="92" y="340">Attester A</text>
+<text x="388" y="340">Evidence B</text>
+<text x="500" y="356">Attester B</text>
+<text x="180" y="404">AR(Attester B)</text>
+<text x="180" y="420">AR(Attester C)</text>
+<text x="224" y="452">Chassis</text>
+<text x="500" y="452">Attester C</text>
+<text x="232" y="468">Component</text>
+<text x="388" y="468">Evidence C</text>
+<text x="228" y="484">Verifier</text>
+<text x="280" y="532">Chassis A</text>
+</g>
+</svg>

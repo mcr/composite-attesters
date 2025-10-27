@@ -1,10 +1,10 @@
 DIAGRAMS=
-DIAGRAMS+=diagrams/class0.txt
-DIAGRAMS+=diagrams/class1.txt
-DIAGRAMS+=diagrams/class2.txt
-DIAGRAMS+=diagrams/class3B.txt
-DIAGRAMS+=diagrams/class3P.txt
-DIAGRAMS+=diagrams/class4.txt
+DIAGRAMS+=diagrams/class0.txt diagrams/class0.svg
+DIAGRAMS+=diagrams/class1.txt diagrams/class1.svg
+DIAGRAMS+=diagrams/class2.txt diagrams/class2.svg
+DIAGRAMS+=diagrams/class3B.txt diagrams/class3B.svg
+DIAGRAMS+=diagrams/class3P.txt diagrams/class3P.svg
+DIAGRAMS+=diagrams/class4.txt  diagrams/class4.svg
 LIBDIR := lib
 include $(LIBDIR)/main.mk
 
@@ -25,3 +25,7 @@ draft-richardson-rats-composite-attesters.md: ${DIAGRAMS}
 
 %.txt: %.asciio
 	asciio_to_text $*.asciio >$@
+
+%.svg: %.txt
+	aasvg <$*.txt >$@
+

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="384" width="584" viewBox="0 0 584 384" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px">
+<path d="M 8,80 L 8,344" fill="none" stroke="black"/>
+<path d="M 32,96 L 32,320" fill="none" stroke="black"/>
+<path d="M 48,112 L 48,160" fill="none" stroke="black"/>
+<path d="M 96,168 L 96,272" fill="none" stroke="black"/>
+<path d="M 136,112 L 136,160" fill="none" stroke="black"/>
+<path d="M 184,240 L 184,288" fill="none" stroke="black"/>
+<path d="M 192,16 L 192,48" fill="none" stroke="black"/>
+<path d="M 240,56 L 240,232" fill="none" stroke="black"/>
+<path d="M 280,16 L 280,48" fill="none" stroke="black"/>
+<path d="M 296,240 L 296,288" fill="none" stroke="black"/>
+<path d="M 312,176 L 312,320" fill="none" stroke="black"/>
+<path d="M 424,192 L 424,240" fill="none" stroke="black"/>
+<path d="M 424,272 L 424,320" fill="none" stroke="black"/>
+<path d="M 544,192 L 544,240" fill="none" stroke="black"/>
+<path d="M 544,272 L 544,320" fill="none" stroke="black"/>
+<path d="M 576,80 L 576,344" fill="none" stroke="black"/>
+<path d="M 192,16 L 280,16" fill="none" stroke="black"/>
+<path d="M 192,48 L 280,48" fill="none" stroke="black"/>
+<path d="M 8,80 L 232,80" fill="none" stroke="black"/>
+<path d="M 248,80 L 576,80" fill="none" stroke="black"/>
+<path d="M 32,96 L 232,96" fill="none" stroke="black"/>
+<path d="M 248,96 L 312,96" fill="none" stroke="black"/>
+<path d="M 48,112 L 136,112" fill="none" stroke="black"/>
+<path d="M 48,160 L 136,160" fill="none" stroke="black"/>
+<path d="M 424,192 L 544,192" fill="none" stroke="black"/>
+<path d="M 320,224 L 416,224" fill="none" stroke="black"/>
+<path d="M 184,240 L 296,240" fill="none" stroke="black"/>
+<path d="M 424,240 L 544,240" fill="none" stroke="black"/>
+<path d="M 96,272 L 176,272" fill="none" stroke="black"/>
+<path d="M 424,272 L 544,272" fill="none" stroke="black"/>
+<path d="M 184,288 L 296,288" fill="none" stroke="black"/>
+<path d="M 320,288 L 416,288" fill="none" stroke="black"/>
+<path d="M 32,320 L 312,320" fill="none" stroke="black"/>
+<path d="M 424,320 L 544,320" fill="none" stroke="black"/>
+<path d="M 8,352 L 256,352" fill="none" stroke="black"/>
+<path d="M 368,352 L 576,352" fill="none" stroke="black"/>
+<polygon class="arrowhead" points="328,288 316,282.4 316,293.6 " fill="black" transform="rotate(180,320,288)"/>
+<polygon class="arrowhead" points="328,224 316,218.4 316,229.6 " fill="black" transform="rotate(180,320,224)"/>
+<polygon class="arrowhead" points="248,56 236,50.4 236,61.6 " fill="black" transform="rotate(270,240,56)"/>
+<polygon class="arrowhead" points="184,272 172,266.4 172,277.6 " fill="black" transform="rotate(0,176,272)"/>
+<g class="text">
+<text x="236" y="36">Verifier</text>
+<text x="344" y="116">Evidence-Collection CMW</text>
+<text x="92" y="132">Target A</text>
+<text x="360" y="132">1: CMW(Evidence(Attester A)</text>
+<text x="88" y="148">Environ</text>
+<text x="260" y="148">2:</text>
+<text x="388" y="148">Evidence(Attester B)</text>
+<text x="260" y="164">3:</text>
+<text x="392" y="164">Evidence(Attester C))</text>
+<text x="128" y="196">Collect</text>
+<text x="124" y="212">Claims</text>
+<text x="372" y="212">Evidence B</text>
+<text x="476" y="212">Attester B</text>
+<text x="232" y="260">Attesting</text>
+<text x="240" y="276">Environment</text>
+<text x="476" y="292">Attester C</text>
+<text x="140" y="308">Attester A</text>
+<text x="372" y="308">Evidence C</text>
+<text x="312" y="356">Lead Attester</text>
+</g>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="464" width="416" viewBox="0 0 416 464" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px">
+<path d="M 8,80 L 8,432" fill="none" stroke="black"/>
+<path d="M 24,96 L 24,272" fill="none" stroke="black"/>
+<path d="M 40,160 L 40,224" fill="none" stroke="black"/>
+<path d="M 96,160 L 96,224" fill="none" stroke="black"/>
+<path d="M 112,160 L 112,224" fill="none" stroke="black"/>
+<path d="M 120,280 L 120,384" fill="none" stroke="black"/>
+<path d="M 168,160 L 168,224" fill="none" stroke="black"/>
+<path d="M 176,352 L 176,400" fill="none" stroke="black"/>
+<path d="M 184,16 L 184,48" fill="none" stroke="black"/>
+<path d="M 200,96 L 200,272" fill="none" stroke="black"/>
+<path d="M 232,56 L 232,344" fill="none" stroke="black"/>
+<path d="M 272,16 L 272,48" fill="none" stroke="black"/>
+<path d="M 288,352 L 288,400" fill="none" stroke="black"/>
+<path d="M 408,80 L 408,432" fill="none" stroke="black"/>
+<path d="M 184,16 L 272,16" fill="none" stroke="black"/>
+<path d="M 184,48 L 272,48" fill="none" stroke="black"/>
+<path d="M 8,80 L 224,80" fill="none" stroke="black"/>
+<path d="M 240,80 L 408,80" fill="none" stroke="black"/>
+<path d="M 24,96 L 200,96" fill="none" stroke="black"/>
+<path d="M 40,160 L 96,160" fill="none" stroke="black"/>
+<path d="M 112,160 L 168,160" fill="none" stroke="black"/>
+<path d="M 40,224 L 96,224" fill="none" stroke="black"/>
+<path d="M 112,224 L 168,224" fill="none" stroke="black"/>
+<path d="M 24,272 L 200,272" fill="none" stroke="black"/>
+<path d="M 176,352 L 288,352" fill="none" stroke="black"/>
+<path d="M 120,384 L 168,384" fill="none" stroke="black"/>
+<path d="M 176,400 L 288,400" fill="none" stroke="black"/>
+<path d="M 8,432 L 184,432" fill="none" stroke="black"/>
+<path d="M 248,432 L 408,432" fill="none" stroke="black"/>
+<polygon class="arrowhead" points="240,56 228,50.4 228,61.6 " fill="black" transform="rotate(270,232,56)"/>
+<polygon class="arrowhead" points="176,384 164,378.4 164,389.6 " fill="black" transform="rotate(0,168,384)"/>
+<g class="text">
+<text x="228" y="36">Verifier</text>
+<text x="60" y="116">Target</text>
+<text x="64" y="132">Environ</text>
+<text x="308" y="164">Evidence includes:</text>
+<text x="64" y="180">VGA</text>
+<text x="140" y="180">SCSI</text>
+<text x="308" y="180">- SHA256(VGArom)</text>
+<text x="64" y="196">rom</text>
+<text x="136" y="196">rom</text>
+<text x="312" y="196">- SHA256(SCSIrom)</text>
+<text x="316" y="212">- SHA256(boot rom)</text>
+<text x="108" y="244">Claims</text>
+<text x="160" y="308">Collect</text>
+<text x="156" y="324">Claims</text>
+<text x="224" y="372">Attesting</text>
+<text x="232" y="388">Environment</text>
+<text x="216" y="436">Chassis</text>
+</g>
+</svg>
