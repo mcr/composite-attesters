@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-23T00:31:21.131763+00:00",
+  "timestamp": "2025-10-28T00:30:51.282619+00:00",
   "repo": "mcr/composite-attesters",
   "labels": [
     {
@@ -132,6 +132,37 @@
           "body": "For the nonce for Evidence B/C, there are two options\n\noption 1: the Attesting Environment, or another entity inside the Attester will forward the nonce from the Verifier. \n\noption 2: the Attesting Environment generates the nonce_e for B and C, when it gets the Evidence from them, it includes them in the data structure (claim, Evidence_B(nonce_e), Evidence_C(nonce_e), nonce, meta_data(nonce_e,...),signature). Then the Verifier needs to trust the attesting environment in a certain way.\n\n_Originally posted by @junzhanghw in https://github.com/mcr/composite-attesters/pull/10#discussion_r2428134672_\n            ",
           "createdAt": "2025-10-14T17:11:07Z",
           "updatedAt": "2025-10-14T17:11:07Z"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "id": "I_kwDOPSxWv87UDOOA",
+      "title": "Consider the impact of live workload migrations",
+      "url": "https://github.com/mcr/composite-attesters/issues/18",
+      "state": "OPEN",
+      "author": "TheBankster",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "One of many issues that will arise from workload migrations would be the impact of any credentials issued to a workload. E.g. if a workload is located in Germany and received a credential with a \"location=Germany\" claims, and is live-migrated to a server in France, that would necessitate either 1) figuring out a way of preventing the migration or 2) invalidation of any credential containing a now-invalid claim.\nI'm sure other issues are also present.",
+      "createdAt": "2025-10-27T16:28:35Z",
+      "updatedAt": "2025-10-27T17:15:32Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "body": "The claim/AR has to be linked to the hypervisor, and the location=XYZ would, I think, be an endorsement on the physical device.",
+          "createdAt": "2025-10-27T16:49:20Z",
+          "updatedAt": "2025-10-27T16:49:20Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "body": "It may be mentioned as a security consideration.",
+          "createdAt": "2025-10-27T17:15:32Z",
+          "updatedAt": "2025-10-27T17:15:32Z"
         }
       ]
     }
