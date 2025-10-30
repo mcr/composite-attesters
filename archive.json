@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-28T00:30:51.282619+00:00",
+  "timestamp": "2025-10-30T00:32:53.792679+00:00",
   "repo": "mcr/composite-attesters",
   "labels": [
     {
@@ -147,7 +147,7 @@
       "labels": [],
       "body": "One of many issues that will arise from workload migrations would be the impact of any credentials issued to a workload. E.g. if a workload is located in Germany and received a credential with a \"location=Germany\" claims, and is live-migrated to a server in France, that would necessitate either 1) figuring out a way of preventing the migration or 2) invalidation of any credential containing a now-invalid claim.\nI'm sure other issues are also present.",
       "createdAt": "2025-10-27T16:28:35Z",
-      "updatedAt": "2025-10-27T17:15:32Z",
+      "updatedAt": "2025-10-29T07:06:57Z",
       "closedAt": null,
       "comments": [
         {
@@ -163,6 +163,20 @@
           "body": "It may be mentioned as a security consideration.",
           "createdAt": "2025-10-27T17:15:32Z",
           "updatedAt": "2025-10-27T17:15:32Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "body": "> It may be mentioned as a security consideration.\n\nIt needs to be more than that.   When the workload is moved, it needs to break a chain of signatures.\nSo really, we need a way to tie the Evidence and/or AR of a component to the lead attester.\nThis also suggests that we need to be clearer about how a physical host and VM/container/TEE are connected as composites.    That was actually my goal in starting this document, but I lost track of that!\n",
+          "createdAt": "2025-10-29T00:32:14Z",
+          "updatedAt": "2025-10-29T00:37:02Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "body": "> we need to be clearer about how a physical host and VM/container/TEE are connected as composites.\n\nThat would be a valuable thing to do. ",
+          "createdAt": "2025-10-29T07:06:57Z",
+          "updatedAt": "2025-10-29T07:06:57Z"
         }
       ]
     }
