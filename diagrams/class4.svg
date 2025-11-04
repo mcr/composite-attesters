@@ -1,13 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="496" width="464" viewBox="0 0 464 496" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px">
 <path d="M 8,128 L 8,464" fill="none" stroke="black"/>
 <path d="M 24,160 L 24,208" fill="none" stroke="black"/>
-<path d="M 72,216 L 72,384" fill="none" stroke="black"/>
+<path d="M 72,216 L 72,320" fill="none" stroke="black"/>
 <path d="M 112,160 L 112,208" fill="none" stroke="black"/>
-<path d="M 128,16 L 128,48" fill="none" stroke="black"/>
 <path d="M 160,288 L 160,336" fill="none" stroke="black"/>
-<path d="M 176,56 L 176,104" fill="none" stroke="black"/>
-<path d="M 216,16 L 216,48" fill="none" stroke="black"/>
-<path d="M 216,112 L 216,280" fill="none" stroke="black"/>
+<path d="M 216,344 L 216,384" fill="none" stroke="black"/>
 <path d="M 272,288 L 272,336" fill="none" stroke="black"/>
 <path d="M 280,16 L 280,48" fill="none" stroke="black"/>
 <path d="M 312,272 L 312,320" fill="none" stroke="black"/>
@@ -17,36 +14,29 @@
 <path d="M 368,328 L 368,384" fill="none" stroke="black"/>
 <path d="M 424,272 L 424,320" fill="none" stroke="black"/>
 <path d="M 456,128 L 456,464" fill="none" stroke="black"/>
-<path d="M 128,16 L 216,16" fill="none" stroke="black"/>
 <path d="M 280,16 L 368,16" fill="none" stroke="black"/>
-<path d="M 128,48 L 216,48" fill="none" stroke="black"/>
 <path d="M 280,48 L 368,48" fill="none" stroke="black"/>
 <path d="M 328,96 L 368,96" fill="none" stroke="black"/>
-<path d="M 176,112 L 216,112" fill="none" stroke="black"/>
-<path d="M 8,128 L 208,128" fill="none" stroke="black"/>
-<path d="M 224,128 L 360,128" fill="none" stroke="black"/>
+<path d="M 8,128 L 360,128" fill="none" stroke="black"/>
 <path d="M 376,128 L 456,128" fill="none" stroke="black"/>
 <path d="M 24,160 L 112,160" fill="none" stroke="black"/>
 <path d="M 24,208 L 112,208" fill="none" stroke="black"/>
 <path d="M 312,272 L 424,272" fill="none" stroke="black"/>
 <path d="M 160,288 L 272,288" fill="none" stroke="black"/>
-<path d="M 80,320 L 152,320" fill="none" stroke="black"/>
+<path d="M 72,320 L 152,320" fill="none" stroke="black"/>
 <path d="M 312,320 L 424,320" fill="none" stroke="black"/>
 <path d="M 160,336 L 272,336" fill="none" stroke="black"/>
-<path d="M 72,384 L 368,384" fill="none" stroke="black"/>
+<path d="M 216,384 L 256,384" fill="none" stroke="black"/>
+<path d="M 328,384 L 368,384" fill="none" stroke="black"/>
 <path d="M 8,464 L 456,464" fill="none" stroke="black"/>
 <polygon class="arrowhead" points="376,328 364,322.4 364,333.6 " fill="black" transform="rotate(270,368,328)"/>
 <polygon class="arrowhead" points="336,56 324,50.4 324,61.6 " fill="black" transform="rotate(270,328,56)"/>
-<polygon class="arrowhead" points="184,56 172,50.4 172,61.6 " fill="black" transform="rotate(270,176,56)"/>
 <polygon class="arrowhead" points="160,320 148,314.4 148,325.6 " fill="black" transform="rotate(0,152,320)"/>
 <g class="text">
-<text x="172" y="36">Verifier</text>
 <text x="324" y="36">Verifier</text>
-<text x="296" y="164">Evidence-Collecti</text>
-<text x="392" y="164">n CMW</text>
+<text x="272" y="164">Evidence-Collection CMW</text>
 <text x="68" y="180">Target A</text>
-<text x="296" y="180">1: CMW(EAT(Target</text>
-<text x="380" y="180">A)</text>
+<text x="264" y="180">1: CMW(EAT(Target A))</text>
 <text x="64" y="196">Environ</text>
 <text x="104" y="244">Collect</text>
 <text x="100" y="260">Claims</text>
@@ -54,5 +44,8 @@
 <text x="216" y="308">Attesting 1</text>
 <text x="368" y="308">Environment</text>
 <text x="216" y="324">Environment</text>
+<text x="288" y="388">Partial</text>
+<text x="292" y="404">Evidence</text>
+<text x="292" y="420">(signed)</text>
 </g>
 </svg>
