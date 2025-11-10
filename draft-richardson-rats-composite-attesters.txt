@@ -5,10 +5,10 @@
 RATS Working Group                                         M. Richardson
 Internet-Draft                                  Sandelman Software Works
 Intended status: Informational                               H. Birkholz
-Expires: 8 May 2026                                       Fraunhofer SIT
+Expires: 14 May 2026                                      Fraunhofer SIT
                                                             Y. Deshpande
                                                                      Arm
-                                                         4 November 2025
+                                                        10 November 2025
 
 
                     Taxonomy of Composite Attesters
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 May 2026.
+   This Internet-Draft will expire on 14 May 2026.
 
 Copyright Notice
 
