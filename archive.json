@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-30T00:32:53.792679+00:00",
+  "timestamp": "2025-11-11T00:33:13.259604+00:00",
   "repo": "mcr/composite-attesters",
   "labels": [
     {
@@ -177,6 +177,32 @@
           "body": "> we need to be clearer about how a physical host and VM/container/TEE are connected as composites.\n\nThat would be a valuable thing to do. ",
           "createdAt": "2025-10-29T07:06:57Z",
           "updatedAt": "2025-10-29T07:06:57Z"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "I_kwDOPSxWv87XGb0_",
+      "title": "concerns about sharing of nonces",
+      "url": "https://github.com/mcr/composite-attesters/issues/19",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "mcr"
+      ],
+      "labels": [],
+      "body": "There are some circumstances where a Verifier could provide a challenge/response nonce to the Lead Attester A, and it would be appropriate for A to provide the same nonce to Components B and C for freshness.  \nThere some other situations where this would be a security violation.\nThe details of why/when need to be teased out.\n",
+      "createdAt": "2025-11-10T16:28:45Z",
+      "updatedAt": "2025-11-10T16:30:56Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "body": "@gmandyam has some concerns.",
+          "createdAt": "2025-11-10T16:30:56Z",
+          "updatedAt": "2025-11-10T16:30:56Z"
         }
       ]
     }
@@ -870,15 +896,15 @@
       "url": "https://github.com/mcr/composite-attesters/pull/17",
       "state": "OPEN",
       "author": "junzhanghw",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "and also fix the typo of la grand to le grand in the acknowledgement part",
       "createdAt": "2025-10-21T07:49:41Z",
-      "updatedAt": "2025-10-21T07:49:41Z",
+      "updatedAt": "2025-11-10T16:59:33Z",
       "baseRepository": "mcr/composite-attesters",
       "baseRefName": "main",
-      "baseRefOid": "7ed33e7b1bbf970b4fa49589ef0c442544998afc",
+      "baseRefOid": "a06624368a62d6f596eb4e4e673a3fd207e94000",
       "headRepository": "junzhanghw/composite-attesters",
       "headRefName": "adding-line-before-verifier-le-petit",
       "headRefOid": "85f6c9c706bdbf059734d7c33a55d574c71beea8",
