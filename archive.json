@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-11T00:33:13.259604+00:00",
+  "timestamp": "2025-11-16T00:35:37.588814+00:00",
   "repo": "mcr/composite-attesters",
   "labels": [
     {
@@ -194,7 +194,7 @@
       "labels": [],
       "body": "There are some circumstances where a Verifier could provide a challenge/response nonce to the Lead Attester A, and it would be appropriate for A to provide the same nonce to Components B and C for freshness.  \nThere some other situations where this would be a security violation.\nThe details of why/when need to be teased out.\n",
       "createdAt": "2025-11-10T16:28:45Z",
-      "updatedAt": "2025-11-10T16:30:56Z",
+      "updatedAt": "2025-11-13T14:06:34Z",
       "closedAt": null,
       "comments": [
         {
@@ -203,6 +203,13 @@
           "body": "@gmandyam has some concerns.",
           "createdAt": "2025-11-10T16:30:56Z",
           "updatedAt": "2025-11-10T16:30:56Z"
+        },
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "There are some potential attacks\n\n1. The lead Attester A refuses to forward the nonce.\n2  The Lead Attester A changes the nonce.\n3. The lead Attester A caches and forwards one old nonce to component B and C.\n\nThese three attacks has similar effect, that the external Verifier does not receive the expected Evidence for the component B and C.  One way to mitigate this is to attest the code of the Lead Attester A, and send the nonce in together with the signature from the Verifier. ",
+          "createdAt": "2025-11-13T14:06:34Z",
+          "updatedAt": "2025-11-13T14:06:34Z"
         }
       ]
     }
