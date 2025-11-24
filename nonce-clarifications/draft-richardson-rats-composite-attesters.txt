@@ -2,13 +2,13 @@
 
 
 
-anima Working Group                                        M. Richardson
+RATS Working Group                                         M. Richardson
 Internet-Draft                                  Sandelman Software Works
-Intended status: Standards Track                             H. Birkholz
-Expires: 23 April 2026                                    Fraunhofer SIT
+Intended status: Informational                               H. Birkholz
+Expires: 28 May 2026                                      Fraunhofer SIT
                                                             Y. Deshpande
                                                                      Arm
-                                                         20 October 2025
+                                                        24 November 2025
 
 
                     Taxonomy of Composite Attesters
@@ -33,7 +33,7 @@ About This Document
    https://www.ietf.org/mailman/listinfo/rats/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/richardson/rats-composite-attesters.
+   https://github.com/mcr/composite-attesters.
 
 Status of This Memo
 
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 April 2026.
+   This Internet-Draft will expire on 28 May 2026.
 
 Copyright Notice
 
@@ -76,7 +76,7 @@ Table of Contents
      1.5.  Class 2 Composite/Hybrid Attester
      1.6.  Class 3B Composite Background-Check Attester
      1.7.  Class 3P Composite Passport-Model Attester
-     1.8.  Class 4 Composite Attester
+     1.8.  Class 4 Dual Composite Attester
      1.9.  Class 5 Mixed Composite Attester
    2.  Attestation Results as Evidence
    3.  Privacy Considerations
@@ -284,9 +284,9 @@ Table of Contents
       |  |       '--------->| Environment | |             .--------------.   |
       |  |                  '-------------' |<------------| Attester C   |   |
       |  |        Attester A                |  Evidence C |              |   |
-      |  '----------------------------------'             '--------------'   |
+      |  '-----------Lead Attester----------'             '--------------'   |
       |                                                                      |
-      .-------------------------------Lead Attester--------------------------.
+      .---------------------------Composite Device---------------------------.
 
                  Figure 2: Class 1 Composite Attester
 
@@ -456,7 +456,7 @@ Table of Contents
    their own firmware, such as Graphical Processors (GPU), Network
    Processors (NPU).
 
-1.8.  Class 4 Composite Attester
+1.8.  Class 4 Dual Composite Attester
 
    In certain systems, it is possible to have two independent Attesting
    Environments in an Attester to collect claims about a single Target
@@ -470,32 +470,32 @@ Table of Contents
    of the Attesting Environment can present Evidence collected by the
    other (but this is deployment specific).
 
-                            .----------.       .----------.
-                            | Verifier |       | Verifier |
-                            '----------'       '----------'
-                                  ^                  ^
-                                  |                  |
-                                  |                  -----.
-                                  -----.                  |
-             .-------------------------|------------------|----------.
-             |                         |                  |          |
-             | .----------.            | Evidence-Collecti|n CMW     |
-             | | Target A |            | 1: CMW(EAT(Target|A)        |
-             | | Environ  |            |                  |          |
-             | '----------'            |                  |          |
-             |       |                 |                  |          |
-             |       |Collect          |                  |          |
-             |       |Claims           |                  |          |
-             |       |                 |           .-------------.   |
+                                               .----------.
+                                               | Verifier |
+                                               '----------'
+                                                     ^
+                                                     |
+                                                     -----.
+                                                          |
+             .--------------------------------------------|----------.
+             |                                            |          |
+             | .----------.        Evidence-Collection CMW|          |
+             | | Target A |        1: CMW(EAT(Target A))  |          |
+             | | Environ  |                               |          |
+             | '----------'                               |          |
+             |       |                                    |          |
+             |       |Collect                             |          |
+             |       |Claims                              |          |
+             |       |                             .-------------.   |
              |       |          .-------------.    | Attesting 2 |   |
              |       |          | Attesting 1 |    | Environment |   |
-             |       |--------->| Environment |    '-------------'   |
-             |       |          '-------------'           ^          |
-             |       |                                    |          |
-             |       |                                    |          |
-             |       '------------------------------------'          |
-             |                                                       |
-             |                                                       |
+             |       '--------->| Environment |    '-------------'   |
+             |                  '-------------'           ^          |
+             |                         |                  |          |
+             |                         |                  |          |
+             |                         '-----Partial -----'          |
+             |                               Evidence                |
+             |                               (signed)                |
              |                                                       |
              |                                                       |
              '-------------------------------------------------------'
@@ -504,11 +504,19 @@ Table of Contents
 
    Example of one such system is a CPU system of a desktop from a Vendor
    X, which has its built in Attesting Environment, integrated into a
-   product Y which requires a mandatory TPM support.  In such situations
-   one can anchor the Roots of Trust of Vendor X's CPU Attestation using
-   a secondary Attesting Environment with the TPM Attestation.
-   Alternatively, generate a TPM Quote and anchor it to Root of Trust of
-   CPU Attestation based of Vendor X's Attesting Environment.
+   product Y which requires a mandatory TPM support.  (EDIT: This
+   example to be clarified)
+
+   There is an assumption that the Attesting Environment 1 (AE1)
+   "trusts" Attesting Environment 2 (AE2), which means that AE2 has to
+   verify the signature from AE1, otherwise AE2 can become a "signing
+   fool".  This verification can be based upon a local credential.
+
+   In such situations one can anchor the Roots of Trust of Vendor X's
+   CPU Attestation using a secondary Attesting Environment with the TPM
+   Attestation.  Alternatively, generate a TPM Quote and anchor it to
+   Root of Trust of CPU Attestation based of Vendor X's Attesting
+   Environment.
 
    A Verifier/RP may decide to direct the Attestation Request to an AE
    of choice to reflect the relevant subset of Evidence required for
@@ -552,29 +560,32 @@ Table of Contents
 
 5.  Nonce Architecture
 
-   In all clsses other than the class 0 and class 1, there are cases
-   that multiple (local or external) Verifiers exist in the system.  To
-   address the conflict between different nonces generated by different
-   Verifiers, there are possible candidate solutions as follows
-
-   -- Using one unique nonce from one external Verifier: This Verifier
-   initiates the attestation progress and other Verifiers use the same
-   nonce to challenge their corresponding Attesters.  To ensure the
-   integrity of the nonce, this nonce SHOULD be signed by this initial
-   Verifier.
-
-   -- Each Verifier uses their own nonce: The Evidence in such a case is
-   the mixing of certain Evidences and Attestation Result-as-Evidences.
-   The receiver of the Attestation Results (the Attester) can apply the
-   technique in [RFC9334], Appendix A.2 to ensure the freshness of the
-   Attestation Result-as-Evidences.
+   Class 0 Attester freshness handling follows procedure as documented
+   in [RFC9334], Section 10.  For Class 1 Composite Attester, the Lead
+   Attester, recieves the freshness parameter from the Verifer.  Lead
+   Attester conveys the same freshness parameter to the Component
+   Attesters.  This ensures the same freshness parameter is included in
+   each of the Component Evidences.  For Class 2 Composite/Hybrid
+   Attester case, the Lead Attester operates a Local Verifier itself.
+   As a result, the freshness of individual Component Evidence is the
+   responsibility of the Local Verifier.  The Lead Attester may include
+   a claim in the Attestation Results for the individual Components to
+   reflect that it has verified the freshness of the component.  For
+   Class 3P, the Lead Attester is responsible for communicating with
+   each of the Component Attester.  As a result, the specific freshness
+   protocol of each of the Component system may differ.  In the End the
+   Lead Attester may present a claim to the Lead Verifier that indicates
+   that freshness of individual components have been Verified.  For
+   Class 4 Dual Composite Attester, freshness handling follows procedure
+   as documented in [RFC9334], Section 10.
 
 6.  IANA Considerations
 
 7.  Acknowledgements
 
    Jun Zhang contributed the terms "Le Petit" and "La Grand" to qualify
-   Verifier.
+   Verifier, the original thought for Class 5 Composite Atteser and the
+   description of the Nonce architecture.
 
 8.  Changelog
 
