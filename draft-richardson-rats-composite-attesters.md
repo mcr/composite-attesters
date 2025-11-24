@@ -294,7 +294,7 @@ This ensures the same freshness parameter is included in each of the Component E
 For Class 2 Composite/Hybrid Attester case,  the Lead Attester operates a Local Verifier itself.
 As a result, the freshness of individual Component Evidence is the responsibility of the Local Verifier.
 The Lead Attester may include a claim in the Attestation Results for the individual Components to reflect that it has verified the freshness of the component.
-For Class 3P, the Lead Attester is responsible for communicating with each of the Component Attester. As a result, the specific freshness protocol of each of the Component system may differ. In the End the Lead Attester may present a claim to the Lead Verifier that indicates that freshness of individual components have been Verified.
+For Class 3P, the Lead Attester is responsible for communicating with each of the Component Verifier. As a result, the specific freshness protocol of each of the Component system may differ. In the End the Lead Attester may present a claim to the Lead Verifier that indicates that freshness of individual components have been Verified.
 For Class 4 Dual Composite Attester,  freshness handling follows procedure as documented in {{!RFC9334, Section 10}}.
 
 # IANA Considerations
