@@ -572,7 +572,7 @@ Table of Contents
    a claim in the Attestation Results for the individual Components to
    reflect that it has verified the freshness of the component.  For
    Class 3P, the Lead Attester is responsible for communicating with
-   each of the Component Attester.  As a result, the specific freshness
+   each of the Component Verifier.  As a result, the specific freshness
    protocol of each of the Component system may differ.  In the End the
    Lead Attester may present a claim to the Lead Verifier that indicates
    that freshness of individual components have been Verified.  For
