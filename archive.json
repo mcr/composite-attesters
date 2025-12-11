@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-25T00:31:41.166041+00:00",
+  "timestamp": "2025-12-11T00:34:50.343510+00:00",
   "repo": "mcr/composite-attesters",
   "labels": [
     {
@@ -934,7 +934,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-11-24T15:59:10Z",
-      "updatedAt": "2025-11-24T16:00:14Z",
+      "updatedAt": "2025-12-09T09:59:32Z",
       "baseRepository": "mcr/composite-attesters",
       "baseRefName": "main",
       "baseRefOid": "a06624368a62d6f596eb4e4e673a3fd207e94000",
