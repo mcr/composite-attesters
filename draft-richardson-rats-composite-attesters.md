@@ -31,6 +31,9 @@ author:
   name: Yogesh Deshpande
   org: Arm
   email: yogesh.deshpande@arm.com
+- ins: T Fossati
+  name: Thomas Fossati
+  org: Linaro
 
 normative:
   BCP14: RFC8174
@@ -52,6 +55,7 @@ This document further refines different kinds of RFC 9334 Composite Attesters.
 # Introduction
 
 This document clarifies and extends the meaning of Composite Attester from {{RFC9334, Section 3.3}}.
+The document represents various elements of Composite Attester, in terms of abstract notation to express generality and then provide specific example to aid the reader.
 
 ## Caveats of Current Definition
 
@@ -106,14 +110,127 @@ Verifier le petit:
 Verifier le grand:
 : (Or, `Le Grande Verificateur`). This is the Verifier that examines the arrangement and relationships between Components.
 
+## Notations
+
+### Objects
+
+#### Nodes {#nodes}
+
+##### Conveyer {#conveyer}
+
+~~~ aasvg
+  .---.
+  |   |
+  '---'
+~~~
+
+A Conveyer returns some kind of Conceptual Message(s).
+
+##### Attester {#attester}
+
+~~~ aasvg
+   .-------.
+  | te: TE  |
+  +---------+
+  | ak: AK  |
+   '-------'
+~~~
+
+An Attester may (typically) expose an interface ({{interface}}).
+
+* IN: ? handle[handle_sz], ? userdata[userdata_sz], ? claimsSelection
+* OUT: Evidence
+
+An Attester is a special kind of Conveyer.
+
+#### Connectors {#connectors}
+
+##### Interface {#interface}
+
+~~~ aasvg
+-+-
+ |
+~~~
+
+An Interface is connected to a Node and outputs some kind of RATS Conceptual Messages.
+An Interface input depends on the Node it is attached to.
+
+* IN: varies
+* OUT: RATS Conceptual Messages
+
+##### Chaining {#chaining}
+
+~~~ aasvg
+      .-.
+     | B |
+      '+'
+       | chained-to
+       v
+      .+.
+     | A |
+      '-'
+~~~
+
+Describe a chain-of-trust relation between two adjacent attesters within a layered attester arrangement.
+
+E.g., DICE, Arm CCA in delegated mode.
+
+##### Router {#router}
+
+##### Trusted HW Path {#twp}
+
+##### Collection
+
+
+~~~ aasvg
+  .------------.
+  |   Binder   |
+  '-+--------+-'
+    |        |
+    v        v
+   -+-      -+-
+    |        |
+   .+.     .-+-.
+  | A |    | B |
+   '-'     '---'
+~~~
+
+Describe the collection of CMs.
+
+A lead Attester is responsible for the binding function.
+
+Binder is one of:
+
+* Nonce Broadcast
+* Projection
+* Signature of the lead Attester
+
+
 ## Class 0 Composite Attester
 
 In this first, somewhat degenerate scenario, the Lead Attester has access to the entire memory/environment of all of the components.
+In this case, it is possible for the Lead Attesting Environment to collect Claims about each of the components without the components having to have their own Attesting Environment.
+
+The generic model for representing Class 0 Composite Attester is given below:
+
+~~~ aasvg
+    -+- API
+     |
+  .--+----.
+ | te: <>  |      .---------------.
+ +---------+----->| <>            |
+ | ak: LAK |      '-+-----------+-'
+  '-------'         |           |
+                  .-+-----.   .-+------.
+                 | te: VGA | | te: SCSI |
+                 +---------+ +----------+
+                 | ak: <>  | | ak: <>   |
+                  '-------'   '--------'
+~~~
+
 Examples of situations like this include classic PCI-buses, ISA-buses, VME, S100/IEEE 696-1983.
 In these situations, secondary components might not boot on their own.
 (It might even be that the lead environment (the chassis) will place code into RAM for these systems, with no ROM at all)
-
-In this case, it is possible for the Lead Attesting Environment to collect Claims about each of the components without the components having to have their own Attesting Environment.
 
 There is no Verifier le petit, since there are no components that can create Evidence other than the Lead Attester.
 
@@ -155,7 +272,7 @@ RFC 9334 gives the following example:
    generates Evidence from the Claims.
 ```
 
-The Lead Attester simply relays the Evidence along with its own:
+The Lead Attester simply collects the Evidence along with its own:
 
 ```
    Among these slots, only a "main" slot can communicate with the
@@ -167,9 +284,38 @@ The Lead Attester simply relays the Evidence along with its own:
    device, each slot is an Attester, and the main slot is the lead
    Attester.
 ```
+In certain scenarios, the Lead Attester may not have its own Evidence.
+
+When one or more Evidence is collected by a Lead Attester, it ensures that the collection has a Binding property, so that the message is secured.
+
+The following picture shows the general toplogoy of a Class 1 Attester.
+
+~~~ aasvg
+    -+- API
+     |
+  .--+----.
+ | te: A   |      .---------------.
+ +---------+----->| Binding=?     |
+ | ak: LAK |      '-+-----------+-'
+  '-------'         |           |
+                  .-+-----.   .-+------.
+                 | te: B   | | te: C    |
+                 +---------+ +----------+
+                 | ak: BK  | | ak: CK   |
+                  '-------'   '--------'
+~~~
+
+Note the Binding above can be acheived by:
+
+1. Having signature on the overall collection, to protect the integrity of the Evidence Collection
+
+2. The individual component Evidence (example B and C) be cryptographicslly linked to each other
 
 Note that the Lead Attester does *not* evaluate the Evidence, and does not run its own
 Verifier.
+
+The below figure is an example instance where Lead Attester also, has its own Evidence A, along with Component Evidence B & C, all just bundled together
+in a Evidence-Collection CMW.
 
 ~~~~ aasvg
 {::include diagrams/class1.txt}
@@ -187,6 +333,42 @@ The Lead Attester operates a Verifier itself.
 It evaluates the Components' Evidence against Reference Values, Endorsements, etc. producing *Attestation Results*
 These Attestation Results (or their selectively disclosed version: SD-CWT/SD-JWT)
 are then included as part of the Lead Attester's Evidence to it's Verifier.
+
+Below is a generic abstract representation of a Class 2 Attester, only internal components shown for the Attester
+
+~~~ aasvg
+
+                        |   .-.
+                  .----<+--+ B |
+.-----------.    |      |   '-'
+| Verifier  +----+
+'-----+-----'    |      |   .-.
+      |           '----<+--+ C |
+      |                 |   '-'
+      v
+.-----------.
+|    RP     +
++-----------+
+| Conveyer  |
+'-----+-----'
+      |
+      |
+      |
+     -+-
+      v
+      |
+    .-+-----------+-.
+    | Binding=?     |
+    '------+--------'
+           |
+         .-+------.
+        | te: <>   |
+        +----------+
+        | ak: LAK  |
+         '-+------'
+           |
+          -+-
+~~~
 
 ~~~~ aasvg
 {::include diagrams/class2.txt}
@@ -227,7 +409,7 @@ It needs to consider if the component has been assessed by a Verifier it trusts,
 ~~~~ aasvg
 {::include diagrams/class3P.txt}
 ~~~~
-{: #class3Pdiagram artwork-align="center" title="Class 3P Composite Password Attester"}
+{: #class3Pdiagram artwork-align="center" title="Class 3P Composite Passport Attester"}
 
 
 For instance, when accessing a vehicle such as a car, where each tire is it's own component, then a car with three wheels is not trusthworthy.  Most cars should have four wheels.  A car with five wheels might be acceptable, if at least one wheel is installed into the "spare" holder. (And, it may be of concern if the spare is flat, but the car can still be operated)
@@ -238,6 +420,18 @@ A more typical digital use case would involve a main CPU with a number of attach
 ## Class 4 Dual Composite Attester
 
 In certain systems, it is possible to have two independent Attesting Environments in an Attester to collect claims about a single Target Environment. In such cases, one of the Attesting Environment, acts as a Primary, while the other acts as a Secondary Attesting Environment.
+
+~~~ aasvg
+
+  .--+----.
+ | te: A   |
+ +---------+             ^
+ | ak:  AK |             |
+  '--+----'              |  Evidence
+     |  API          .---+---.
+     +------------->| ak: BK  |
+                     '-------'
+~~~
 
 The two Attesting Environments will have a fixed and collaborative structure where each can be responsible for a subset of Evidence. Because of the collaborative structure it may be arranged that either of the Attesting Environment can present Evidence collected by the other (but this is deployment specific).
 
