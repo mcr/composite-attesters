@@ -5,10 +5,12 @@
 RATS Working Group                                         M. Richardson
 Internet-Draft                                  Sandelman Software Works
 Intended status: Informational                               H. Birkholz
-Expires: 28 May 2026                                      Fraunhofer SIT
+Expires: 23 July 2026                                     Fraunhofer SIT
                                                             Y. Deshpande
                                                                      Arm
-                                                        24 November 2025
+                                                              T. Fossati
+                                                                  Linaro
+                                                         19 January 2026
 
 
                     Taxonomy of Composite Attesters
@@ -50,11 +52,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 May 2026.
+   This Internet-Draft will expire on 23 July 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -71,13 +73,15 @@ Table of Contents
    1.  Introduction
      1.1.  Caveats of Current Definition
      1.2.  Terminology
-     1.3.  Class 0 Composite Attester
-     1.4.  Class 1 Composite Attester
-     1.5.  Class 2 Composite/Hybrid Attester
-     1.6.  Class 3B Composite Background-Check Attester
-     1.7.  Class 3P Composite Passport-Model Attester
-     1.8.  Class 4 Dual Composite Attester
-     1.9.  Class 5 Mixed Composite Attester
+     1.3.  Notations
+       1.3.1.  Objects
+     1.4.  Class 0 Composite Attester
+     1.5.  Class 1 Composite Attester
+     1.6.  Class 2 Composite/Hybrid Attester
+     1.7.  Class 3B Composite Background-Check Attester
+     1.8.  Class 3P Composite Passport-Model Attester
+     1.9.  Class 4 Dual Composite Attester
+     1.10. Class 5 Mixed Composite Attester
    2.  Attestation Results as Evidence
    3.  Privacy Considerations
    4.  Security Considerations
@@ -93,7 +97,10 @@ Table of Contents
 1.  Introduction
 
    This document clarifies and extends the meaning of Composite Attester
-   from [RFC9334], Section 3.3.
+   from [RFC9334], Section 3.3.  The document represents various
+   elements of Composite Attester, in terms of abstract notation to
+   express generality and then provide specific example to aid the
+   reader.
 
 1.1.  Caveats of Current Definition
 
@@ -159,19 +166,126 @@ Table of Contents
       Verifier that examines the arrangement and relationships between
       Components.
 
-1.3.  Class 0 Composite Attester
+1.3.  Notations
+
+1.3.1.  Objects
+
+1.3.1.1.  Nodes
+
+1.3.1.1.1.  Conveyer
+
+     .---.
+     |   |
+     '---'
+
+   A Conveyer returns some kind of Conceptual Message(s).
+
+1.3.1.1.2.  Attester
+
+      .-------.
+     | te: TE  |
+     +---------+
+     | ak: AK  |
+      '-------'
+
+   An Attester may (typically) expose an interface (Section 1.3.1.2.1).
+
+   *  IN: ? handle[handle_sz], ? userdata[userdata_sz], ?
+      claimsSelection
+
+   *  OUT: Evidence
+
+   An Attester is a special kind of Conveyer.
+
+1.3.1.2.  Connectors
+
+1.3.1.2.1.  Interface
+
+   -+-
+    |
+
+   An Interface is connected to a Node and outputs some kind of RATS
+   Conceptual Messages.  An Interface input depends on the Node it is
+   attached to.
+
+   *  IN: varies
+
+   *  OUT: RATS Conceptual Messages
+
+1.3.1.2.2.  Chaining
+
+         .-.
+        | B |
+         '+'
+          | chained-to
+          v
+         .+.
+        | A |
+         '-'
+
+   Describe a chain-of-trust relation between two adjacent attesters
+   within a layered attester arrangement.
+
+   E.g., DICE, Arm CCA in delegated mode.
+
+1.3.1.2.3.  Router
+
+1.3.1.2.4.  Trusted HW Path
+
+1.3.1.2.5.  Collection
+
+     .------------.
+     |   Binder   |
+     '-+--------+-'
+       |        |
+       v        v
+      -+-      -+-
+       |        |
+      .+.     .-+-.
+     | A |    | B |
+      '-'     '---'
+
+   Describe the collection of CMs.
+
+   A lead Attester is responsible for the binding function.
+
+   Binder is one of:
+
+   *  Nonce Broadcast
+
+   *  Projection
+
+   *  Signature of the lead Attester
+
+1.4.  Class 0 Composite Attester
 
    In this first, somewhat degenerate scenario, the Lead Attester has
-   access to the entire memory/environment of all of the components.
+   access to the entire memory/environment of all of the components.  In
+   this case, it is possible for the Lead Attesting Environment to
+   collect Claims about each of the components without the components
+   having to have their own Attesting Environment.
+
+   The generic model for representing Class 0 Composite Attester is
+   given below:
+
+       -+- API
+        |
+     .--+----.
+    | te: <>  |      .---------------.
+    +---------+----->| <>            |
+    | ak: LAK |      '-+-----------+-'
+     '-------'         |           |
+                     .-+-----.   .-+------.
+                    | te: VGA | | te: SCSI |
+                    +---------+ +----------+
+                    | ak: <>  | | ak: <>   |
+                     '-------'   '--------'
+
    Examples of situations like this include classic PCI-buses, ISA-
    buses, VME, S100/IEEE 696-1983.  In these situations, secondary
    components might not boot on their own.  (It might even be that the
    lead environment (the chassis) will place code into RAM for these
    systems, with no ROM at all)
-
-   In this case, it is possible for the Lead Attesting Environment to
-   collect Claims about each of the components without the components
-   having to have their own Attesting Environment.
 
    There is no Verifier le petit, since there are no components that can
    create Evidence other than the Lead Attester.
@@ -238,7 +352,7 @@ Table of Contents
    expects to see.  So, a system with such interfaces would be a Class
    1.
 
-1.4.  Class 1 Composite Attester
+1.5.  Class 1 Composite Attester
 
    In this Class, each component or slot has its own Attesting
    Environment and hence produces its own signed Evidence.
@@ -251,7 +365,7 @@ Table of Contents
    as a TEE, collecting the Claims of its boot process, after which it
    generates Evidence from the Claims.
 
-   The Lead Attester simply relays the Evidence along with its own:
+   The Lead Attester simply collects the Evidence along with its own:
 
    Among these slots, only a "main" slot can communicate with the
    Verifier while other slots cannot.  However, other slots can
@@ -262,8 +376,40 @@ Table of Contents
    device, each slot is an Attester, and the main slot is the lead
    Attester.
 
+   In certain scenarios, the Lead Attester may not have its own
+   Evidence.  When one or more Evidence is collected by a Lead Attester,
+   it ensures that the collection has a Binding property, so that the
+   message is secured.
+
+   The following picture shows the general toplogoy of a Class 1
+   Attester.
+
+       -+- API
+        |
+     .--+----.
+    | te: A   |      .---------------.
+    +---------+----->| Binding=?     |
+    | ak: LAK |      '-+-----------+-'
+     '-------'         |           |
+                     .-+-----.   .-+------.
+                    | te: B   | | te: C    |
+                    +---------+ +----------+
+                    | ak: BK  | | ak: CK   |
+                     '-------'   '--------'
+
+   Note the Binding above can be acheived by : 1.  Having signature on
+   the overall collection, to protect the integrity of the Evidence
+   Collection 2.  The individual component Evidence (example B and C) be
+   cryptographicslly linked to each other 3.  The Lead Verifier, at
+   assembly generates a handle which is encoded in each component
+   Evidence
+
    Note that the Lead Attester does _not_ evaluate the Evidence, and
    does not run its own Verifier.
+
+   The below figure is an example instance where Lead Attester also, has
+   its own Evidence A, along with Component Evidence B & C, all just
+   bundled together in a Evidence-Collection CMW.
 
                              .----------.
                              | Verifier |
@@ -294,7 +440,7 @@ Table of Contents
    but has been stretched out to allow the relationship to other classes
    to be clearer.
 
-1.5.  Class 2 Composite/Hybrid Attester
+1.6.  Class 2 Composite/Hybrid Attester
 
    In this scenario, the Components relay their Evidence to the Lead
    Attester.  The Lead Attester operates a Verifier itself.  It
@@ -303,6 +449,36 @@ Table of Contents
    Results (or their selectively disclosed version: SD-CWT/SD-JWT) are
    then included as part of the Lead Attester's Evidence to it's
    Verifier.
+
+   Below is a generic abstract representation of a Class 2 Attester
+
+   .-----------.
+   | Verifier  |
+   '-+---------'
+     |       ^             |   .-.
+     v       |       .---->+--+ B |
+   .---------+-.    |      |   '-'
+   |    RP     +----+
+   +-----------+    |      |   .-.
+   | Conveyer  |     '---->+--+ C |
+   '-----+-----'    .-.    |   '-'
+         |         | A |
+         |          '+'
+         |           |
+        -+-         -+-
+         ^           ^
+         |           |
+       .-+-----------+-.
+       | Binding=?     |
+       '------+--------'
+              |
+            .-+------.
+           | te: <>   |
+           +----------+
+           | ak: LAK  |
+            '-+------'
+              |
+             -+-
 
                              .----------.
                              | Lead     |
@@ -345,7 +521,7 @@ Table of Contents
    Attesting environment.  Or they could be in a different environment,
    such as in a different TEE.
 
-1.6.  Class 3B Composite Background-Check Attester
+1.7.  Class 3B Composite Background-Check Attester
 
    In this scenario, the Components relay their Evidence to the Lead
    Attester.  The Lead Attester does _not_ operates a Verifier itself.
@@ -393,7 +569,7 @@ Table of Contents
    component attestation results in Class 1 is not included in the
    Evidence, while in this case, it is.
 
-1.7.  Class 3P Composite Passport-Model Attester
+1.8.  Class 3P Composite Passport-Model Attester
 
    In this scenario, the Components relay their Evidence to the Lead
    Attester.  The Lead Attester does _not_ operates a Verifier itself.
@@ -456,7 +632,7 @@ Table of Contents
    their own firmware, such as Graphical Processors (GPU), Network
    Processors (NPU).
 
-1.8.  Class 4 Dual Composite Attester
+1.9.  Class 4 Dual Composite Attester
 
    In certain systems, it is possible to have two independent Attesting
    Environments in an Attester to collect claims about a single Target
@@ -522,7 +698,7 @@ Table of Contents
    of choice to reflect the relevant subset of Evidence required for
    trust asssessment.
 
-1.9.  Class 5 Mixed Composite Attester
+1.10.  Class 5 Mixed Composite Attester
 
    As soon as there is more than one Component, it is reasonable that
    the different Components interact with the Lead Attester in different
@@ -560,24 +736,22 @@ Table of Contents
 
 5.  Nonce Architecture
 
-   Class 0 Attester freshness handling follows procedure as documented
-   in [RFC9334], Section 10.  For Class 1 Composite Attester, the Lead
-   Attester, recieves the freshness parameter from the Verifer.  Lead
-   Attester conveys the same freshness parameter to the Component
-   Attesters.  This ensures the same freshness parameter is included in
-   each of the Component Evidences.  For Class 2 Composite/Hybrid
-   Attester case, the Lead Attester operates a Local Verifier itself.
-   As a result, the freshness of individual Component Evidence is the
-   responsibility of the Local Verifier.  The Lead Attester may include
-   a claim in the Attestation Results for the individual Components to
-   reflect that it has verified the freshness of the component.  For
-   Class 3P, the Lead Attester is responsible for communicating with
-   each of the Component Verifier.  As a result, the specific freshness
-   protocol of each of the Component system may differ.  In the End the
-   Lead Attester may present a claim to the Lead Verifier that indicates
-   that freshness of individual components have been Verified.  For
-   Class 4 Dual Composite Attester, freshness handling follows procedure
-   as documented in [RFC9334], Section 10.
+   In all clsses other than the class 0 and class 1, there are cases
+   that multiple (local or external) Verifiers exist in the system.  To
+   address the conflict between different nonces generated by different
+   Verifiers, there are possible candidate solutions as follows
+
+   -- Using one unique nonce from one external Verifier: This Verifier
+   initiates the attestation progress and other Verifiers use the same
+   nonce to challenge their corresponding Attesters.  To ensure the
+   integrity of the nonce, this nonce SHOULD be signed by this initial
+   Verifier.
+
+   -- Each Verifier uses their own nonce: The Evidence in such a case is
+   the mixing of certain Evidences and Attestation Result-as-Evidences.
+   The receiver of the Attestation Results (the Attester) can apply the
+   technique in [RFC9334], Appendix A.2 to ensure the freshness of the
+   Attestation Result-as-Evidences.
 
 6.  IANA Considerations
 
@@ -625,3 +799,7 @@ Authors' Addresses
    Yogesh Deshpande
    Arm
    Email: yogesh.deshpande@arm.com
+
+
+   Thomas Fossati
+   Linaro
