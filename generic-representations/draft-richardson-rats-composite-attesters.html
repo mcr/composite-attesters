@@ -1713,9 +1713,9 @@ So, a system with such interfaces would be a Class 1.<a href="#section-1.4-10" c
    Evidence to the Verifier.  Therefore, the router is a composite
    device, each slot is an Attester, and the main slot is the lead
    Attester.
-</code><a href="#section-1.5-5" class="pilcrow">¶</a></p>
-<p id="section-1.5-6">In certain scenarios, the Lead Attester may not have its own Evidence.
-When one or more Evidence is collected by a Lead Attester, it ensures that the collection has a Binding property, so that the message is secured.<a href="#section-1.5-6" class="pilcrow">¶</a></p>
+</code>
+In certain scenarios, the Lead Attester may not have its own Evidence.<a href="#section-1.5-5" class="pilcrow">¶</a></p>
+<p id="section-1.5-6">When one or more Evidence is collected by a Lead Attester, it ensures that the collection has a Binding property, so that the message is secured.<a href="#section-1.5-6" class="pilcrow">¶</a></p>
 <p id="section-1.5-7">The following picture shows the general toplogoy of a Class 1 Attester.<a href="#section-1.5-7" class="pilcrow">¶</a></p>
 <div id="section-1.5-8">
           <div class="alignLeft art-svg artwork" id="section-1.5-8.1">
@@ -1775,18 +1775,26 @@ When one or more Evidence is collected by a Lead Attester, it ensures that the c
             </svg><a href="#section-1.5-8.1" class="pilcrow">¶</a>
 </div>
 </div>
-<p id="section-1.5-9">Note the Binding above can be acheived by :
-1. Having signature on the overall collection, to protect the integrity of the Evidence Collection
-2. The individual component Evidence (example B and C) be cryptographicslly linked to each other
-3. The Lead Verifier, at assembly generates a handle which is encoded in each component Evidence<a href="#section-1.5-9" class="pilcrow">¶</a></p>
-<p id="section-1.5-10">Note that the Lead Attester does <em>not</em> evaluate the Evidence, and does not run its own
-Verifier.<a href="#section-1.5-10" class="pilcrow">¶</a></p>
-<p id="section-1.5-11">The below figure is an example instance where Lead Attester also, has its own Evidence A, along with Component Evidence B &amp; C, all just bundled together
-in a Evidence-Collection CMW.<a href="#section-1.5-11" class="pilcrow">¶</a></p>
+<p id="section-1.5-9">Note the Binding above can be acheived by:<a href="#section-1.5-9" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-1.5-10">
+<li id="section-1.5-10.1">
+            <p id="section-1.5-10.1.1">Having signature on the overall collection, to protect the integrity of the Evidence Collection<a href="#section-1.5-10.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-1.5-10.2">
+            <p id="section-1.5-10.2.1">The individual component Evidence (example B and C) be cryptographicslly linked to each other<a href="#section-1.5-10.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-1.5-10.3">
+            <p id="section-1.5-10.3.1">The Lead Verifier, at assembly generates a handle which is encoded in each component Evidence<a href="#section-1.5-10.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ol>
+<p id="section-1.5-11">Note that the Lead Attester does <em>not</em> evaluate the Evidence, and does not run its own
+Verifier.<a href="#section-1.5-11" class="pilcrow">¶</a></p>
+<p id="section-1.5-12">The below figure is an example instance where Lead Attester also, has its own Evidence A, along with Component Evidence B &amp; C, all just bundled together
+in a Evidence-Collection CMW.<a href="#section-1.5-12" class="pilcrow">¶</a></p>
 <span id="name-class-1-composite-attester-2"></span><div id="class1diagram">
 <figure id="figure-2">
-          <div id="section-1.5-12.1">
-            <div class="alignCenter art-svg artwork" id="section-1.5-12.1.1">
+          <div id="section-1.5-13.1">
+            <div class="alignCenter art-svg artwork" id="section-1.5-13.1.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="400" width="584" viewBox="0 0 584 400" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 8,96 L 8,360" fill="none" stroke="black"></path>
                 <path d="M 32,112 L 32,336" fill="none" stroke="black"></path>
@@ -1864,14 +1872,14 @@ in a Evidence-Collection CMW.<a href="#section-1.5-11" class="pilcrow">¶</a></p
                   <text x="264" y="372">Composite</text>
                   <text x="332" y="372">Device</text>
                 </g>
-              </svg><a href="#section-1.5-12.1.1" class="pilcrow">¶</a>
+              </svg><a href="#section-1.5-13.1.1" class="pilcrow">¶</a>
 </div>
 </div>
 <figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
 <a href="#name-class-1-composite-attester-2" class="selfRef">Class 1 Composite Attester</a>
           </figcaption></figure>
 </div>
-<p id="section-1.5-13">This diagram is intended to be identical to Figure 4 of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>, but has been stretched out to allow the relationship to other classes to be clearer.<a href="#section-1.5-13" class="pilcrow">¶</a></p>
+<p id="section-1.5-14">This diagram is intended to be identical to Figure 4 of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>, but has been stretched out to allow the relationship to other classes to be clearer.<a href="#section-1.5-14" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="class-2-compositehybrid-attester">

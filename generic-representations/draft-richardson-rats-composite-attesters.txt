@@ -374,12 +374,12 @@ Table of Contents
    the final Evidence of the whole router, and conveys the final
    Evidence to the Verifier.  Therefore, the router is a composite
    device, each slot is an Attester, and the main slot is the lead
-   Attester.
+   Attester.  In certain scenarios, the Lead Attester may not have its
+   own Evidence.
 
-   In certain scenarios, the Lead Attester may not have its own
-   Evidence.  When one or more Evidence is collected by a Lead Attester,
-   it ensures that the collection has a Binding property, so that the
-   message is secured.
+   When one or more Evidence is collected by a Lead Attester, it ensures
+   that the collection has a Binding property, so that the message is
+   secured.
 
    The following picture shows the general toplogoy of a Class 1
    Attester.
@@ -397,12 +397,16 @@ Table of Contents
                     | ak: BK  | | ak: CK   |
                      '-------'   '--------'
 
-   Note the Binding above can be acheived by : 1.  Having signature on
-   the overall collection, to protect the integrity of the Evidence
-   Collection 2.  The individual component Evidence (example B and C) be
-   cryptographicslly linked to each other 3.  The Lead Verifier, at
-   assembly generates a handle which is encoded in each component
-   Evidence
+   Note the Binding above can be acheived by:
+
+   1.  Having signature on the overall collection, to protect the
+       integrity of the Evidence Collection
+
+   2.  The individual component Evidence (example B and C) be
+       cryptographicslly linked to each other
+
+   3.  The Lead Verifier, at assembly generates a handle which is
+       encoded in each component Evidence
 
    Note that the Lead Attester does _not_ evaluate the Evidence, and
    does not run its own Verifier.
