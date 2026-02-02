@@ -5,12 +5,12 @@
 RATS Working Group                                         M. Richardson
 Internet-Draft                                  Sandelman Software Works
 Intended status: Informational                               H. Birkholz
-Expires: 23 July 2026                                     Fraunhofer SIT
+Expires: 6 August 2026                                    Fraunhofer SIT
                                                             Y. Deshpande
                                                                      Arm
                                                               T. Fossati
                                                                   Linaro
-                                                         19 January 2026
+                                                         2 February 2026
 
 
                     Taxonomy of Composite Attesters
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 July 2026.
+   This Internet-Draft will expire on 6 August 2026.
 
 Copyright Notice
 
@@ -405,9 +405,6 @@ Table of Contents
    2.  The individual component Evidence (example B and C) be
        cryptographicslly linked to each other
 
-   3.  The Lead Verifier, at assembly generates a handle which is
-       encoded in each component Evidence
-
    Note that the Lead Attester does _not_ evaluate the Evidence, and
    does not run its own Verifier.
 
@@ -454,24 +451,28 @@ Table of Contents
    then included as part of the Lead Attester's Evidence to it's
    Verifier.
 
-   Below is a generic abstract representation of a Class 2 Attester
+   Below is a generic abstract representation of a Class 2 Attester,
+   only internal components shown for the Attester
 
+                               .-.
+                     .---->+--+ B |
+   .-----------.    |      |   '-'
+   | Verifier  +----+
+   '-----+-----'    |      |   .-.
+         |           '---->+--+ C |
+         |                     '-'
+         v
    .-----------.
-   | Verifier  |
-   '-+---------'
-     |       ^             |   .-.
-     v       |       .---->+--+ B |
-   .---------+-.    |      |   '-'
-   |    RP     +----+
-   +-----------+    |      |   .-.
-   | Conveyer  |     '---->+--+ C |
-   '-----+-----'    .-.    |   '-'
-         |         | A |
-         |          '+'
-         |           |
-        -+-         -+-
-         ^           ^
-         |           |
+   |    RP     +
+   +-----------+
+   | Conveyer  |
+   '-----+-----'
+         |
+         |
+         |
+        -+-
+         ^
+         |
        .-+-----------+-.
        | Binding=?     |
        '------+--------'
@@ -622,7 +623,7 @@ Table of Contents
                             | Verifier(s)   |
                             '---------------'
 
-            Figure 5: Class 3P Composite Password Attester
+            Figure 5: Class 3P Composite Passport Attester
 
    For instance, when accessing a vehicle such as a car, where each tire
    is it's own component, then a car with three wheels is not
@@ -643,6 +644,15 @@ Table of Contents
    Environment.  In such cases, one of the Attesting Environment, acts
    as a Primary, while the other acts as a Secondary Attesting
    Environment.
+
+     .--+----.
+    | te: A   |
+    +---------+             ^
+    | ak:  AK |             |
+     '--+----'              |  Evidence
+        |  API          .---+---.
+       -+------------->| ak: BK  |
+                        '-------'
 
    The two Attesting Environments will have a fixed and collaborative
    structure where each can be responsible for a subset of Evidence.
