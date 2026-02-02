@@ -454,13 +454,13 @@ Table of Contents
    Below is a generic abstract representation of a Class 2 Attester,
    only internal components shown for the Attester
 
-                               .-.
-                     .---->+--+ B |
+                           |   .-.
+                     .----<+--+ B |
    .-----------.    |      |   '-'
    | Verifier  +----+
    '-----+-----'    |      |   .-.
-         |           '---->+--+ C |
-         |                     '-'
+         |           '----<+--+ C |
+         |                 |   '-'
          v
    .-----------.
    |    RP     +
@@ -471,7 +471,7 @@ Table of Contents
          |
          |
         -+-
-         ^
+         v
          |
        .-+-----------+-.
        | Binding=?     |
@@ -651,7 +651,7 @@ Table of Contents
     | ak:  AK |             |
      '--+----'              |  Evidence
         |  API          .---+---.
-       -+------------->| ak: BK  |
+        +------------->| ak: BK  |
                         '-------'
 
    The two Attesting Environments will have a fixed and collaborative
