@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-11T00:34:50.343510+00:00",
+  "timestamp": "2026-02-03T00:43:44.180595+00:00",
   "repo": "mcr/composite-attesters",
   "labels": [
     {
@@ -212,6 +212,22 @@
           "updatedAt": "2025-11-13T14:06:34Z"
         }
       ]
+    },
+    {
+      "number": 21,
+      "id": "I_kwDOPSxWv87npZiZ",
+      "title": "Draft Review Comments from Antoine Poulain",
+      "url": "https://github.com/mcr/composite-attesters/issues/21",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "In Terminology:\n    - in Local verifier: appraisal is done according to an Apprasial policy for Evidence ?\n    But which entity drafts this policy ? Who is the Verifier Owner of a Local Verifier ?\n    - \"Le Grande Verificateur\" in should be \"Le Grand Verificateur\" (masculine adjective in French)\n    Same in \"Acknowledgements\", \"La Grand\" should be \"Le Grand\".\nIn Connectors -> Chaining:\n    - Specify the trust relation between A and B. Like B is a target environment for A ?\n    - What is meant by adjacent ? Does it means that there exist a physical communication path between the components ?\nIn Connectors -> Router:\n    - Router is used for transit when two components are not \"adjacent\" ? To create a \"route\" ?\nIn Connectors -> Collection:\n    - CM acronym not introduced for Conceptual Message.\n    - provide a small explanation about what is meant by binding when talking about collections and\n        what it is used for. It is mentioned in \"Class 1\" section that the binding is used to secure the message. But how does a binding secures a message when the binding is something else than a signature ?\n    - provide small explanation to state how each binder presented can be used for binding.\nIn Class 0 diagram:\n    - boot rom is mesured ? what is boot rom here ? is it the boot rom of the RTM ? if yes, this measurement is not needed right (there may be an endorsement for it). \nIn Class 1 diagram:\n    - looks like the class1.svg diagram has a problem: the lead attester is not represented correctly.\nIn class 2:\n    - The Verifier is not a target environment for an attesting environment ? An AR from a verifier can only be trusted once the Verifier has been verified no ?\nIn Class 2 diagram:\n    - it is written Evidence(Target A) and not Evidence(Attester A) like in class 1 diagram. Why this difference ?\nIn Class 3P:\n    - \"It [the Lead Attester's Verifier] needs to consider if the component has been assessed by a Verifier it trusts\"\n    You mean that the Lead verifier trusts the component Verifier or that the component trusts the component Verifier ?\n    In the first case, where is this trust relation specified ? Is it in the Lead attester's Appraisal Policy for Evidence ?\nClass 4:\n    - Why is there a need for one of the attesting to be a Primary and the other a Secondary ?\n    Can they bot be at the same \"level\" and each collect some claims which in the end form\n    a complete claim set for the target environment ? In the Class 4 diagram, it is shown that\n    the Primary attesting environment relays partial evidence to the Secondary one. So I understand that these attesting environments may have different capabilities and therefore should be distinguished.\n    But can there also be a case where attesting environment 1 and attesting environment 2 are working on the same level, each producing partial evidence for the same target environment and both relaying their partial evidence to a Verifier ?\n\nOverall: \n    - RATS work is pretty vast for new comers therefore (attestation/RATS-related) acronyms used in the document should always be explicited at least once (CM, LAK, RP) even if it is obvious for readers already familiar with RATS.\n    - Whenever there is a diagram, there should be a corresponding description that links the scenario represented in the diagram with the named entities (A, B, C, RP, etc.) visible in the diagram.\n    - Proposition: (if needed) add basic trust assumptions depending on the composite device class\n        (e.g., there must be at least an attesting environment with an RTM, etc.).\n    - Proposition: add concrete examples of the structure of CoRIM/Evidence documents/collection corresponding to composite Attester structure.\n",
+      "createdAt": "2026-02-02T14:56:21Z",
+      "updatedAt": "2026-02-02T14:56:21Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -968,6 +984,32 @@
           ]
         }
       ]
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDOPSxWv87A8CgO",
+      "title": "Add generic representations of Composite Attester Class",
+      "url": "https://github.com/mcr/composite-attesters/pull/22",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-02-02T14:56:36Z",
+      "updatedAt": "2026-02-02T17:24:42Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "a06624368a62d6f596eb4e4e673a3fd207e94000",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "generic-representations",
+      "headRefOid": "42aeef3563463d124d32b8b0dc64cf6d0a05295e",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
