@@ -5,10 +5,10 @@
 RATS Working Group                                         M. Richardson
 Internet-Draft                                  Sandelman Software Works
 Intended status: Informational                               H. Birkholz
-Expires: 14 May 2026                                      Fraunhofer SIT
+Expires: 20 August 2026                                   Fraunhofer SIT
                                                             Y. Deshpande
                                                                      Arm
-                                                        10 November 2025
+                                                        16 February 2026
 
 
                     Taxonomy of Composite Attesters
@@ -50,11 +50,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 May 2026.
+   This Internet-Draft will expire on 20 August 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -99,16 +99,16 @@ Table of Contents
 
    [RFC9334], Section 3.3 says:
 
-   ``` A composite device is an entity composed of multiple sub-entities
-   such that its trustworthiness has to be determined by the appraisal
-   of all these sub-entities.
-
-   Each sub-entity has at least one Attesting Environment collecting the
-   Claims from at least one Target Environment.  Then, this sub-entity
-   generates Evidence about its trustworthiness; therefore, each sub-
-   entity can be called an "Attester".  Among all the Attesters, there
-   may be only some that have the ability to communicate with the
-   Verifier while others do not. ```
+   |  A composite device is an entity composed of multiple sub-entities
+   |  such that its trustworthiness has to be determined by the
+   |  appraisal of all these sub-entities.
+   |  
+   |  Each sub-entity has at least one Attesting Environment collecting
+   |  the Claims from at least one Target Environment.  Then, this sub-
+   |  entity generates Evidence about its trustworthiness; therefore,
+   |  each sub- entity can be called an "Attester".  Among all the
+   |  Attesters, there may be only some that have the ability to
+   |  communicate with the Verifier while others do not.
 
    In this description, it was left vague as to whether or not each
    Attesting Environment signs the Evidence that it generates, and
@@ -151,11 +151,11 @@ Table of Contents
       authenticity of the end-point.  This could involve a signature, or
       require physical security of that end-point.  Verifier le petit:
 
-      (Or, Le Petit Verificateur).  This is the Verifier that examines
+      (Or, "Le Petit Verificateur").  This is the Verifier that examines
       the Component Evidence.  This may treat the Lead Attester as a
       component.
 
-   Verifier le grand:  (Or, Le Grande Verificateur).  This is the
+   Verifier le grand:  (Or, "Le Grande Verificateur").  This is the
       Verifier that examines the arrangement and relationships between
       Components.
 
@@ -245,22 +245,22 @@ Table of Contents
 
    RFC 9334 gives the following example:
 
-   For example, a carrier-grade router consists of a chassis and
-   multiple slots.  The trustworthiness of the router depends on all its
-   slots' trustworthiness.  Each slot has an Attesting Environment, such
-   as a TEE, collecting the Claims of its boot process, after which it
-   generates Evidence from the Claims.
+   |  For example, a carrier-grade router consists of a chassis and
+   |  multiple slots.  The trustworthiness of the router depends on all
+   |  its slots' trustworthiness.  Each slot has an Attesting
+   |  Environment, such as a TEE, collecting the Claims of its boot
+   |  process, after which it generates Evidence from the Claims.
 
    The Lead Attester simply relays the Evidence along with its own:
 
-   Among these slots, only a "main" slot can communicate with the
-   Verifier while other slots cannot.  However, other slots can
-   communicate with the main slot by the links between them inside the
-   router.  The main slot collects the Evidence of other slots, produces
-   the final Evidence of the whole router, and conveys the final
-   Evidence to the Verifier.  Therefore, the router is a composite
-   device, each slot is an Attester, and the main slot is the lead
-   Attester.
+   |  Among these slots, only a "main" slot can communicate with the
+   |  Verifier while other slots cannot.  However, other slots can
+   |  communicate with the main slot by the links between them inside
+   |  the router.  The main slot collects the Evidence of other slots,
+   |  produces the final Evidence of the whole router, and conveys the
+   |  final Evidence to the Verifier.  Therefore, the router is a
+   |  composite device, each slot is an Attester, and the main slot is
+   |  the lead Attester.
 
    Note that the Lead Attester does _not_ evaluate the Evidence, and
    does not run its own Verifier.
@@ -565,17 +565,17 @@ Table of Contents
    address the conflict between different nonces generated by different
    Verifiers, there are possible candidate solutions as follows
 
-   -- Using one unique nonce from one external Verifier: This Verifier
-   initiates the attestation progress and other Verifiers use the same
-   nonce to challenge their corresponding Attesters.  To ensure the
-   integrity of the nonce, this nonce SHOULD be signed by this initial
-   Verifier.
+   *  Using one unique nonce from one external Verifier: This Verifier
+      initiates the attestation progress and other Verifiers use the
+      same nonce to challenge their corresponding Attesters.  To ensure
+      the integrity of the nonce, this nonce SHOULD be signed by this
+      initial Verifier.
 
-   -- Each Verifier uses their own nonce: The Evidence in such a case is
-   the mixing of certain Evidences and Attestation Result-as-Evidences.
-   The receiver of the Attestation Results (the Attester) can apply the
-   technique in [RFC9334], Appendix A.2 to ensure the freshness of the
-   Attestation Result-as-Evidences.
+   *  Each Verifier uses their own nonce: The Evidence in such a case is
+      the mixing of certain Evidences and Attestation Result-as-
+      Evidences.  The receiver of the Attestation Results (the Attester)
+      can apply the technique in [RFC9334], Appendix A.2 to ensure the
+      freshness of the Attestation Result-as-Evidences.
 
 6.  IANA Considerations
 

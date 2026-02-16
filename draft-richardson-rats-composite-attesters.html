@@ -19,14 +19,14 @@
     Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
-    intervaltree 3.1.0
+    intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 5.3.1
-    platformdirs 4.5.0
+    lxml 6.0.2
+    platformdirs 4.5.1
     pycountry 24.6.1
-    PyYAML 6.0.2
+    PyYAML 6.0.3
     requests 2.32.5
-    wcwidth 0.2.14
+    wcwidth 0.3.0
 -->
 <link href="draft-richardson-rats-composite-attesters.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -167,7 +167,7 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Oxygen Mono';
@@ -175,7 +175,8 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 }
 
 @font-face {
@@ -567,6 +568,7 @@ aside, blockquote {
 }
 blockquote {
   margin: 1em 0;
+  border-left: 2px var(--pilcrow-strong) solid;
 }
 cite {
   display: block;
@@ -637,7 +639,7 @@ a.pilcrow {
   }
 }
 @media not print {
-  :hover > a.pilcrow {
+  :hover > a.pilcrow, a.pilcrow:focus {
     opacity: 1;
   }
   a.pilcrow[href]:hover {
@@ -1045,11 +1047,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">composites</td>
-<td class="right">November 2025</td>
+<td class="right">February 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Richardson, et al.</td>
-<td class="center">Expires 14 May 2026</td>
+<td class="center">Expires 20 August 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1062,12 +1064,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-richardson-rats-composite-attesters-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-11-10" class="published">10 November 2025</time>
+<time datetime="2026-02-16" class="published">16 February 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-05-14">14 May 2026</time></dd>
+<dd class="expires"><time datetime="2026-08-20">20 August 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1124,7 +1126,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 14 May 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 20 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1133,7 +1135,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2025 IETF Trust and the persons identified as the
+            Copyright (c) 2026 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1236,18 +1238,18 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-caveats-of-current-definiti" class="section-name selfRef">Caveats of Current Definition</a>
         </h3>
 <p id="section-1.1-1"><span>[<a href="#RFC9334" class="cite xref">RFC9334</a>], <a href="https://rfc-editor.org/rfc/rfc9334#section-3.3" class="relref">Section 3.3</a></span> says:<a href="#section-1.1-1" class="pilcrow">¶</a></p>
-<p id="section-1.1-2">```
-   A composite device is an entity composed of multiple sub-entities
-   such that its trustworthiness has to be determined by the appraisal
-   of all these sub-entities.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
-<p id="section-1.1-3">Each sub-entity has at least one Attesting Environment collecting the
-   Claims from at least one Target Environment.  Then, this sub-entity
-   generates Evidence about its trustworthiness; therefore, each sub-
-   entity can be called an "Attester".  Among all the Attesters, there
-   may be only some that have the ability to communicate with the
-   Verifier while others do not.
-```<a href="#section-1.1-3" class="pilcrow">¶</a></p>
-<p id="section-1.1-4">In this description, it was left vague as to whether or not each Attesting Environment signs the Evidence that it generates, and whether or not the Evidence is evaluated by a Verifier operated by the Lead Attester, or if it's passed by the Lead Attester along with the Evidence from the Lead Target Environment.<a href="#section-1.1-4" class="pilcrow">¶</a></p>
+<blockquote id="section-1.1-2">
+          <p id="section-1.1-2.1">A composite device is an entity composed of multiple sub-entities
+such that its trustworthiness has to be determined by the appraisal
+of all these sub-entities.<a href="#section-1.1-2.1" class="pilcrow">¶</a></p>
+<p id="section-1.1-2.2">Each sub-entity has at least one Attesting Environment collecting the
+Claims from at least one Target Environment.  Then, this sub-entity
+generates Evidence about its trustworthiness; therefore, each sub-
+entity can be called an "Attester".  Among all the Attesters, there
+may be only some that have the ability to communicate with the
+Verifier while others do not.<a href="#section-1.1-2.2" class="pilcrow">¶</a></p>
+</blockquote>
+<p id="section-1.1-3">In this description, it was left vague as to whether or not each Attesting Environment signs the Evidence that it generates, and whether or not the Evidence is evaluated by a Verifier operated by the Lead Attester, or if it's passed by the Lead Attester along with the Evidence from the Lead Target Environment.<a href="#section-1.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="terminology">
@@ -1304,12 +1306,12 @@ Verifier le petit:<a href="#section-1.2-1.18.1" class="pilcrow">¶</a></p>
           <dd class="break"></dd>
 <dt id="section-1.2-1.19"></dt>
           <dd style="margin-left: 1.5em" id="section-1.2-1.20">
-            <p id="section-1.2-1.20.1">(Or, <code>Le Petit Verificateur</code>).  This is the Verifier that examines the Component Evidence.  This may treat the Lead Attester as a component.<a href="#section-1.2-1.20.1" class="pilcrow">¶</a></p>
+            <p id="section-1.2-1.20.1">(Or, "Le Petit Verificateur").  This is the Verifier that examines the Component Evidence.  This may treat the Lead Attester as a component.<a href="#section-1.2-1.20.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-1.2-1.21">Verifier le grand:</dt>
           <dd style="margin-left: 1.5em" id="section-1.2-1.22">
-            <p id="section-1.2-1.22.1">(Or, <code>Le Grande Verificateur</code>). This is the Verifier that examines the arrangement and relationships between Components.<a href="#section-1.2-1.22.1" class="pilcrow">¶</a></p>
+            <p id="section-1.2-1.22.1">(Or, "Le Grande Verificateur"). This is the Verifier that examines the arrangement and relationships between Components.<a href="#section-1.2-1.22.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
@@ -1416,24 +1418,24 @@ So, a system with such interfaces would be a Class 1.<a href="#section-1.3-8" cl
         </h3>
 <p id="section-1.4-1">In this Class, each component or slot has its own Attesting Environment and hence produces its own signed Evidence.<a href="#section-1.4-1" class="pilcrow">¶</a></p>
 <p id="section-1.4-2">RFC 9334 gives the following example:<a href="#section-1.4-2" class="pilcrow">¶</a></p>
-<p id="section-1.4-3"><code>
-   For example, a carrier-grade router consists of a chassis and
-   multiple slots.  The trustworthiness of the router depends on all its
-   slots' trustworthiness.  Each slot has an Attesting Environment, such
-   as a TEE, collecting the Claims of its boot process, after which it
-   generates Evidence from the Claims.
-</code><a href="#section-1.4-3" class="pilcrow">¶</a></p>
+<blockquote id="section-1.4-3">
+          <p id="section-1.4-3.1">For example, a carrier-grade router consists of a chassis and
+multiple slots.  The trustworthiness of the router depends on all its
+slots' trustworthiness.  Each slot has an Attesting Environment, such
+as a TEE, collecting the Claims of its boot process, after which it
+generates Evidence from the Claims.<a href="#section-1.4-3.1" class="pilcrow">¶</a></p>
+</blockquote>
 <p id="section-1.4-4">The Lead Attester simply relays the Evidence along with its own:<a href="#section-1.4-4" class="pilcrow">¶</a></p>
-<p id="section-1.4-5"><code>
-   Among these slots, only a "main" slot can communicate with the
-   Verifier while other slots cannot.  However, other slots can
-   communicate with the main slot by the links between them inside the
-   router.  The main slot collects the Evidence of other slots, produces
-   the final Evidence of the whole router, and conveys the final
-   Evidence to the Verifier.  Therefore, the router is a composite
-   device, each slot is an Attester, and the main slot is the lead
-   Attester.
-</code><a href="#section-1.4-5" class="pilcrow">¶</a></p>
+<blockquote id="section-1.4-5">
+          <p id="section-1.4-5.1">Among these slots, only a "main" slot can communicate with the
+Verifier while other slots cannot.  However, other slots can
+communicate with the main slot by the links between them inside the
+router.  The main slot collects the Evidence of other slots, produces
+the final Evidence of the whole router, and conveys the final
+Evidence to the Verifier.  Therefore, the router is a composite
+device, each slot is an Attester, and the main slot is the lead
+Attester.<a href="#section-1.4-5.1" class="pilcrow">¶</a></p>
+</blockquote>
 <p id="section-1.4-6">Note that the Lead Attester does <em>not</em> evaluate the Evidence, and does not run its own
 Verifier.<a href="#section-1.4-6" class="pilcrow">¶</a></p>
 <span id="name-class-1-composite-attester-2"></span><div id="class1diagram">
@@ -1999,8 +2001,14 @@ This is very much different and <em>distinct</em> from <span>[<a href="#RFC9334"
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-nonce-architecture" class="section-name selfRef">Nonce Architecture</a>
       </h2>
 <p id="section-5-1">In all clsses other than the class 0 and class 1, there are cases that multiple (local or external) Verifiers exist in the system. To address the conflict between different nonces generated by different Verifiers, there are possible candidate solutions as follows<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2">-- Using one unique nonce from one external Verifier: This Verifier initiates the attestation progress and other Verifiers use the same nonce to challenge their corresponding Attesters. To ensure the integrity of the nonce, this nonce SHOULD be signed by this initial Verifier.<a href="#section-5-2" class="pilcrow">¶</a></p>
-<p id="section-5-3">-- Each Verifier uses their own nonce: The Evidence in such a case is the mixing of certain Evidences and Attestation Result-as-Evidences. The receiver of the Attestation Results (the Attester) can apply the technique in <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>], <a href="https://rfc-editor.org/rfc/rfc9334#appendix-A.2" class="relref">Appendix A.2</a></span> to ensure the freshness of the Attestation Result-as-Evidences.<a href="#section-5-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5-2.1">
+          <p id="section-5-2.1.1">Using one unique nonce from one external Verifier: This Verifier initiates the attestation progress and other Verifiers use the same nonce to challenge their corresponding Attesters. To ensure the integrity of the nonce, this nonce SHOULD be signed by this initial Verifier.<a href="#section-5-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-5-2.2">
+          <p id="section-5-2.2.1">Each Verifier uses their own nonce: The Evidence in such a case is the mixing of certain Evidences and Attestation Result-as-Evidences. The receiver of the Attestation Results (the Attester) can apply the technique in <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>], <a href="https://rfc-editor.org/rfc/rfc9334#appendix-A.2" class="relref">Appendix A.2</a></span> to ensure the freshness of the Attestation Result-as-Evidences.<a href="#section-5-2.2.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
 </section>
 </div>
 <div id="iana-considerations">
