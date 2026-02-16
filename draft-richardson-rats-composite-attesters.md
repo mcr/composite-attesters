@@ -57,18 +57,17 @@ This document clarifies and extends the meaning of Composite Attester from {{RFC
 
 {{RFC9334, Section 3.3}} says:
 
-```
-   A composite device is an entity composed of multiple sub-entities
-   such that its trustworthiness has to be determined by the appraisal
-   of all these sub-entities.
-
-   Each sub-entity has at least one Attesting Environment collecting the
-   Claims from at least one Target Environment.  Then, this sub-entity
-   generates Evidence about its trustworthiness; therefore, each sub-
-   entity can be called an "Attester".  Among all the Attesters, there
-   may be only some that have the ability to communicate with the
-   Verifier while others do not.
-```
+{: quote}
+> A composite device is an entity composed of multiple sub-entities
+> such that its trustworthiness has to be determined by the appraisal
+> of all these sub-entities.
+>
+> Each sub-entity has at least one Attesting Environment collecting the
+> Claims from at least one Target Environment.  Then, this sub-entity
+> generates Evidence about its trustworthiness; therefore, each sub-
+> entity can be called an "Attester".  Among all the Attesters, there
+> may be only some that have the ability to communicate with the
+> Verifier while others do not.
 
 In this description, it was left vague as to whether or not each Attesting Environment signs the Evidence that it generates, and whether or not the Evidence is evaluated by a Verifier operated by the Lead Attester, or if it's passed by the Lead Attester along with the Evidence from the Lead Target Environment.
 
@@ -146,27 +145,24 @@ In this Class, each component or slot has its own Attesting Environment and henc
 
 RFC 9334 gives the following example:
 
-
-```
-   For example, a carrier-grade router consists of a chassis and
-   multiple slots.  The trustworthiness of the router depends on all its
-   slots' trustworthiness.  Each slot has an Attesting Environment, such
-   as a TEE, collecting the Claims of its boot process, after which it
-   generates Evidence from the Claims.
-```
+{:quote}
+> For example, a carrier-grade router consists of a chassis and
+> multiple slots.  The trustworthiness of the router depends on all its
+> slots' trustworthiness.  Each slot has an Attesting Environment, such
+> as a TEE, collecting the Claims of its boot process, after which it
+> generates Evidence from the Claims.
 
 The Lead Attester simply relays the Evidence along with its own:
 
-```
-   Among these slots, only a "main" slot can communicate with the
-   Verifier while other slots cannot.  However, other slots can
-   communicate with the main slot by the links between them inside the
-   router.  The main slot collects the Evidence of other slots, produces
-   the final Evidence of the whole router, and conveys the final
-   Evidence to the Verifier.  Therefore, the router is a composite
-   device, each slot is an Attester, and the main slot is the lead
-   Attester.
-```
+{:quote}
+> Among these slots, only a "main" slot can communicate with the
+> Verifier while other slots cannot.  However, other slots can
+> communicate with the main slot by the links between them inside the
+> router.  The main slot collects the Evidence of other slots, produces
+> the final Evidence of the whole router, and conveys the final
+> Evidence to the Verifier.  Therefore, the router is a composite
+> device, each slot is an Attester, and the main slot is the lead
+> Attester.
 
 Note that the Lead Attester does *not* evaluate the Evidence, and does not run its own
 Verifier.
