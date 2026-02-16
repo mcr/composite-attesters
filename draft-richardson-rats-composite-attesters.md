@@ -100,10 +100,10 @@ Local Verifier:
 Local Validation:
 : in some classes, Evidence is passed around, and must remain integral.  Local Validation involves checking the authenticity of the end-point.   This could involve a signature, or require physical security of that end-point.
 Verifier le petit:
-: (Or, `Le Petit Verificateur`).  This is the Verifier that examines the Component Evidence.  This may treat the Lead Attester as a component.
+: (Or, "Le Petit Verificateur").  This is the Verifier that examines the Component Evidence.  This may treat the Lead Attester as a component.
 
 Verifier le grand:
-: (Or, `Le Grande Verificateur`). This is the Verifier that examines the arrangement and relationships between Components.
+: (Or, "Le Grande Verificateur"). This is the Verifier that examines the arrangement and relationships between Components.
 
 ## Class 0 Composite Attester
 
