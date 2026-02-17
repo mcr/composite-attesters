@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-03T00:43:44.180595+00:00",
+  "timestamp": "2026-02-17T00:43:23.245778+00:00",
   "repo": "mcr/composite-attesters",
   "labels": [
     {
@@ -226,6 +226,22 @@
       "body": "In Terminology:\n    - in Local verifier: appraisal is done according to an Apprasial policy for Evidence ?\n    But which entity drafts this policy ? Who is the Verifier Owner of a Local Verifier ?\n    - \"Le Grande Verificateur\" in should be \"Le Grand Verificateur\" (masculine adjective in French)\n    Same in \"Acknowledgements\", \"La Grand\" should be \"Le Grand\".\nIn Connectors -> Chaining:\n    - Specify the trust relation between A and B. Like B is a target environment for A ?\n    - What is meant by adjacent ? Does it means that there exist a physical communication path between the components ?\nIn Connectors -> Router:\n    - Router is used for transit when two components are not \"adjacent\" ? To create a \"route\" ?\nIn Connectors -> Collection:\n    - CM acronym not introduced for Conceptual Message.\n    - provide a small explanation about what is meant by binding when talking about collections and\n        what it is used for. It is mentioned in \"Class 1\" section that the binding is used to secure the message. But how does a binding secures a message when the binding is something else than a signature ?\n    - provide small explanation to state how each binder presented can be used for binding.\nIn Class 0 diagram:\n    - boot rom is mesured ? what is boot rom here ? is it the boot rom of the RTM ? if yes, this measurement is not needed right (there may be an endorsement for it). \nIn Class 1 diagram:\n    - looks like the class1.svg diagram has a problem: the lead attester is not represented correctly.\nIn class 2:\n    - The Verifier is not a target environment for an attesting environment ? An AR from a verifier can only be trusted once the Verifier has been verified no ?\nIn Class 2 diagram:\n    - it is written Evidence(Target A) and not Evidence(Attester A) like in class 1 diagram. Why this difference ?\nIn Class 3P:\n    - \"It [the Lead Attester's Verifier] needs to consider if the component has been assessed by a Verifier it trusts\"\n    You mean that the Lead verifier trusts the component Verifier or that the component trusts the component Verifier ?\n    In the first case, where is this trust relation specified ? Is it in the Lead attester's Appraisal Policy for Evidence ?\nClass 4:\n    - Why is there a need for one of the attesting to be a Primary and the other a Secondary ?\n    Can they bot be at the same \"level\" and each collect some claims which in the end form\n    a complete claim set for the target environment ? In the Class 4 diagram, it is shown that\n    the Primary attesting environment relays partial evidence to the Secondary one. So I understand that these attesting environments may have different capabilities and therefore should be distinguished.\n    But can there also be a case where attesting environment 1 and attesting environment 2 are working on the same level, each producing partial evidence for the same target environment and both relaying their partial evidence to a Verifier ?\n\nOverall: \n    - RATS work is pretty vast for new comers therefore (attestation/RATS-related) acronyms used in the document should always be explicited at least once (CM, LAK, RP) even if it is obvious for readers already familiar with RATS.\n    - Whenever there is a diagram, there should be a corresponding description that links the scenario represented in the diagram with the named entities (A, B, C, RP, etc.) visible in the diagram.\n    - Proposition: (if needed) add basic trust assumptions depending on the composite device class\n        (e.g., there must be at least an attesting environment with an RTM, etc.).\n    - Proposition: add concrete examples of the structure of CoRIM/Evidence documents/collection corresponding to composite Attester structure.\n",
       "createdAt": "2026-02-02T14:56:21Z",
       "updatedAt": "2026-02-02T14:56:21Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 25,
+      "id": "I_kwDOPSxWv87rXdc_",
+      "title": "Use of nonce terminology should be qualified",
+      "url": "https://github.com/mcr/composite-attesters/issues/25",
+      "state": "OPEN",
+      "author": "nedmsmith",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Considering the intended audience broadly covers mutiple disciplines, readers might be confused as to which type of freshness \"nonce\" mechanism is intended. Attestation introduces a novel context (evidence freshness) vs. existing contexts. I assert there are three highly distinct context where \"nonce\" terminology is used.\n* Protocols - the primary objective is to detect replay of a protocol packet, frame, or message.\n* Cryptography - the primary objective is to prevent various types of cryptology attacks such as [ECDSA side-channel](https://nvd.nist.gov/vuln/detail/CVE-2024-13176)\n* Attestation - the primary objective is to control claims collection timing (when the AE actually collects new claims and / or invalidates cached claims)\n\nThe discussion on 2026-02-16 determined the best way to capture this topic was to add a discussion about the three types of nonce to [draft-ietf-rats-interaction-models](https://datatracker.ietf.org/doc/draft-ietf-rats-reference-interaction-models/). This draft should reference the interaction models draft to establish terminology and foundational concepts. \n\nThere was a comment that RFC9334 should have done more to capture the notion that there is a RATS Conceptual Message flow from Verifier to Attester that embodies the claims collection control information. If/when there is an update to 9334, it seems to make sense to incorporate this additional type of conceptual message.\n\nFrom the perspective of composite attesters, the assumed singleton freshness conceptual message that flows from Verifier/RP to Attester can be replcated across multiple Attesters given compositions that replicate or divide the Attester role across multiple entities (i.e. Actors).  This draft should not seek to redefine the semantics of a \"freshness conceptual message\" (a.k.a. \"attestation nonce\"), but to consider composition dynamics such as replication, timing, and conveyance challenges stemming from richer compositions.",
+      "createdAt": "2026-02-16T17:28:03Z",
+      "updatedAt": "2026-02-16T17:28:03Z",
       "closedAt": null,
       "comments": []
     }
@@ -997,7 +1013,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2026-02-02T14:56:36Z",
-      "updatedAt": "2026-02-02T17:24:42Z",
+      "updatedAt": "2026-02-16T16:02:06Z",
       "baseRepository": "mcr/composite-attesters",
       "baseRefName": "main",
       "baseRefOid": "a06624368a62d6f596eb4e4e673a3fd207e94000",
@@ -1008,8 +1024,145 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@thomas-fossati, @mcr Please review!",
+          "createdAt": "2026-02-16T14:14:58Z",
+          "updatedAt": "2026-02-16T14:14:58Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Moving this content over to #24 \r\n",
+          "createdAt": "2026-02-16T16:02:06Z",
+          "updatedAt": "2026-02-16T16:02:06Z"
+        }
+      ],
       "reviews": []
+    },
+    {
+      "number": 23,
+      "id": "PR_kwDOPSxWv87EDEE4",
+      "title": "Assorted typographic adjustments",
+      "url": "https://github.com/mcr/composite-attesters/pull/23",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "To make the document more gracious, a variety of typographical adjustments have been made.",
+      "createdAt": "2026-02-16T09:31:32Z",
+      "updatedAt": "2026-02-16T17:18:33Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "a06624368a62d6f596eb4e4e673a3fd207e94000",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "quote",
+      "headRefOid": "6b8209ea04bd88667b8bb7ade61e98a898db54ba",
+      "closedAt": "2026-02-16T17:18:32Z",
+      "mergedAt": "2026-02-16T17:18:32Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "c51390a8dbb6a7f5d77693fed93e6f03d9b70e06"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOPSxWv87i9VlD",
+          "commit": {
+            "abbreviatedOid": "6b8209e"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM! I assume the complete document has been scanned to make sure, all sections of quotes have been addressed using this Pull Request!",
+          "createdAt": "2026-02-16T10:08:21Z",
+          "updatedAt": "2026-02-16T10:08:21Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "id": "PR_kwDOPSxWv87EIrxC",
+      "title": "Abstract representation (first sketch)",
+      "url": "https://github.com/mcr/composite-attesters/pull/24",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-02-16T16:01:38Z",
+      "updatedAt": "2026-02-16T17:02:22Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "a06624368a62d6f596eb4e4e673a3fd207e94000",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "abstract-repr",
+      "headRefOid": "8e9d5178444872d9340b49d8c9b9d772dc532c46",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOPSxWv87jD6qq",
+          "commit": {
+            "abbreviatedOid": "8e9d517"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-02-16T16:11:54Z",
+          "updatedAt": "2026-02-16T16:11:54Z",
+          "comments": [
+            {
+              "originalPosition": 179,
+              "body": "Consider using the term \"depends on\"",
+              "createdAt": "2026-02-16T16:11:54Z",
+              "updatedAt": "2026-02-16T16:11:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPSxWv87jD9DN",
+          "commit": {
+            "abbreviatedOid": "8e9d517"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-02-16T16:13:56Z",
+          "updatedAt": "2026-02-16T16:13:56Z",
+          "comments": [
+            {
+              "originalPosition": 219,
+              "body": "The Nonce broadcast alone is not sufficient to act as a Binder! So the Signature of the lead Attester!",
+              "createdAt": "2026-02-16T16:13:56Z",
+              "updatedAt": "2026-02-16T16:16:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPSxWv87jEMvG",
+          "commit": {
+            "abbreviatedOid": "8e9d517"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "some comments",
+          "createdAt": "2026-02-16T16:27:40Z",
+          "updatedAt": "2026-02-16T16:27:40Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
