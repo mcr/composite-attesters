@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-17T00:43:23.245778+00:00",
+  "timestamp": "2026-02-22T00:44:23.755723+00:00",
   "repo": "mcr/composite-attesters",
   "labels": [
     {
@@ -241,9 +241,31 @@
       "labels": [],
       "body": "Considering the intended audience broadly covers mutiple disciplines, readers might be confused as to which type of freshness \"nonce\" mechanism is intended. Attestation introduces a novel context (evidence freshness) vs. existing contexts. I assert there are three highly distinct context where \"nonce\" terminology is used.\n* Protocols - the primary objective is to detect replay of a protocol packet, frame, or message.\n* Cryptography - the primary objective is to prevent various types of cryptology attacks such as [ECDSA side-channel](https://nvd.nist.gov/vuln/detail/CVE-2024-13176)\n* Attestation - the primary objective is to control claims collection timing (when the AE actually collects new claims and / or invalidates cached claims)\n\nThe discussion on 2026-02-16 determined the best way to capture this topic was to add a discussion about the three types of nonce to [draft-ietf-rats-interaction-models](https://datatracker.ietf.org/doc/draft-ietf-rats-reference-interaction-models/). This draft should reference the interaction models draft to establish terminology and foundational concepts. \n\nThere was a comment that RFC9334 should have done more to capture the notion that there is a RATS Conceptual Message flow from Verifier to Attester that embodies the claims collection control information. If/when there is an update to 9334, it seems to make sense to incorporate this additional type of conceptual message.\n\nFrom the perspective of composite attesters, the assumed singleton freshness conceptual message that flows from Verifier/RP to Attester can be replcated across multiple Attesters given compositions that replicate or divide the Attester role across multiple entities (i.e. Actors).  This draft should not seek to redefine the semantics of a \"freshness conceptual message\" (a.k.a. \"attestation nonce\"), but to consider composition dynamics such as replication, timing, and conveyance challenges stemming from richer compositions.",
       "createdAt": "2026-02-16T17:28:03Z",
-      "updatedAt": "2026-02-16T17:28:03Z",
+      "updatedAt": "2026-02-20T00:31:01Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "stuyod01",
+          "authorAssociation": "NONE",
+          "body": "I still don't understand how for the attestation nonce that the primary objective is to control claims collection timing.\n\nWhen a Verifier requests attestation evidence from an Attester it provides a nonce so that it knows that the signed set of claims   it receives as evidence are fresh.  In the case of a TPM it doesn't matter whether the PCRs were last extended into 2 years ago, what matters is that freshness of the TPM quote.  This is to prevent replay attacks.",
+          "createdAt": "2026-02-20T00:14:02Z",
+          "updatedAt": "2026-02-20T00:14:02Z"
+        },
+        {
+          "author": "nedmsmith",
+          "authorAssociation": "NONE",
+          "body": "You're conflating two uses of nonces. A protocol nonce protects against replay even when the claims are stale. An attestation nonce tells the AE to collect fresh claims.",
+          "createdAt": "2026-02-20T00:23:48Z",
+          "updatedAt": "2026-02-20T00:23:48Z"
+        },
+        {
+          "author": "stuyod01",
+          "authorAssociation": "NONE",
+          "body": "Ok, so in the attestation scenario I gave, the nonce sent by the Verifier to ensure freshness of claims is a \"protocol\" nonce even though it was in an attestation scenario?  Is that right?",
+          "createdAt": "2026-02-20T00:31:01Z",
+          "updatedAt": "2026-02-20T00:31:01Z"
+        }
+      ]
     }
   ],
   "pulls": [
