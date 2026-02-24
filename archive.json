@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-22T00:44:23.755723+00:00",
+  "timestamp": "2026-02-24T00:40:30.963537+00:00",
   "repo": "mcr/composite-attesters",
   "labels": [
     {
@@ -266,6 +266,22 @@
           "updatedAt": "2026-02-20T00:31:01Z"
         }
       ]
+    },
+    {
+      "number": 26,
+      "id": "I_kwDOPSxWv87tPtFH",
+      "title": "Mapping attestation scenarios into classes",
+      "url": "https://github.com/mcr/composite-attesters/issues/26",
+      "state": "OPEN",
+      "author": "stuyod01",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "**Scenario #1: Basic firmware attestation scenario with a TPM:**\n\n- During the boot of an SoC various multiple stages of firmware components record measurements of images and security state into TPM PCRs and produce an event log\n- At a later point in time a remote Verifier requests an attestation of the system. A user space daemon requests a PCR quote from the TPM and sends the quote and event log as evidence to the Verifier\n\nIs this a composite attester? Which class? Class 1 seems to be the closest, but I don't see the clear mapping to Class 1. There are multiple attesting environments, but their measurements are all combined in the TPM. Is the user space daemon a \"Lead Attester\"?  The daemon doesn't produce any evidence of its own or sign anything. The daemon doesn't wrap the TPM quote as suggested in the Class 1 diagram.\n\n**Scenario #2: Basic firmware attestation + user space**\n\n- Same scenario as #1, but with additional kernel and user space components\n- In the OS, systemd uses PCRs 8-15 and NVIndexes to measure kernel, kernel command line, initrd, etc. It has a separate event log.\n- In the OS, IMA (Integrity Measurement Architecture) uses PCR10 for filesystem measurements. It has a separate event log.\n- At a later point in time a remote Verifier requests an attestation of the system.\n\nIs this a composite Attester? Which class?\n\n**Scenario #3: Basic firmware attestation + PCIe device SPDM attestation**\n\n- Same scenario as #1, but with system firmware requesting attestation claims from SPDM capable PCIe devices and measurements of the SPDM measurements being extended into PCRs.\n\nWhich class is this?\n\n**Scenario #4: Basic firmware attestation with a TPM, plus SoC root-of-trust attestation**\n\n- Same scenario as #1, but in addition to the firmware boot chain, there is an on-die root-of-trust enclave (e.g. Arm RSE) that holds measurements of some firmware components plus security state.  It provides a separate attestation (EAT token) that is distinct from the TPM quote.\n- Which class is this?\n",
+      "createdAt": "2026-02-23T21:49:08Z",
+      "updatedAt": "2026-02-23T21:49:08Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
