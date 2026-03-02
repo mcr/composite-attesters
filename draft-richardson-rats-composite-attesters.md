@@ -57,15 +57,24 @@ venue:
 
 --- abstract
 
-This document further refines different kinds of RFC 9334 Composite Attesters.
+This document clarifies and extends the meaning of Composite Attester from RFC9334.
+A system of annotated diagram components is defined as a small language to explain the different ways that components can interact to form composites.
+These diagram components are then used to define a few popular classes of composites.
 
 --- middle
 
 # Introduction
 
 This document clarifies and extends the meaning of Composite Attester from {{RFC9334, Section 3.3}}.
-It also introduces a notation system for describing Composite Attesters in terms of their constituent elements and the relationships between them.
-The aim is to describe the Composite Attester topology in a way that helps understanding the resulting Evidence composition.
+
+A system of anotated diagram components are defined to allow relationships to be expressed consistently.
+
+These diagram components are then used to describe a number of classes of Composite Attester which are being seen in the nascent Remote Attestation industry.
+These classes are representative, but are not intended to be complete: more complexity, more layers and more sub-components are always possible.
+
+The aim is to describe the Composite Attester topology in a way that helps understanding the resulting Evidence composition that flows from the Attesting Environment(s), to the Verifier(s).
+
+Additionally, there is a need for freshness artifacts is flow in the opposite direction, and in Composite Remote Attestation, the amount of freshness and origin of the freshness needs to be understood.
 
 ## Caveats of Current Definition
 
