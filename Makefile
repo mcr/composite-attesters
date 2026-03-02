@@ -23,6 +23,9 @@ endif
 
 draft-richardson-rats-composite-attesters.md: ${DIAGRAMS}
 
+# from perl App::Asciio
+#   % cpan -m App::Asciio
+# to install
 %.txt: %.asciio
 	asciio_to_text $*.asciio >$@
 
