@@ -8,6 +8,7 @@
 <meta content="Michael Richardson" name="author">
 <meta content="Henk Birkholz" name="author">
 <meta content="Yogesh Deshpande" name="author">
+<meta content="Thomas Fossati" name="author">
 <meta content="
        This document further refines different kinds of RFC 9334 Composite Attesters. 
     " name="description">
@@ -1084,6 +1085,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <div class="author-name">Y. Deshpande</div>
 <div class="org">Arm</div>
 </div>
+<div class="author">
+      <div class="author-name">T. Fossati</div>
+<div class="org">Linaro</div>
+</div>
 </dd>
 </dl>
 </div>
@@ -1156,71 +1161,129 @@ svg :is([fill="white"], [fill^="#fff"]) {
         </h2>
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-caveats-of-current-definiti" class="internal xref">Caveats of Current Definition</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
-                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-terminology" class="internal xref">Terminology</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.3">
-                <p id="section-toc.1-1.1.2.3.1" class="keepWithNext"><a href="#section-1.3" class="auto internal xref">1.3</a>.  <a href="#name-class-0-composite-attester" class="internal xref">Class 0 Composite Attester</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.4">
-                <p id="section-toc.1-1.1.2.4.1"><a href="#section-1.4" class="auto internal xref">1.4</a>.  <a href="#name-class-1-composite-attester" class="internal xref">Class 1 Composite Attester</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.5">
-                <p id="section-toc.1-1.1.2.5.1"><a href="#section-1.5" class="auto internal xref">1.5</a>.  <a href="#name-class-2-composite-hybrid-at" class="internal xref">Class 2 Composite/Hybrid Attester</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.6">
-                <p id="section-toc.1-1.1.2.6.1"><a href="#section-1.6" class="auto internal xref">1.6</a>.  <a href="#name-class-3b-composite-backgrou" class="internal xref">Class 3B Composite Background-Check Attester</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.7">
-                <p id="section-toc.1-1.1.2.7.1"><a href="#section-1.7" class="auto internal xref">1.7</a>.  <a href="#name-class-3p-composite-passport" class="internal xref">Class 3P Composite Passport-Model Attester</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.8">
-                <p id="section-toc.1-1.1.2.8.1"><a href="#section-1.8" class="auto internal xref">1.8</a>.  <a href="#name-class-4-dual-composite-atte" class="internal xref">Class 4 Dual Composite Attester</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.9">
-                <p id="section-toc.1-1.1.2.9.1"><a href="#section-1.9" class="auto internal xref">1.9</a>.  <a href="#name-class-5-mixed-composite-att" class="internal xref">Class 5 Mixed Composite Attester</a></p>
-</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-attestation-results-as-evid" class="internal xref">Attestation Results as Evidence</a></p>
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-terminology" class="internal xref">Terminology</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-privacy-considerations" class="internal xref">Privacy Considerations</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-nonce-architecture" class="internal xref">Nonce Architecture</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-changelog" class="internal xref">Changelog</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-references" class="internal xref">References</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-composite-attesters-example" class="internal xref">Composite Attesters Examples</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
-                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="auto internal xref">9.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-class-0-composite-attester" class="internal xref">Class 0 Composite Attester</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
-                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="auto internal xref">9.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-class-1-composite-attester" class="internal xref">Class 1 Composite Attester</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-class-2-composite-hybrid-at" class="internal xref">Class 2 Composite/Hybrid Attester</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-class-3b-composite-backgrou" class="internal xref">Class 3B Composite Background-Check Attester</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
+                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-class-3p-composite-passport" class="internal xref">Class 3P Composite Passport-Model Attester</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.6">
+                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="auto internal xref">3.6</a>.  <a href="#name-class-4-dual-composite-atte" class="internal xref">Class 4 Dual Composite Attester</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.7">
+                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="auto internal xref">3.7</a>.  <a href="#name-class-5-mixed-composite-att" class="internal xref">Class 5 Mixed Composite Attester</a></p>
 </li>
             </ul>
 </li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-attestation-results-as-evid" class="internal xref">Attestation Results as Evidence</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-notation-system" class="internal xref">Notation System</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-nodes" class="internal xref">Nodes</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.1">
+                    <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="auto internal xref">5.1.1</a>.  <a href="#name-conveyer" class="internal xref">Conveyer</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.2">
+                    <p id="section-toc.1-1.5.2.1.2.2.1"><a href="#section-5.1.2" class="auto internal xref">5.1.2</a>.  <a href="#name-attester" class="internal xref">Attester</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-connectors" class="internal xref">Connectors</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
+                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-interface" class="internal xref">Interface</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.2">
+                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="auto internal xref">5.2.2</a>.  <a href="#name-depends-on" class="internal xref">Depends-on</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.3">
+                    <p id="section-toc.1-1.5.2.2.2.3.1"><a href="#section-5.2.3" class="auto internal xref">5.2.3</a>.  <a href="#name-router" class="internal xref">Router</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.4">
+                    <p id="section-toc.1-1.5.2.2.2.4.1"><a href="#section-5.2.4" class="auto internal xref">5.2.4</a>.  <a href="#name-trusted-hw-path" class="internal xref">Trusted HW path</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.5">
+                    <p id="section-toc.1-1.5.2.2.2.5.1"><a href="#section-5.2.5" class="auto internal xref">5.2.5</a>.  <a href="#name-collection-bus" class="internal xref">Collection (Bus)</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
+                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-examples" class="internal xref">Examples</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.1">
+                    <p id="section-toc.1-1.5.2.3.2.1.1"><a href="#section-5.3.1" class="auto internal xref">5.3.1</a>.  <a href="#name-cca-delegated" class="internal xref">CCA Delegated</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.2">
+                    <p id="section-toc.1-1.5.2.3.2.2.1"><a href="#section-5.3.2" class="auto internal xref">5.3.2</a>.  <a href="#name-class-0" class="internal xref">Class 0</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.3">
+                    <p id="section-toc.1-1.5.2.3.2.3.1"><a href="#section-5.3.3" class="auto internal xref">5.3.3</a>.  <a href="#name-class-1" class="internal xref">Class 1</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.4">
+                    <p id="section-toc.1-1.5.2.3.2.4.1"><a href="#section-5.3.4" class="auto internal xref">5.3.4</a>.  <a href="#name-class-2" class="internal xref">Class 2</a></p>
+</li>
+                </ul>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-privacy-considerations" class="internal xref">Privacy Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-nonce-architecture" class="internal xref">Nonce Architecture</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-changelog" class="internal xref">Changelog</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
+            <p id="section-toc.1-1.12.1"><a href="#section-12" class="auto internal xref">12</a>. <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.1">
+                <p id="section-toc.1-1.12.2.1.1"><a href="#section-12.1" class="auto internal xref">12.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.2">
+                <p id="section-toc.1-1.12.2.2.1"><a href="#section-12.2" class="auto internal xref">12.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
+            <p id="section-toc.1-1.13.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1231,7 +1294,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">This document clarifies and extends the meaning of Composite Attester from <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>], <a href="https://rfc-editor.org/rfc/rfc9334#section-3.3" class="relref">Section 3.3</a></span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">This document clarifies and extends the meaning of Composite Attester from <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>], <a href="https://rfc-editor.org/rfc/rfc9334#section-3.3" class="relref">Section 3.3</a></span>.
+It also introduces a notation system for describing Composite Attesters in terms of their constituent elements and the relationships between them.
+The aim is to describe the Composite Attester topology in a way that helps understanding the resulting Evidence composition.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <div id="caveats-of-current-definition">
 <section id="section-1.1">
         <h3 id="name-caveats-of-current-definiti">
@@ -1252,93 +1317,100 @@ Verifier while others do not.<a href="#section-1.1-2.2" class="pilcrow">¶</a></
 <p id="section-1.1-3">In this description, it was left vague as to whether or not each Attesting Environment signs the Evidence that it generates, and whether or not the Evidence is evaluated by a Verifier operated by the Lead Attester, or if it's passed by the Lead Attester along with the Evidence from the Lead Target Environment.<a href="#section-1.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
+</section>
+</div>
 <div id="terminology">
-<section id="section-1.2">
-        <h3 id="name-terminology">
-<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
-        </h3>
-<span class="break"></span><dl class="dlParallel" id="section-1.2-1">
-          <dt id="section-1.2-1.1">Lead Attester:</dt>
-          <dd style="margin-left: 1.5em" id="section-1.2-1.2">
-            <p id="section-1.2-1.2.1">This term is from RFC9334, and includes the (Lead) Attesting Environment, and the (Lead) Target Environment.<a href="#section-1.2-1.2.1" class="pilcrow">¶</a></p>
-</dd>
-          <dd class="break"></dd>
-<dt id="section-1.2-1.3">Target Environment:</dt>
-          <dd style="margin-left: 1.5em" id="section-1.2-1.4">
-            <p id="section-1.2-1.4.1">This term is from RFC9334, this refers to the environment for which Evidence is gathered.<a href="#section-1.2-1.4.1" class="pilcrow">¶</a></p>
-</dd>
-          <dd class="break"></dd>
-<dt id="section-1.2-1.5">Attesting Environment:</dt>
-          <dd style="margin-left: 1.5em" id="section-1.2-1.6">
-            <p id="section-1.2-1.6.1">This term is from RFC9334, this refers to the thing which gathers the Evidence.<a href="#section-1.2-1.6.1" class="pilcrow">¶</a></p>
-</dd>
-          <dd class="break"></dd>
-<dt id="section-1.2-1.7">Component:</dt>
-          <dd style="margin-left: 1.5em" id="section-1.2-1.8">
-            <p id="section-1.2-1.8.1">This is the pieces which are attached to the Lead Attester.  There are one to many of these, typically each with their own application specific processor.<a href="#section-1.2-1.8.1" class="pilcrow">¶</a></p>
-</dd>
-          <dd class="break"></dd>
-<dt id="section-1.2-1.9">Component Evidence:</dt>
-          <dd style="margin-left: 1.5em" id="section-1.2-1.10">
-            <p id="section-1.2-1.10.1">This is the Evidence that is collected by the Component Attesting Environment about the Component Target Environment.<a href="#section-1.2-1.10.1" class="pilcrow">¶</a></p>
-</dd>
-          <dd class="break"></dd>
-<dt id="section-1.2-1.11">Component Attesting Environment:</dt>
-          <dd style="margin-left: 1.5em" id="section-1.2-1.12">
-            <p id="section-1.2-1.12.1">This term is new, and refers to an Attesting Environment residing inside a component of the whole.<a href="#section-1.2-1.12.1" class="pilcrow">¶</a></p>
-</dd>
-          <dd class="break"></dd>
-<dt id="section-1.2-1.13">Component Target Environment:</dt>
-          <dd style="margin-left: 1.5em" id="section-1.2-1.14">
-            <p id="section-1.2-1.14.1">This term is new, and refers to an environment for which Evidence is collected.<a href="#section-1.2-1.14.1" class="pilcrow">¶</a></p>
-</dd>
-          <dd class="break"></dd>
-<dt id="section-1.2-1.15">Local Verifier:</dt>
-          <dd style="margin-left: 1.5em" id="section-1.2-1.16">
-            <p id="section-1.2-1.16.1">When an Attesting Environment <em>appraises</em> Evidence from another Attesting Environment, then it operates as a Local Verifier.  Mere examination of the signature on the Evidence (perhaps using a local credential) is not appraisal.<a href="#section-1.2-1.16.1" class="pilcrow">¶</a></p>
-</dd>
-          <dd class="break"></dd>
-<dt id="section-1.2-1.17">Local Validation:</dt>
-          <dd style="margin-left: 1.5em" id="section-1.2-1.18">
-            <p id="section-1.2-1.18.1">in some classes, Evidence is passed around, and must remain integral.  Local Validation involves checking the authenticity of the end-point.   This could involve a signature, or require physical security of that end-point.<a href="#section-1.2-1.18.1" class="pilcrow">¶</a></p>
-</dd>
-          <dd class="break"></dd>
-<dt id="section-1.2-1.19">Verifier le petit:</dt>
-          <dd style="margin-left: 1.5em" id="section-1.2-1.20">
-            <p id="section-1.2-1.20.1">(Or, "Le Petit Verificateur").  This is the Verifier that examines the Component Evidence.  This may treat the Lead Attester as a component.<a href="#section-1.2-1.20.1" class="pilcrow">¶</a></p>
-</dd>
-          <dd class="break"></dd>
-<dt id="section-1.2-1.21">Verifier le grand:</dt>
-          <dd style="margin-left: 1.5em" id="section-1.2-1.22">
-            <p id="section-1.2-1.22.1">(Or, "Le Grande Verificateur"). This is the Verifier that examines the arrangement and relationships between Components.<a href="#section-1.2-1.22.1" class="pilcrow">¶</a></p>
+<section id="section-2">
+      <h2 id="name-terminology">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
+      </h2>
+<span class="break"></span><dl class="dlParallel" id="section-2-1">
+        <dt id="section-2-1.1">Lead Attester:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.2">
+          <p id="section-2-1.2.1">This term is from RFC9334, and includes the (Lead) Attesting Environment, and the (Lead) Target Environment.<a href="#section-2-1.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
+<dt id="section-2-1.3">Target Environment:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.4">
+          <p id="section-2-1.4.1">This term is from RFC9334, this refers to the environment for which Evidence is gathered.<a href="#section-2-1.4.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.5">Attesting Environment:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.6">
+          <p id="section-2-1.6.1">This term is from RFC9334, this refers to the thing which gathers the Evidence.<a href="#section-2-1.6.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.7">Component:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.8">
+          <p id="section-2-1.8.1">This is the pieces which are attached to the Lead Attester.  There are one to many of these, typically each with their own application specific processor.<a href="#section-2-1.8.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.9">Component Evidence:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.10">
+          <p id="section-2-1.10.1">This is the Evidence that is collected by the Component Attesting Environment about the Component Target Environment.<a href="#section-2-1.10.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.11">Component Attesting Environment:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.12">
+          <p id="section-2-1.12.1">This term is new, and refers to an Attesting Environment residing inside a component of the whole.<a href="#section-2-1.12.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.13">Component Target Environment:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.14">
+          <p id="section-2-1.14.1">This term is new, and refers to an environment for which Evidence is collected.<a href="#section-2-1.14.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.15">Local Verifier:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.16">
+          <p id="section-2-1.16.1">When an Attesting Environment <em>appraises</em> Evidence from another Attesting Environment, then it operates as a Local Verifier.  Mere examination of the signature on the Evidence (perhaps using a local credential) is not appraisal.<a href="#section-2-1.16.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.17">Local Validation:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.18">
+          <p id="section-2-1.18.1">in some classes, Evidence is passed around, and must remain integral.  Local Validation involves checking the authenticity of the end-point.   This could involve a signature, or require physical security of that end-point.<a href="#section-2-1.18.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.19">Verifier le petit:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.20">
+          <p id="section-2-1.20.1">(Or, "Le Petit Verificateur").  This is the Verifier that examines the Component Evidence.  This may treat the Lead Attester as a component.<a href="#section-2-1.20.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.21">Verifier le grand:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.22">
+          <p id="section-2-1.22.1">(Or, "Le Grande Verificateur"). This is the Verifier that examines the arrangement and relationships between Components.<a href="#section-2-1.22.1" class="pilcrow">¶</a></p>
+</dd>
+      <dd class="break"></dd>
 </dl>
 </section>
 </div>
+<div id="composite-attesters-examples">
+<section id="section-3">
+      <h2 id="name-composite-attesters-example">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-composite-attesters-example" class="section-name selfRef">Composite Attesters Examples</a>
+      </h2>
 <div id="class-0-composite-attester">
-<section id="section-1.3">
+<section id="section-3.1">
         <h3 id="name-class-0-composite-attester">
-<a href="#section-1.3" class="section-number selfRef">1.3. </a><a href="#name-class-0-composite-attester" class="section-name selfRef">Class 0 Composite Attester</a>
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-class-0-composite-attester" class="section-name selfRef">Class 0 Composite Attester</a>
         </h3>
-<p id="section-1.3-1">In this first, somewhat degenerate scenario, the Lead Attester has access to the entire memory/environment of all of the components.
+<p id="section-3.1-1">In this first, somewhat degenerate scenario, the Lead Attester has access to the entire memory/environment of all of the components.
 Examples of situations like this include classic PCI-buses, ISA-buses, VME, S100/IEEE 696-1983.
 In these situations, secondary components might not boot on their own.
-(It might even be that the lead environment (the chassis) will place code into RAM for these systems, with no ROM at all)<a href="#section-1.3-1" class="pilcrow">¶</a></p>
-<p id="section-1.3-2">In this case, it is possible for the Lead Attesting Environment to collect Claims about each of the components without the components having to have their own Attesting Environment.<a href="#section-1.3-2" class="pilcrow">¶</a></p>
-<p id="section-1.3-3">There is no Verifier le petit, since there are no components that can create Evidence other than the Lead Attester.<a href="#section-1.3-3" class="pilcrow">¶</a></p>
-<p id="section-1.3-4">At this Class, all of these components can be considered part of the same system.
+(It might even be that the lead environment (the chassis) will place code into RAM for these systems, with no ROM at all)<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-2">In this case, it is possible for the Lead Attesting Environment to collect Claims about each of the components without the components having to have their own Attesting Environment.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.1-3">There is no Verifier le petit, since there are no components that can create Evidence other than the Lead Attester.<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.1-4">At this Class, all of these components can be considered part of the same system.
 In the classic PCI or ISA environment, the components are hard drive interfaces,
 video interfaces, and network interfaces.
-For many such systems considering the system to be a composite is unncessary additional complexity.<a href="#section-1.3-4" class="pilcrow">¶</a></p>
-<p id="section-1.3-5">The benefit of applying the composite mechanism in this case is that it is no longer necessary to consider the exhaustive combinatorics of all possible components being attached to the lead attester.
-It is, for instance, already the case the reference values for a target environment may change depending upon how much memory is installed in the target environment.<a href="#section-1.3-5" class="pilcrow">¶</a></p>
-<p id="section-1.3-6">In this degenerate, or Class <em>0</em> Composite Attester, the Claims gathered about the components would be included in the Lead Attester's signed Evidence (such as an EAT), as sub-components in UCCS form <span>[<a href="#RFC9781" class="cite xref">RFC9781</a>]</span>.
-The signature from the Lead Attester applies to all the Claims, but the Verifier can evaluate each component separately.<a href="#section-1.3-6" class="pilcrow">¶</a></p>
+For many such systems considering the system to be a composite is unncessary additional complexity.<a href="#section-3.1-4" class="pilcrow">¶</a></p>
+<p id="section-3.1-5">The benefit of applying the composite mechanism in this case is that it is no longer necessary to consider the exhaustive combinatorics of all possible components being attached to the lead attester.
+It is, for instance, already the case the reference values for a target environment may change depending upon how much memory is installed in the target environment.<a href="#section-3.1-5" class="pilcrow">¶</a></p>
+<p id="section-3.1-6">In this degenerate, or Class <em>0</em> Composite Attester, the Claims gathered about the components would be included in the Lead Attester's signed Evidence (such as an EAT), as sub-components in UCCS form <span>[<a href="#RFC9781" class="cite xref">RFC9781</a>]</span>.
+The signature from the Lead Attester applies to all the Claims, but the Verifier can evaluate each component separately.<a href="#section-3.1-6" class="pilcrow">¶</a></p>
 <span id="name-class-0-composite-attester-2"></span><div id="class0diagram">
 <figure id="figure-1">
-          <div id="section-1.3-7.1">
-            <div class="alignCenter art-svg artwork" id="section-1.3-7.1.1">
+          <div id="section-3.1-7.1">
+            <div class="alignCenter art-svg artwork" id="section-3.1-7.1.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="480" width="416" viewBox="0 0 416 480" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 8,96 L 8,448" fill="none" stroke="black"></path>
                 <path d="M 24,112 L 24,288" fill="none" stroke="black"></path>
@@ -1395,52 +1467,52 @@ The signature from the Lead Attester applies to all the Claims, but the Verifier
                   <text x="232" y="404">Environment</text>
                   <text x="216" y="452">Chassis</text>
                 </g>
-              </svg><a href="#section-1.3-7.1.1" class="pilcrow">¶</a>
+              </svg><a href="#section-3.1-7.1.1" class="pilcrow">¶</a>
 </div>
 </div>
 <figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
 <a href="#name-class-0-composite-attester-2" class="selfRef">Class 0 Composite Attester</a>
           </figcaption></figure>
 </div>
-<p id="section-1.3-8">However, more modern buses like PCIe, InfiniBand, Thunderbolt, DisplayPort, USB, Firewire and others do not provided direct electrical access to target component system memory.
+<p id="section-3.1-8">However, more modern buses like PCIe, InfiniBand, Thunderbolt, DisplayPort, USB, Firewire and others do not provided direct electrical access to target component system memory.
 While some seem to be very high speed serialized versions of the old I/O buses, there is a network-like protocol, and non-trivial deserialization occurs at each end.
 That implies that there can be mutable firmware in each component which mitigates access.
 That firmware itself might not be trustworthy.
 If it can even be seen by the Lead Attester, the mitigation mechanism can present whatever view the Lead Attester expects to see.
-So, a system with such interfaces would be a Class 1.<a href="#section-1.3-8" class="pilcrow">¶</a></p>
+So, a system with such interfaces would be a Class 1.<a href="#section-3.1-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="class-1-composite-attester">
-<section id="section-1.4">
+<section id="section-3.2">
         <h3 id="name-class-1-composite-attester">
-<a href="#section-1.4" class="section-number selfRef">1.4. </a><a href="#name-class-1-composite-attester" class="section-name selfRef">Class 1 Composite Attester</a>
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-class-1-composite-attester" class="section-name selfRef">Class 1 Composite Attester</a>
         </h3>
-<p id="section-1.4-1">In this Class, each component or slot has its own Attesting Environment and hence produces its own signed Evidence.<a href="#section-1.4-1" class="pilcrow">¶</a></p>
-<p id="section-1.4-2">RFC 9334 gives the following example:<a href="#section-1.4-2" class="pilcrow">¶</a></p>
-<blockquote id="section-1.4-3">
-          <p id="section-1.4-3.1">For example, a carrier-grade router consists of a chassis and
+<p id="section-3.2-1">In this Class, each component or slot has its own Attesting Environment and hence produces its own signed Evidence.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">RFC 9334 gives the following example:<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+<blockquote id="section-3.2-3">
+          <p id="section-3.2-3.1">For example, a carrier-grade router consists of a chassis and
 multiple slots.  The trustworthiness of the router depends on all its
 slots' trustworthiness.  Each slot has an Attesting Environment, such
 as a TEE, collecting the Claims of its boot process, after which it
-generates Evidence from the Claims.<a href="#section-1.4-3.1" class="pilcrow">¶</a></p>
+generates Evidence from the Claims.<a href="#section-3.2-3.1" class="pilcrow">¶</a></p>
 </blockquote>
-<p id="section-1.4-4">The Lead Attester simply relays the Evidence along with its own:<a href="#section-1.4-4" class="pilcrow">¶</a></p>
-<blockquote id="section-1.4-5">
-          <p id="section-1.4-5.1">Among these slots, only a "main" slot can communicate with the
+<p id="section-3.2-4">The Lead Attester simply relays the Evidence along with its own:<a href="#section-3.2-4" class="pilcrow">¶</a></p>
+<blockquote id="section-3.2-5">
+          <p id="section-3.2-5.1">Among these slots, only a "main" slot can communicate with the
 Verifier while other slots cannot.  However, other slots can
 communicate with the main slot by the links between them inside the
 router.  The main slot collects the Evidence of other slots, produces
 the final Evidence of the whole router, and conveys the final
 Evidence to the Verifier.  Therefore, the router is a composite
 device, each slot is an Attester, and the main slot is the lead
-Attester.<a href="#section-1.4-5.1" class="pilcrow">¶</a></p>
+Attester.<a href="#section-3.2-5.1" class="pilcrow">¶</a></p>
 </blockquote>
-<p id="section-1.4-6">Note that the Lead Attester does <em>not</em> evaluate the Evidence, and does not run its own
-Verifier.<a href="#section-1.4-6" class="pilcrow">¶</a></p>
+<p id="section-3.2-6">Note that the Lead Attester does <em>not</em> evaluate the Evidence, and does not run its own
+Verifier.<a href="#section-3.2-6" class="pilcrow">¶</a></p>
 <span id="name-class-1-composite-attester-2"></span><div id="class1diagram">
 <figure id="figure-2">
-          <div id="section-1.4-7.1">
-            <div class="alignCenter art-svg artwork" id="section-1.4-7.1.1">
+          <div id="section-3.2-7.1">
+            <div class="alignCenter art-svg artwork" id="section-3.2-7.1.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="400" width="584" viewBox="0 0 584 400" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 8,96 L 8,360" fill="none" stroke="black"></path>
                 <path d="M 32,112 L 32,336" fill="none" stroke="black"></path>
@@ -1518,30 +1590,30 @@ Verifier.<a href="#section-1.4-6" class="pilcrow">¶</a></p>
                   <text x="264" y="372">Composite</text>
                   <text x="332" y="372">Device</text>
                 </g>
-              </svg><a href="#section-1.4-7.1.1" class="pilcrow">¶</a>
+              </svg><a href="#section-3.2-7.1.1" class="pilcrow">¶</a>
 </div>
 </div>
 <figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
 <a href="#name-class-1-composite-attester-2" class="selfRef">Class 1 Composite Attester</a>
           </figcaption></figure>
 </div>
-<p id="section-1.4-8">This diagram is intended to be identical to Figure 4 of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>, but has been stretched out to allow the relationship to other classes to be clearer.<a href="#section-1.4-8" class="pilcrow">¶</a></p>
+<p id="section-3.2-8">This diagram is intended to be identical to Figure 4 of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>, but has been stretched out to allow the relationship to other classes to be clearer.<a href="#section-3.2-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="class-2-compositehybrid-attester">
-<section id="section-1.5">
+<section id="section-3.3">
         <h3 id="name-class-2-composite-hybrid-at">
-<a href="#section-1.5" class="section-number selfRef">1.5. </a><a href="#name-class-2-composite-hybrid-at" class="section-name selfRef">Class 2 Composite/Hybrid Attester</a>
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-class-2-composite-hybrid-at" class="section-name selfRef">Class 2 Composite/Hybrid Attester</a>
         </h3>
-<p id="section-1.5-1">In this scenario, the Components relay their Evidence to the Lead Attester.
+<p id="section-3.3-1">In this scenario, the Components relay their Evidence to the Lead Attester.
 The Lead Attester operates a Verifier itself.
 It evaluates the Components' Evidence against Reference Values, Endorsements, etc. producing <em>Attestation Results</em>
 These Attestation Results (or their selectively disclosed version: SD-CWT/SD-JWT)
-are then included as part of the Lead Attester's Evidence to it's Verifier.<a href="#section-1.5-1" class="pilcrow">¶</a></p>
+are then included as part of the Lead Attester's Evidence to it's Verifier.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 <span id="name-class-2-composite-attester"></span><div id="class2diagram">
 <figure id="figure-3">
-          <div id="section-1.5-2.1">
-            <div class="alignCenter art-svg artwork" id="section-1.5-2.1.1">
+          <div id="section-3.3-2.1">
+            <div class="alignCenter art-svg artwork" id="section-3.3-2.1.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="576" width="592" viewBox="0 0 592 576" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 8,128 L 8,544" fill="none" stroke="black"></path>
                 <path d="M 32,144 L 32,528" fill="none" stroke="black"></path>
@@ -1637,31 +1709,31 @@ are then included as part of the Lead Attester's Evidence to it's Verifier.<a hr
                   <text x="272" y="548">Chassis</text>
                   <text x="312" y="548">A</text>
                 </g>
-              </svg><a href="#section-1.5-2.1.1" class="pilcrow">¶</a>
+              </svg><a href="#section-3.3-2.1.1" class="pilcrow">¶</a>
 </div>
 </div>
 <figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
 <a href="#name-class-2-composite-attester" class="selfRef">Class 2 Composite Attester</a>
           </figcaption></figure>
 </div>
-<p id="section-1.5-3">The Verifier's signing credentials may be part of the same Attesting Environment as the Evidence signing credential used by the Lead Attesting environment.
-Or they could be in a different environment, such as in a different TEE.<a href="#section-1.5-3" class="pilcrow">¶</a></p>
+<p id="section-3.3-3">The Verifier's signing credentials may be part of the same Attesting Environment as the Evidence signing credential used by the Lead Attesting environment.
+Or they could be in a different environment, such as in a different TEE.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="class-3b-composite-background-check-attester">
-<section id="section-1.6">
+<section id="section-3.4">
         <h3 id="name-class-3b-composite-backgrou">
-<a href="#section-1.6" class="section-number selfRef">1.6. </a><a href="#name-class-3b-composite-backgrou" class="section-name selfRef">Class 3B Composite Background-Check Attester</a>
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-class-3b-composite-backgrou" class="section-name selfRef">Class 3B Composite Background-Check Attester</a>
         </h3>
-<p id="section-1.6-1">In this scenario, the Components relay their Evidence to the Lead Attester.
-The Lead Attester does <em>not</em> operates a Verifier itself.<a href="#section-1.6-1" class="pilcrow">¶</a></p>
-<p id="section-1.6-2">Instead, the Lead Attester, conveys the Evidence to the Lead Verifier along with it's own Evidence.
+<p id="section-3.4-1">In this scenario, the Components relay their Evidence to the Lead Attester.
+The Lead Attester does <em>not</em> operates a Verifier itself.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-2">Instead, the Lead Attester, conveys the Evidence to the Lead Verifier along with it's own Evidence.
 The Component Evidence is not placed within the Lead Attester's Evidence (DEBATE).
-The Lead Attester needs to communicate how each component is attached, and that would be within its Evidence.<a href="#section-1.6-2" class="pilcrow">¶</a></p>
+The Lead Attester needs to communicate how each component is attached, and that would be within its Evidence.<a href="#section-3.4-2" class="pilcrow">¶</a></p>
 <span id="name-class-3b-composite-backgroun"></span><div id="class3Bdiagram">
 <figure id="figure-4">
-          <div id="section-1.6-3.1">
-            <div class="alignCenter art-svg artwork" id="section-1.6-3.1.1">
+          <div id="section-3.4-3.1">
+            <div class="alignCenter art-svg artwork" id="section-3.4-3.1.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="448" width="592" viewBox="0 0 592 448" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 8,112 L 8,416" fill="none" stroke="black"></path>
                 <path d="M 32,128 L 32,400" fill="none" stroke="black"></path>
@@ -1746,32 +1818,32 @@ The Lead Attester needs to communicate how each component is attached, and that 
                   <text x="272" y="420">Chassis</text>
                   <text x="312" y="420">A</text>
                 </g>
-              </svg><a href="#section-1.6-3.1.1" class="pilcrow">¶</a>
+              </svg><a href="#section-3.4-3.1.1" class="pilcrow">¶</a>
 </div>
 </div>
 <figcaption><a href="#figure-4" class="selfRef">Figure 4</a>:
 <a href="#name-class-3b-composite-backgroun" class="selfRef">Class 3B Composite Background-check Attester</a>
           </figcaption></figure>
 </div>
-<p id="section-1.6-4">The Lead Verifier, acting a Relying Party, connects to Component Verifiers capable of evaluating the Component Evidence, retrieving Attestation Results from those Verifiers as part of evaluating the Lead Attester.<a href="#section-1.6-4" class="pilcrow">¶</a></p>
-<p id="section-1.6-5">This case is similar to Class 1, however the integration of the component attestation results in Class 1 is not included in the Evidence, while in this case, it is.<a href="#section-1.6-5" class="pilcrow">¶</a></p>
+<p id="section-3.4-4">The Lead Verifier, acting a Relying Party, connects to Component Verifiers capable of evaluating the Component Evidence, retrieving Attestation Results from those Verifiers as part of evaluating the Lead Attester.<a href="#section-3.4-4" class="pilcrow">¶</a></p>
+<p id="section-3.4-5">This case is similar to Class 1, however the integration of the component attestation results in Class 1 is not included in the Evidence, while in this case, it is.<a href="#section-3.4-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="class-3p-composite-passport-model-attester">
-<section id="section-1.7">
+<section id="section-3.5">
         <h3 id="name-class-3p-composite-passport">
-<a href="#section-1.7" class="section-number selfRef">1.7. </a><a href="#name-class-3p-composite-passport" class="section-name selfRef">Class 3P Composite Passport-Model Attester</a>
+<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-class-3p-composite-passport" class="section-name selfRef">Class 3P Composite Passport-Model Attester</a>
         </h3>
-<p id="section-1.7-1">In this scenario, the Components relay their Evidence to the Lead Attester.
+<p id="section-3.5-1">In this scenario, the Components relay their Evidence to the Lead Attester.
 The Lead Attester does <em>not</em> operates a Verifier itself.
 Instead, the Lead Attester, acting as a Presenter (term To-Be-Defined), connects to an appropriate Verifier, in passport mode.
-It retrieves an Attestation Result from the Verifier, which it then includes within the  Evidence that the Lead Attester produces.<a href="#section-1.7-1" class="pilcrow">¶</a></p>
-<p id="section-1.7-2">The Lead Attester's Verifier considers the Components during it's assessment.
-It needs to consider if the component has been assessed by a Verifier it trusts, if the component is appropriately connected to the Lead Attester, and if there are an appropriate number of such components.<a href="#section-1.7-2" class="pilcrow">¶</a></p>
+It retrieves an Attestation Result from the Verifier, which it then includes within the  Evidence that the Lead Attester produces.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.5-2">The Lead Attester's Verifier considers the Components during it's assessment.
+It needs to consider if the component has been assessed by a Verifier it trusts, if the component is appropriately connected to the Lead Attester, and if there are an appropriate number of such components.<a href="#section-3.5-2" class="pilcrow">¶</a></p>
 <span id="name-class-3p-composite-password"></span><div id="class3Pdiagram">
 <figure id="figure-5">
-          <div id="section-1.7-3.1">
-            <div class="alignCenter art-svg artwork" id="section-1.7-3.1.1">
+          <div id="section-3.5-3.1">
+            <div class="alignCenter art-svg artwork" id="section-3.5-3.1.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="576" width="584" viewBox="0 0 584 576" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 8,96 L 8,384" fill="none" stroke="black"></path>
                 <path d="M 24,112 L 24,368" fill="none" stroke="black"></path>
@@ -1859,28 +1931,28 @@ It needs to consider if the component has been assessed by a Verifier it trusts,
                   <text x="280" y="516">B,C</text>
                   <text x="232" y="532">Verifier(s)</text>
                 </g>
-              </svg><a href="#section-1.7-3.1.1" class="pilcrow">¶</a>
+              </svg><a href="#section-3.5-3.1.1" class="pilcrow">¶</a>
 </div>
 </div>
 <figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
 <a href="#name-class-3p-composite-password" class="selfRef">Class 3P Composite Password Attester</a>
           </figcaption></figure>
 </div>
-<p id="section-1.7-4">For instance, when accessing a vehicle such as a car, where each tire is it's own component, then a car with three wheels is not trusthworthy.  Most cars should have four wheels.  A car with five wheels might be acceptable, if at least one wheel is installed into the "spare" holder. (And, it may be of concern if the spare is flat, but the car can still be operated)<a href="#section-1.7-4" class="pilcrow">¶</a></p>
-<p id="section-1.7-5">A more typical digital use case would involve a main CPU with a number of attached specialized intelligent components that contain their own firmware, such as Graphical Processors (GPU), Network Processors (NPU).<a href="#section-1.7-5" class="pilcrow">¶</a></p>
+<p id="section-3.5-4">For instance, when accessing a vehicle such as a car, where each tire is it's own component, then a car with three wheels is not trusthworthy.  Most cars should have four wheels.  A car with five wheels might be acceptable, if at least one wheel is installed into the "spare" holder. (And, it may be of concern if the spare is flat, but the car can still be operated)<a href="#section-3.5-4" class="pilcrow">¶</a></p>
+<p id="section-3.5-5">A more typical digital use case would involve a main CPU with a number of attached specialized intelligent components that contain their own firmware, such as Graphical Processors (GPU), Network Processors (NPU).<a href="#section-3.5-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="class-4-dual-composite-attester">
-<section id="section-1.8">
+<section id="section-3.6">
         <h3 id="name-class-4-dual-composite-atte">
-<a href="#section-1.8" class="section-number selfRef">1.8. </a><a href="#name-class-4-dual-composite-atte" class="section-name selfRef">Class 4 Dual Composite Attester</a>
+<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-class-4-dual-composite-atte" class="section-name selfRef">Class 4 Dual Composite Attester</a>
         </h3>
-<p id="section-1.8-1">In certain systems, it is possible to have two independent Attesting Environments in an Attester to collect claims about a single Target Environment. In such cases, one of the Attesting Environment, acts as a Primary, while the other acts as a Secondary Attesting Environment.<a href="#section-1.8-1" class="pilcrow">¶</a></p>
-<p id="section-1.8-2">The two Attesting Environments will have a fixed and collaborative structure where each can be responsible for a subset of Evidence. Because of the collaborative structure it may be arranged that either of the Attesting Environment can present Evidence collected by the other (but this is deployment specific).<a href="#section-1.8-2" class="pilcrow">¶</a></p>
+<p id="section-3.6-1">In certain systems, it is possible to have two independent Attesting Environments in an Attester to collect claims about a single Target Environment. In such cases, one of the Attesting Environment, acts as a Primary, while the other acts as a Secondary Attesting Environment.<a href="#section-3.6-1" class="pilcrow">¶</a></p>
+<p id="section-3.6-2">The two Attesting Environments will have a fixed and collaborative structure where each can be responsible for a subset of Evidence. Because of the collaborative structure it may be arranged that either of the Attesting Environment can present Evidence collected by the other (but this is deployment specific).<a href="#section-3.6-2" class="pilcrow">¶</a></p>
 <span id="name-class-4-composite-dual-atte"></span><div id="class4diagram">
 <figure id="figure-6">
-          <div id="section-1.8-3.1">
-            <div class="alignCenter art-svg artwork" id="section-1.8-3.1.1">
+          <div id="section-3.6-3.1">
+            <div class="alignCenter art-svg artwork" id="section-3.6-3.1.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="512" width="464" viewBox="0 0 464 512" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 8,144 L 8,480" fill="none" stroke="black"></path>
                 <path d="M 24,176 L 24,224" fill="none" stroke="black"></path>
@@ -1937,110 +2009,636 @@ It needs to consider if the component has been assessed by a Verifier it trusts,
                   <text x="292" y="420">Evidence</text>
                   <text x="292" y="436">(signed)</text>
                 </g>
-              </svg><a href="#section-1.8-3.1.1" class="pilcrow">¶</a>
+              </svg><a href="#section-3.6-3.1.1" class="pilcrow">¶</a>
 </div>
 </div>
 <figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
 <a href="#name-class-4-composite-dual-atte" class="selfRef">Class 4 Composite (Dual) Attester</a>
           </figcaption></figure>
 </div>
-<p id="section-1.8-4">Example of one such system is a CPU system of a desktop from a Vendor X, which has its built in Attesting Environment, integrated into a product Y which requires a mandatory TPM support. (EDIT: This example to be clarified)<a href="#section-1.8-4" class="pilcrow">¶</a></p>
-<p id="section-1.8-5">There is an assumption that the Attesting Environment 1 (AE1) "trusts" Attesting Environment 2 (AE2), which means that AE2 has to verify the signature from AE1, otherwise AE2 can become a "signing fool".
-This verification can be based upon a local credential.<a href="#section-1.8-5" class="pilcrow">¶</a></p>
-<p id="section-1.8-6">In such situations one can anchor the Roots of Trust of Vendor X's CPU Attestation using a secondary Attesting Environment with the TPM Attestation.
-Alternatively, generate a TPM Quote and anchor it to Root of Trust of CPU Attestation based of Vendor X's Attesting Environment.<a href="#section-1.8-6" class="pilcrow">¶</a></p>
-<p id="section-1.8-7">A Verifier/RP may decide to direct the Attestation Request to an AE of choice to reflect the relevant subset of Evidence required for trust asssessment.<a href="#section-1.8-7" class="pilcrow">¶</a></p>
+<p id="section-3.6-4">Example of one such system is a CPU system of a desktop from a Vendor X, which has its built in Attesting Environment, integrated into a product Y which requires a mandatory TPM support. (EDIT: This example to be clarified)<a href="#section-3.6-4" class="pilcrow">¶</a></p>
+<p id="section-3.6-5">There is an assumption that the Attesting Environment 1 (AE1) "trusts" Attesting Environment 2 (AE2), which means that AE2 has to verify the signature from AE1, otherwise AE2 can become a "signing fool".
+This verification can be based upon a local credential.<a href="#section-3.6-5" class="pilcrow">¶</a></p>
+<p id="section-3.6-6">In such situations one can anchor the Roots of Trust of Vendor X's CPU Attestation using a secondary Attesting Environment with the TPM Attestation.
+Alternatively, generate a TPM Quote and anchor it to Root of Trust of CPU Attestation based of Vendor X's Attesting Environment.<a href="#section-3.6-6" class="pilcrow">¶</a></p>
+<p id="section-3.6-7">A Verifier/RP may decide to direct the Attestation Request to an AE of choice to reflect the relevant subset of Evidence required for trust asssessment.<a href="#section-3.6-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="class-5-mixed-composite-attester">
-<section id="section-1.9">
+<section id="section-3.7">
         <h3 id="name-class-5-mixed-composite-att">
-<a href="#section-1.9" class="section-number selfRef">1.9. </a><a href="#name-class-5-mixed-composite-att" class="section-name selfRef">Class 5 Mixed Composite Attester</a>
+<a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-class-5-mixed-composite-att" class="section-name selfRef">Class 5 Mixed Composite Attester</a>
         </h3>
-<p id="section-1.9-1">As soon as there is more than one Component, it is reasonable that the different Components interact with the Lead Attester in different ways.
+<p id="section-3.7-1">As soon as there is more than one Component, it is reasonable that the different Components interact with the Lead Attester in different ways.
 A Mixed Composite Attester would have a components that come from different classes.
-This is not a class itself, but a class of classes.<a href="#section-1.9-1" class="pilcrow">¶</a></p>
-<p id="section-1.9-2">Degenerately, all previous classes can be considered mixes of one, but such a trivial category does not help discussionn.  Except that adding/moving/replacing Components in the field can change things, so some system architectures will need to always consider themselves to be Mixed Composite Attesters, even if when shipped, they might be degenerate instances.<a href="#section-1.9-2" class="pilcrow">¶</a></p>
+This is not a class itself, but a class of classes.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.7-2">Degenerately, all previous classes can be considered mixes of one, but such a trivial category does not help discussionn.  Except that adding/moving/replacing Components in the field can change things, so some system architectures will need to always consider themselves to be Mixed Composite Attesters, even if when shipped, they might be degenerate instances.<a href="#section-3.7-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="attestation-results-as-evidence">
-<section id="section-2">
+<section id="section-4">
       <h2 id="name-attestation-results-as-evid">
-<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-attestation-results-as-evid" class="section-name selfRef">Attestation Results as Evidence</a>
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-attestation-results-as-evid" class="section-name selfRef">Attestation Results as Evidence</a>
       </h2>
-<p id="section-2-1">In cases 2, 3B and 3P Attestation Results are included as Evidence.
+<p id="section-4-1">In cases 2, 3B and 3P Attestation Results are included as Evidence.
 This results in a Verifier that must evaluate these results.
-It must be able to validate the signatures on the Evidence.<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">This creates <em>stacked</em> Remote Attestation.
-This is very much different and <em>distinct</em> from <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>], <a href="https://rfc-editor.org/rfc/rfc9334#section-3.2" class="relref">Section 3.2</a></span> Layered Attestation.<a href="#section-2-2" class="pilcrow">¶</a></p>
-<p id="section-2-3">Layered Attestion produces a <em>single</em> set of Evidence, with claims about different layers.<a href="#section-2-3" class="pilcrow">¶</a></p>
+It must be able to validate the signatures on the Evidence.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2">This creates <em>stacked</em> Remote Attestation.
+This is very much different and <em>distinct</em> from <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>], <a href="https://rfc-editor.org/rfc/rfc9334#section-3.2" class="relref">Section 3.2</a></span> Layered Attestation.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-3">Layered Attestion produces a <em>single</em> set of Evidence, with claims about different layers.<a href="#section-4-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="notation-system">
+<section id="section-5">
+      <h2 id="name-notation-system">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-notation-system" class="section-name selfRef">Notation System</a>
+      </h2>
+<div id="nodes">
+<section id="section-5.1">
+        <h3 id="name-nodes">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-nodes" class="section-name selfRef">Nodes</a>
+        </h3>
+<div id="conveyer">
+<section id="section-5.1.1">
+          <h4 id="name-conveyer">
+<a href="#section-5.1.1" class="section-number selfRef">5.1.1. </a><a href="#name-conveyer" class="section-name selfRef">Conveyer</a>
+          </h4>
+<p id="section-5.1.1-1">A Conveyer is a system component that produces or relays Conceptual Messages.<a href="#section-5.1.1-1" class="pilcrow">¶</a></p>
+<div id="section-5.1.1-2">
+            <div class="alignLeft art-svg artwork" id="section-5.1.1-2.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="96" width="48" viewBox="0 0 48 96" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,32 L 8,64" fill="none" stroke="black"></path>
+                <path d="M 40,32 L 40,64" fill="none" stroke="black"></path>
+                <path d="M 8,32 L 40,32" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 40,64" fill="none" stroke="black"></path>
+                <g class="text">
+</g>
+              </svg><a href="#section-5.1.1-2.1" class="pilcrow">¶</a>
+</div>
+</div>
+<p id="section-5.1.1-3">It is represented by a rectangular shape.<a href="#section-5.1.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-4">The following sections describe specialised types of Conveyors.<a href="#section-5.1.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="attester">
+<section id="section-5.1.2">
+          <h4 id="name-attester">
+<a href="#section-5.1.2" class="section-number selfRef">5.1.2. </a><a href="#name-attester" class="section-name selfRef">Attester</a>
+          </h4>
+<p id="section-5.1.2-1">An Attester is a special kind of Conveyer which produces Evidence.<a href="#section-5.1.2-1" class="pilcrow">¶</a></p>
+<div id="section-5.1.2-2">
+            <div class="alignLeft art-svg artwork" id="section-5.1.2-2.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="128" width="72" viewBox="0 0 72 128" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,32 L 8,96" fill="none" stroke="black"></path>
+                <path d="M 64,32 L 64,96" fill="none" stroke="black"></path>
+                <path d="M 8,32 L 64,32" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 64,64" fill="none" stroke="black"></path>
+                <path d="M 8,96 L 64,96" fill="none" stroke="black"></path>
+                <g class="text">
+                  <text x="36" y="52">TE</text>
+                  <text x="36" y="84">AK</text>
+                </g>
+              </svg><a href="#section-5.1.2-2.1" class="pilcrow">¶</a>
+</div>
+</div>
+<p id="section-5.1.2-3">Internally, it is composed of an Attesting Environment, identified by the attestation key (AK), and a Target Environment (TE), i.e., the Trusted Computing Base (TCB) measured by the Attester.<a href="#section-5.1.2-3" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-4">An Attester exposes the following Interface (see <a href="#interface" class="auto internal xref">Section 5.2.1</a>):<a href="#section-5.1.2-4" class="pilcrow">¶</a></p>
+<table class="center" id="table-1">
+            <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Direction</th>
+                <th class="text-left" rowspan="1" colspan="1">Name</th>
+                <th class="text-left" rowspan="1" colspan="1">Description</th>
+                <th class="text-left" rowspan="1" colspan="1">Mandatory</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">IN</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>Nonce</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">Fixed size parameter (typically 32 or 64 bytes) used to bind the produced Evidence to a randomly selected parameter chosen by the caller.</td>
+                <td class="text-left" rowspan="1" colspan="1">Y</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">IN</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>UserData</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">Typically a variable-size parameter that allows the binding of arbitrary application data (e.g., an authentication key held by a confidential computing workload) to the attestation Evidence.</td>
+                <td class="text-left" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">IN</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>ClaimsSelection</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">A parameter that allows the user to select which claims should appear in the Evidence. The format is attester-specific (e.g., PCR selection for TPM-like attesters)</td>
+                <td class="text-left" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">OUT</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>Evidence</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">The Evidence signed by the AK.  It contains either the full set of claims or a subset thereof, as well as the nonce supplied by the caller and any user data.</td>
+                <td class="text-left" rowspan="1" colspan="1">Y</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">OUT</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>OtherData</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">Related Conceptual Messages, such as Attestation Results, Endorsement, etc.</td>
+                <td class="text-left" rowspan="1" colspan="1">N</td>
+              </tr>
+            </tbody>
+          </table>
+</section>
+</div>
+</section>
+</div>
+<div id="connectors">
+<section id="section-5.2">
+        <h3 id="name-connectors">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-connectors" class="section-name selfRef">Connectors</a>
+        </h3>
+<div id="interface">
+<section id="section-5.2.1">
+          <h4 id="name-interface">
+<a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-interface" class="section-name selfRef">Interface</a>
+          </h4>
+<p id="section-5.2.1-1">An Interface is connected to a Node and outputs some kind of RATS Conceptual Messages.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-2">It is represented by a T-shaped connector.<a href="#section-5.2.1-2" class="pilcrow">¶</a></p>
+<div id="section-5.2.1-3">
+            <div class="alignLeft art-svg artwork" id="section-5.2.1-3.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="64" width="32" viewBox="0 0 32 64" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 16,32 L 16,48" fill="none" stroke="black"></path>
+                <path d="M 8,32 L 24,32" fill="none" stroke="black"></path>
+                <g class="text">
+</g>
+              </svg><a href="#section-5.2.1-3.1" class="pilcrow">¶</a>
+</div>
+</div>
+<p id="section-5.2.1-4">An Interface has a name and some input and output parameters.<a href="#section-5.2.1-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-5">Input and output parameters are defined by their name and type.<a href="#section-5.2.1-5" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-6">A <code>?</code> signals an optional parameter.<a href="#section-5.2.1-6" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-7"><span class="cref">
+    TODO: align this with Attester's interface description.
+</span><a href="#section-5.2.1-7" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="depends-on">
+<section id="section-5.2.2">
+          <h4 id="name-depends-on">
+<a href="#section-5.2.2" class="section-number selfRef">5.2.2. </a><a href="#name-depends-on" class="section-name selfRef">Depends-on</a>
+          </h4>
+<p id="section-5.2.2-1">The Depends-on connector describes a chain of trust between two adjacent attesters within a layered attester arrangement.
+Examples of such an arrangement include DICE <span>[<a href="#TCG-DICE" class="cite xref">TCG-DICE</a>]</span> and Arm CCA <span>[<a href="#I-D.ffm-rats-cca-token" class="cite xref">I-D.ffm-rats-cca-token</a>]</span> in delegated mode.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2-2">It is represented by an arrow connector pointing from the dependent node to the dependent node, i.e. from the "higher" to the "lower" component in the chain of trust.<a href="#section-5.2.2-2" class="pilcrow">¶</a></p>
+<div id="section-5.2.2-3">
+            <div class="alignLeft art-svg artwork" id="section-5.2.2-3.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="176" width="120" viewBox="0 0 120 176" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 24,64 L 24,104" fill="none" stroke="black"></path>
+                <path d="M 24,32 C 15.16936,32 8,39.16936 8,48" fill="none" stroke="black"></path>
+                <path d="M 24,32 C 32.83064,32 40,39.16936 40,48" fill="none" stroke="black"></path>
+                <path d="M 24,64 C 15.16936,64 8,56.83064 8,48" fill="none" stroke="black"></path>
+                <path d="M 24,64 C 32.83064,64 40,56.83064 40,48" fill="none" stroke="black"></path>
+                <path d="M 24,112 C 15.16936,112 8,119.16936 8,128" fill="none" stroke="black"></path>
+                <path d="M 24,112 C 32.83064,112 40,119.16936 40,128" fill="none" stroke="black"></path>
+                <path d="M 24,144 C 15.16936,144 8,136.83064 8,128" fill="none" stroke="black"></path>
+                <path d="M 24,144 C 32.83064,144 40,136.83064 40,128" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="32,104 20,98.4 20,109.6" fill="black" transform="rotate(90,24,104)"></polygon>
+                <g class="text">
+                  <text x="24" y="52">B</text>
+                  <text x="76" y="84">depends-on</text>
+                  <text x="24" y="132">A</text>
+                </g>
+              </svg><a href="#section-5.2.2-3.1" class="pilcrow">¶</a>
+</div>
+</div>
+</section>
+</div>
+<div id="router">
+<section id="section-5.2.3">
+          <h4 id="name-router">
+<a href="#section-5.2.3" class="section-number selfRef">5.2.3. </a><a href="#name-router" class="section-name selfRef">Router</a>
+          </h4>
+<p id="section-5.2.3-1">TBD<a href="#section-5.2.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="trusted-hw-path">
+<section id="section-5.2.4">
+          <h4 id="name-trusted-hw-path">
+<a href="#section-5.2.4" class="section-number selfRef">5.2.4. </a><a href="#name-trusted-hw-path" class="section-name selfRef">Trusted HW path</a>
+          </h4>
+<p id="section-5.2.4-1">TBD - it may be an implementation detail rather than a conceptual relation between attesters.<a href="#section-5.2.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="collection-bus">
+<section id="section-5.2.5">
+          <h4 id="name-collection-bus">
+<a href="#section-5.2.5" class="section-number selfRef">5.2.5. </a><a href="#name-collection-bus" class="section-name selfRef">Collection (Bus)</a>
+          </h4>
+<div id="section-5.2.5-1">
+            <div class="alignLeft art-svg artwork" id="section-5.2.5-1.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="208" width="120" viewBox="0 0 120 208" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,32 L 8,64" fill="none" stroke="black"></path>
+                <path d="M 24,64 L 24,144" fill="none" stroke="black"></path>
+                <path d="M 80,144 L 80,176" fill="none" stroke="black"></path>
+                <path d="M 96,64 L 96,144" fill="none" stroke="black"></path>
+                <path d="M 112,32 L 112,64" fill="none" stroke="black"></path>
+                <path d="M 112,144 L 112,176" fill="none" stroke="black"></path>
+                <path d="M 8,32 L 112,32" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 112,64" fill="none" stroke="black"></path>
+                <path d="M 16,112 L 32,112" fill="none" stroke="black"></path>
+                <path d="M 88,112 L 104,112" fill="none" stroke="black"></path>
+                <path d="M 80,144 L 112,144" fill="none" stroke="black"></path>
+                <path d="M 80,176 L 112,176" fill="none" stroke="black"></path>
+                <path d="M 24,144 C 15.16936,144 8,151.16936 8,160" fill="none" stroke="black"></path>
+                <path d="M 24,144 C 32.83064,144 40,151.16936 40,160" fill="none" stroke="black"></path>
+                <path d="M 24,176 C 15.16936,176 8,168.83064 8,160" fill="none" stroke="black"></path>
+                <path d="M 24,176 C 32.83064,176 40,168.83064 40,160" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="104,104 92,98.4 92,109.6" fill="black" transform="rotate(90,96,104)"></polygon>
+                <polygon class="arrowhead" points="32,104 20,98.4 20,109.6" fill="black" transform="rotate(90,24,104)"></polygon>
+                <g class="text">
+                  <text x="60" y="52">Binder</text>
+                  <text x="24" y="164">A</text>
+                  <text x="96" y="164">B</text>
+                </g>
+              </svg><a href="#section-5.2.5-1.1" class="pilcrow">¶</a>
+</div>
+</div>
+<p id="section-5.2.5-2">A Collection connector describes the collection of Conceptual Messages.<a href="#section-5.2.5-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.5-3">A lead Attester is responsible for the binding function.<a href="#section-5.2.5-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.5-4">A binder is one of:<a href="#section-5.2.5-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.2.5-5.1">
+              <p id="section-5.2.5-5.1.1">Signature of the lead Attester<a href="#section-5.2.5-5.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-5.2.5-5.2">
+              <p id="section-5.2.5-5.2.1">Projection<a href="#section-5.2.5-5.2.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-5.2.5-6">The signature of the lead Attester can bind over a broadcast nonce.<a href="#section-5.2.5-6" class="pilcrow">¶</a></p>
+<p id="section-5.2.5-7">A Projection is described as a topo-sorted set of <code>(src, dst)</code> tuples.<a href="#section-5.2.5-7" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="examples">
+<section id="section-5.3">
+        <h3 id="name-examples">
+<a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-examples" class="section-name selfRef">Examples</a>
+        </h3>
+<div id="cca-delegated">
+<section id="section-5.3.1">
+          <h4 id="name-cca-delegated">
+<a href="#section-5.3.1" class="section-number selfRef">5.3.1. </a><a href="#name-cca-delegated" class="section-name selfRef">CCA Delegated</a>
+          </h4>
+<div id="section-5.3.1-1">
+            <div class="alignLeft art-svg artwork" id="section-5.3.1-1.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="272" width="216" viewBox="0 0 216 272" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,64 L 8,128" fill="none" stroke="black"></path>
+                <path d="M 8,176 L 8,240" fill="none" stroke="black"></path>
+                <path d="M 40,32 L 40,64" fill="none" stroke="black"></path>
+                <path d="M 40,128 L 40,168" fill="none" stroke="black"></path>
+                <path d="M 96,64 L 96,128" fill="none" stroke="black"></path>
+                <path d="M 96,176 L 96,240" fill="none" stroke="black"></path>
+                <path d="M 32,32 L 48,32" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 96,64" fill="none" stroke="black"></path>
+                <path d="M 8,96 L 96,96" fill="none" stroke="black"></path>
+                <path d="M 8,128 L 96,128" fill="none" stroke="black"></path>
+                <path d="M 8,176 L 96,176" fill="none" stroke="black"></path>
+                <path d="M 8,208 L 96,208" fill="none" stroke="black"></path>
+                <path d="M 8,240 L 96,240" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="48,168 36,162.4 36,173.6" fill="black" transform="rotate(90,40,168)"></polygon>
+                <g class="text">
+                  <text x="72" y="36">RSI</text>
+                  <text x="104" y="36">ABI</text>
+                  <text x="168" y="36">(nonce[64])</text>
+                  <text x="32" y="84">TE:</text>
+                  <text x="64" y="84">wkl</text>
+                  <text x="128" y="100">Realm</text>
+                  <text x="32" y="116">AK:</text>
+                  <text x="64" y="116">RAK</text>
+                  <text x="92" y="148">depends-on</text>
+                  <text x="32" y="196">TE:</text>
+                  <text x="64" y="196">RMM</text>
+                  <text x="140" y="212">Platform</text>
+                  <text x="32" y="228">AK:</text>
+                  <text x="68" y="228">CPAK</text>
+                </g>
+              </svg><a href="#section-5.3.1-1.1" class="pilcrow">¶</a>
+</div>
+</div>
+</section>
+</div>
+<div id="class-0">
+<section id="section-5.3.2">
+          <h4 id="name-class-0">
+<a href="#section-5.3.2" class="section-number selfRef">5.3.2. </a><a href="#name-class-0" class="section-name selfRef">Class 0</a>
+          </h4>
+<div id="section-5.3.2-1">
+            <div class="alignLeft art-svg artwork" id="section-5.3.2-1.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="160" width="96" viewBox="0 0 96 160" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,64 L 8,128" fill="none" stroke="black"></path>
+                <path d="M 40,32 L 40,64" fill="none" stroke="black"></path>
+                <path d="M 88,64 L 88,128" fill="none" stroke="black"></path>
+                <path d="M 32,32 L 48,32" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 88,64" fill="none" stroke="black"></path>
+                <path d="M 8,96 L 88,96" fill="none" stroke="black"></path>
+                <path d="M 8,128 L 88,128" fill="none" stroke="black"></path>
+                <g class="text">
+                  <text x="72" y="36">API</text>
+                  <text x="32" y="84">TE:</text>
+                  <text x="60" y="84">TE</text>
+                  <text x="32" y="116">AK:</text>
+                  <text x="64" y="116">LAK</text>
+                </g>
+              </svg><a href="#section-5.3.2-1.1" class="pilcrow">¶</a>
+</div>
+</div>
+<p id="section-5.3.2-2">Or<a href="#section-5.3.2-2" class="pilcrow">¶</a></p>
+<div id="section-5.3.2-3">
+            <div class="alignLeft art-svg artwork" id="section-5.3.2-3.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="240" width="328" viewBox="0 0 328 240" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,64 L 8,128" fill="none" stroke="black"></path>
+                <path d="M 40,32 L 40,64" fill="none" stroke="black"></path>
+                <path d="M 88,64 L 88,128" fill="none" stroke="black"></path>
+                <path d="M 136,144 L 136,208" fill="none" stroke="black"></path>
+                <path d="M 144,80 L 144,112" fill="none" stroke="black"></path>
+                <path d="M 160,112 L 160,144" fill="none" stroke="black"></path>
+                <path d="M 216,144 L 216,208" fill="none" stroke="black"></path>
+                <path d="M 232,144 L 232,208" fill="none" stroke="black"></path>
+                <path d="M 256,112 L 256,144" fill="none" stroke="black"></path>
+                <path d="M 272,80 L 272,112" fill="none" stroke="black"></path>
+                <path d="M 320,144 L 320,208" fill="none" stroke="black"></path>
+                <path d="M 32,32 L 48,32" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 88,64" fill="none" stroke="black"></path>
+                <path d="M 144,80 L 272,80" fill="none" stroke="black"></path>
+                <path d="M 8,96 L 136,96" fill="none" stroke="black"></path>
+                <path d="M 144,112 L 272,112" fill="none" stroke="black"></path>
+                <path d="M 8,128 L 88,128" fill="none" stroke="black"></path>
+                <path d="M 136,144 L 216,144" fill="none" stroke="black"></path>
+                <path d="M 232,144 L 320,144" fill="none" stroke="black"></path>
+                <path d="M 136,176 L 216,176" fill="none" stroke="black"></path>
+                <path d="M 232,176 L 320,176" fill="none" stroke="black"></path>
+                <path d="M 136,208 L 216,208" fill="none" stroke="black"></path>
+                <path d="M 232,208 L 320,208" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="144,96 132,90.4 132,101.6" fill="black" transform="rotate(0,136,96)"></polygon>
+                <g class="text">
+                  <text x="72" y="36">API</text>
+                  <text x="32" y="84">TE:</text>
+                  <text x="60" y="84">&lt;&gt;</text>
+                  <text x="164" y="100">&lt;&gt;</text>
+                  <text x="32" y="116">AK:</text>
+                  <text x="64" y="116">LAK</text>
+                  <text x="160" y="164">TE:</text>
+                  <text x="192" y="164">VGA</text>
+                  <text x="256" y="164">TE:</text>
+                  <text x="292" y="164">SCSI</text>
+                  <text x="160" y="196">AK:</text>
+                  <text x="188" y="196">&lt;&gt;</text>
+                  <text x="256" y="196">AK:</text>
+                  <text x="284" y="196">&lt;&gt;</text>
+                </g>
+              </svg><a href="#section-5.3.2-3.1" class="pilcrow">¶</a>
+</div>
+</div>
+</section>
+</div>
+<div id="class-1">
+<section id="section-5.3.3">
+          <h4 id="name-class-1">
+<a href="#section-5.3.3" class="section-number selfRef">5.3.3. </a><a href="#name-class-1" class="section-name selfRef">Class 1</a>
+          </h4>
+<div id="section-5.3.3-1">
+            <div class="alignLeft art-svg artwork" id="section-5.3.3-1.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="240" width="328" viewBox="0 0 328 240" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,64 L 8,128" fill="none" stroke="black"></path>
+                <path d="M 40,32 L 40,64" fill="none" stroke="black"></path>
+                <path d="M 88,64 L 88,128" fill="none" stroke="black"></path>
+                <path d="M 136,144 L 136,208" fill="none" stroke="black"></path>
+                <path d="M 144,80 L 144,112" fill="none" stroke="black"></path>
+                <path d="M 160,112 L 160,144" fill="none" stroke="black"></path>
+                <path d="M 216,144 L 216,208" fill="none" stroke="black"></path>
+                <path d="M 232,144 L 232,208" fill="none" stroke="black"></path>
+                <path d="M 256,112 L 256,144" fill="none" stroke="black"></path>
+                <path d="M 272,80 L 272,112" fill="none" stroke="black"></path>
+                <path d="M 320,144 L 320,208" fill="none" stroke="black"></path>
+                <path d="M 32,32 L 48,32" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 88,64" fill="none" stroke="black"></path>
+                <path d="M 144,80 L 272,80" fill="none" stroke="black"></path>
+                <path d="M 8,96 L 136,96" fill="none" stroke="black"></path>
+                <path d="M 144,112 L 272,112" fill="none" stroke="black"></path>
+                <path d="M 8,128 L 88,128" fill="none" stroke="black"></path>
+                <path d="M 136,144 L 216,144" fill="none" stroke="black"></path>
+                <path d="M 232,144 L 320,144" fill="none" stroke="black"></path>
+                <path d="M 136,176 L 216,176" fill="none" stroke="black"></path>
+                <path d="M 232,176 L 320,176" fill="none" stroke="black"></path>
+                <path d="M 136,208 L 216,208" fill="none" stroke="black"></path>
+                <path d="M 232,208 L 320,208" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="144,96 132,90.4 132,101.6" fill="black" transform="rotate(0,136,96)"></polygon>
+                <g class="text">
+                  <text x="72" y="36">API</text>
+                  <text x="32" y="84">TE:</text>
+                  <text x="56" y="84">A</text>
+                  <text x="192" y="100">Binding=?</text>
+                  <text x="32" y="116">AK:</text>
+                  <text x="64" y="116">LAK</text>
+                  <text x="160" y="164">TE:</text>
+                  <text x="184" y="164">B</text>
+                  <text x="256" y="164">TE:</text>
+                  <text x="280" y="164">C</text>
+                  <text x="160" y="196">AK:</text>
+                  <text x="188" y="196">BK</text>
+                  <text x="256" y="196">AK:</text>
+                  <text x="284" y="196">CK</text>
+                </g>
+              </svg><a href="#section-5.3.3-1.1" class="pilcrow">¶</a>
+</div>
+</div>
+<p id="section-5.3.3-2">Notes:<a href="#section-5.3.3-2" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-5.3.3-3">
+<li id="section-5.3.3-3.1">
+              <p id="section-5.3.3-3.1.1">A seems to have both lead and "normal" attester functionality<a href="#section-5.3.3-3.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="section-5.3.3-3.2">
+              <p id="section-5.3.3-3.2.1">Binding between collection entries is unspecified<a href="#section-5.3.3-3.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="section-5.3.3-3.3">
+              <p id="section-5.3.3-3.3.1">is CMW signed or not?<a href="#section-5.3.3-3.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ol>
+<p id="section-5.3.3-4">Questions:<a href="#section-5.3.3-4" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-5.3.3-5">
+<li id="section-5.3.3-5.1">
+              <p id="section-5.3.3-5.1.1">scope of LAK: the signing key over the collection CMW, or signing key over Target A, or both?<a href="#section-5.3.3-5.1.1" class="pilcrow">¶</a></p>
+</li>
+          </ol>
+</section>
+</div>
+<div id="class-2">
+<section id="section-5.3.4">
+          <h4 id="name-class-2">
+<a href="#section-5.3.4" class="section-number selfRef">5.3.4. </a><a href="#name-class-2" class="section-name selfRef">Class 2</a>
+          </h4>
+<div id="section-5.3.4-1">
+            <div class="alignLeft art-svg artwork" id="section-5.3.4-1.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="464" width="264" viewBox="0 0 264 464" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,32 L 8,64" fill="none" stroke="black"></path>
+                <path d="M 8,112 L 8,176" fill="none" stroke="black"></path>
+                <path d="M 24,64 L 24,104" fill="none" stroke="black"></path>
+                <path d="M 40,288 L 40,320" fill="none" stroke="black"></path>
+                <path d="M 56,176 L 56,288" fill="none" stroke="black"></path>
+                <path d="M 72,352 L 72,416" fill="none" stroke="black"></path>
+                <path d="M 88,72 L 88,112" fill="none" stroke="black"></path>
+                <path d="M 96,320 L 96,352" fill="none" stroke="black"></path>
+                <path d="M 96,416 L 96,448" fill="none" stroke="black"></path>
+                <path d="M 104,32 L 104,64" fill="none" stroke="black"></path>
+                <path d="M 104,112 L 104,176" fill="none" stroke="black"></path>
+                <path d="M 144,112 L 144,144" fill="none" stroke="black"></path>
+                <path d="M 152,208 L 152,288" fill="none" stroke="black"></path>
+                <path d="M 160,352 L 160,416" fill="none" stroke="black"></path>
+                <path d="M 168,288 L 168,320" fill="none" stroke="black"></path>
+                <path d="M 200,80 L 200,112" fill="none" stroke="black"></path>
+                <path d="M 200,144 L 200,176" fill="none" stroke="black"></path>
+                <path d="M 8,32 L 104,32" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 104,64" fill="none" stroke="black"></path>
+                <path d="M 160,96 L 224,96" fill="none" stroke="black"></path>
+                <path d="M 8,112 L 104,112" fill="none" stroke="black"></path>
+                <path d="M 104,128 L 144,128" fill="none" stroke="black"></path>
+                <path d="M 8,144 L 104,144" fill="none" stroke="black"></path>
+                <path d="M 160,160 L 224,160" fill="none" stroke="black"></path>
+                <path d="M 8,176 L 104,176" fill="none" stroke="black"></path>
+                <path d="M 48,240 L 64,240" fill="none" stroke="black"></path>
+                <path d="M 144,240 L 160,240" fill="none" stroke="black"></path>
+                <path d="M 40,288 L 168,288" fill="none" stroke="black"></path>
+                <path d="M 40,320 L 168,320" fill="none" stroke="black"></path>
+                <path d="M 72,352 L 160,352" fill="none" stroke="black"></path>
+                <path d="M 72,384 L 160,384" fill="none" stroke="black"></path>
+                <path d="M 72,416 L 160,416" fill="none" stroke="black"></path>
+                <path d="M 88,448 L 104,448" fill="none" stroke="black"></path>
+                <path d="M 240,80 C 231.16936,80 224,87.16936 224,96" fill="none" stroke="black"></path>
+                <path d="M 240,80 C 248.83064,80 256,87.16936 256,96" fill="none" stroke="black"></path>
+                <path d="M 160,96 C 151.16936,96 144,103.16936 144,112" fill="none" stroke="black"></path>
+                <path d="M 240,112 C 231.16936,112 224,104.83064 224,96" fill="none" stroke="black"></path>
+                <path d="M 240,112 C 248.83064,112 256,104.83064 256,96" fill="none" stroke="black"></path>
+                <path d="M 240,144 C 231.16936,144 224,151.16936 224,160" fill="none" stroke="black"></path>
+                <path d="M 240,144 C 248.83064,144 256,151.16936 256,160" fill="none" stroke="black"></path>
+                <path d="M 160,160 C 151.16936,160 144,152.83064 144,144" fill="none" stroke="black"></path>
+                <path d="M 152,176 C 143.16936,176 136,183.16936 136,192" fill="none" stroke="black"></path>
+                <path d="M 152,176 C 160.83064,176 168,183.16936 168,192" fill="none" stroke="black"></path>
+                <path d="M 240,176 C 231.16936,176 224,168.83064 224,160" fill="none" stroke="black"></path>
+                <path d="M 240,176 C 248.83064,176 256,168.83064 256,160" fill="none" stroke="black"></path>
+                <path d="M 152,208 C 143.16936,208 136,200.83064 136,192" fill="none" stroke="black"></path>
+                <path d="M 152,208 C 160.83064,208 168,200.83064 168,192" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="200,160 188,154.4 188,165.6" fill="black" transform="rotate(0,192,160)"></polygon>
+                <polygon class="arrowhead" points="200,96 188,90.4 188,101.6" fill="black" transform="rotate(0,192,96)"></polygon>
+                <polygon class="arrowhead" points="160,248 148,242.4 148,253.6" fill="black" transform="rotate(270,152,248)"></polygon>
+                <polygon class="arrowhead" points="96,72 84,66.4 84,77.6" fill="black" transform="rotate(270,88,72)"></polygon>
+                <polygon class="arrowhead" points="64,248 52,242.4 52,253.6" fill="black" transform="rotate(270,56,248)"></polygon>
+                <polygon class="arrowhead" points="32,104 20,98.4 20,109.6" fill="black" transform="rotate(90,24,104)"></polygon>
+                <g class="text">
+                  <text x="52" y="52">Verifier</text>
+                  <text x="240" y="100">B</text>
+                  <text x="52" y="132">RP</text>
+                  <text x="52" y="164">Conveyer</text>
+                  <text x="240" y="164">C</text>
+                  <text x="152" y="196">A</text>
+                  <text x="88" y="308">Binding=?</text>
+                  <text x="96" y="372">TE:</text>
+                  <text x="124" y="372">&lt;&gt;</text>
+                  <text x="96" y="404">AK:</text>
+                  <text x="128" y="404">LAK</text>
+                </g>
+              </svg><a href="#section-5.3.4-1.1" class="pilcrow">¶</a>
+</div>
+</div>
+<p id="section-5.3.4-2">Questions and notes are the same as Class 1.<a href="#section-5.3.4-2" class="pilcrow">¶</a></p>
+<p id="section-5.3.4-3">Besides, there are further questions:<a href="#section-5.3.4-3" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-5.3.4-4">
+<li id="section-5.3.4-4.1">
+              <p id="section-5.3.4-4.1.1">a question whether a lead attester is in front of B and C<a href="#section-5.3.4-4.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="section-5.3.4-4.2">
+              <p id="section-5.3.4-4.2.1">a question about unnecessary conflation of RP/Verifier and Lead attester -- they probably need to be modelled as separate entities<a href="#section-5.3.4-4.2.1" class="pilcrow">¶</a></p>
+</li>
+          </ol>
+</section>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="privacy-considerations">
-<section id="section-3">
+<section id="section-6">
       <h2 id="name-privacy-considerations">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-privacy-considerations" class="section-name selfRef">Privacy Considerations</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-privacy-considerations" class="section-name selfRef">Privacy Considerations</a>
       </h2>
-<p id="section-3-1">YYY<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">YYY<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-4">
+<section id="section-7">
       <h2 id="name-security-considerations">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-4-1">ZZZ<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">ZZZ<a href="#section-7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="nonce-architecture">
-<section id="section-5">
+<section id="section-8">
       <h2 id="name-nonce-architecture">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-nonce-architecture" class="section-name selfRef">Nonce Architecture</a>
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-nonce-architecture" class="section-name selfRef">Nonce Architecture</a>
       </h2>
-<p id="section-5-1">In all clsses other than the class 0 and class 1, there are cases that multiple (local or external) Verifiers exist in the system. To address the conflict between different nonces generated by different Verifiers, there are possible candidate solutions as follows<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-8-1">In all classes other than the class 0 and class 1, there are cases that multiple (local or external) Verifiers exist in the system. To address the conflict between different nonces generated by different Verifiers, there are possible candidate solutions as follows<a href="#section-8-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5-2.1">
-          <p id="section-5-2.1.1">Using one unique nonce from one external Verifier: This Verifier initiates the attestation progress and other Verifiers use the same nonce to challenge their corresponding Attesters. To ensure the integrity of the nonce, this nonce SHOULD be signed by this initial Verifier.<a href="#section-5-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-8-2.1">
+          <p id="section-8-2.1.1">Using one unique nonce from one external Verifier: This Verifier initiates the attestation progress and other Verifiers use the same nonce to challenge their corresponding Attesters. To ensure the integrity of the nonce, this nonce SHOULD be signed by this initial Verifier.<a href="#section-8-2.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-2.2">
-          <p id="section-5-2.2.1">Each Verifier uses their own nonce: The Evidence in such a case is the mixing of certain Evidences and Attestation Result-as-Evidences. The receiver of the Attestation Results (the Attester) can apply the technique in <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>], <a href="https://rfc-editor.org/rfc/rfc9334#appendix-A.2" class="relref">Appendix A.2</a></span> to ensure the freshness of the Attestation Result-as-Evidences.<a href="#section-5-2.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-8-2.2">
+          <p id="section-8-2.2.1">Each Verifier uses their own nonce: The Evidence in such a case is the mixing of certain Evidences and Attestation Result-as-Evidences. The receiver of the Attestation Results (the Attester) can apply the technique in <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>], <a href="https://rfc-editor.org/rfc/rfc9334#appendix-A.2" class="relref">Appendix A.2</a></span> to ensure the freshness of the Attestation Result-as-Evidences.<a href="#section-8-2.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-6">
+<section id="section-9">
       <h2 id="name-iana-considerations">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
     </h2>
 </section>
 </div>
 <div id="acknowledgements">
-<section id="section-7">
+<section id="section-10">
       <h2 id="name-acknowledgements">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
+<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
       </h2>
-<p id="section-7-1">Jun Zhang contributed the terms "Le Petit" and "Le Grand" to qualify Verifier, the original thought for Class 5 Composite Atteser and the description of the Nonce architecture.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-10-1">Jun Zhang contributed the terms "Le Petit" and "Le Grand" to qualify Verifier, the original thought for Class 5 Composite Atteser and the description of the Nonce architecture.<a href="#section-10-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="changelog">
-<section id="section-8">
+<section id="section-11">
       <h2 id="name-changelog">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-changelog" class="section-name selfRef">Changelog</a>
+<a href="#section-11" class="section-number selfRef">11. </a><a href="#name-changelog" class="section-name selfRef">Changelog</a>
     </h2>
 </section>
 </div>
 <div id="sec-combined-references">
-<section id="section-9">
+<section id="section-12">
       <h2 id="name-references">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-12" class="section-number selfRef">12. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-9.1">
+<section id="section-12.1">
         <h3 id="name-normative-references">
-<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-12.1" class="section-number selfRef">12.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC8174">[RFC8174]</dt>
@@ -2055,14 +2653,22 @@ This is very much different and <em>distinct</em> from <span>[<a href="#RFC9334"
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-9.2">
+<section id="section-12.2">
         <h3 id="name-informative-references">
-<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-12.2" class="section-number selfRef">12.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="I-D.ffm-rats-cca-token">[I-D.ffm-rats-cca-token]</dt>
+        <dd>
+<span class="refAuthor">Frost, S.</span>, <span class="refAuthor">Fossati, T.</span>, and <span class="refAuthor">G. Mandyam</span>, <span class="refTitle">"Arm's Confidential Compute Architecture Reference Attestation Token"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ffm-rats-cca-token-02</span>, <time datetime="2025-09-02" class="refDate">2 September 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ffm-rats-cca-token-02">https://datatracker.ietf.org/doc/html/draft-ffm-rats-cca-token-02</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC9781">[RFC9781]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">O'Donoghue, J.</span>, <span class="refAuthor">Cam-Winget, N.</span>, and <span class="refAuthor">C. Bormann</span>, <span class="refTitle">"A Concise Binary Object Representation (CBOR) Tag for Unprotected CBOR Web Token Claims Sets (UCCS)"</span>, <span class="seriesInfo">RFC 9781</span>, <span class="seriesInfo">DOI 10.17487/RFC9781</span>, <time datetime="2025-05" class="refDate">May 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9781">https://www.rfc-editor.org/info/rfc9781</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="TCG-DICE">[TCG-DICE]</dt>
+      <dd>
+<span class="refAuthor">Trusted Computing Group</span>, <span class="refTitle">"DICE Layering Architecture"</span>, <span class="seriesInfo">Version 1.0, Revision 0.19 </span>, <time datetime="2020-07" class="refDate">July 2020</time>, <span>&lt;<a href="https://trustedcomputinggroup.org/wp-content/uploads/DICE-Layering-Architecture-r19_pub.pdf">https://trustedcomputinggroup.org/wp-content/uploads/DICE-Layering-Architecture-r19_pub.pdf</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -2096,6 +2702,14 @@ This is very much different and <em>distinct</em> from <span>[<a href="#RFC9334"
 <div class="email">
 <span>Email:</span>
 <a href="mailto:yogesh.deshpande@arm.com" class="email">yogesh.deshpande@arm.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Thomas Fossati</span></div>
+<div dir="auto" class="left"><span class="org">Linaro</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:thomas.fossati@linaro.org" class="email">thomas.fossati@linaro.org</a>
 </div>
 </address>
 </section>
