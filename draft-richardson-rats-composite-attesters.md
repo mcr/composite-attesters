@@ -31,12 +31,24 @@ author:
   name: Yogesh Deshpande
   org: Arm
   email: yogesh.deshpande@arm.com
+- ins: T. Fossati
+  name: Thomas Fossati
+  org: Linaro
+  email: thomas.fossati@linaro.org
 
 normative:
   BCP14: RFC8174
   RFC9334:
   I-D.ietf-rats-msg-wrap: cmw
 informative:
+  TCG-DICE:
+    title: DICE Layering Architecture
+    author:
+      org: Trusted Computing Group
+    seriesinfo: Version 1.0, Revision 0.19
+    date: July 2020
+    target: https://trustedcomputinggroup.org/wp-content/uploads/DICE-Layering-Architecture-r19_pub.pdf
+  I-D.ffm-rats-cca-token: arm-cca
 
 venue:
   group: rats
@@ -52,6 +64,8 @@ This document further refines different kinds of RFC 9334 Composite Attesters.
 # Introduction
 
 This document clarifies and extends the meaning of Composite Attester from {{RFC9334, Section 3.3}}.
+It also introduces a notation system for describing Composite Attesters in terms of their constituent elements and the relationships between them.
+The aim is to describe the Composite Attester topology in a way that helps understanding the resulting Evidence composition.
 
 ## Caveats of Current Definition
 
@@ -71,7 +85,7 @@ This document clarifies and extends the meaning of Composite Attester from {{RFC
 
 In this description, it was left vague as to whether or not each Attesting Environment signs the Evidence that it generates, and whether or not the Evidence is evaluated by a Verifier operated by the Lead Attester, or if it's passed by the Lead Attester along with the Evidence from the Lead Target Environment.
 
-## Terminology
+# Terminology
 
 Lead Attester:
 : This term is from RFC9334, and includes the (Lead) Attesting Environment, and the (Lead) Target Environment.
@@ -99,11 +113,14 @@ Local Verifier:
 
 Local Validation:
 : in some classes, Evidence is passed around, and must remain integral.  Local Validation involves checking the authenticity of the end-point. This could involve a signature, or require physical security of that end-point.
+
 Verifier le petit:
 : (Or, "Le Petit Verificateur").  This is the Verifier that examines the Component Evidence.  This may treat the Lead Attester as a component.
 
 Verifier le grand:
 : (Or, "Le Grand Verificateur"). This is the Verifier that examines the arrangement and relationships between Components.
+
+# Composite Attesters Examples
 
 ## Class 0 Composite Attester
 
@@ -271,9 +288,245 @@ This results in a Verifier that must evaluate these results.
 It must be able to validate the signatures on the Evidence.
 
 This creates *stacked* Remote Attestation.
-This is very much different and *distinct* from {{!RFC9334, Section 3.2}} Layered Attestation.
+This is very much different and *distinct* from {{RFC9334, Section 3.2}} Layered Attestation.
 
 Layered Attestion produces a *single* set of Evidence, with claims about different layers.
+
+# Notation System
+
+## Nodes {#nodes}
+
+### Conveyer {#conveyer}
+
+A Conveyer is a system component that produces or relays Conceptual Messages.
+
+~~~ aasvg
+  .---.
+  |   |
+  '---'
+~~~
+
+It is represented by a rectangular shape.
+
+The following sections describe specialised types of Conveyors.
+
+### Attester {#attester}
+
+An Attester is a special kind of Conveyer which produces Evidence.
+
+~~~ aasvg
+  .------.
+  |  TE  |
+  +------+
+  |  AK  |
+  '------'
+~~~
+
+Internally, it is composed of an Attesting Environment, identified by the attestation key (AK), and a Target Environment (TE), i.e., the Trusted Computing Base (TCB) measured by the Attester.
+
+An Attester exposes the following Interface (see {{interface}}):
+
+| Direction | Name | Description | Mandatory |
+|--|--|--|--|
+| IN | `Nonce` | Fixed size parameter (typically 32 or 64 bytes) used to bind the produced Evidence to a randomly selected parameter chosen by the caller. | Y |
+| IN | `UserData` | Typically a variable-size parameter that allows the binding of arbitrary application data (e.g., an authentication key held by a confidential computing workload) to the attestation Evidence. | N |
+| IN | `ClaimsSelection` | A parameter that allows the user to select which claims should appear in the Evidence. The format is attester-specific (e.g., PCR selection for TPM-like attesters) | N |
+| OUT | `Evidence` | The Evidence signed by the AK.  It contains either the full set of claims or a subset thereof, as well as the nonce supplied by the caller and any user data. | Y |
+| OUT | `OtherData` | Related Conceptual Messages, such as Attestation Results, Endorsement, etc. | N |
+
+## Connectors
+
+### Interface {#interface}
+
+An Interface is connected to a Node and outputs some kind of RATS Conceptual Messages.
+
+It is represented by a T-shaped connector.
+
+~~~ aasvg
+-+-
+ |
+~~~
+
+An Interface has a name and some input and output parameters.
+
+Input and output parameters are defined by their name and type.
+
+A `?` signals an optional parameter.
+
+<cref>
+    TODO: align this with Attester's interface description.
+</cref>
+
+### Depends-on
+
+The Depends-on connector describes a chain of trust between two adjacent attesters within a layered attester arrangement.
+Examples of such an arrangement include DICE {{TCG-DICE}} and Arm CCA {{-arm-cca}} in delegated mode.
+
+It is represented by an arrow connector pointing from the dependent node to the dependent node, i.e. from the "higher" to the "lower" component in the chain of trust.
+
+~~~ aasvg
+      .-.
+     | B |
+      '+'
+       | depends-on
+       v
+      .+.
+     | A |
+      '-'
+~~~
+
+### Router
+
+TBD
+
+### Trusted HW path
+
+TBD - it may be an implementation detail rather than a conceptual relation between attesters.
+
+### Collection (Bus)
+
+~~~ aasvg
+  .------------.
+  |   Binder   |
+  '-+--------+-'
+    |        |
+    v        v
+   -+-      -+-
+    |        |
+   .+.     .-+-.
+  | A |    | B |
+   '-'     '---'
+~~~
+
+A Collection connector describes the collection of Conceptual Messages.
+
+A lead Attester is responsible for the binding function.
+
+A binder is one of:
+
+* Signature of the lead Attester
+* Projection
+
+The signature of the lead Attester can bind over a broadcast nonce.
+
+A Projection is described as a topo-sorted set of `(src, dst)` tuples.
+
+## Examples
+
+### CCA Delegated
+
+~~~ aasvg
+    -+- RSI ABI (nonce[64])
+     |
+ .---+------.
+ | TE: wkl  |
+ +----------+ Realm
+ | AK: RAK  |
+ '---+------'
+     | depends-on
+     v
+ .---+------.
+ | TE: RMM  |
+ +----------+ Platform
+ | AK: CPAK |
+ '----------'
+~~~
+
+### Class 0
+
+~~~ aasvg
+    -+- API
+     |
+ .---+-----.
+ | TE: TE  |
+ +---------+
+ | AK: LAK |
+ '---------'
+~~~
+
+Or
+
+~~~ aasvg
+    -+- API
+     |
+ .---+-----.
+ | TE: <>  |      .---------------.
+ +---------+----->| <>            |
+ | AK: LAK |      '-+-----------+-'
+ '---------'        |           |
+                 .--+------. .--+-------.
+                 | TE: VGA | | TE: SCSI |
+                 +---------+ +----------+
+                 | AK: <>  | | AK: <>   |
+                 '---------' '----------'
+~~~
+
+### Class 1
+
+~~~ aasvg
+    -+- API
+     |
+ .---+-----.
+ | TE: A   |      .---------------.
+ +---------+----->| Binding=?     |
+ | AK: LAK |      '-+-----------+-'
+ '---------'        |           |
+                 .--+------. .--+-------.
+                 | TE: B   | | TE: C    |
+                 +---------+ +----------+
+                 | AK: BK  | | AK: CK   |
+                 '---------' '----------'
+~~~
+
+Notes:
+
+1. A seems to have both lead and "normal" attester functionality
+2. Binding between collection entries is unspecified
+3. is CMW signed or not?
+
+Questions:
+
+1. scope of LAK: the signing key over the collection CMW, or signing key over Target A, or both?
+
+### Class 2
+
+~~~ aasvg
+
+.-----------.
+| Verifier  |
+'-+---------'
+  |       ^             |   .-.
+  v       |       .---->+--+ B |
+.---------+-.    |      |   '-'
+|    RP     +----+
++-----------+    |      |   .-.
+| Conveyer  |     '---->+--+ C |
+'-----+-----'    .-.    |   '-'
+      |         | A |
+      |          '+'
+      |           |
+     -+-         -+-
+      ^           ^
+      |           |
+    .-+-----------+-.
+    | Binding=?     |
+    '------+--------'
+           |
+        .--+-------.
+        | TE: <>   |
+        +----------+
+        | AK: LAK  |
+        '--+-------'
+           |
+          -+-
+~~~
+
+Questions and notes are the same as Class 1.
+
+Besides, there are further questions:
+
+1. a question whether a lead attester is in front of B and C
+2. a question about unnecessary conflation of RP/Verifier and Lead attester -- they probably need to be modelled as separate entities
 
 # Privacy Considerations
 
@@ -285,11 +538,11 @@ ZZZ
 
 # Nonce Architecture
 
-In all clsses other than the class 0 and class 1, there are cases that multiple (local or external) Verifiers exist in the system. To address the conflict between different nonces generated by different Verifiers, there are possible candidate solutions as follows
+In all classes other than the class 0 and class 1, there are cases that multiple (local or external) Verifiers exist in the system. To address the conflict between different nonces generated by different Verifiers, there are possible candidate solutions as follows
 
 - Using one unique nonce from one external Verifier: This Verifier initiates the attestation progress and other Verifiers use the same nonce to challenge their corresponding Attesters. To ensure the integrity of the nonce, this nonce SHOULD be signed by this initial Verifier.
 
-- Each Verifier uses their own nonce: The Evidence in such a case is the mixing of certain Evidences and Attestation Result-as-Evidences. The receiver of the Attestation Results (the Attester) can apply the technique in {{!RFC9334, Appendix A.2}} to ensure the freshness of the Attestation Result-as-Evidences.
+- Each Verifier uses their own nonce: The Evidence in such a case is the mixing of certain Evidences and Attestation Result-as-Evidences. The receiver of the Attestation Results (the Attester) can apply the technique in {{RFC9334, Appendix A.2}} to ensure the freshness of the Attestation Result-as-Evidences.
 
 # IANA Considerations
 
