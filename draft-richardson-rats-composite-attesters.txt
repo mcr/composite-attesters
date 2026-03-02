@@ -5,10 +5,10 @@
 RATS Working Group                                         M. Richardson
 Internet-Draft                                  Sandelman Software Works
 Intended status: Informational                               H. Birkholz
-Expires: 20 August 2026                                   Fraunhofer SIT
+Expires: 3 September 2026                                 Fraunhofer SIT
                                                             Y. Deshpande
                                                                      Arm
-                                                        16 February 2026
+                                                            2 March 2026
 
 
                     Taxonomy of Composite Attesters
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 August 2026.
+   This Internet-Draft will expire on 3 September 2026.
 
 Copyright Notice
 
@@ -149,11 +149,11 @@ Table of Contents
    Local Validation:  in some classes, Evidence is passed around, and
       must remain integral.  Local Validation involves checking the
       authenticity of the end-point.  This could involve a signature, or
-      require physical security of that end-point.  Verifier le petit:
+      require physical security of that end-point.
 
-      (Or, "Le Petit Verificateur").  This is the Verifier that examines
-      the Component Evidence.  This may treat the Lead Attester as a
-      component.
+   Verifier le petit:  (Or, "Le Petit Verificateur").  This is the
+      Verifier that examines the Component Evidence.  This may treat the
+      Lead Attester as a component.
 
    Verifier le grand:  (Or, "Le Grande Verificateur").  This is the
       Verifier that examines the arrangement and relationships between
@@ -581,7 +581,7 @@ Table of Contents
 
 7.  Acknowledgements
 
-   Jun Zhang contributed the terms "Le Petit" and "La Grand" to qualify
+   Jun Zhang contributed the terms "Le Petit" and "Le Grand" to qualify
    Verifier, the original thought for Class 5 Composite Atteser and the
    description of the Nonce architecture.
 
