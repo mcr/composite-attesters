@@ -129,7 +129,251 @@ Verifier le petit:
 Verifier le grand:
 : (Or, "Le Grand Verificateur"). This is the Verifier that examines the arrangement and relationships between Components.
 
+# Notation System
+
+This notation system is used in subsequent examples to compose more complex system.
+The notations presented here should be considered in analogy to atoms in Chemistry, with the composed class examples below, to be molecules.
+(Alternatively, the notations here are Baryons and Leptons in the Standard Model of Physics, with examples being atoms of the periodic table)
+
+This process was developed when it was realized that the set of classes that could be formed via Composition was unbounded, and so any attempt to enumerate them all would never end.
+
+## Nodes {#nodes}
+
+### Conveyer {#conveyer}
+
+A Conveyer is a system component that produces or relays Conceptual Messages.
+
+~~~ aasvg
+  .---.
+  |   |
+  '---'
+~~~
+
+It is represented by a rectangular shape with rounded corners.
+
+The following sections describe specialised types of Conveyors.
+
+### Attester {#attester}
+
+An Attester is a special kind of Conveyer which produces Evidence.
+
+~~~ aasvg
+  .------.
+  |  TE  |
+  +------+
+  |  AK  |
+  '------'
+~~~
+
+Internally, it is composed of an Attesting Environment, identified by the attestation key (AK), and a Target Environment (TE), i.e., the Trusted Computing Base (TCB) measured by the Attester.
+
+An Attester exposes the following Interface (see {{interface}}):
+
+| Direction | Name | Description | Mandatory |
+|--|--|--|--|
+| IN | `Nonce` | Fixed size parameter (typically 32 or 64 bytes) used to bind the produced Evidence to a randomly selected parameter chosen by the caller. | Y |
+| IN | `UserData` | Typically a variable-size parameter that allows the binding of arbitrary application data (e.g., an authentication key held by a confidential computing workload) to the attestation Evidence. | N |
+| IN | `ClaimsSelection` | A parameter that allows the user to select which claims should appear in the Evidence. The format is attester-specific (e.g., PCR selection for TPM-like attesters) | N |
+| OUT | `Evidence` | The Evidence signed by the AK.  It contains either the full set of claims or a subset thereof, as well as the nonce supplied by the caller and any user data. | Y |
+| OUT | `OtherData` | Related Conceptual Messages, such as Attestation Results, Endorsement, etc. | N |
+
+## Connectors
+
+### Interface {#interface}
+
+An Interface is connected to a Node (such as an Attester) and outputs a RATS Conceptual Messages.
+
+It is represented by a T-shaped connector.
+
+~~~ aasvg
+-+-
+ |
+~~~
+
+An Interface has a name and some input and output parameters.
+
+Input and output parameters are defined by their name and type.
+
+A `?` signals an optional parameter.
+
+<cref>
+    TODO: align this with Attester's interface description.
+</cref>
+
+### Depends-on
+
+The Depends-on connector describes a chain of trust between two adjacent Attesters within a layered attester arrangement.
+Examples of such an arrangement include DICE {{TCG-DICE}} and Arm CCA {{-arm-cca}} in delegated mode.
+
+It is represented by an arrow connector pointing from the dependent node to the dependent node, i.e. from the "higher" to the "lower" component in the chain of trust.
+
+~~~ aasvg
+     .---.
+     | B |
+     '-+-'
+       | depends-on
+       v
+     .-+-.
+     | A |
+     '---'
+~~~
+
+### Router
+
+TBD
+
+### Trusted HW path
+
+TBD - it may be an implementation detail rather than a conceptual relation between attesters.
+
+### Collection (Bus)
+
+A Collection connector describes the collection of Conceptual Messages.
+
+~~~ aasvg
+  .------------.
+  |   Binder   |
+  '-+--------+-'
+    |        |
+    v        v
+   -+-      -+-
+    |        |
+  .-+-.    .-+-.
+  | A |    | B |
+  '---'    '---'
+~~~
+
+A lead Attester is responsible for the binding function.
+
+A binder is one of:
+
+* Signature of the lead Attester
+* Projection
+
+The signature of the lead Attester can bind over a broadcast nonce.
+
+A Projection is described as a topo-sorted set of `(src, dst)` tuples.
+
+## Example of Notation System
+
+### CCA Delegated
+
+~~~ aasvg
+    -+- RSI ABI (nonce[64])
+     |
+ .---+------.
+ | TE: wkl  |
+ +----------+ Realm
+ | AK: RAK  |
+ '---+------'
+     | depends-on
+     v
+ .---+------.
+ | TE: RMM  |
+ +----------+ Platform
+ | AK: CPAK |
+ '----------'
+~~~
+
+### Class 0
+
+~~~ aasvg
+    -+- API
+     |
+ .---+-----.
+ | TE: TE  |
+ +---------+
+ | AK: LAK |
+ '---------'
+~~~
+
+Or
+
+~~~ aasvg
+    -+- API
+     |
+ .---+-----.
+ | TE: <>  |      .---------------.
+ +---------+----->| <>            |
+ | AK: LAK |      '-+-----------+-'
+ '---------'        |           |
+                 .--+------. .--+-------.
+                 | TE: VGA | | TE: SCSI |
+                 +---------+ +----------+
+                 | AK: <>  | | AK: <>   |
+                 '---------' '----------'
+~~~
+
+### Class 1
+
+~~~ aasvg
+    -+- API
+     |
+ .---+-----.
+ | TE: A   |      .---------------.
+ +---------+----->| Binding=?     |
+ | AK: LAK |      '-+-----------+-'
+ '---------'        |           |
+                 .--+------. .--+-------.
+                 | TE: B   | | TE: C    |
+                 +---------+ +----------+
+                 | AK: BK  | | AK: CK   |
+                 '---------' '----------'
+~~~
+
+Notes:
+
+1. A seems to have both lead and "normal" attester functionality
+2. Binding between collection entries is unspecified
+3. is CMW signed or not?
+
+Questions:
+
+1. scope of LAK: the signing key over the collection CMW, or signing key over Target A, or both?
+
+### Class 2
+
+~~~ aasvg
+
+.-----------.
+| Verifier  |
+'-+---------'
+  |       ^             |   .-.
+  v       |       .---->+--+ B |
+.---------+-.    |      |   '-'
+|    RP     +----+
++-----------+    |      |   .-.
+| Conveyer  |     '---->+--+ C |
+'-----+-----'    .-.    |   '-'
+      |         | A |
+      |          '+'
+      |           |
+     -+-         -+-
+      ^           ^
+      |           |
+    .-+-----------+-.
+    | Binding=?     |
+    '------+--------'
+           |
+        .--+-------.
+        | TE: <>   |
+        +----------+
+        | AK: LAK  |
+        '--+-------'
+           |
+          -+-
+~~~
+
+Questions and notes are the same as Class 1.
+
+Besides, there are further questions:
+
+1. a question whether a lead attester is in front of B and C
+2. a question about unnecessary conflation of RP/Verifier and Lead attester -- they probably need to be modelled as separate entities
+
 # Composite Attesters Examples
+
+(EDNOTE: the diagrams in this section will get rewritten using the notation system abover)
 
 ## Class 0 Composite Attester
 
@@ -301,241 +545,6 @@ This is very much different and *distinct* from {{RFC9334, Section 3.2}} Layered
 
 Layered Attestion produces a *single* set of Evidence, with claims about different layers.
 
-# Notation System
-
-## Nodes {#nodes}
-
-### Conveyer {#conveyer}
-
-A Conveyer is a system component that produces or relays Conceptual Messages.
-
-~~~ aasvg
-  .---.
-  |   |
-  '---'
-~~~
-
-It is represented by a rectangular shape.
-
-The following sections describe specialised types of Conveyors.
-
-### Attester {#attester}
-
-An Attester is a special kind of Conveyer which produces Evidence.
-
-~~~ aasvg
-  .------.
-  |  TE  |
-  +------+
-  |  AK  |
-  '------'
-~~~
-
-Internally, it is composed of an Attesting Environment, identified by the attestation key (AK), and a Target Environment (TE), i.e., the Trusted Computing Base (TCB) measured by the Attester.
-
-An Attester exposes the following Interface (see {{interface}}):
-
-| Direction | Name | Description | Mandatory |
-|--|--|--|--|
-| IN | `Nonce` | Fixed size parameter (typically 32 or 64 bytes) used to bind the produced Evidence to a randomly selected parameter chosen by the caller. | Y |
-| IN | `UserData` | Typically a variable-size parameter that allows the binding of arbitrary application data (e.g., an authentication key held by a confidential computing workload) to the attestation Evidence. | N |
-| IN | `ClaimsSelection` | A parameter that allows the user to select which claims should appear in the Evidence. The format is attester-specific (e.g., PCR selection for TPM-like attesters) | N |
-| OUT | `Evidence` | The Evidence signed by the AK.  It contains either the full set of claims or a subset thereof, as well as the nonce supplied by the caller and any user data. | Y |
-| OUT | `OtherData` | Related Conceptual Messages, such as Attestation Results, Endorsement, etc. | N |
-
-## Connectors
-
-### Interface {#interface}
-
-An Interface is connected to a Node and outputs some kind of RATS Conceptual Messages.
-
-It is represented by a T-shaped connector.
-
-~~~ aasvg
--+-
- |
-~~~
-
-An Interface has a name and some input and output parameters.
-
-Input and output parameters are defined by their name and type.
-
-A `?` signals an optional parameter.
-
-<cref>
-    TODO: align this with Attester's interface description.
-</cref>
-
-### Depends-on
-
-The Depends-on connector describes a chain of trust between two adjacent attesters within a layered attester arrangement.
-Examples of such an arrangement include DICE {{TCG-DICE}} and Arm CCA {{-arm-cca}} in delegated mode.
-
-It is represented by an arrow connector pointing from the dependent node to the dependent node, i.e. from the "higher" to the "lower" component in the chain of trust.
-
-~~~ aasvg
-      .-.
-     | B |
-      '+'
-       | depends-on
-       v
-      .+.
-     | A |
-      '-'
-~~~
-
-### Router
-
-TBD
-
-### Trusted HW path
-
-TBD - it may be an implementation detail rather than a conceptual relation between attesters.
-
-### Collection (Bus)
-
-~~~ aasvg
-  .------------.
-  |   Binder   |
-  '-+--------+-'
-    |        |
-    v        v
-   -+-      -+-
-    |        |
-   .+.     .-+-.
-  | A |    | B |
-   '-'     '---'
-~~~
-
-A Collection connector describes the collection of Conceptual Messages.
-
-A lead Attester is responsible for the binding function.
-
-A binder is one of:
-
-* Signature of the lead Attester
-* Projection
-
-The signature of the lead Attester can bind over a broadcast nonce.
-
-A Projection is described as a topo-sorted set of `(src, dst)` tuples.
-
-## Examples
-
-### CCA Delegated
-
-~~~ aasvg
-    -+- RSI ABI (nonce[64])
-     |
- .---+------.
- | TE: wkl  |
- +----------+ Realm
- | AK: RAK  |
- '---+------'
-     | depends-on
-     v
- .---+------.
- | TE: RMM  |
- +----------+ Platform
- | AK: CPAK |
- '----------'
-~~~
-
-### Class 0
-
-~~~ aasvg
-    -+- API
-     |
- .---+-----.
- | TE: TE  |
- +---------+
- | AK: LAK |
- '---------'
-~~~
-
-Or
-
-~~~ aasvg
-    -+- API
-     |
- .---+-----.
- | TE: <>  |      .---------------.
- +---------+----->| <>            |
- | AK: LAK |      '-+-----------+-'
- '---------'        |           |
-                 .--+------. .--+-------.
-                 | TE: VGA | | TE: SCSI |
-                 +---------+ +----------+
-                 | AK: <>  | | AK: <>   |
-                 '---------' '----------'
-~~~
-
-### Class 1
-
-~~~ aasvg
-    -+- API
-     |
- .---+-----.
- | TE: A   |      .---------------.
- +---------+----->| Binding=?     |
- | AK: LAK |      '-+-----------+-'
- '---------'        |           |
-                 .--+------. .--+-------.
-                 | TE: B   | | TE: C    |
-                 +---------+ +----------+
-                 | AK: BK  | | AK: CK   |
-                 '---------' '----------'
-~~~
-
-Notes:
-
-1. A seems to have both lead and "normal" attester functionality
-2. Binding between collection entries is unspecified
-3. is CMW signed or not?
-
-Questions:
-
-1. scope of LAK: the signing key over the collection CMW, or signing key over Target A, or both?
-
-### Class 2
-
-~~~ aasvg
-
-.-----------.
-| Verifier  |
-'-+---------'
-  |       ^             |   .-.
-  v       |       .---->+--+ B |
-.---------+-.    |      |   '-'
-|    RP     +----+
-+-----------+    |      |   .-.
-| Conveyer  |     '---->+--+ C |
-'-----+-----'    .-.    |   '-'
-      |         | A |
-      |          '+'
-      |           |
-     -+-         -+-
-      ^           ^
-      |           |
-    .-+-----------+-.
-    | Binding=?     |
-    '------+--------'
-           |
-        .--+-------.
-        | TE: <>   |
-        +----------+
-        | AK: LAK  |
-        '--+-------'
-           |
-          -+-
-~~~
-
-Questions and notes are the same as Class 1.
-
-Besides, there are further questions:
-
-1. a question whether a lead attester is in front of B and C
-2. a question about unnecessary conflation of RP/Verifier and Lead attester -- they probably need to be modelled as separate entities
 
 # Privacy Considerations
 
