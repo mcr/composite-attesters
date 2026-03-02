@@ -5,12 +5,12 @@
 RATS Working Group                                         M. Richardson
 Internet-Draft                                  Sandelman Software Works
 Intended status: Informational                               H. Birkholz
-Expires: 20 August 2026                                   Fraunhofer SIT
+Expires: 3 September 2026                                 Fraunhofer SIT
                                                             Y. Deshpande
                                                                      Arm
                                                               T. Fossati
                                                                   Linaro
-                                                        16 February 2026
+                                                            2 March 2026
 
 
                     Taxonomy of Composite Attesters
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 August 2026.
+   This Internet-Draft will expire on 3 September 2026.
 
 Copyright Notice
 
@@ -88,7 +88,7 @@ Table of Contents
        5.1.2.  Attester
      5.2.  Connectors
        5.2.1.  Interface
-       5.2.2.  Chained To (Bootstrap)
+       5.2.2.  Depends-on
        5.2.3.  Router
        5.2.4.  Trusted HW path
        5.2.5.  Collection (Bus)
@@ -580,74 +580,122 @@ Table of Contents
 
 5.1.1.  Conveyer
 
+   A Conveyer is a system component that produces or relays Conceptual
+   Messages.
+
      .---.
      |   |
      '---'
 
-   A Conveyer returns some kind of Conceptual Message(s).
+   It is represented by a rectangular shape.
+
+   The following sections describe specialised types of Conveyors.
 
 5.1.2.  Attester
 
+   An Attester is a special kind of Conveyer which produces Evidence.
+
      .------.
-     |  te  |
+     |  TE  |
      +------+
-     |  ak  |
+     |  AK  |
      '------'
 
-   An Attester has an attesting environment, identified by the
-   attestation key, and a target environment describing the measured
-   TCB.
+   Internally, it is composed of an Attesting Environment, identified by
+   the attestation key (AK), and a Target Environment (TE), i.e., the
+   Trusted Computing Base (TCB) measured by the Attester.
 
-   *  AK: attestation key material
+   An Attester exposes the following Interface (see Section 5.2.1):
 
-   *  TE: target environment
+   +===========+=================+========================+===========+
+   | Direction | Name            | Description            | Mandatory |
+   +===========+=================+========================+===========+
+   | IN        | Nonce           | Fixed size parameter   | Y         |
+   |           |                 | (typically 32 or 64    |           |
+   |           |                 | bytes) used to bind    |           |
+   |           |                 | the produced Evidence  |           |
+   |           |                 | to a randomly selected |           |
+   |           |                 | parameter chosen by    |           |
+   |           |                 | the caller.            |           |
+   +-----------+-----------------+------------------------+-----------+
+   | IN        | UserData        | Typically a variable-  | N         |
+   |           |                 | size parameter that    |           |
+   |           |                 | allows the binding of  |           |
+   |           |                 | arbitrary application  |           |
+   |           |                 | data (e.g., an         |           |
+   |           |                 | authentication key     |           |
+   |           |                 | held by a confidential |           |
+   |           |                 | computing workload) to |           |
+   |           |                 | the attestation        |           |
+   |           |                 | Evidence.              |           |
+   +-----------+-----------------+------------------------+-----------+
+   | IN        | ClaimsSelection | A parameter that       | N         |
+   |           |                 | allows the user to     |           |
+   |           |                 | select which claims    |           |
+   |           |                 | should appear in the   |           |
+   |           |                 | Evidence.  The format  |           |
+   |           |                 | is attester-specific   |           |
+   |           |                 | (e.g., PCR selection   |           |
+   |           |                 | for TPM-like           |           |
+   |           |                 | attesters)             |           |
+   +-----------+-----------------+------------------------+-----------+
+   | OUT       | Evidence        | The Evidence signed by | Y         |
+   |           |                 | the AK.  It contains   |           |
+   |           |                 | either the full set of |           |
+   |           |                 | claims or a subset     |           |
+   |           |                 | thereof, as well as    |           |
+   |           |                 | the nonce supplied by  |           |
+   |           |                 | the caller and any     |           |
+   |           |                 | user data.             |           |
+   +-----------+-----------------+------------------------+-----------+
+   | OUT       | OtherData       | Related Conceptual     | N         |
+   |           |                 | Messages, such as      |           |
+   |           |                 | Attestation Results,   |           |
+   |           |                 | Endorsement, etc.      |           |
+   +-----------+-----------------+------------------------+-----------+
 
-   An Attester may (typically) expose an interface (Section 5.2.1):
-
-   IN:
-
-   *  ? handle[handleSize]
-
-   *  ? userdata[userdataSize]
-
-   *  ? claimsSelection
-
-   OUT:
-
-   *  Evidence.
-
-   An Attester is a special kind of Conveyer.
+                                 Table 1
 
 5.2.  Connectors
 
 5.2.1.  Interface
 
+   An Interface is connected to a Node and outputs some kind of RATS
+   Conceptual Messages.
+
+   It is represented by a T-shaped connector.
+
    -+-
     |
 
-   An Interface is connected to a Node and outputs some kind of RATS
-   Conceptual Messages.  An Interface input depends on the Node it is
-   attached to.
+   An Interface has a name and some input and output parameters.
 
-   *  IN: varies
+   Input and output parameters are defined by their name and type.
 
-   *  OUT: RATS Conceptual Messages
+   A ? signals an optional parameter.
 
-5.2.2.  Chained To (Bootstrap)
+
+   // TODO: align this with Attester's interface description.
+
+5.2.2.  Depends-on
+
+   The Depends-on connector describes a chain of trust between two
+   adjacent attesters within a layered attester arrangement.  Examples
+   of such an arrangement include DICE [TCG-DICE] and Arm CCA
+   [I-D.ffm-rats-cca-token] in delegated mode.
+
+   It is represented by an arrow connector pointing from the dependent
+   node to the dependent node, i.e. from the "higher" to the "lower"
+   component in the chain of trust.
 
          .-.
         | B |
          '+'
-          | chained-to
+          | depends-on
           v
          .+.
         | A |
          '-'
-
-   Describe a chain-of-trust relation between two adjacent attesters
-   within a layered attester arrangement.
-
-   E.g., DICE, Arm CCA in delegated mode.
 
 5.2.3.  Router
 
@@ -671,17 +719,18 @@ Table of Contents
      | A |    | B |
       '-'     '---'
 
-   A Collection describes the collection of Conceptual Messages.
+   A Collection connector describes the collection of Conceptual
+   Messages.
 
    A lead Attester is responsible for the binding function.
 
-   Binder is one of:
+   A binder is one of:
 
-   *  Nonce Broadcast
+   *  Signature of the lead Attester
 
    *  Projection
 
-   *  Signature of the lead Attester
+   The signature of the lead Attester can bind over a broadcast nonce.
 
    A Projection is described as a topo-sorted set of (src, dst) tuples.
 
@@ -691,58 +740,58 @@ Table of Contents
 
        -+- RSI ABI (nonce[64])
         |
-     .--+-----.
-    | te: wkl  |
+    .---+------.
+    | TE: wkl  |
     +----------+ Realm
-    | ak: RAK  |
-     '--+-----'
-        | delegated-by
+    | AK: RAK  |
+    '---+------'
+        | depends-on
         v
-     .--+-----.
-    | te: RMM  |
+    .---+------.
+    | TE: RMM  |
     +----------+ Platform
-    | ak: CPAK |
-     '--------'
+    | AK: CPAK |
+    '----------'
 
 5.3.2.  Class 0
 
        -+- API
         |
-     .--+----.
-    | te: TE  |
+    .---+-----.
+    | TE: TE  |
     +---------+
-    | ak: LAK |
-     '-------'
+    | AK: LAK |
+    '---------'
 
    Or
 
        -+- API
         |
-     .--+----.
-    | te: <>  |      .---------------.
+    .---+-----.
+    | TE: <>  |      .---------------.
     +---------+----->| <>            |
-    | ak: LAK |      '-+-----------+-'
-     '-------'         |           |
-                     .-+-----.   .-+------.
-                    | te: VGA | | te: SCSI |
+    | AK: LAK |      '-+-----------+-'
+    '---------'        |           |
+                    .--+------. .--+-------.
+                    | TE: VGA | | TE: SCSI |
                     +---------+ +----------+
-                    | ak: <>  | | ak: <>   |
-                     '-------'   '--------'
+                    | AK: <>  | | AK: <>   |
+                    '---------' '----------'
 
 5.3.3.  Class 1
 
        -+- API
         |
-     .--+----.
-    | te: A   |      .---------------.
+    .---+-----.
+    | TE: A   |      .---------------.
     +---------+----->| Binding=?     |
-    | ak: LAK |      '-+-----------+-'
-     '-------'         |           |
-                     .-+-----.   .-+------.
-                    | te: B   | | te: C    |
+    | AK: LAK |      '-+-----------+-'
+    '---------'        |           |
+                    .--+------. .--+-------.
+                    | TE: B   | | TE: C    |
                     +---------+ +----------+
-                    | ak: BK  | | ak: CK   |
-                     '-------'   '--------'
+                    | AK: BK  | | AK: CK   |
+                    '---------' '----------'
 
    Notes:
 
@@ -779,11 +828,11 @@ Table of Contents
        | Binding=?     |
        '------+--------'
               |
-            .-+------.
-           | te: <>   |
+           .--+-------.
+           | TE: <>   |
            +----------+
-           | ak: LAK  |
-            '-+------'
+           | AK: LAK  |
+           '--+-------'
               |
              -+-
 
@@ -849,11 +898,24 @@ Table of Contents
 
 12.2.  Informative References
 
+   [I-D.ffm-rats-cca-token]
+              Frost, S., Fossati, T., and G. Mandyam, "Arm's
+              Confidential Compute Architecture Reference Attestation
+              Token", Work in Progress, Internet-Draft, draft-ffm-rats-
+              cca-token-02, 2 September 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ffm-rats-cca-
+              token-02>.
+
    [RFC9781]  Birkholz, H., O'Donoghue, J., Cam-Winget, N., and C.
               Bormann, "A Concise Binary Object Representation (CBOR)
               Tag for Unprotected CBOR Web Token Claims Sets (UCCS)",
               RFC 9781, DOI 10.17487/RFC9781, May 2025,
               <https://www.rfc-editor.org/info/rfc9781>.
+
+   [TCG-DICE] Trusted Computing Group, "DICE Layering Architecture",
+              Version 1.0, Revision 0.19 , July 2020,
+              <https://trustedcomputinggroup.org/wp-content/uploads/
+              DICE-Layering-Architecture-r19_pub.pdf>.
 
 Authors' Addresses
 

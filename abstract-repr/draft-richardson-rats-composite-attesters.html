@@ -1048,11 +1048,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">composites</td>
-<td class="right">February 2026</td>
+<td class="right">March 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Richardson, et al.</td>
-<td class="center">Expires 20 August 2026</td>
+<td class="center">Expires 3 September 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1065,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-richardson-rats-composite-attesters-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-02-16" class="published">16 February 2026</time>
+<time datetime="2026-03-02" class="published">2 March 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-08-20">20 August 2026</time></dd>
+<dd class="expires"><time datetime="2026-09-03">3 September 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1131,7 +1131,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 20 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 3 September 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1221,7 +1221,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                     <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-interface" class="internal xref">Interface</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.2">
-                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="auto internal xref">5.2.2</a>.  <a href="#name-chained-to-bootstrap" class="internal xref">Chained To (Bootstrap)</a></p>
+                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="auto internal xref">5.2.2</a>.  <a href="#name-depends-on" class="internal xref">Depends-on</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.3">
                     <p id="section-toc.1-1.5.2.2.2.3.1"><a href="#section-5.2.3" class="auto internal xref">5.2.3</a>.  <a href="#name-router" class="internal xref">Router</a></p>
@@ -2066,8 +2066,9 @@ This is very much different and <em>distinct</em> from <span>[<a href="#RFC9334"
           <h4 id="name-conveyer">
 <a href="#section-5.1.1" class="section-number selfRef">5.1.1. </a><a href="#name-conveyer" class="section-name selfRef">Conveyer</a>
           </h4>
-<div id="section-5.1.1-1">
-            <div class="alignLeft art-svg artwork" id="section-5.1.1-1.1">
+<p id="section-5.1.1-1">A Conveyer is a system component that produces or relays Conceptual Messages.<a href="#section-5.1.1-1" class="pilcrow">¶</a></p>
+<div id="section-5.1.1-2">
+            <div class="alignLeft art-svg artwork" id="section-5.1.1-2.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="96" width="48" viewBox="0 0 48 96" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 8,32 L 8,64" fill="none" stroke="black"></path>
                 <path d="M 40,32 L 40,64" fill="none" stroke="black"></path>
@@ -2075,10 +2076,11 @@ This is very much different and <em>distinct</em> from <span>[<a href="#RFC9334"
                 <path d="M 8,64 L 40,64" fill="none" stroke="black"></path>
                 <g class="text">
 </g>
-              </svg><a href="#section-5.1.1-1.1" class="pilcrow">¶</a>
+              </svg><a href="#section-5.1.1-2.1" class="pilcrow">¶</a>
 </div>
 </div>
-<p id="section-5.1.1-2">A Conveyer returns some kind of Conceptual Message(s).<a href="#section-5.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-3">It is represented by a rectangular shape.<a href="#section-5.1.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-4">The following sections describe specialised types of Conveyors.<a href="#section-5.1.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="attester">
@@ -2086,8 +2088,9 @@ This is very much different and <em>distinct</em> from <span>[<a href="#RFC9334"
           <h4 id="name-attester">
 <a href="#section-5.1.2" class="section-number selfRef">5.1.2. </a><a href="#name-attester" class="section-name selfRef">Attester</a>
           </h4>
-<div id="section-5.1.2-1">
-            <div class="alignLeft art-svg artwork" id="section-5.1.2-1.1">
+<p id="section-5.1.2-1">An Attester is a special kind of Conveyer which produces Evidence.<a href="#section-5.1.2-1" class="pilcrow">¶</a></p>
+<div id="section-5.1.2-2">
+            <div class="alignLeft art-svg artwork" id="section-5.1.2-2.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="128" width="72" viewBox="0 0 72 128" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 8,32 L 8,96" fill="none" stroke="black"></path>
                 <path d="M 64,32 L 64,96" fill="none" stroke="black"></path>
@@ -2095,41 +2098,67 @@ This is very much different and <em>distinct</em> from <span>[<a href="#RFC9334"
                 <path d="M 8,64 L 64,64" fill="none" stroke="black"></path>
                 <path d="M 8,96 L 64,96" fill="none" stroke="black"></path>
                 <g class="text">
-                  <text x="36" y="52">te</text>
-                  <text x="36" y="84">ak</text>
+                  <text x="36" y="52">TE</text>
+                  <text x="36" y="84">AK</text>
                 </g>
-              </svg><a href="#section-5.1.2-1.1" class="pilcrow">¶</a>
+              </svg><a href="#section-5.1.2-2.1" class="pilcrow">¶</a>
 </div>
 </div>
-<p id="section-5.1.2-2">An Attester has an attesting environment, identified by the attestation key, and a target environment describing the measured TCB.<a href="#section-5.1.2-2" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-5.1.2-3.1">
-              <p id="section-5.1.2-3.1.1">AK: attestation key material<a href="#section-5.1.2-3.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-5.1.2-3.2">
-              <p id="section-5.1.2-3.2.1">TE: target environment<a href="#section-5.1.2-3.2.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-<p id="section-5.1.2-4">An Attester may (typically) expose an interface (<a href="#interface" class="auto internal xref">Section 5.2.1</a>):<a href="#section-5.1.2-4" class="pilcrow">¶</a></p>
-<p id="section-5.1.2-5">IN:<a href="#section-5.1.2-5" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-5.1.2-6.1">
-              <p id="section-5.1.2-6.1.1">? handle[handleSize]<a href="#section-5.1.2-6.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-5.1.2-6.2">
-              <p id="section-5.1.2-6.2.1">? userdata[userdataSize]<a href="#section-5.1.2-6.2.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-5.1.2-6.3">
-              <p id="section-5.1.2-6.3.1">? claimsSelection<a href="#section-5.1.2-6.3.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-<p id="section-5.1.2-7">OUT:<a href="#section-5.1.2-7" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-5.1.2-8.1">
-              <p id="section-5.1.2-8.1.1">Evidence.<a href="#section-5.1.2-8.1.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-<p id="section-5.1.2-9">An Attester is a special kind of Conveyer.<a href="#section-5.1.2-9" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-3">Internally, it is composed of an Attesting Environment, identified by the attestation key (AK), and a Target Environment (TE), i.e., the Trusted Computing Base (TCB) measured by the Attester.<a href="#section-5.1.2-3" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-4">An Attester exposes the following Interface (see <a href="#interface" class="auto internal xref">Section 5.2.1</a>):<a href="#section-5.1.2-4" class="pilcrow">¶</a></p>
+<table class="center" id="table-1">
+            <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Direction</th>
+                <th class="text-left" rowspan="1" colspan="1">Name</th>
+                <th class="text-left" rowspan="1" colspan="1">Description</th>
+                <th class="text-left" rowspan="1" colspan="1">Mandatory</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">IN</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>Nonce</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">Fixed size parameter (typically 32 or 64 bytes) used to bind the produced Evidence to a randomly selected parameter chosen by the caller.</td>
+                <td class="text-left" rowspan="1" colspan="1">Y</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">IN</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>UserData</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">Typically a variable-size parameter that allows the binding of arbitrary application data (e.g., an authentication key held by a confidential computing workload) to the attestation Evidence.</td>
+                <td class="text-left" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">IN</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>ClaimsSelection</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">A parameter that allows the user to select which claims should appear in the Evidence. The format is attester-specific (e.g., PCR selection for TPM-like attesters)</td>
+                <td class="text-left" rowspan="1" colspan="1">N</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">OUT</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>Evidence</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">The Evidence signed by the AK.  It contains either the full set of claims or a subset thereof, as well as the nonce supplied by the caller and any user data.</td>
+                <td class="text-left" rowspan="1" colspan="1">Y</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">OUT</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>OtherData</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">Related Conceptual Messages, such as Attestation Results, Endorsement, etc.</td>
+                <td class="text-left" rowspan="1" colspan="1">N</td>
+              </tr>
+            </tbody>
+          </table>
 </section>
 </div>
 </section>
@@ -2144,35 +2173,36 @@ This is very much different and <em>distinct</em> from <span>[<a href="#RFC9334"
           <h4 id="name-interface">
 <a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-interface" class="section-name selfRef">Interface</a>
           </h4>
-<div id="section-5.2.1-1">
-            <div class="alignLeft art-svg artwork" id="section-5.2.1-1.1">
+<p id="section-5.2.1-1">An Interface is connected to a Node and outputs some kind of RATS Conceptual Messages.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-2">It is represented by a T-shaped connector.<a href="#section-5.2.1-2" class="pilcrow">¶</a></p>
+<div id="section-5.2.1-3">
+            <div class="alignLeft art-svg artwork" id="section-5.2.1-3.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="64" width="32" viewBox="0 0 32 64" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 16,32 L 16,48" fill="none" stroke="black"></path>
                 <path d="M 8,32 L 24,32" fill="none" stroke="black"></path>
                 <g class="text">
 </g>
-              </svg><a href="#section-5.2.1-1.1" class="pilcrow">¶</a>
+              </svg><a href="#section-5.2.1-3.1" class="pilcrow">¶</a>
 </div>
 </div>
-<p id="section-5.2.1-2">An Interface is connected to a Node and outputs some kind of RATS Conceptual Messages.
-An Interface input depends on the Node it is attached to.<a href="#section-5.2.1-2" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-5.2.1-3.1">
-              <p id="section-5.2.1-3.1.1">IN: varies<a href="#section-5.2.1-3.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-5.2.1-3.2">
-              <p id="section-5.2.1-3.2.1">OUT: RATS Conceptual Messages<a href="#section-5.2.1-3.2.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
+<p id="section-5.2.1-4">An Interface has a name and some input and output parameters.<a href="#section-5.2.1-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-5">Input and output parameters are defined by their name and type.<a href="#section-5.2.1-5" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-6">A <code>?</code> signals an optional parameter.<a href="#section-5.2.1-6" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-7"><span class="cref">
+    TODO: align this with Attester's interface description.
+</span><a href="#section-5.2.1-7" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="chained-to-bootstrap">
+<div id="depends-on">
 <section id="section-5.2.2">
-          <h4 id="name-chained-to-bootstrap">
-<a href="#section-5.2.2" class="section-number selfRef">5.2.2. </a><a href="#name-chained-to-bootstrap" class="section-name selfRef">Chained To (Bootstrap)</a>
+          <h4 id="name-depends-on">
+<a href="#section-5.2.2" class="section-number selfRef">5.2.2. </a><a href="#name-depends-on" class="section-name selfRef">Depends-on</a>
           </h4>
-<div id="section-5.2.2-1">
-            <div class="alignLeft art-svg artwork" id="section-5.2.2-1.1">
+<p id="section-5.2.2-1">The Depends-on connector describes a chain of trust between two adjacent attesters within a layered attester arrangement.
+Examples of such an arrangement include DICE <span>[<a href="#TCG-DICE" class="cite xref">TCG-DICE</a>]</span> and Arm CCA <span>[<a href="#I-D.ffm-rats-cca-token" class="cite xref">I-D.ffm-rats-cca-token</a>]</span> in delegated mode.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2-2">It is represented by an arrow connector pointing from the dependent node to the dependent node, i.e. from the "higher" to the "lower" component in the chain of trust.<a href="#section-5.2.2-2" class="pilcrow">¶</a></p>
+<div id="section-5.2.2-3">
+            <div class="alignLeft art-svg artwork" id="section-5.2.2-3.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="176" width="120" viewBox="0 0 120 176" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 24,64 L 24,104" fill="none" stroke="black"></path>
                 <path d="M 24,32 C 15.16936,32 8,39.16936 8,48" fill="none" stroke="black"></path>
@@ -2186,14 +2216,12 @@ An Interface input depends on the Node it is attached to.<a href="#section-5.2.1
                 <polygon class="arrowhead" points="32,104 20,98.4 20,109.6" fill="black" transform="rotate(90,24,104)"></polygon>
                 <g class="text">
                   <text x="24" y="52">B</text>
-                  <text x="76" y="84">chained-to</text>
+                  <text x="76" y="84">depends-on</text>
                   <text x="24" y="132">A</text>
                 </g>
-              </svg><a href="#section-5.2.2-1.1" class="pilcrow">¶</a>
+              </svg><a href="#section-5.2.2-3.1" class="pilcrow">¶</a>
 </div>
 </div>
-<p id="section-5.2.2-2">Describe a chain-of-trust relation between two adjacent attesters within a layered attester arrangement.<a href="#section-5.2.2-2" class="pilcrow">¶</a></p>
-<p id="section-5.2.2-3">E.g., DICE, Arm CCA in delegated mode.<a href="#section-5.2.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="router">
@@ -2246,21 +2274,19 @@ An Interface input depends on the Node it is attached to.<a href="#section-5.2.1
               </svg><a href="#section-5.2.5-1.1" class="pilcrow">¶</a>
 </div>
 </div>
-<p id="section-5.2.5-2">A Collection describes the collection of Conceptual Messages.<a href="#section-5.2.5-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.5-2">A Collection connector describes the collection of Conceptual Messages.<a href="#section-5.2.5-2" class="pilcrow">¶</a></p>
 <p id="section-5.2.5-3">A lead Attester is responsible for the binding function.<a href="#section-5.2.5-3" class="pilcrow">¶</a></p>
-<p id="section-5.2.5-4">Binder is one of:<a href="#section-5.2.5-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.5-4">A binder is one of:<a href="#section-5.2.5-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5.2.5-5.1">
-              <p id="section-5.2.5-5.1.1">Nonce Broadcast<a href="#section-5.2.5-5.1.1" class="pilcrow">¶</a></p>
+              <p id="section-5.2.5-5.1.1">Signature of the lead Attester<a href="#section-5.2.5-5.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-5.2.5-5.2">
               <p id="section-5.2.5-5.2.1">Projection<a href="#section-5.2.5-5.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-5.2.5-5.3">
-              <p id="section-5.2.5-5.3.1">Signature of the lead Attester<a href="#section-5.2.5-5.3.1" class="pilcrow">¶</a></p>
-</li>
           </ul>
-<p id="section-5.2.5-6">A Projection is described as a topo-sorted set of <code>(src, dst)</code> tuples.<a href="#section-5.2.5-6" class="pilcrow">¶</a></p>
+<p id="section-5.2.5-6">The signature of the lead Attester can bind over a broadcast nonce.<a href="#section-5.2.5-6" class="pilcrow">¶</a></p>
+<p id="section-5.2.5-7">A Projection is described as a topo-sorted set of <code>(src, dst)</code> tuples.<a href="#section-5.2.5-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2278,42 +2304,34 @@ An Interface input depends on the Node it is attached to.<a href="#section-5.2.1
 <div id="section-5.3.1-1">
             <div class="alignLeft art-svg artwork" id="section-5.3.1-1.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="272" width="216" viewBox="0 0 216 272" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-                <path d="M 8,80 L 8,112" fill="none" stroke="black"></path>
-                <path d="M 8,192 L 8,224" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 8,128" fill="none" stroke="black"></path>
+                <path d="M 8,176 L 8,240" fill="none" stroke="black"></path>
                 <path d="M 40,32 L 40,64" fill="none" stroke="black"></path>
                 <path d="M 40,128 L 40,168" fill="none" stroke="black"></path>
-                <path d="M 96,80 L 96,112" fill="none" stroke="black"></path>
-                <path d="M 96,192 L 96,224" fill="none" stroke="black"></path>
+                <path d="M 96,64 L 96,128" fill="none" stroke="black"></path>
+                <path d="M 96,176 L 96,240" fill="none" stroke="black"></path>
                 <path d="M 32,32 L 48,32" fill="none" stroke="black"></path>
-                <path d="M 24,64 L 80,64" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 96,64" fill="none" stroke="black"></path>
                 <path d="M 8,96 L 96,96" fill="none" stroke="black"></path>
-                <path d="M 24,128 L 80,128" fill="none" stroke="black"></path>
-                <path d="M 24,176 L 80,176" fill="none" stroke="black"></path>
+                <path d="M 8,128 L 96,128" fill="none" stroke="black"></path>
+                <path d="M 8,176 L 96,176" fill="none" stroke="black"></path>
                 <path d="M 8,208 L 96,208" fill="none" stroke="black"></path>
-                <path d="M 24,240 L 80,240" fill="none" stroke="black"></path>
-                <path d="M 24,64 C 15.16936,64 8,71.16936 8,80" fill="none" stroke="black"></path>
-                <path d="M 80,64 C 88.83064,64 96,71.16936 96,80" fill="none" stroke="black"></path>
-                <path d="M 24,128 C 15.16936,128 8,120.83064 8,112" fill="none" stroke="black"></path>
-                <path d="M 80,128 C 88.83064,128 96,120.83064 96,112" fill="none" stroke="black"></path>
-                <path d="M 24,176 C 15.16936,176 8,183.16936 8,192" fill="none" stroke="black"></path>
-                <path d="M 80,176 C 88.83064,176 96,183.16936 96,192" fill="none" stroke="black"></path>
-                <path d="M 24,240 C 15.16936,240 8,232.83064 8,224" fill="none" stroke="black"></path>
-                <path d="M 80,240 C 88.83064,240 96,232.83064 96,224" fill="none" stroke="black"></path>
+                <path d="M 8,240 L 96,240" fill="none" stroke="black"></path>
                 <polygon class="arrowhead" points="48,168 36,162.4 36,173.6" fill="black" transform="rotate(90,40,168)"></polygon>
                 <g class="text">
                   <text x="72" y="36">RSI</text>
                   <text x="104" y="36">ABI</text>
                   <text x="168" y="36">(nonce[64])</text>
-                  <text x="32" y="84">te:</text>
+                  <text x="32" y="84">TE:</text>
                   <text x="64" y="84">wkl</text>
                   <text x="128" y="100">Realm</text>
-                  <text x="32" y="116">ak:</text>
+                  <text x="32" y="116">AK:</text>
                   <text x="64" y="116">RAK</text>
-                  <text x="100" y="148">delegated-by</text>
-                  <text x="32" y="196">te:</text>
+                  <text x="92" y="148">depends-on</text>
+                  <text x="32" y="196">TE:</text>
                   <text x="64" y="196">RMM</text>
                   <text x="140" y="212">Platform</text>
-                  <text x="32" y="228">ak:</text>
+                  <text x="32" y="228">AK:</text>
                   <text x="68" y="228">CPAK</text>
                 </g>
               </svg><a href="#section-5.3.1-1.1" class="pilcrow">¶</a>
@@ -2329,22 +2347,18 @@ An Interface input depends on the Node it is attached to.<a href="#section-5.2.1
 <div id="section-5.3.2-1">
             <div class="alignLeft art-svg artwork" id="section-5.3.2-1.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="160" width="96" viewBox="0 0 96 160" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-                <path d="M 8,80 L 8,112" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 8,128" fill="none" stroke="black"></path>
                 <path d="M 40,32 L 40,64" fill="none" stroke="black"></path>
-                <path d="M 88,80 L 88,112" fill="none" stroke="black"></path>
+                <path d="M 88,64 L 88,128" fill="none" stroke="black"></path>
                 <path d="M 32,32 L 48,32" fill="none" stroke="black"></path>
-                <path d="M 24,64 L 72,64" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 88,64" fill="none" stroke="black"></path>
                 <path d="M 8,96 L 88,96" fill="none" stroke="black"></path>
-                <path d="M 24,128 L 72,128" fill="none" stroke="black"></path>
-                <path d="M 24,64 C 15.16936,64 8,71.16936 8,80" fill="none" stroke="black"></path>
-                <path d="M 72,64 C 80.83064,64 88,71.16936 88,80" fill="none" stroke="black"></path>
-                <path d="M 24,128 C 15.16936,128 8,120.83064 8,112" fill="none" stroke="black"></path>
-                <path d="M 72,128 C 80.83064,128 88,120.83064 88,112" fill="none" stroke="black"></path>
+                <path d="M 8,128 L 88,128" fill="none" stroke="black"></path>
                 <g class="text">
                   <text x="72" y="36">API</text>
-                  <text x="32" y="84">te:</text>
+                  <text x="32" y="84">TE:</text>
                   <text x="60" y="84">TE</text>
-                  <text x="32" y="116">ak:</text>
+                  <text x="32" y="116">AK:</text>
                   <text x="64" y="116">LAK</text>
                 </g>
               </svg><a href="#section-5.3.2-1.1" class="pilcrow">¶</a>
@@ -2354,56 +2368,44 @@ An Interface input depends on the Node it is attached to.<a href="#section-5.2.1
 <div id="section-5.3.2-3">
             <div class="alignLeft art-svg artwork" id="section-5.3.2-3.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="240" width="328" viewBox="0 0 328 240" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-                <path d="M 8,80 L 8,112" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 8,128" fill="none" stroke="black"></path>
                 <path d="M 40,32 L 40,64" fill="none" stroke="black"></path>
-                <path d="M 88,80 L 88,112" fill="none" stroke="black"></path>
-                <path d="M 136,160 L 136,192" fill="none" stroke="black"></path>
+                <path d="M 88,64 L 88,128" fill="none" stroke="black"></path>
+                <path d="M 136,144 L 136,208" fill="none" stroke="black"></path>
                 <path d="M 144,80 L 144,112" fill="none" stroke="black"></path>
                 <path d="M 160,112 L 160,144" fill="none" stroke="black"></path>
-                <path d="M 216,160 L 216,192" fill="none" stroke="black"></path>
-                <path d="M 232,160 L 232,192" fill="none" stroke="black"></path>
+                <path d="M 216,144 L 216,208" fill="none" stroke="black"></path>
+                <path d="M 232,144 L 232,208" fill="none" stroke="black"></path>
                 <path d="M 256,112 L 256,144" fill="none" stroke="black"></path>
                 <path d="M 272,80 L 272,112" fill="none" stroke="black"></path>
-                <path d="M 320,160 L 320,192" fill="none" stroke="black"></path>
+                <path d="M 320,144 L 320,208" fill="none" stroke="black"></path>
                 <path d="M 32,32 L 48,32" fill="none" stroke="black"></path>
-                <path d="M 24,64 L 72,64" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 88,64" fill="none" stroke="black"></path>
                 <path d="M 144,80 L 272,80" fill="none" stroke="black"></path>
                 <path d="M 8,96 L 136,96" fill="none" stroke="black"></path>
                 <path d="M 144,112 L 272,112" fill="none" stroke="black"></path>
-                <path d="M 24,128 L 72,128" fill="none" stroke="black"></path>
-                <path d="M 152,144 L 200,144" fill="none" stroke="black"></path>
-                <path d="M 248,144 L 304,144" fill="none" stroke="black"></path>
+                <path d="M 8,128 L 88,128" fill="none" stroke="black"></path>
+                <path d="M 136,144 L 216,144" fill="none" stroke="black"></path>
+                <path d="M 232,144 L 320,144" fill="none" stroke="black"></path>
                 <path d="M 136,176 L 216,176" fill="none" stroke="black"></path>
                 <path d="M 232,176 L 320,176" fill="none" stroke="black"></path>
-                <path d="M 152,208 L 200,208" fill="none" stroke="black"></path>
-                <path d="M 248,208 L 304,208" fill="none" stroke="black"></path>
-                <path d="M 24,64 C 15.16936,64 8,71.16936 8,80" fill="none" stroke="black"></path>
-                <path d="M 72,64 C 80.83064,64 88,71.16936 88,80" fill="none" stroke="black"></path>
-                <path d="M 24,128 C 15.16936,128 8,120.83064 8,112" fill="none" stroke="black"></path>
-                <path d="M 72,128 C 80.83064,128 88,120.83064 88,112" fill="none" stroke="black"></path>
-                <path d="M 152,144 C 143.16936,144 136,151.16936 136,160" fill="none" stroke="black"></path>
-                <path d="M 200,144 C 208.83064,144 216,151.16936 216,160" fill="none" stroke="black"></path>
-                <path d="M 248,144 C 239.16936,144 232,151.16936 232,160" fill="none" stroke="black"></path>
-                <path d="M 304,144 C 312.83064,144 320,151.16936 320,160" fill="none" stroke="black"></path>
-                <path d="M 152,208 C 143.16936,208 136,200.83064 136,192" fill="none" stroke="black"></path>
-                <path d="M 200,208 C 208.83064,208 216,200.83064 216,192" fill="none" stroke="black"></path>
-                <path d="M 248,208 C 239.16936,208 232,200.83064 232,192" fill="none" stroke="black"></path>
-                <path d="M 304,208 C 312.83064,208 320,200.83064 320,192" fill="none" stroke="black"></path>
+                <path d="M 136,208 L 216,208" fill="none" stroke="black"></path>
+                <path d="M 232,208 L 320,208" fill="none" stroke="black"></path>
                 <polygon class="arrowhead" points="144,96 132,90.4 132,101.6" fill="black" transform="rotate(0,136,96)"></polygon>
                 <g class="text">
                   <text x="72" y="36">API</text>
-                  <text x="32" y="84">te:</text>
+                  <text x="32" y="84">TE:</text>
                   <text x="60" y="84">&lt;&gt;</text>
                   <text x="164" y="100">&lt;&gt;</text>
-                  <text x="32" y="116">ak:</text>
+                  <text x="32" y="116">AK:</text>
                   <text x="64" y="116">LAK</text>
-                  <text x="160" y="164">te:</text>
+                  <text x="160" y="164">TE:</text>
                   <text x="192" y="164">VGA</text>
-                  <text x="256" y="164">te:</text>
+                  <text x="256" y="164">TE:</text>
                   <text x="292" y="164">SCSI</text>
-                  <text x="160" y="196">ak:</text>
+                  <text x="160" y="196">AK:</text>
                   <text x="188" y="196">&lt;&gt;</text>
-                  <text x="256" y="196">ak:</text>
+                  <text x="256" y="196">AK:</text>
                   <text x="284" y="196">&lt;&gt;</text>
                 </g>
               </svg><a href="#section-5.3.2-3.1" class="pilcrow">¶</a>
@@ -2419,56 +2421,44 @@ An Interface input depends on the Node it is attached to.<a href="#section-5.2.1
 <div id="section-5.3.3-1">
             <div class="alignLeft art-svg artwork" id="section-5.3.3-1.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="240" width="328" viewBox="0 0 328 240" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-                <path d="M 8,80 L 8,112" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 8,128" fill="none" stroke="black"></path>
                 <path d="M 40,32 L 40,64" fill="none" stroke="black"></path>
-                <path d="M 88,80 L 88,112" fill="none" stroke="black"></path>
-                <path d="M 136,160 L 136,192" fill="none" stroke="black"></path>
+                <path d="M 88,64 L 88,128" fill="none" stroke="black"></path>
+                <path d="M 136,144 L 136,208" fill="none" stroke="black"></path>
                 <path d="M 144,80 L 144,112" fill="none" stroke="black"></path>
                 <path d="M 160,112 L 160,144" fill="none" stroke="black"></path>
-                <path d="M 216,160 L 216,192" fill="none" stroke="black"></path>
-                <path d="M 232,160 L 232,192" fill="none" stroke="black"></path>
+                <path d="M 216,144 L 216,208" fill="none" stroke="black"></path>
+                <path d="M 232,144 L 232,208" fill="none" stroke="black"></path>
                 <path d="M 256,112 L 256,144" fill="none" stroke="black"></path>
                 <path d="M 272,80 L 272,112" fill="none" stroke="black"></path>
-                <path d="M 320,160 L 320,192" fill="none" stroke="black"></path>
+                <path d="M 320,144 L 320,208" fill="none" stroke="black"></path>
                 <path d="M 32,32 L 48,32" fill="none" stroke="black"></path>
-                <path d="M 24,64 L 72,64" fill="none" stroke="black"></path>
+                <path d="M 8,64 L 88,64" fill="none" stroke="black"></path>
                 <path d="M 144,80 L 272,80" fill="none" stroke="black"></path>
                 <path d="M 8,96 L 136,96" fill="none" stroke="black"></path>
                 <path d="M 144,112 L 272,112" fill="none" stroke="black"></path>
-                <path d="M 24,128 L 72,128" fill="none" stroke="black"></path>
-                <path d="M 152,144 L 200,144" fill="none" stroke="black"></path>
-                <path d="M 248,144 L 304,144" fill="none" stroke="black"></path>
+                <path d="M 8,128 L 88,128" fill="none" stroke="black"></path>
+                <path d="M 136,144 L 216,144" fill="none" stroke="black"></path>
+                <path d="M 232,144 L 320,144" fill="none" stroke="black"></path>
                 <path d="M 136,176 L 216,176" fill="none" stroke="black"></path>
                 <path d="M 232,176 L 320,176" fill="none" stroke="black"></path>
-                <path d="M 152,208 L 200,208" fill="none" stroke="black"></path>
-                <path d="M 248,208 L 304,208" fill="none" stroke="black"></path>
-                <path d="M 24,64 C 15.16936,64 8,71.16936 8,80" fill="none" stroke="black"></path>
-                <path d="M 72,64 C 80.83064,64 88,71.16936 88,80" fill="none" stroke="black"></path>
-                <path d="M 24,128 C 15.16936,128 8,120.83064 8,112" fill="none" stroke="black"></path>
-                <path d="M 72,128 C 80.83064,128 88,120.83064 88,112" fill="none" stroke="black"></path>
-                <path d="M 152,144 C 143.16936,144 136,151.16936 136,160" fill="none" stroke="black"></path>
-                <path d="M 200,144 C 208.83064,144 216,151.16936 216,160" fill="none" stroke="black"></path>
-                <path d="M 248,144 C 239.16936,144 232,151.16936 232,160" fill="none" stroke="black"></path>
-                <path d="M 304,144 C 312.83064,144 320,151.16936 320,160" fill="none" stroke="black"></path>
-                <path d="M 152,208 C 143.16936,208 136,200.83064 136,192" fill="none" stroke="black"></path>
-                <path d="M 200,208 C 208.83064,208 216,200.83064 216,192" fill="none" stroke="black"></path>
-                <path d="M 248,208 C 239.16936,208 232,200.83064 232,192" fill="none" stroke="black"></path>
-                <path d="M 304,208 C 312.83064,208 320,200.83064 320,192" fill="none" stroke="black"></path>
+                <path d="M 136,208 L 216,208" fill="none" stroke="black"></path>
+                <path d="M 232,208 L 320,208" fill="none" stroke="black"></path>
                 <polygon class="arrowhead" points="144,96 132,90.4 132,101.6" fill="black" transform="rotate(0,136,96)"></polygon>
                 <g class="text">
                   <text x="72" y="36">API</text>
-                  <text x="32" y="84">te:</text>
+                  <text x="32" y="84">TE:</text>
                   <text x="56" y="84">A</text>
                   <text x="192" y="100">Binding=?</text>
-                  <text x="32" y="116">ak:</text>
+                  <text x="32" y="116">AK:</text>
                   <text x="64" y="116">LAK</text>
-                  <text x="160" y="164">te:</text>
+                  <text x="160" y="164">TE:</text>
                   <text x="184" y="164">B</text>
-                  <text x="256" y="164">te:</text>
+                  <text x="256" y="164">TE:</text>
                   <text x="280" y="164">C</text>
-                  <text x="160" y="196">ak:</text>
+                  <text x="160" y="196">AK:</text>
                   <text x="188" y="196">BK</text>
-                  <text x="256" y="196">ak:</text>
+                  <text x="256" y="196">AK:</text>
                   <text x="284" y="196">CK</text>
                 </g>
               </svg><a href="#section-5.3.3-1.1" class="pilcrow">¶</a>
@@ -2507,7 +2497,7 @@ An Interface input depends on the Node it is attached to.<a href="#section-5.2.1
                 <path d="M 24,64 L 24,104" fill="none" stroke="black"></path>
                 <path d="M 40,288 L 40,320" fill="none" stroke="black"></path>
                 <path d="M 56,176 L 56,288" fill="none" stroke="black"></path>
-                <path d="M 72,368 L 72,400" fill="none" stroke="black"></path>
+                <path d="M 72,352 L 72,416" fill="none" stroke="black"></path>
                 <path d="M 88,72 L 88,112" fill="none" stroke="black"></path>
                 <path d="M 96,320 L 96,352" fill="none" stroke="black"></path>
                 <path d="M 96,416 L 96,448" fill="none" stroke="black"></path>
@@ -2515,7 +2505,7 @@ An Interface input depends on the Node it is attached to.<a href="#section-5.2.1
                 <path d="M 104,112 L 104,176" fill="none" stroke="black"></path>
                 <path d="M 144,112 L 144,144" fill="none" stroke="black"></path>
                 <path d="M 152,208 L 152,288" fill="none" stroke="black"></path>
-                <path d="M 160,368 L 160,400" fill="none" stroke="black"></path>
+                <path d="M 160,352 L 160,416" fill="none" stroke="black"></path>
                 <path d="M 168,288 L 168,320" fill="none" stroke="black"></path>
                 <path d="M 200,80 L 200,112" fill="none" stroke="black"></path>
                 <path d="M 200,144 L 200,176" fill="none" stroke="black"></path>
@@ -2531,9 +2521,9 @@ An Interface input depends on the Node it is attached to.<a href="#section-5.2.1
                 <path d="M 144,240 L 160,240" fill="none" stroke="black"></path>
                 <path d="M 40,288 L 168,288" fill="none" stroke="black"></path>
                 <path d="M 40,320 L 168,320" fill="none" stroke="black"></path>
-                <path d="M 88,352 L 144,352" fill="none" stroke="black"></path>
+                <path d="M 72,352 L 160,352" fill="none" stroke="black"></path>
                 <path d="M 72,384 L 160,384" fill="none" stroke="black"></path>
-                <path d="M 88,416 L 144,416" fill="none" stroke="black"></path>
+                <path d="M 72,416 L 160,416" fill="none" stroke="black"></path>
                 <path d="M 88,448 L 104,448" fill="none" stroke="black"></path>
                 <path d="M 240,80 C 231.16936,80 224,87.16936 224,96" fill="none" stroke="black"></path>
                 <path d="M 240,80 C 248.83064,80 256,87.16936 256,96" fill="none" stroke="black"></path>
@@ -2549,10 +2539,6 @@ An Interface input depends on the Node it is attached to.<a href="#section-5.2.1
                 <path d="M 240,176 C 248.83064,176 256,168.83064 256,160" fill="none" stroke="black"></path>
                 <path d="M 152,208 C 143.16936,208 136,200.83064 136,192" fill="none" stroke="black"></path>
                 <path d="M 152,208 C 160.83064,208 168,200.83064 168,192" fill="none" stroke="black"></path>
-                <path d="M 88,352 C 79.16936,352 72,359.16936 72,368" fill="none" stroke="black"></path>
-                <path d="M 144,352 C 152.83064,352 160,359.16936 160,368" fill="none" stroke="black"></path>
-                <path d="M 88,416 C 79.16936,416 72,408.83064 72,400" fill="none" stroke="black"></path>
-                <path d="M 144,416 C 152.83064,416 160,408.83064 160,400" fill="none" stroke="black"></path>
                 <polygon class="arrowhead" points="200,160 188,154.4 188,165.6" fill="black" transform="rotate(0,192,160)"></polygon>
                 <polygon class="arrowhead" points="200,96 188,90.4 188,101.6" fill="black" transform="rotate(0,192,96)"></polygon>
                 <polygon class="arrowhead" points="160,248 148,242.4 148,253.6" fill="black" transform="rotate(270,152,248)"></polygon>
@@ -2567,9 +2553,9 @@ An Interface input depends on the Node it is attached to.<a href="#section-5.2.1
                   <text x="240" y="164">C</text>
                   <text x="152" y="196">A</text>
                   <text x="88" y="308">Binding=?</text>
-                  <text x="96" y="372">te:</text>
+                  <text x="96" y="372">TE:</text>
                   <text x="124" y="372">&lt;&gt;</text>
-                  <text x="96" y="404">ak:</text>
+                  <text x="96" y="404">AK:</text>
                   <text x="128" y="404">LAK</text>
                 </g>
               </svg><a href="#section-5.3.4-1.1" class="pilcrow">¶</a>
@@ -2673,9 +2659,17 @@ An Interface input depends on the Node it is attached to.<a href="#section-5.2.1
 <a href="#section-12.2" class="section-number selfRef">12.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="I-D.ffm-rats-cca-token">[I-D.ffm-rats-cca-token]</dt>
+        <dd>
+<span class="refAuthor">Frost, S.</span>, <span class="refAuthor">Fossati, T.</span>, and <span class="refAuthor">G. Mandyam</span>, <span class="refTitle">"Arm's Confidential Compute Architecture Reference Attestation Token"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ffm-rats-cca-token-02</span>, <time datetime="2025-09-02" class="refDate">2 September 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ffm-rats-cca-token-02">https://datatracker.ietf.org/doc/html/draft-ffm-rats-cca-token-02</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC9781">[RFC9781]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">O'Donoghue, J.</span>, <span class="refAuthor">Cam-Winget, N.</span>, and <span class="refAuthor">C. Bormann</span>, <span class="refTitle">"A Concise Binary Object Representation (CBOR) Tag for Unprotected CBOR Web Token Claims Sets (UCCS)"</span>, <span class="seriesInfo">RFC 9781</span>, <span class="seriesInfo">DOI 10.17487/RFC9781</span>, <time datetime="2025-05" class="refDate">May 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9781">https://www.rfc-editor.org/info/rfc9781</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="TCG-DICE">[TCG-DICE]</dt>
+      <dd>
+<span class="refAuthor">Trusted Computing Group</span>, <span class="refTitle">"DICE Layering Architecture"</span>, <span class="seriesInfo">Version 1.0, Revision 0.19 </span>, <time datetime="2020-07" class="refDate">July 2020</time>, <span>&lt;<a href="https://trustedcomputinggroup.org/wp-content/uploads/DICE-Layering-Architecture-r19_pub.pdf">https://trustedcomputinggroup.org/wp-content/uploads/DICE-Layering-Architecture-r19_pub.pdf</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
