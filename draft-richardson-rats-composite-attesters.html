@@ -1367,7 +1367,7 @@ Verifier while others do not.<a href="#section-1.1-2.2" class="pilcrow">¶</a></
         <dd class="break"></dd>
 <dt id="section-2-1.17">Local Validation:</dt>
         <dd style="margin-left: 1.5em" id="section-2-1.18">
-          <p id="section-2-1.18.1">in some classes, Evidence is passed around, and must remain integral.  Local Validation involves checking the authenticity of the end-point.   This could involve a signature, or require physical security of that end-point.<a href="#section-2-1.18.1" class="pilcrow">¶</a></p>
+          <p id="section-2-1.18.1">in some classes, Evidence is passed around, and must remain integral.  Local Validation involves checking the authenticity of the end-point. This could involve a signature, or require physical security of that end-point.<a href="#section-2-1.18.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-2-1.19">Verifier le petit:</dt>
@@ -1377,7 +1377,7 @@ Verifier while others do not.<a href="#section-1.1-2.2" class="pilcrow">¶</a></
         <dd class="break"></dd>
 <dt id="section-2-1.21">Verifier le grand:</dt>
         <dd style="margin-left: 1.5em" id="section-2-1.22">
-          <p id="section-2-1.22.1">(Or, "Le Grande Verificateur"). This is the Verifier that examines the arrangement and relationships between Components.<a href="#section-2-1.22.1" class="pilcrow">¶</a></p>
+          <p id="section-2-1.22.1">(Or, "Le Grand Verificateur"). This is the Verifier that examines the arrangement and relationships between Components.<a href="#section-2-1.22.1" class="pilcrow">¶</a></p>
 </dd>
       <dd class="break"></dd>
 </dl>
@@ -1609,12 +1609,14 @@ Verifier.<a href="#section-3.2-6" class="pilcrow">¶</a></p>
 The Lead Attester operates a Verifier itself.
 It evaluates the Components' Evidence against Reference Values, Endorsements, etc. producing <em>Attestation Results</em>
 These Attestation Results (or their selectively disclosed version: SD-CWT/SD-JWT)
-are then included as part of the Lead Attester's Evidence to it's Verifier.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+are then included as part of the Lead Attester's Evidence to it's remote Verifier, using the RATS Concise Message Wrapper (CMW) <span>[<a href="#I-D.ietf-rats-msg-wrap" class="cite xref">I-D.ietf-rats-msg-wrap</a>]</span>
+Also the Lead Attester's Verifier can be a target environment, whose claims can be reported in Lead Attester Evidence. This ensures that
+the remote Verifier can fully trust the verification done by Lead Attester.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 <span id="name-class-2-composite-attester"></span><div id="class2diagram">
 <figure id="figure-3">
           <div id="section-3.3-2.1">
             <div class="alignCenter art-svg artwork" id="section-3.3-2.1.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="576" width="592" viewBox="0 0 592 576" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="576" width="608" viewBox="0 0 608 576" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 8,128 L 8,544" fill="none" stroke="black"></path>
                 <path d="M 32,144 L 32,528" fill="none" stroke="black"></path>
                 <path d="M 48,160 L 48,208" fill="none" stroke="black"></path>
@@ -1637,7 +1639,8 @@ are then included as part of the Lead Attester's Evidence to it's Verifier.<a hr
                 <path d="M 448,448 L 448,480" fill="none" stroke="black"></path>
                 <path d="M 552,352 L 552,384" fill="none" stroke="black"></path>
                 <path d="M 552,448 L 552,480" fill="none" stroke="black"></path>
-                <path d="M 584,128 L 584,544" fill="none" stroke="black"></path>
+                <path d="M 584,128 L 584,160" fill="none" stroke="black"></path>
+                <path d="M 584,192 L 584,544" fill="none" stroke="black"></path>
                 <path d="M 192,32 L 280,32" fill="none" stroke="black"></path>
                 <path d="M 192,80 L 280,80" fill="none" stroke="black"></path>
                 <path d="M 8,128 L 232,128" fill="none" stroke="black"></path>
@@ -1674,8 +1677,9 @@ are then included as part of the Lead Attester's Evidence to it's Verifier.<a hr
                   <text x="84" y="180">Target</text>
                   <text x="120" y="180">A</text>
                   <text x="260" y="180">1:</text>
-                  <text x="352" y="180">CMW(Evidence(Target</text>
-                  <text x="448" y="180">A),</text>
+                  <text x="360" y="180">CMW(Evidence(Attester</text>
+                  <text x="464" y="180">A),</text>
+                  <text x="600" y="180">|</text>
                   <text x="88" y="196">Environ</text>
                   <text x="260" y="196">2:</text>
                   <text x="352" y="196">AR(Attester</text>
@@ -2641,6 +2645,10 @@ Examples of such an arrangement include DICE <span>[<a href="#TCG-DICE" class="c
 <a href="#section-12.1" class="section-number selfRef">12.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
+<dt id="I-D.ietf-rats-msg-wrap">[I-D.ietf-rats-msg-wrap]</dt>
+        <dd>
+<span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Smith, N.</span>, <span class="refAuthor">Fossati, T.</span>, <span class="refAuthor">Tschofenig, H.</span>, and <span class="refAuthor">D. Glaze</span>, <span class="refTitle">"RATS Conceptual Messages Wrapper (CMW)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-msg-wrap-23</span>, <time datetime="2025-12-11" class="refDate">11 December 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-msg-wrap-23">https://datatracker.ietf.org/doc/html/draft-ietf-rats-msg-wrap-23</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
         <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8174">https://www.rfc-editor.org/info/rfc8174</a>&gt;</span>. </dd>

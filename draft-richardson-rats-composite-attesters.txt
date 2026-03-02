@@ -177,7 +177,7 @@ Table of Contents
       Verifier that examines the Component Evidence.  This may treat the
       Lead Attester as a component.
 
-   Verifier le grand:  (Or, "Le Grande Verificateur").  This is the
+   Verifier le grand:  (Or, "Le Grand Verificateur").  This is the
       Verifier that examines the arrangement and relationships between
       Components.
 
@@ -325,8 +325,12 @@ Table of Contents
    evaluates the Components' Evidence against Reference Values,
    Endorsements, etc. producing _Attestation Results_ These Attestation
    Results (or their selectively disclosed version: SD-CWT/SD-JWT) are
-   then included as part of the Lead Attester's Evidence to it's
-   Verifier.
+   then included as part of the Lead Attester's Evidence to it's remote
+   Verifier, using the RATS Concise Message Wrapper (CMW)
+   [I-D.ietf-rats-msg-wrap] Also the Lead Attester's Verifier can be a
+   target environment, whose claims can be reported in Lead Attester
+   Evidence.  This ensures that the remote Verifier can fully trust the
+   verification done by Lead Attester.
 
                              .----------.
                              | Lead     |
@@ -337,7 +341,7 @@ Table of Contents
       .----------------------------|------------------------------------------.
       |  .-------------------------|---------.                                |
       |  | .----------.            | Evidence-Collection CMW                  |
-      |  | | Target A |            | 1: CMW(Evidence(Target A),               |
+      |  | | Target A |            | 1: CMW(Evidence(Attester A),               |
       |  | | Environ  |            | 2:     AR(Attester B),                   |
       |  | '----------'            | 3:     AR(Attester C))                   |
       |  |       |                 |         |                                |
@@ -886,6 +890,13 @@ Table of Contents
 12.  References
 
 12.1.  Normative References
+
+   [I-D.ietf-rats-msg-wrap]
+              Birkholz, H., Smith, N., Fossati, T., Tschofenig, H., and
+              D. Glaze, "RATS Conceptual Messages Wrapper (CMW)", Work
+              in Progress, Internet-Draft, draft-ietf-rats-msg-wrap-23,
+              11 December 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-rats-msg-wrap-23>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
