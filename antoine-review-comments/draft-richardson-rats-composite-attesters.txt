@@ -8,6 +8,8 @@ Intended status: Informational                               H. Birkholz
 Expires: 3 September 2026                                 Fraunhofer SIT
                                                             Y. Deshpande
                                                                      Arm
+                                                              T. Fossati
+                                                                  Linaro
                                                             2 March 2026
 
 
@@ -70,30 +72,50 @@ Table of Contents
 
    1.  Introduction
      1.1.  Caveats of Current Definition
-     1.2.  Terminology
-     1.3.  Class 0 Composite Attester
-     1.4.  Class 1 Composite Attester
-     1.5.  Class 2 Composite/Hybrid Attester
-     1.6.  Class 3B Composite Background-Check Attester
-     1.7.  Class 3P Composite Passport-Model Attester
-     1.8.  Class 4 Dual Composite Attester
-     1.9.  Class 5 Mixed Composite Attester
-   2.  Attestation Results as Evidence
-   3.  Privacy Considerations
-   4.  Security Considerations
-   5.  Nonce Architecture
-   6.  IANA Considerations
-   7.  Acknowledgements
-   8.  Changelog
-   9.  References
-     9.1.  Normative References
-     9.2.  Informative References
+   2.  Terminology
+   3.  Composite Attesters Examples
+     3.1.  Class 0 Composite Attester
+     3.2.  Class 1 Composite Attester
+     3.3.  Class 2 Composite/Hybrid Attester
+     3.4.  Class 3B Composite Background-Check Attester
+     3.5.  Class 3P Composite Passport-Model Attester
+     3.6.  Class 4 Dual Composite Attester
+     3.7.  Class 5 Mixed Composite Attester
+   4.  Attestation Results as Evidence
+   5.  Notation System
+     5.1.  Nodes
+       5.1.1.  Conveyer
+       5.1.2.  Attester
+     5.2.  Connectors
+       5.2.1.  Interface
+       5.2.2.  Depends-on
+       5.2.3.  Router
+       5.2.4.  Trusted HW path
+       5.2.5.  Collection (Bus)
+     5.3.  Examples
+       5.3.1.  CCA Delegated
+       5.3.2.  Class 0
+       5.3.3.  Class 1
+       5.3.4.  Class 2
+   6.  Privacy Considerations
+   7.  Security Considerations
+   8.  Nonce Architecture
+   9.  IANA Considerations
+   10. Acknowledgements
+   11. Changelog
+   12. References
+     12.1.  Normative References
+     12.2.  Informative References
    Authors' Addresses
 
 1.  Introduction
 
    This document clarifies and extends the meaning of Composite Attester
-   from [RFC9334], Section 3.3.
+   from [RFC9334], Section 3.3.  It also introduces a notation system
+   for describing Composite Attesters in terms of their constituent
+   elements and the relationships between them.  The aim is to describe
+   the Composite Attester topology in a way that helps understanding the
+   resulting Evidence composition.
 
 1.1.  Caveats of Current Definition
 
@@ -116,7 +138,7 @@ Table of Contents
    the Lead Attester, or if it's passed by the Lead Attester along with
    the Evidence from the Lead Target Environment.
 
-1.2.  Terminology
+2.  Terminology
 
    Lead Attester:  This term is from RFC9334, and includes the (Lead)
       Attesting Environment, and the (Lead) Target Environment.
@@ -149,17 +171,19 @@ Table of Contents
    Local Validation:  in some classes, Evidence is passed around, and
       must remain integral.  Local Validation involves checking the
       authenticity of the end-point.  This could involve a signature, or
-      require physical security of that end-point.  Verifier le petit:
+      require physical security of that end-point.
 
-      (Or, "Le Petit Verificateur").  This is the Verifier that examines
-      the Component Evidence.  This may treat the Lead Attester as a
-      component.
+   Verifier le petit:  (Or, "Le Petit Verificateur").  This is the
+      Verifier that examines the Component Evidence.  This may treat the
+      Lead Attester as a component.
 
    Verifier le grand:  (Or, "Le Grand Verificateur").  This is the
       Verifier that examines the arrangement and relationships between
       Components.
 
-1.3.  Class 0 Composite Attester
+3.  Composite Attesters Examples
+
+3.1.  Class 0 Composite Attester
 
    In this first, somewhat degenerate scenario, the Lead Attester has
    access to the entire memory/environment of all of the components.
@@ -238,7 +262,7 @@ Table of Contents
    expects to see.  So, a system with such interfaces would be a Class
    1.
 
-1.4.  Class 1 Composite Attester
+3.2.  Class 1 Composite Attester
 
    In this Class, each component or slot has its own Attesting
    Environment and hence produces its own signed Evidence.
@@ -294,7 +318,7 @@ Table of Contents
    but has been stretched out to allow the relationship to other classes
    to be clearer.
 
-1.5.  Class 2 Composite/Hybrid Attester
+3.3.  Class 2 Composite/Hybrid Attester
 
    In this scenario, the Components relay their Evidence to the Lead
    Attester.  The Lead Attester operates a Verifier itself.  It
@@ -349,7 +373,7 @@ Table of Contents
    Attesting environment.  Or they could be in a different environment,
    such as in a different TEE.
 
-1.6.  Class 3B Composite Background-Check Attester
+3.4.  Class 3B Composite Background-Check Attester
 
    In this scenario, the Components relay their Evidence to the Lead
    Attester.  The Lead Attester does _not_ operates a Verifier itself.
@@ -397,7 +421,7 @@ Table of Contents
    component attestation results in Class 1 is not included in the
    Evidence, while in this case, it is.
 
-1.7.  Class 3P Composite Passport-Model Attester
+3.5.  Class 3P Composite Passport-Model Attester
 
    In this scenario, the Components relay their Evidence to the Lead
    Attester.  The Lead Attester does _not_ operates a Verifier itself.
@@ -460,7 +484,7 @@ Table of Contents
    their own firmware, such as Graphical Processors (GPU), Network
    Processors (NPU).
 
-1.8.  Class 4 Dual Composite Attester
+3.6.  Class 4 Dual Composite Attester
 
    In certain systems, it is possible to have two independent Attesting
    Environments in an Attester to collect claims about a single Target
@@ -526,7 +550,7 @@ Table of Contents
    of choice to reflect the relevant subset of Evidence required for
    trust asssessment.
 
-1.9.  Class 5 Mixed Composite Attester
+3.7.  Class 5 Mixed Composite Attester
 
    As soon as there is more than one Component, it is reasonable that
    the different Components interact with the Lead Attester in different
@@ -541,7 +565,7 @@ Table of Contents
    be Mixed Composite Attesters, even if when shipped, they might be
    degenerate instances.
 
-2.  Attestation Results as Evidence
+4.  Attestation Results as Evidence
 
    In cases 2, 3B and 3P Attestation Results are included as Evidence.
    This results in a Verifier that must evaluate these results.  It must
@@ -554,17 +578,289 @@ Table of Contents
    Layered Attestion produces a _single_ set of Evidence, with claims
    about different layers.
 
-3.  Privacy Considerations
+5.  Notation System
+
+5.1.  Nodes
+
+5.1.1.  Conveyer
+
+   A Conveyer is a system component that produces or relays Conceptual
+   Messages.
+
+     .---.
+     |   |
+     '---'
+
+   It is represented by a rectangular shape.
+
+   The following sections describe specialised types of Conveyors.
+
+5.1.2.  Attester
+
+   An Attester is a special kind of Conveyer which produces Evidence.
+
+     .------.
+     |  TE  |
+     +------+
+     |  AK  |
+     '------'
+
+   Internally, it is composed of an Attesting Environment, identified by
+   the attestation key (AK), and a Target Environment (TE), i.e., the
+   Trusted Computing Base (TCB) measured by the Attester.
+
+   An Attester exposes the following Interface (see Section 5.2.1):
+
+   +===========+=================+========================+===========+
+   | Direction | Name            | Description            | Mandatory |
+   +===========+=================+========================+===========+
+   | IN        | Nonce           | Fixed size parameter   | Y         |
+   |           |                 | (typically 32 or 64    |           |
+   |           |                 | bytes) used to bind    |           |
+   |           |                 | the produced Evidence  |           |
+   |           |                 | to a randomly selected |           |
+   |           |                 | parameter chosen by    |           |
+   |           |                 | the caller.            |           |
+   +-----------+-----------------+------------------------+-----------+
+   | IN        | UserData        | Typically a variable-  | N         |
+   |           |                 | size parameter that    |           |
+   |           |                 | allows the binding of  |           |
+   |           |                 | arbitrary application  |           |
+   |           |                 | data (e.g., an         |           |
+   |           |                 | authentication key     |           |
+   |           |                 | held by a confidential |           |
+   |           |                 | computing workload) to |           |
+   |           |                 | the attestation        |           |
+   |           |                 | Evidence.              |           |
+   +-----------+-----------------+------------------------+-----------+
+   | IN        | ClaimsSelection | A parameter that       | N         |
+   |           |                 | allows the user to     |           |
+   |           |                 | select which claims    |           |
+   |           |                 | should appear in the   |           |
+   |           |                 | Evidence.  The format  |           |
+   |           |                 | is attester-specific   |           |
+   |           |                 | (e.g., PCR selection   |           |
+   |           |                 | for TPM-like           |           |
+   |           |                 | attesters)             |           |
+   +-----------+-----------------+------------------------+-----------+
+   | OUT       | Evidence        | The Evidence signed by | Y         |
+   |           |                 | the AK.  It contains   |           |
+   |           |                 | either the full set of |           |
+   |           |                 | claims or a subset     |           |
+   |           |                 | thereof, as well as    |           |
+   |           |                 | the nonce supplied by  |           |
+   |           |                 | the caller and any     |           |
+   |           |                 | user data.             |           |
+   +-----------+-----------------+------------------------+-----------+
+   | OUT       | OtherData       | Related Conceptual     | N         |
+   |           |                 | Messages, such as      |           |
+   |           |                 | Attestation Results,   |           |
+   |           |                 | Endorsement, etc.      |           |
+   +-----------+-----------------+------------------------+-----------+
+
+                                 Table 1
+
+5.2.  Connectors
+
+5.2.1.  Interface
+
+   An Interface is connected to a Node and outputs some kind of RATS
+   Conceptual Messages.
+
+   It is represented by a T-shaped connector.
+
+   -+-
+    |
+
+   An Interface has a name and some input and output parameters.
+
+   Input and output parameters are defined by their name and type.
+
+   A ? signals an optional parameter.
+
+
+   // TODO: align this with Attester's interface description.
+
+5.2.2.  Depends-on
+
+   The Depends-on connector describes a chain of trust between two
+   adjacent attesters within a layered attester arrangement.  Examples
+   of such an arrangement include DICE [TCG-DICE] and Arm CCA
+   [I-D.ffm-rats-cca-token] in delegated mode.
+
+   It is represented by an arrow connector pointing from the dependent
+   node to the dependent node, i.e. from the "higher" to the "lower"
+   component in the chain of trust.
+
+         .-.
+        | B |
+         '+'
+          | depends-on
+          v
+         .+.
+        | A |
+         '-'
+
+5.2.3.  Router
+
+   TBD
+
+5.2.4.  Trusted HW path
+
+   TBD - it may be an implementation detail rather than a conceptual
+   relation between attesters.
+
+5.2.5.  Collection (Bus)
+
+     .------------.
+     |   Binder   |
+     '-+--------+-'
+       |        |
+       v        v
+      -+-      -+-
+       |        |
+      .+.     .-+-.
+     | A |    | B |
+      '-'     '---'
+
+   A Collection connector describes the collection of Conceptual
+   Messages.
+
+   A lead Attester is responsible for the binding function.
+
+   A binder is one of:
+
+   *  Signature of the lead Attester
+
+   *  Projection
+
+   The signature of the lead Attester can bind over a broadcast nonce.
+
+   A Projection is described as a topo-sorted set of (src, dst) tuples.
+
+5.3.  Examples
+
+5.3.1.  CCA Delegated
+
+       -+- RSI ABI (nonce[64])
+        |
+    .---+------.
+    | TE: wkl  |
+    +----------+ Realm
+    | AK: RAK  |
+    '---+------'
+        | depends-on
+        v
+    .---+------.
+    | TE: RMM  |
+    +----------+ Platform
+    | AK: CPAK |
+    '----------'
+
+5.3.2.  Class 0
+
+       -+- API
+        |
+    .---+-----.
+    | TE: TE  |
+    +---------+
+    | AK: LAK |
+    '---------'
+
+   Or
+
+       -+- API
+        |
+    .---+-----.
+    | TE: <>  |      .---------------.
+    +---------+----->| <>            |
+    | AK: LAK |      '-+-----------+-'
+    '---------'        |           |
+                    .--+------. .--+-------.
+                    | TE: VGA | | TE: SCSI |
+                    +---------+ +----------+
+                    | AK: <>  | | AK: <>   |
+                    '---------' '----------'
+
+5.3.3.  Class 1
+
+       -+- API
+        |
+    .---+-----.
+    | TE: A   |      .---------------.
+    +---------+----->| Binding=?     |
+    | AK: LAK |      '-+-----------+-'
+    '---------'        |           |
+                    .--+------. .--+-------.
+                    | TE: B   | | TE: C    |
+                    +---------+ +----------+
+                    | AK: BK  | | AK: CK   |
+                    '---------' '----------'
+
+   Notes:
+
+   1.  A seems to have both lead and "normal" attester functionality
+
+   2.  Binding between collection entries is unspecified
+
+   3.  is CMW signed or not?
+
+   Questions:
+
+   1.  scope of LAK: the signing key over the collection CMW, or signing
+       key over Target A, or both?
+
+5.3.4.  Class 2
+
+   .-----------.
+   | Verifier  |
+   '-+---------'
+     |       ^             |   .-.
+     v       |       .---->+--+ B |
+   .---------+-.    |      |   '-'
+   |    RP     +----+
+   +-----------+    |      |   .-.
+   | Conveyer  |     '---->+--+ C |
+   '-----+-----'    .-.    |   '-'
+         |         | A |
+         |          '+'
+         |           |
+        -+-         -+-
+         ^           ^
+         |           |
+       .-+-----------+-.
+       | Binding=?     |
+       '------+--------'
+              |
+           .--+-------.
+           | TE: <>   |
+           +----------+
+           | AK: LAK  |
+           '--+-------'
+              |
+             -+-
+
+   Questions and notes are the same as Class 1.
+
+   Besides, there are further questions:
+
+   1.  a question whether a lead attester is in front of B and C
+
+   2.  a question about unnecessary conflation of RP/Verifier and Lead
+       attester -- they probably need to be modelled as separate
+       entities
+
+6.  Privacy Considerations
 
    YYY
 
-4.  Security Considerations
+7.  Security Considerations
 
    ZZZ
 
-5.  Nonce Architecture
+8.  Nonce Architecture
 
-   In all clsses other than the class 0 and class 1, there are cases
+   In all classes other than the class 0 and class 1, there are cases
    that multiple (local or external) Verifiers exist in the system.  To
    address the conflict between different nonces generated by different
    Verifiers, there are possible candidate solutions as follows
@@ -581,19 +877,19 @@ Table of Contents
       can apply the technique in [RFC9334], Appendix A.2 to ensure the
       freshness of the Attestation Result-as-Evidences.
 
-6.  IANA Considerations
+9.  IANA Considerations
 
-7.  Acknowledgements
+10.  Acknowledgements
 
    Jun Zhang contributed the terms "Le Petit" and "Le Grand" to qualify
    Verifier, the original thought for Class 5 Composite Atteser and the
    description of the Nonce architecture.
 
-8.  Changelog
+11.  Changelog
 
-9.  References
+12.  References
 
-9.1.  Normative References
+12.1.  Normative References
 
    [I-D.ietf-rats-msg-wrap]
               Birkholz, H., Smith, N., Fossati, T., Tschofenig, H., and
@@ -611,13 +907,26 @@ Table of Contents
               Architecture", RFC 9334, DOI 10.17487/RFC9334, January
               2023, <https://www.rfc-editor.org/info/rfc9334>.
 
-9.2.  Informative References
+12.2.  Informative References
+
+   [I-D.ffm-rats-cca-token]
+              Frost, S., Fossati, T., and G. Mandyam, "Arm's
+              Confidential Compute Architecture Reference Attestation
+              Token", Work in Progress, Internet-Draft, draft-ffm-rats-
+              cca-token-02, 2 September 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ffm-rats-cca-
+              token-02>.
 
    [RFC9781]  Birkholz, H., O'Donoghue, J., Cam-Winget, N., and C.
               Bormann, "A Concise Binary Object Representation (CBOR)
               Tag for Unprotected CBOR Web Token Claims Sets (UCCS)",
               RFC 9781, DOI 10.17487/RFC9781, May 2025,
               <https://www.rfc-editor.org/info/rfc9781>.
+
+   [TCG-DICE] Trusted Computing Group, "DICE Layering Architecture",
+              Version 1.0, Revision 0.19 , July 2020,
+              <https://trustedcomputinggroup.org/wp-content/uploads/
+              DICE-Layering-Architecture-r19_pub.pdf>.
 
 Authors' Addresses
 
@@ -634,3 +943,8 @@ Authors' Addresses
    Yogesh Deshpande
    Arm
    Email: yogesh.deshpande@arm.com
+
+
+   Thomas Fossati
+   Linaro
+   Email: thomas.fossati@linaro.org
