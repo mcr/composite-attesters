@@ -7,7 +7,7 @@
       .----------------------------|------------------------------------------.
       |  .-------------------------|---------.                                |
       |  | .----------.            | Evidence-Collection CMW                  |
-      |  | | Target A |            | 1: CMW(Evidence(Attester A),               |
+      |  | | Target A |            | 1: CMW(Evidence(Attester A),             |
       |  | | Environ  |            | 2:     AR(Attester B),                   |
       |  | '----------'            | 3:     AR(Attester C))                   |
       |  |       |                 |         |                                |
