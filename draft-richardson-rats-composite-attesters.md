@@ -182,7 +182,7 @@ In this scenario, the Components relay their Evidence to the Lead Attester.
 The Lead Attester operates a Verifier itself.
 It evaluates the Components' Evidence against Reference Values, Endorsements, etc. producing *Attestation Results*
 These Attestation Results (or their selectively disclosed version: SD-CWT/SD-JWT)
-are then included as part of the Lead Attester's Evidence to it's remote Verifier, using the RATS Concise Message Wrapper (CMW) {{cmw}}
+are then included as part of the Lead Attester's Evidence to it's remote Verifier, using the RATS Concise Message Wrapper (CMW) {{-cmw}}
 Also the Lead Attester's Verifier can be a target environment, whose claims can be reported in Lead Attester Evidence. This ensures that
 the remote Verifier can fully trust the verification done by Lead Attester.
 
