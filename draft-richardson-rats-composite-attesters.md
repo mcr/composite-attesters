@@ -35,7 +35,7 @@ author:
 normative:
   BCP14: RFC8174
   RFC9334:
-
+  I-D.ietf-rats-msg-wrap: cmw
 informative:
 
 venue:
@@ -98,12 +98,12 @@ Local Verifier:
 : When an Attesting Environment *appraises* Evidence from another Attesting Environment, then it operates as a Local Verifier.  Mere examination of the signature on the Evidence (perhaps using a local credential) is not appraisal.
 
 Local Validation:
-: in some classes, Evidence is passed around, and must remain integral.  Local Validation involves checking the authenticity of the end-point.   This could involve a signature, or require physical security of that end-point.
+: in some classes, Evidence is passed around, and must remain integral.  Local Validation involves checking the authenticity of the end-point. This could involve a signature, or require physical security of that end-point.
 Verifier le petit:
 : (Or, "Le Petit Verificateur").  This is the Verifier that examines the Component Evidence.  This may treat the Lead Attester as a component.
 
 Verifier le grand:
-: (Or, "Le Grande Verificateur"). This is the Verifier that examines the arrangement and relationships between Components.
+: (Or, "Le Grand Verificateur"). This is the Verifier that examines the arrangement and relationships between Components.
 
 ## Class 0 Composite Attester
 
@@ -182,7 +182,9 @@ In this scenario, the Components relay their Evidence to the Lead Attester.
 The Lead Attester operates a Verifier itself.
 It evaluates the Components' Evidence against Reference Values, Endorsements, etc. producing *Attestation Results*
 These Attestation Results (or their selectively disclosed version: SD-CWT/SD-JWT)
-are then included as part of the Lead Attester's Evidence to it's Verifier.
+are then included as part of the Lead Attester's Evidence to it's remote Verifier, using the RATS Concise Message Wrapper (CMW) {{cmw}}
+Also the Lead Attester's Verifier can be a target environment, whose claims can be reported in Lead Attester Evidence. This ensures that
+the remote Verifier can fully trust the verification done by Lead Attester.
 
 ~~~~ aasvg
 {::include diagrams/class2.txt}
@@ -293,7 +295,7 @@ In all clsses other than the class 0 and class 1, there are cases that multiple 
 
 # Acknowledgements
 
-Jun Zhang contributed the terms "Le Petit" and "La Grand" to qualify Verifier, the original thought for Class 5 Composite Atteser and the description of the Nonce architecture.
+Jun Zhang contributed the terms "Le Petit" and "Le Grand" to qualify Verifier, the original thought for Class 5 Composite Atteser and the description of the Nonce architecture.
 
 # Changelog
 
