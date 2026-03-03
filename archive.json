@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-26T00:40:49.612084+00:00",
+  "timestamp": "2026-03-03T00:43:39.174796+00:00",
   "repo": "mcr/composite-attesters",
   "labels": [
     {
@@ -218,15 +218,15 @@
       "id": "I_kwDOPSxWv87npZiZ",
       "title": "Draft Review Comments from Antoine Poulain",
       "url": "https://github.com/mcr/composite-attesters/issues/21",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "In Terminology:\n    - in Local verifier: appraisal is done according to an Apprasial policy for Evidence ?\n    But which entity drafts this policy ? Who is the Verifier Owner of a Local Verifier ?\n    - \"Le Grande Verificateur\" in should be \"Le Grand Verificateur\" (masculine adjective in French)\n    Same in \"Acknowledgements\", \"La Grand\" should be \"Le Grand\".\nIn Connectors -> Chaining:\n    - Specify the trust relation between A and B. Like B is a target environment for A ?\n    - What is meant by adjacent ? Does it means that there exist a physical communication path between the components ?\nIn Connectors -> Router:\n    - Router is used for transit when two components are not \"adjacent\" ? To create a \"route\" ?\nIn Connectors -> Collection:\n    - CM acronym not introduced for Conceptual Message.\n    - provide a small explanation about what is meant by binding when talking about collections and\n        what it is used for. It is mentioned in \"Class 1\" section that the binding is used to secure the message. But how does a binding secures a message when the binding is something else than a signature ?\n    - provide small explanation to state how each binder presented can be used for binding.\nIn Class 0 diagram:\n    - boot rom is mesured ? what is boot rom here ? is it the boot rom of the RTM ? if yes, this measurement is not needed right (there may be an endorsement for it). \nIn Class 1 diagram:\n    - looks like the class1.svg diagram has a problem: the lead attester is not represented correctly.\nIn class 2:\n    - The Verifier is not a target environment for an attesting environment ? An AR from a verifier can only be trusted once the Verifier has been verified no ?\nIn Class 2 diagram:\n    - it is written Evidence(Target A) and not Evidence(Attester A) like in class 1 diagram. Why this difference ?\nIn Class 3P:\n    - \"It [the Lead Attester's Verifier] needs to consider if the component has been assessed by a Verifier it trusts\"\n    You mean that the Lead verifier trusts the component Verifier or that the component trusts the component Verifier ?\n    In the first case, where is this trust relation specified ? Is it in the Lead attester's Appraisal Policy for Evidence ?\nClass 4:\n    - Why is there a need for one of the attesting to be a Primary and the other a Secondary ?\n    Can they bot be at the same \"level\" and each collect some claims which in the end form\n    a complete claim set for the target environment ? In the Class 4 diagram, it is shown that\n    the Primary attesting environment relays partial evidence to the Secondary one. So I understand that these attesting environments may have different capabilities and therefore should be distinguished.\n    But can there also be a case where attesting environment 1 and attesting environment 2 are working on the same level, each producing partial evidence for the same target environment and both relaying their partial evidence to a Verifier ?\n\nOverall: \n    - RATS work is pretty vast for new comers therefore (attestation/RATS-related) acronyms used in the document should always be explicited at least once (CM, LAK, RP) even if it is obvious for readers already familiar with RATS.\n    - Whenever there is a diagram, there should be a corresponding description that links the scenario represented in the diagram with the named entities (A, B, C, RP, etc.) visible in the diagram.\n    - Proposition: (if needed) add basic trust assumptions depending on the composite device class\n        (e.g., there must be at least an attesting environment with an RTM, etc.).\n    - Proposition: add concrete examples of the structure of CoRIM/Evidence documents/collection corresponding to composite Attester structure.\n",
       "createdAt": "2026-02-02T14:56:21Z",
-      "updatedAt": "2026-02-02T14:56:21Z",
-      "closedAt": null,
+      "updatedAt": "2026-03-02T16:19:47Z",
+      "closedAt": "2026-03-02T16:19:47Z",
       "comments": []
     },
     {
@@ -971,24 +971,26 @@
       "id": "PR_kwDOPSxWv86uyEwf",
       "title": "add one line before the definition of verifier le petit",
       "url": "https://github.com/mcr/composite-attesters/pull/17",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "junzhanghw",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "and also fix the typo of la grand to le grand in the acknowledgement part",
       "createdAt": "2025-10-21T07:49:41Z",
-      "updatedAt": "2025-11-10T16:59:33Z",
+      "updatedAt": "2026-03-02T16:13:07Z",
       "baseRepository": "mcr/composite-attesters",
       "baseRefName": "main",
       "baseRefOid": "a06624368a62d6f596eb4e4e673a3fd207e94000",
       "headRepository": "junzhanghw/composite-attesters",
       "headRefName": "adding-line-before-verifier-le-petit",
       "headRefOid": "85f6c9c706bdbf059734d7c33a55d574c71beea8",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2026-03-02T16:13:06Z",
+      "mergedAt": "2026-03-02T16:13:06Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "319ccb90453ac797a1a6928ee49bfe479c0ffae5"
+      },
       "comments": [],
       "reviews": []
     },
@@ -1044,21 +1046,21 @@
       "id": "PR_kwDOPSxWv87A8CgO",
       "title": "Add generic representations of Composite Attester Class",
       "url": "https://github.com/mcr/composite-attesters/pull/22",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-02-02T14:56:36Z",
-      "updatedAt": "2026-02-16T16:02:06Z",
+      "updatedAt": "2026-03-02T10:33:46Z",
       "baseRepository": "mcr/composite-attesters",
       "baseRefName": "main",
       "baseRefOid": "a06624368a62d6f596eb4e4e673a3fd207e94000",
       "headRepository": "mcr/composite-attesters",
       "headRefName": "generic-representations",
       "headRefOid": "42aeef3563463d124d32b8b0dc64cf6d0a05295e",
-      "closedAt": null,
+      "closedAt": "2026-03-02T10:33:46Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -1127,24 +1129,26 @@
       "id": "PR_kwDOPSxWv87EIrxC",
       "title": "Abstract representation (first sketch)",
       "url": "https://github.com/mcr/composite-attesters/pull/24",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-02-16T16:01:38Z",
-      "updatedAt": "2026-02-16T17:02:22Z",
+      "updatedAt": "2026-03-02T16:15:12Z",
       "baseRepository": "mcr/composite-attesters",
       "baseRefName": "main",
-      "baseRefOid": "a06624368a62d6f596eb4e4e673a3fd207e94000",
+      "baseRefOid": "c51390a8dbb6a7f5d77693fed93e6f03d9b70e06",
       "headRepository": "mcr/composite-attesters",
       "headRefName": "abstract-repr",
-      "headRefOid": "8e9d5178444872d9340b49d8c9b9d772dc532c46",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "4d66e1c01b49059a4677ea69b3c8ffee397378d7",
+      "closedAt": "2026-03-02T16:15:10Z",
+      "mergedAt": "2026-03-02T16:15:10Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "bffd67b145c6aee803015bac40b1955cad2c04e9"
+      },
       "comments": [],
       "reviews": [
         {
@@ -1198,6 +1202,81 @@
           "body": "some comments",
           "createdAt": "2026-02-16T16:27:40Z",
           "updatedAt": "2026-02-16T16:27:40Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOPSxWv87nGQpK",
+          "commit": {
+            "abbreviatedOid": "928b601"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-02T16:14:41Z",
+          "updatedAt": "2026-03-02T16:14:41Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "```suggestion\nIn all classes other than the class 0 and class 1, there are cases that multiple (local or external) Verifiers exist in the system. To address the conflict between different nonces generated by different Verifiers, there are possible candidate solutions as follows\n```",
+              "createdAt": "2026-03-02T16:14:41Z",
+              "updatedAt": "2026-03-02T16:14:41Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "id": "PR_kwDOPSxWv87HXpMY",
+      "title": "Incoporating review comments",
+      "url": "https://github.com/mcr/composite-attesters/pull/27",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #21, partially",
+      "createdAt": "2026-03-02T15:59:32Z",
+      "updatedAt": "2026-03-02T16:19:48Z",
+      "baseRepository": "mcr/composite-attesters",
+      "baseRefName": "main",
+      "baseRefOid": "bffd67b145c6aee803015bac40b1955cad2c04e9",
+      "headRepository": "mcr/composite-attesters",
+      "headRefName": "antoine-review-comments",
+      "headRefOid": "3d07c124bd9616c91a5c7136745b072239175182",
+      "closedAt": "2026-03-02T16:19:45Z",
+      "mergedAt": "2026-03-02T16:19:45Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "ad9efbd8368c9f6b857759b4fabc4486414bf85a"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOPSxWv87nGWtS",
+          "commit": {
+            "abbreviatedOid": "3d07c12"
+          },
+          "author": "mcr",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-03-02T16:19:35Z",
+          "updatedAt": "2026-03-02T16:19:35Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOPSxWv87nGW7d",
+          "commit": {
+            "abbreviatedOid": "3d07c12"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-03-02T16:19:46Z",
+          "updatedAt": "2026-03-02T16:19:46Z",
           "comments": []
         }
       ]
